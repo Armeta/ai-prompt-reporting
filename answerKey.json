@@ -1,0 +1,9 @@
+{
+    "pairs": [
+        {"prompt": "What was the total sales revenue yesterday?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"}
+    ,   {"prompt": "What was the total sales revenue from this month?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
+    ,   {"prompt": "What was the total profit last year?", "url":"https://ip.armeta.com/demo/analytics/sales-retail"}
+    ,   {"prompt": "What's the conversion rate on our online store?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What's the redemption rate of our loyalty program?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ]
+}

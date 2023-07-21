@@ -1,0 +1,500 @@
+1. What was the total sales revenue yesterday?
+2. What are the top-selling products this week?
+3. How are the sales this month compared to the same month last year?
+4. Which products are the least sold this month?
+5. What is the inventory status of product X?
+6. How does online sales compare to in-store sales?
+7. Which store location had the highest sales this week?
+8. What was the total cost of goods sold last quarter?
+9. How many units of product Y were sold last month?
+10. What's the average sale per customer this year?
+11. What is the current total inventory value?
+12. What was the profit margin last year?
+13. What is the most returned product?
+14. Which are the best-selling product categories?
+15. How many customers visited our online store last week?
+16. Which city has the most sales?
+17. What's the sales trend for product Z?
+18. What's the average transaction value this month?
+19. How much sales tax was collected last month?
+20. How much discount was given last quarter?
+21. What are the current product out-of-stock situations?
+22. What's the average stock turnover rate?
+23. How many new products were introduced last year?
+24. What's the performance of seasonal products?
+25. How is the sale of eco-friendly products?
+26. Which products are most often bought together?
+27. What's the performance of our loyalty program?
+28. How many first-time customers did we have last month?
+29. What's the customer retention rate?
+30. How many customers made repeat purchases?
+31. What's the customer lifetime value?
+32. What's the customer acquisition cost?
+33. What's the current customer satisfaction score?
+34. What's the average order fulfillment time?
+35. How many products are nearing their expiration date?
+36. What's the rate of sales growth?
+37. What's the conversion rate on our online store?
+38. What's the return on investment for marketing campaigns?
+39. Which marketing channel is the most effective?
+40. What's the gross profit margin?
+41. What's the net profit margin?
+42. What's the overhead cost as a percentage of sales?
+43. What's the shipping cost as a percentage of sales?
+44. What's the most profitable store location?
+45. How many orders
+46. What was the total profit last year?
+47. How many products were returned last month?
+48. What's the rate of shopping cart abandonment on our online store?
+49. How many customers have signed up for our newsletter?
+50. What's the performance of our private label products?
+51. Which product is the most profitable?
+52. Which products are in excess stock?
+53. How many products were damaged in transit last month?
+54. How many products are discontinued?
+55. How many products are backordered?
+56. How are our promotions performing?
+57. What's the average basket size?
+58. What's the average number of items per transaction?
+59. What's the total sales value of gift card purchases?
+60. What's the sales performance of new products?
+61. What's the trend of online returns?
+62. How many online orders were picked up in-store?
+63. How many customers are enrolled in our loyalty program?
+64. How many loyalty points were redeemed last month?
+65. What's the redemption rate of our loyalty program?
+66. What's the cancellation rate of our subscription service?
+67. What's the churn rate of our subscription service?
+68. What's the trend of customer complaints?
+69. How many customer complaints were resolved last month?
+70. What's the first response time to customer complaints?
+71. What's the resolution time for customer complaints?
+72. What's the satisfaction score for resolved complaints?
+73. What's the bounce rate on our online store?
+74. What's the average session duration on our online store?
+75. What's the most viewed product on our online store?
+76. How many visitors converted to customers on our online store?
+77. What's the click-through rate of our email marketing?
+78. How many customers made purchases through our mobile app?
+79. What's the rating of our mobile app?
+80. What's the customer feedback about our mobile app?
+81. What's the average sales per square foot?
+82. What's the sales density of our stores?
+83. What's the total cost of employee wages as a percentage of sales?
+84. What's the average sales per employee?
+85. How many items were shoplifted last month?
+86. What's the shrinkage rate?
+87. What's the sell-through rate of product X?
+88. How many units of product Y need to be reordered?
+89. What's the lead time for product Z?
+90. What's the impact of weather on sales?
+91. What's the trend of sales during holidays?
+92. What's the effect of public events on sales?
+93. What's the correlation between social media mentions and sales?
+94. How much revenue is generated from repeat customers?
+95. What's the average purchase frequency of customers?
+96. What's the trend of customer reviews?
+97. What's the sales performance of products on discount?
+98. What's the sales performance of products on clearance?
+99. What's the performance of impulse purchase products?
+100. What's the performance of high-margin products?
+101. What's the performance of low-margin products?
+102. What's the trend of customer inquiries?
+103. What's the average response time to customer inquiries?
+104. What's the most frequently asked question by customers?
+105. What's the current market share of our store?
+106. What's the average customer footfall per day?
+107. What's the sales conversion rate in our stores?
+108. What's the total number of online store visitors?
+109. What's the total number of online store sessions?
+110. How much revenue was generated from cross-selling?
+111. How much revenue was generated from upselling?
+112. What's the trend of cross-selling and upselling?
+113. What's the performance of sales of related products?
+114. What's the performance of sales of complimentary products?
+115. How many products were returned because of damage?
+116. How many products were returned because of dissatisfaction?
+117. What's the trend of returns due to damage?
+118. What's the trend of returns due to dissatisfaction?
+119. How many products were lost in transit?
+120. What's the trend of lost in transit?
+121. What's the cost of lost in transit?
+122. How many products were returned because they were not as described?
+123. What's the trend of returns not as described?
+124. What's the cost of returns not as described?
+125. What's the total sales revenue from product X?
+126. What's the total sales revenue from product category Y?
+127. What's the total sales revenue from brand Z?
+128. What's the total sales revenue from store location A?
+129. What's the total sales revenue from city B?
+130. What's the total sales revenue from region C?
+131. What's the total sales revenue from country D?
+132. What's the total cost of sales from product X?
+133. What's the total cost of sales from product category Y?
+134. What's the total cost of sales from brand Z?
+135. What's the total cost of sales from store location A?
+136. What's the total cost of sales from city B?
+137. What's the total cost of sales from region C?
+138. What's the total cost of sales from country D?
+139. What's the total profit from product X?
+140. What's the total profit from product category Y?
+141. What's the total profit from brand Z?
+142. What's the total profit from store location A?
+143. What's the total profit from city B?
+144. What's the total profit from region C?
+145. What's the total profit from country D?
+146. What's the stock turnover rate of product X?
+147. What's the stock turnover rate of product category Y?
+148. What's the stock turnover rate of brand Z?
+149. What's the stock turnover rate of store location A?
+150. What's the stock turnover rate of city B?
+151. What's the stock turnover rate of region C?
+152. What's the stock turnover rate of country D?
+153. What's the sell-through rate of product X?
+154. What's the sell-through rate of product category Y?
+155. What's the sell-through rate of brand Z?
+156. What's the sell-through rate of store location A?
+157. What's the sell-through rate of city B?
+158. What's the sell-through rate of region C?
+159. What's the sell-through rate of country D?
+160. What's the sales performance of product X on weekdays?
+161. What's the sales performance of product X on weekends?
+162. What's the sales performance of product X during holidays?
+163. What's the sales performance of product X during sales events?
+164. What's the sales performance of product X during morning hours?
+165. What's the sales performance of product X during afternoon hours?
+166. What's the sales performance of product X during evening hours?
+167. What's the sales performance of product X during night hours?
+168. What's the customer feedback on product X?
+169. What's the customer feedback on product category Y?
+170. What's the customer feedback on brand Z?
+171. What's the customer feedback on store location A?
+172. What's the customer feedback on our online store?
+173. What's the customer feedback on our mobile app?
+174. What's the customer feedback on our customer service?
+175. What's the customer feedback on our shipping service?
+176. What's the customer feedback on our return policy?
+177. What's the customer feedback on our pricing?
+178. What's the customer feedback on our product quality?
+179. What's the customer feedback on our product assortment?
+180. What's the customer feedback on our store layout?
+181. What's the customer feedback on our store cleanliness?
+182. What's the customer feedback on our store staff?
+183. What's the customer feedback on our store atmosphere?
+184. What's the customer feedback on our store accessibility?
+185. What's the customer feedback on our store parking?
+186. What's the customer feedback on our store hours?
+187. What's the customer feedback on our online store navigation?
+188. What's the customer feedback on our online store checkout process?
+189. What's the customer feedback on our online store payment options?
+190. What's the customer feedback on our online store delivery options?
+191. What's the customer feedback on our mobile app functionality?
+192. What's the customer feedback on our mobile app usability?
+193. What's the customer feedback on our mobile app design?
+194. What's the customer feedback on our mobile app performance?
+195. What's the customer feedback on our mobile app security?
+196. What's the customer feedback on our email marketing?
+197. What's the customer feedback on our social media presence?
+198. What's the customer feedback on our loyalty program?
+199. What's the customer feedback on our subscription service?
+200. What's the customer feedback on our gift cards?
+201. What is the sales forecast for the next quarter?
+202. What was the highest selling product in Q1?
+203. How many new customers were acquired this year?
+204. Which region showed the most growth last year?
+205. What is the impact of local holidays on sales?
+206. What was the highest revenue-generating product category last month?
+207. How many products were sold during the last holiday season?
+208. How does weather impact the sales of seasonal products?
+209. What percentage of total sales does product X represent?
+210. What are the peak sales hours for our physical stores?
+211. What are the peak traffic hours for our online store?
+212. What percentage of our stock is currently unsold?
+213. How often do we need to restock product Y?
+214. What is the customer churn rate?
+215. What is the average customer spend per visit?
+216. What is the trend in customer visits to our physical stores?
+217. What are the common reasons for product returns?
+218. How effective are our personalized recommendations in driving sales?
+219. How much revenue is generated from our email marketing campaigns?
+220. What is the effectiveness of our in-store promotional displays?
+221. What is the effectiveness of our online promotional banners?
+222. What is the average delivery time for online orders?
+223. What is the customer satisfaction score for our delivery service?
+224. What is the average response time of our customer service?
+225. What is the customer satisfaction score for our customer service?
+226. What is the impact of price changes on the sales of product X?
+227. How does the sales performance of our physical stores compare to our online store?
+228. What is the sales performance of our newly launched products?
+229. What is the trend in the sales of organic products?
+230. What is the trend in the sales of non-organic products?
+231. What is the effect of in-store events on sales?
+232. How much revenue is generated from our self-checkout systems?
+233. What is the effectiveness of our targeted ads on social media?
+234. What is the effectiveness of our targeted ads on search engines?
+235. How often do customers use our mobile app for shopping?
+236. What is the trend in mobile app downloads?
+237. What is the trend in mobile app usage?
+238. What is the customer satisfaction score for our mobile app?
+239. How many in-store pickups were made for online orders?
+240. What is the customer satisfaction score for our in-store pickup service?
+241. What is the trend in the use of our in-store pickup service?
+242. How many products were sold via our in-store kiosks?
+243. What is the customer satisfaction score for our in-store kiosks?
+244. What is the trend in the use of our in-store kiosks?
+245. What is the impact of employee training on sales performance?
+246. What is the impact of store redesign on sales performance?
+247. What is the impact of product placement on sales performance?
+248. What is the impact of customer reviews on the sales of product X?
+249. What is the impact of customer reviews on the sales of brand Y?
+250. What is the average purchase value of customers from our loyalty program?
+251. What is the average redemption value of loyalty points?
+252. What is the trend in loyalty program enrollments?
+253. What is the retention rate of our loyalty program members?
+254. What is the impact of loyalty program on customer retention?
+255. What is the average purchase frequency of our loyalty program members?
+256. What is the average purchase value of customers from our subscription service?
+257. What is the trend in subscription service enrollments?
+258. What is the retention rate of our subscription service members?
+259. What is the impact of subscription service on customer retention?
+260. What is the average purchase frequency of our subscription service members?
+261. What is the trend in the use of our self-checkout systems?
+262. What is the trend in the use of our digital wallets?
+263. What is the impact of self-checkout systems on sales performance?
+264. What is the impact of digital wallets on sales performance?
+265. What is the impact of extended store hours on sales performance?
+266. What is the trend in the use of our contactless payment systems?
+267. What is the trend in the use of our express delivery option?
+268. What is the impact of contactless payment systems on sales performance?
+269. What is the impact of express delivery option on sales performance?
+270. What is the impact of free shipping on sales performance?
+271. What is the trend in the use of our curbside pickup service?
+272. What is the customer satisfaction score for our curbside pickup service?
+273. What is the impact of curbside pickup service on sales performance?
+274. What is the most common delivery option chosen by customers?
+275. What is the most common payment method used by customers?
+276. What is the impact of customer feedback on our business decisions?
+277. What is the trend in the use of our live chat support?
+278. What is the customer satisfaction score for our live chat support?
+279. What is the impact of live chat support on customer satisfaction?
+280. What is the effectiveness of our push notifications in driving sales?
+281. What is the trend in the use of our voice assistant for shopping?
+282. What is the customer satisfaction score for our voice assistant?
+283. What is the impact of voice assistant on sales performance?
+284. What is the effectiveness of our product recommendations in driving sales?
+285. What is the impact of customer demographics on sales performance?
+286. What is the impact of customer lifestyle on sales performance?
+287. What is the impact of customer behavior on sales performance?
+288. What is the sales performance of our eco-friendly products?
+289. What is the sales performance of our locally sourced products?
+290. What is the trend in the sales of eco-friendly products?
+291. What is the trend in the sales of locally sourced products?
+292. What is the customer feedback on our eco-friendly products?
+293. What is the customer feedback on our locally sourced products?
+294. What is the effectiveness of our seasonal sales events in driving sales?
+295. What is the effectiveness of our flash sales in driving sales?
+296. What is the impact of customer lifetime value on our profitability?
+297. What is the impact of average order value on our profitability?
+298. What is the impact of average margin per product on our profitability?
+299. What is the impact of return on ad spend on our profitability?
+300. What is the impact of conversion rate on our profitability?
+301. What is the impact of basket abandonment rate on our profitability?
+302. What are the reasons behind basket abandonment?
+303. How successful are our abandoned cart email reminders?
+304. How many customers have opted for product notifications for out-of-stock items?
+305. How successful are our restock notifications in driving sales?
+306. What is the customer feedback on our restock notifications?
+307. What is the trend in the use of our gift wrapping service?
+308. What is the customer feedback on our gift wrapping service?
+309. How effective are our product descriptions in driving sales?
+310. How effective are our product images in driving sales?
+311. How effective are our product videos in driving sales?
+312. How effective are our customer testimonials in driving sales?
+313. How effective are our product ratings in driving sales?
+314. How many sales are generated through referrals?
+315. How effective are our referral incentives?
+316. How many sales are generated through affiliates?
+317. How effective are our affiliate partnerships?
+318. What is the impact of store ambiance on customer satisfaction?
+319. What is the impact of in-store music on customer satisfaction?
+320. What is the impact of in-store signage on customer satisfaction?
+321. What is the trend in the use of our self-service kiosks?
+322. What is the customer satisfaction score for our self-service kiosks?
+323. What is the impact of self-service kiosks on sales performance?
+324. What is the trend in the use of our click and collect service?
+325. What is the customer satisfaction score for our click and collect service?
+326. What is the impact of click and collect service on sales performance?
+327. What is the effectiveness of our product bundling strategy?
+328. What is the effectiveness of our product discount strategy?
+329. What is the effectiveness of our product upselling strategy?
+330. What is the effectiveness of our product cross-selling strategy?
+331. What is the trend in the sales of our private label products?
+332. What is the customer feedback on our private label products?
+333. How effective are our point of purchase displays in driving sales?
+334. How effective are our end cap displays in driving sales?
+335. How effective are our window displays in driving sales?
+336. How effective are our in-store sampling events in driving sales?
+337. What is the impact of our customer engagement activities on brand loyalty?
+338. What is the impact of our corporate social responsibility initiatives on brand image?
+339. How effective is our multichannel retailing strategy?
+340. How effective is our omnichannel retailing strategy?
+341. How successful is our store within a store concept?
+342. What is the impact of our store layout on shopping experience?
+343. What is the impact of our store lighting on shopping experience?
+344. What is the impact of our store temperature on shopping experience?
+345. What is the trend in the use of our virtual shopping assistant?
+346. What is the customer satisfaction score for our virtual shopping assistant?
+347. What is the impact of virtual shopping assistant on sales performance?
+348. How effective is our price match guarantee in driving sales?
+349. How effective is our customer loyalty reward scheme in driving sales?
+350. What is the impact of our mystery shopper program on customer service?
+351. How successful are our customer service trainings?
+352. How does customer satisfaction correlate with our staff's performance metrics?
+353. How does the number of staff members available in-store influence sales?
+354. How effective are our personalized offers in generating sales?
+355. How effective are our birthday offers in generating sales?
+356. How effective is our flexible payment options scheme in driving sales?
+357. What are the highest purchased items through our flexible payment options scheme?
+358. What are the effects of store cleanliness on customer satisfaction?
+359. What is the impact of our express checkout lanes on customer satisfaction?
+360. What's the customer feedback on our express checkout lanes?
+361. How successful are our collaborations with influencers in generating sales?
+362. How successful are our collaborations with local communities in enhancing brand image?
+363. How does our average product price compare with our main competitors?
+364. How does our product quality compare with our main competitors?
+365. How does our product variety compare with our main competitors?
+366. How does our customer service quality compare with our main competitors?
+367. How does our delivery speed compare with our main competitors?
+368. How does our website usability compare with our main competitors?
+369. How successful are our SEO strategies in driving traffic to our website?
+370. How successful are our SEM strategies in driving traffic to our website?
+371. How effective are our remarketing campaigns in driving sales?
+372. How effective are our location-based marketing strategies in driving sales?
+373. How effective are our text message marketing strategies in driving sales?
+374. How effective are our influencer marketing strategies in driving sales?
+375. How effective are our content marketing strategies in driving traffic to our website?
+376. How effective are our email marketing strategies in driving sales?
+377. How effective are our social media marketing strategies in driving sales?
+378. How successful are our pop-up shops in generating sales?
+379. How successful are our trunk shows in generating sales?
+380. How successful are our sponsored events in enhancing brand image?
+381. What is the impact of our augmented reality experiences on shopping experience?
+382. What is the impact of our virtual reality experiences on shopping experience?
+383. What's the customer feedback on our augmented reality experiences?
+384. What's the customer feedback on our virtual reality experiences?
+385. How successful are our partnerships with other brands in generating sales?
+386. How successful are our partnerships with charities in enhancing brand image?
+387. What are the effects of our green initiatives on customer loyalty?
+388. How effective are our in-store pickup lockers in facilitating customer purchases?
+389. What's the customer feedback on our in-store pickup lockers?
+390. How successful are our QR code campaigns in driving sales?
+391. How successful are our live video shopping events in generating sales?
+392. What's the customer feedback on our live video shopping events?
+393. How successful are our podcasts in driving traffic to our website?
+394. How successful are our webinars in educating customers about our products?
+395. What's the customer feedback on our podcasts?
+396. What's the customer feedback on our webinars?
+397. How successful is our shoppable content in driving sales?
+398. How successful are our interactive product demos in driving sales?
+399. What's the customer feedback on our shoppable content?
+400. What's the customer feedback on our interactive product demos?
+401. How successful are our product customization options in driving sales?
+402. How effective are our personal shopping services in driving sales?
+403. What's the customer feedback on our product customization options?
+404. What's the customer feedback on our personal shopping services?
+405. How does our shipping cost compare with our main competitors?
+406. How does our return policy compare with our main competitors?
+407. How effective are our mobile app push notifications in driving sales?
+408. What is the customer feedback on our mobile app?
+409. How effective is our live chat feature in improving customer service?
+410. How effective are our FAQs in addressing customer inquiries?
+411. What's the customer feedback on our live chat feature?
+412. What's the customer feedback on our FAQs?
+413. How effective is our site search feature in facilitating product discovery?
+414. What's the customer feedback on our site search feature?
+415. How effective is our site navigation in improving user experience?
+416. What's the customer feedback on our site navigation?
+417. How effective is our wish list feature in driving sales?
+418. What's the customer feedback on our wish list feature?
+419. How effective is our guest checkout option in reducing cart abandonment?
+420. What's the customer feedback on our guest checkout option?
+421. How successful is our buy online return in-store (BORIS) policy in enhancing customer satisfaction?
+422. How successful is our buy online pickup in-store (BOPIS) policy in driving sales?
+423. What's the customer feedback on our BORIS policy?
+424. What's the customer feedback on our BOPIS policy?
+425. How effective are our visual merchandising strategies in enhancing in-store experience?
+426. How effective are our sensory marketing strategies in enhancing in-store experience?
+427. How effective are our experiential marketing strategies in enhancing in-store experience?
+428. How effective are our storytelling marketing strategies in enhancing brand image?
+429. How successful is our ethical sourcing policy in enhancing brand image?
+430. How successful is our fair trade policy in enhancing brand image?
+431. What's the customer feedback on our ethical sourcing policy?
+432. What's the customer feedback on our fair trade policy?
+433. How successful are our in-store technology solutions in enhancing shopping experience?
+434. What's the customer feedback on our in-store technology solutions?
+435. How successful are our adaptive clothing lines in serving customers with disabilities?
+436. How successful are our inclusive sizing ranges in serving customers of all sizes?
+437. What's the customer feedback on our adaptive clothing lines?
+438. What's the customer feedback on our inclusive sizing ranges?
+439. How effective are our geofencing strategies in driving foot traffic to our stores?
+440. How successful are our collaborations with celebrities in driving sales?
+441. How successful are our collaborations with designers in enhancing brand image?
+442. How effective are our predictive analytics strategies in forecasting demand?
+443. How effective are our predictive analytics strategies in optimizing pricing?
+444. How successful is our local sourcing policy in reducing supply chain risks?
+445. How successful is our diversification policy in reducing supplier dependency risks?
+446. How effective is our inventory management system in reducing stockouts and overstocks?
+447. How effective is our logistics management system in reducing delivery delays?
+448. How successful is our in-house manufacturing strategy in ensuring product quality?
+449. How successful is our outsourcing strategy in reducing production costs?
+450. How successful are our collaborations with NGOs in driving social impact?
+451. How successful are our collaborations with government bodies in influencing policy changes?
+452. What's the customer feedback on our collaborations with NGOs?
+453. What's the customer feedback on our collaborations with government bodies?
+454. How effective are our employee training programs in improving staff productivity?
+455. How effective are our employee wellness programs in reducing staff turnover?
+456. How successful are our diversity and inclusion initiatives in creating a positive workplace culture?
+457. How successful are our remote working policies in maintaining operational efficiency during the pandemic?
+458. How successful are our sustainability reporting practices in increasing stakeholder trust?
+459. How successful are our carbon offset initiatives in reducing environmental impact?
+460. How successful are our renewable energy initiatives in reducing operational costs?
+461. What's the customer feedback on our sustainability reporting practices?
+462. What's the customer feedback on our carbon offset initiatives?
+463. How effective is our waste management policy in reducing environmental impact?
+464. How effective is our water management policy in reducing environmental impact?
+465. What's the customer feedback on our waste management policy?
+466. What's the customer feedback on our water management policy?
+467. How successful is our circular economy strategy in reducing waste?
+468. How successful is our closed-loop supply chain strategy in reducing waste?
+469. What's the customer feedback on our circular economy strategy?
+470. What's the customer feedback on our closed-loop supply chain strategy?
+471. How successful is our zero-waste packaging strategy in reducing waste?
+472. How successful is our biodegradable packaging strategy in reducing waste?
+473. What's the customer feedback on our zero-waste packaging strategy?
+474. What's the customer feedback on our biodegradable packaging strategy?
+475. How successful are our employee volunteering programs in driving social impact?
+476. How successful are our corporate giving programs in driving social impact?
+477. What's the employee feedback on our volunteering programs?
+478. What's the stakeholder feedback on our corporate giving programs?
+479. How successful are our community outreach programs in enhancing local relations?
+480. How successful are our stakeholder engagement initiatives in increasing transparency?
+481. What's the community feedback on our outreach programs?
+482. What's the stakeholder feedback on our engagement initiatives?
+483. How successful are our employee empowerment strategies in improving job satisfaction?
+484. How successful are our conflict resolution strategies in maintaining workplace harmony?
+485. What's the employee feedback on our empowerment strategies?
+486. What's the employee feedback on our conflict resolution strategies?
+487. How successful are our employee recognition programs in improving staff morale?
+488. How successful are our team building activities in enhancing workplace culture?
+489. What's the employee feedback on our recognition programs?
+490. What's the employee feedback on our team building activities?
+491. How successful are our workforce upskilling programs in driving innovation?
+492. How successful are our talent acquisition strategies in attracting skilled workers?
+493. What's the employee feedback on our upskilling programs?
+494. What's the employee feedback on our talent acquisition strategies?
+495. How effective are our succession planning strategies in ensuring leadership continuity?
+496. How effective are our business continuity strategies in managing operational risks?
+497. What's the stakeholder feedback on our succession planning strategies?
+498. What's the stakeholder feedback on our business continuity strategies?
+499. How successful are our corporate governance practices in enhancing investor confidence?
+500. How successful are our financial reporting practices in ensuring transparency?
