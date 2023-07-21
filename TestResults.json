@@ -1,0 +1,103 @@
+
+{
+    "bert-base-nli-mean-tokens": 
+{
+        "score": 0.6,
+
+        "time": 2,
+
+        "results": [
+            [
+                true,
+
+                "What was the total sales revenue yesterday?",
+
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+
+            [
+                true,
+
+                "What was the total sales revenue from this month?",
+
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+
+            [
+                true,
+
+                "What was the total profit last year?",
+
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+
+            [
+                false,
+
+                "What's the conversion rate on our online store?",
+
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+
+            [
+                false,
+
+                "What's the redemption rate of our loyalty program?",
+
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ]
+        ]
+    
+},
+
+    "all-mpnet-base-v2": 
+{
+        "score": 0.4,
+
+        "time": 3,
+
+        "results": [
+            [
+                false,
+
+                "What was the total sales revenue yesterday?",
+
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+
+            [
+                true,
+
+                "What was the total sales revenue from this month?",
+
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+
+            [
+                true,
+
+                "What was the total profit last year?",
+
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+
+            [
+                false,
+
+                "What's the conversion rate on our online store?",
+
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+
+            [
+                false,
+
+                "What's the redemption rate of our loyalty program?",
+
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ]
+        ]
+    
+}
+
+}
