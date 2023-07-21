@@ -7,10 +7,12 @@ import json
 hostName = 'localhost'
 serverPort = 8080
 
-model = SentenceTransformer('bert-base-nli-mean-tokens') # try other models
+
 f = open('Options.json','r')
 options = json.load(f)
 f.close()
+
+model = SentenceTransformer(options['model'])
 
 opt_url = [option['url'] for option in options['options']]
 opt_enc = [option['encoding'] for option in options['options']]

@@ -70,5 +70,5 @@ except:
     print('openAI failed')
 
 f = open('TestResults.json','w')
-f.write(json.dumps(results, indent=4).replace('{', '\n{').replace(',', ',\n').replace('}', '\n}'))
+f.write(json.dumps(results, indent=4))
 f.close()

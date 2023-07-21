@@ -1,503 +1,312 @@
-
 {
-    "bert-base-nli-mean-tokens": 
-{
+    "bert-base-nli-mean-tokens": {
         "score": 0.6,
-
         "time": 2,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
             ],
-
             [
                 false,
-
                 "What's the redemption rate of our loyalty program?",
-
                 "https://ip.armeta.com/demo/analytics/conversion-maximizer"
             ]
         ]
-    
-},
-
-    "all-mpnet-base-v2": 
-{
-        "score": 0.4,
-
+    },
+    "all-mpnet-base-v2": {
+        "score": 0.6,
         "time": 2,
-
         "results": [
             [
                 false,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
             ],
-
             [
-                false,
-
+                true,
                 "What's the redemption rate of our loyalty program?",
-
-                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
             ]
         ]
-    
-},
-
-    "all-distilroberta-v1": 
-{
+    },
+    "all-distilroberta-v1": {
         "score": 0.6,
-
         "time": 1,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
             ],
-
             [
                 false,
-
                 "What's the redemption rate of our loyalty program?",
-
                 "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
             ]
         ]
-    
-},
-
-    "all-MiniLM-L12-v2": 
-{
-        "score": 0.6,
-
+    },
+    "all-MiniLM-L12-v2": {
+        "score": 0.8,
         "time": 0,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
             ],
-
             [
-                false,
-
+                true,
                 "What's the redemption rate of our loyalty program?",
-
-                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
             ]
         ]
-    
-},
-
-    "multi-qa-distilbert-cos-v1": 
-{
-        "score": 0.2,
-
+    },
+    "multi-qa-distilbert-cos-v1": {
+        "score": 0.4,
         "time": 1,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 false,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 false,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
             ],
-
             [
-                false,
-
+                true,
                 "What's the redemption rate of our loyalty program?",
-
-                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
             ]
         ]
-    
-},
-
-    "all-MiniLM-L6-v2": 
-{
+    },
+    "all-MiniLM-L6-v2": {
         "score": 0.6,
-
         "time": 0,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
             ],
-
             [
                 false,
-
                 "What's the redemption rate of our loyalty program?",
-
                 "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
             ]
         ]
-    
-},
-
-    "multi-qa-MiniLM-L6-cos-v1": 
-{
-        "score": 0.4,
-
+    },
+    "multi-qa-MiniLM-L6-cos-v1": {
+        "score": 0.8,
         "time": 0,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 false,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
-                false,
-
+                true,
                 "What's the conversion rate on our online store?",
-
-                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
-            ],
-
-            [
-                false,
-
-                "What's the redemption rate of our loyalty program?",
-
                 "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What's the redemption rate of our loyalty program?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
             ]
         ]
-    
-},
-
-    "paraphrase-albert-small-v2": 
-{
+    },
+    "paraphrase-albert-small-v2": {
         "score": 0.4,
-
         "time": 1,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 false,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
             ],
-
             [
                 false,
-
                 "What's the redemption rate of our loyalty program?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
             ]
         ]
-    
-},
-
-    "paraphrase-MiniLM-L3-v2": 
-{
+    },
+    "paraphrase-MiniLM-L3-v2": {
         "score": 0.6,
-
         "time": 0,
-
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
             ],
-
             [
                 false,
-
                 "What's the redemption rate of our loyalty program?",
-
                 "https://ip.armeta.com/demo/analytics/conversion-maximizer"
             ]
         ]
-    
-},
-
-    "text-embedding-ada-002": 
-{
-        "score": 0.4,
-
-        "time": 1,
-
+    },
+    "text-embedding-ada-002": {
+        "score": 0.6,
+        "time": 2,
         "results": [
             [
                 true,
-
                 "What was the total sales revenue yesterday?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 true,
-
                 "What was the total sales revenue from this month?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
             ],
-
             [
                 false,
-
                 "What was the total profit last year?",
-
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
             ],
-
             [
                 false,
-
                 "What's the conversion rate on our online store?",
-
                 "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
             ],
-
             [
-                false,
-
+                true,
                 "What's the redemption rate of our loyalty program?",
-
-                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
             ]
         ]
-    
-}
-
+    }
 }
