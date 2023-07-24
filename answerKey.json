@@ -4,6 +4,79 @@
     ,   {"prompt": "What was the total sales revenue from this month?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
     ,   {"prompt": "What was the total profit last year?", "url":"https://ip.armeta.com/demo/analytics/sales-retail"}
     ,   {"prompt": "What's the conversion rate on our online store?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
-    ,   {"prompt": "What's the redemption rate of our loyalty program?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What's the redemption rate of our loyalty program?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}  
+    ,   {"prompt": "What is the current total inventory value?", "url":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What is the total sales oppurtunity in all regions and all volume groups and all product groups?", "url":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?", "url":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?", "url":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "How does revenue from sales compare this year to the sales last year?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
+    ,   {"prompt": "How does sales compare between product families?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
+    ,   {"prompt": "How does sales compare between product categories?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
+    ,   {"prompt": "How does sales compare between vendors?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
+    ,   {"prompt": "How does sales compare between regions?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
+    ,   {"prompt": "How does sales compare between locations?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}
+    ,   {"prompt": "How does sales compare between districts?", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"} 
+    ,   {"prompt": "Show me a map of sales performance by district", "url":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"}                  
+    ,   {"prompt": "What is the registration trend on our website?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What is the average time between notification and presentation?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What is the average time between presentation and redemption?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What is the average offer views per user/person?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What is the average offer redemption per user?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What is the conversion trends on our websites?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What are the top offers by conversion rate?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What are the average redemptions by day of the week?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What is the typical number of days to redeem after a user recieves a notification?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What is the conversion rate by notification day part?", "url":"https://ip.armeta.com/demo/analytics/conversion-maximizer"}
+    ,   {"prompt": "What is the redemptions trend on our website?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What App/OS is typically used by our users?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What do users typically use to register to our service?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What are the total redemptions by day part?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What are the total redemptions by week part?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What is the average rating of our app from android users?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "What is the average rating of our app from IOS users?", "url":"https://ip.armeta.com/demo/analytics/mobile-engagement"}
+    ,   {"prompt": "I need to compare sales data.", "url":"https://ip.armeta.com/demo/analytics/sales-compare"}
+    ,   {"prompt": "What is the physical location of customer visits to our online stores?", "url":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "How does our average order value (AOV) compare to our competition on our online stores?", "url":"https://ip.armeta.com/demo/analytics/sales-digital?query=eyJjb21wYXJlIjoiQ09NUCJ9"}    
+    ,   {"prompt": "What is the total revenue gained from our online stores?", "url":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "What is the age of our various online stores/websites?", "url":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "What is the average total conversion rate of our online stores/website?", "url":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "Whats the total number of transactions gotten from our online store/website?", "url":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "Show me the typical conversion rate on our online stores/websites", "url":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "Which products are the least sold this month?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "Which products are the most sold this month?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "How does product sales compare between private labels and national brands this month?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "How do sales differ between in-store and website sales this month?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}   
+    ,   {"prompt": "Which products are the least sold this year?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "Which products are the most sold this year?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}    
+    ,   {"prompt": "How does product sales compare between private labels and national brands this year?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "How do sales differ between in-store and website sales this year?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "Which products are the least sold this week?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "Which products are the most sold this week?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}    
+    ,   {"prompt": "How does product sales compare between private labels and national brands this week?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "How do sales differ between in-store and website sales this week?", "url":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What are netsales in the east region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjF9"}
+    ,   {"prompt": "What is the inventory value of stores in the east region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjF9"}
+    ,   {"prompt": "What are the top stores in the east region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjF9"}
+    ,   {"prompt": "What are the top districts in the east region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjF9"}
+    ,   {"prompt": "What are the sales by category in the east region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjF9"}
+    ,   {"prompt": "What are the sales by brand in the east region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjF9"}
+    ,   {"prompt": "What are netsales in the Central region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjJ9"}
+    ,   {"prompt": "What is the inventory value of stores in the Central region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjJ9"}
+    ,   {"prompt": "What are the top stores in the Central region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjJ9"}
+    ,   {"prompt": "What are the top districts in the Central region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjJ9"}
+    ,   {"prompt": "What are the sales by category in the Central region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjJ9"}
+    ,   {"prompt": "What are the sales by brand in the Central region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjJ9"}    
+    ,   {"prompt": "What are netsales in the WEST region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjN9"}
+    ,   {"prompt": "What is the inventory value of stores in the WEST region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjN9"}
+    ,   {"prompt": "What are the top stores in the WEST region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjN9"}
+    ,   {"prompt": "What are the top districts in the WEST region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjN9"}
+    ,   {"prompt": "What are the sales by category in the WEST region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjN9"}
+    ,   {"prompt": "What are the sales by brand in the WEST region?", "url":"https://ip.armeta.com/demo/analytics/location-review?query=eyJyZWdpb24iOjN9"}
+    ,   {"prompt": "What are the top sellers by department?", "url":"https://ip.armeta.com/demo/analytics/top-styles"}
+    ,   {"prompt": "What are the top-selling by category?", "url":"https://ip.armeta.com/demo/analytics/top-styles"}
+    ,   {"prompt": "What are the top-selling by brand?", "url":"https://ip.armeta.com/demo/analytics/top-styles"}
+    ,   {"prompt": "What are the top-selling by price status?", "url":"https://ip.armeta.com/demo/analytics/top-styles"}
+
+
     ]
 }
