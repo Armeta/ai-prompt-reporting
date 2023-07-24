@@ -1,7 +1,7 @@
 {
     "bert-base-nli-mean-tokens": {
-        "score": 0.6,
-        "time": 2,
+        "score": 0.13157894736842105,
+        "time": 4,
         "results": [
             [
                 true,
@@ -27,12 +27,367 @@
                 false,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                true,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlbGVjb20ifQ%3D%3D"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlY2hub2xvZ3kifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlY2hub2xvZ3kifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlNlcnZpY2VzIn0%3D"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlY2hub2xvZ3kifQ%3D%3D"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlNlcnZpY2VzIn0%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
             ]
         ]
     },
     "all-mpnet-base-v2": {
-        "score": 0.6,
-        "time": 2,
+        "score": 0.21052631578947367,
+        "time": 4,
         "results": [
             [
                 false,
@@ -58,12 +413,367 @@
                 true,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6Ikluc3VyYW5jZSJ9"
+            ],
+            [
+                true,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlY2hub2xvZ3kifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                true,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRyYXZlbCAmIEhvc3BpdGFsaXR5In0%3D"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                true,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                true,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
             ]
         ]
     },
     "all-distilroberta-v1": {
-        "score": 0.6,
-        "time": 1,
+        "score": 0.21052631578947367,
+        "time": 2,
         "results": [
             [
                 true,
@@ -89,12 +799,367 @@
                 false,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjV9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjV9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                true,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlY2hub2xvZ3kifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlbGVjb20ifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                true,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlbGVjb20ifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlbGVjb20ifQ%3D%3D"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRyYXZlbCAmIEhvc3BpdGFsaXR5In0%3D"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                true,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjF9"
+            ],
+            [
+                true,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                true,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
             ]
         ]
     },
     "all-MiniLM-L12-v2": {
-        "score": 0.8,
-        "time": 0,
+        "score": 0.19736842105263158,
+        "time": 2,
         "results": [
             [
                 true,
@@ -120,12 +1185,367 @@
                 true,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                true,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+            [
+                true,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                true,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlbGVjb20ifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlbGVjb20ifQ%3D%3D"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRyYXZlbCAmIEhvc3BpdGFsaXR5In0%3D"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                true,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjF9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                false,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjF9"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
             ]
         ]
     },
     "multi-qa-distilbert-cos-v1": {
-        "score": 0.4,
-        "time": 1,
+        "score": 0.13157894736842105,
+        "time": 2,
         "results": [
             [
                 true,
@@ -151,12 +1571,367 @@
                 true,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjV9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6Ik1hbnVmYWN0dXJpbmcifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                true,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlV0aWxpdHkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlV0aWxpdHkifQ%3D%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                true,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiTVREIn0%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                false,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
             ]
         ]
     },
     "all-MiniLM-L6-v2": {
-        "score": 0.6,
-        "time": 0,
+        "score": 0.13157894736842105,
+        "time": 1,
         "results": [
             [
                 true,
@@ -182,12 +1957,367 @@
                 false,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6Ik1hbnVmYWN0dXJpbmcifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyJ9"
+            ],
+            [
+                true,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                true,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlV0aWxpdHkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjl9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                true,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
             ]
         ]
     },
     "multi-qa-MiniLM-L6-cos-v1": {
-        "score": 0.8,
-        "time": 0,
+        "score": 0.19736842105263158,
+        "time": 1,
         "results": [
             [
                 true,
@@ -213,12 +2343,367 @@
                 true,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjV9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjl9"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                true,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlY2hub2xvZ3kifQ%3D%3D"
+            ],
+            [
+                true,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjl9"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6Ikluc3VyYW5jZSJ9"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                true,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                true,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                true,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjh9"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjl9"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjl9"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
             ]
         ]
     },
     "paraphrase-albert-small-v2": {
-        "score": 0.4,
-        "time": 1,
+        "score": 0.14473684210526316,
+        "time": 3,
         "results": [
             [
                 true,
@@ -244,11 +2729,366 @@
                 false,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJEQVkifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkNvbnN1bWVyIFByb2R1Y3RzIn0%3D"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                false,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlNlcnZpY2VzIn0%3D"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlNlcnZpY2VzIn0%3D"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IldURCJ9"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlV0aWxpdHkifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/optical-analysis-sales"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRyYXZlbCAmIEhvc3BpdGFsaXR5In0%3D"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRlbGVjb20ifQ%3D%3D"
+            ],
+            [
+                true,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                true,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                true,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                true,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjh9"
+            ],
+            [
+                false,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
             ]
         ]
     },
     "paraphrase-MiniLM-L3-v2": {
-        "score": 0.6,
+        "score": 0.17105263157894737,
         "time": 0,
         "results": [
             [
@@ -275,12 +3115,367 @@
                 false,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjV9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRyYXZlbCAmIEhvc3BpdGFsaXR5In0%3D"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkdvdmVybm1lbnQifQ%3D%3D"
+            ],
+            [
+                true,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiV1REIn0%3D"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IkdvdmVybm1lbnQifQ%3D%3D"
+            ],
+            [
+                true,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRyYXZlbCAmIEhvc3BpdGFsaXR5In0%3D"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlRyYXZlbCAmIEhvc3BpdGFsaXR5In0%3D"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6Ik1URCJ9"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                true,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjl9"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
+            ],
+            [
+                false,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9"
             ]
         ]
     },
     "text-embedding-ada-002": {
-        "score": 0.6,
-        "time": 2,
+        "score": 0.2631578947368421,
+        "time": 18,
         "results": [
             [
                 true,
@@ -306,6 +3501,361 @@
                 true,
                 "What's the redemption rate of our loyalty program?",
                 "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the current total inventory value?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by department in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                true,
+                "What is the total sales oppurtunity by brand in all regions and all volume groups and all product groups?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity"
+            ],
+            [
+                false,
+                "How does revenue from sales compare this year to the sales last year?",
+                "https://ip.armeta.com/demo/analytics/sales-retail"
+            ],
+            [
+                false,
+                "How does sales compare between product families?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between product categories?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between vendors?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between regions?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between locations?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9"
+            ],
+            [
+                false,
+                "How does sales compare between districts?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "Show me a map of sales performance by district",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                true,
+                "What is the registration trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between notification and presentation?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average time between presentation and redemption?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer views per user/person?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average offer redemption per user?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the conversion trends on our websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                true,
+                "What are the top offers by conversion rate?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What are the average redemptions by day of the week?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the typical number of days to redeem after a user recieves a notification?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What is the conversion rate by notification day part?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What is the redemptions trend on our website?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What App/OS is typically used by our users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                true,
+                "What do users typically use to register to our service?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What are the total redemptions by day part?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                true,
+                "What are the total redemptions by week part?",
+                "https://ip.armeta.com/demo/analytics/mobile-engagement"
+            ],
+            [
+                false,
+                "What is the average rating of our app from android users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "What is the average rating of our app from IOS users?",
+                "https://ip.armeta.com/demo/analytics/conversion-maximizer"
+            ],
+            [
+                false,
+                "I need to compare sales data.",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the physical location of customer visits to our online stores?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "How does our average order value (AOV) compare to our competition on our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the total revenue gained from our online stores?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the age of our various online stores/websites?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "What is the average total conversion rate of our online stores/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Whats the total number of transactions gotten from our online store/website?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Show me the typical conversion rate on our online stores/websites",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                false,
+                "Which products are the least sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "Which products are the most sold this month?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this month?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                true,
+                "How do sales differ between in-store and website sales this month?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "Which products are the least sold this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "Which products are the most sold this year?",
+                "https://ip.armeta.com/demo/analytics/analysis-product"
+            ],
+            [
+                false,
+                "How does product sales compare between private labels and national brands this year?",
+                "https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9"
+            ],
+            [
+                false,
+                "How do sales differ between in-store and website sales this year?",
+                "https://ip.armeta.com/demo/analytics/sales-digital?query=eyJpbmR1c3RyeSI6IlJldGFpbCAmIGVDb21tZXJjZSJ9"
+            ],
+            [
+                true,
+                "Which products are the least sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "Which products are the most sold this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "How does product sales compare between private labels and national brands this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                true,
+                "How do sales differ between in-store and website sales this week?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are netsales in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top districts in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by category in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the sales by brand in the east region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are netsales in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top districts in the Central region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the Central region?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                false,
+                "What are the sales by brand in the Central region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are netsales in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review?query=eyJ3ZWVrIjoiTFcifQ%3D%3D"
+            ],
+            [
+                false,
+                "What is the inventory value of stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/location-review"
+            ],
+            [
+                false,
+                "What are the top stores in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top districts in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by category in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the sales by brand in the WEST region?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                false,
+                "What are the top sellers by department?",
+                "https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"
+            ],
+            [
+                false,
+                "What are the top-selling by category?",
+                "https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJ1bml0cyIsInRpbWVmcmFtZSI6IkRBWSJ9"
+            ],
+            [
+                true,
+                "What are the top-selling by brand?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
+            ],
+            [
+                true,
+                "What are the top-selling by price status?",
+                "https://ip.armeta.com/demo/analytics/top-styles"
             ]
         ]
     }

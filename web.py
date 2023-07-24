@@ -1,8 +1,8 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-import time
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
+import openai
 
 hostName = 'localhost'
 serverPort = 8080
@@ -12,7 +12,16 @@ f = open('Options.json','r')
 options = json.load(f)
 f.close()
 
-model = SentenceTransformer(options['model'])
+
+# OpenAI model
+if(options['model'] == 'text-embedding-ada-002'):
+    f = open('secrets.json','r')
+    secrets = json.load(f)
+    f.close()
+    openai.organization = secrets['organization']
+    openai.api_key = secrets['api_key']
+else:
+    model = SentenceTransformer(options['model'])
 
 opt_url = [option['url'] for option in options['options']]
 opt_enc = [option['encoding'] for option in options['options']]
@@ -27,7 +36,12 @@ class MyServer(BaseHTTPRequestHandler):
             prompt = self.path[4:]
 
         if(prompt != ''):
-            encoding = model.encode(prompt)
+            encoding = None
+            if(options['model'] == 'text-embedding-ada-002'):
+                encoding = openai.Embedding.create(input = [prompt], model='text-embedding-ada-002')['data'][0]['embedding']
+            else:
+                encoding = model.encode(prompt)
+            
             sim = cosine_similarity([encoding], opt_enc)
             url = opt_url[sim[0].tolist().index(max(sim[0]))]
             print('Similarity: %f, %s' % (max(sim[0]), url))
