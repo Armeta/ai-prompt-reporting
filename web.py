@@ -2,6 +2,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
+import html
 import openai
 
 hostName = 'localhost'
@@ -23,7 +24,7 @@ if(options['model'] == 'text-embedding-ada-002'):
 else:
     model = SentenceTransformer(options['model'])
 
-opt_url = [option['url'] for option in options['options']]
+opts = [option['url'] if option['type'] == 'url' else option['result'] for option in options['options']]
 opt_enc = [option['encoding'] for option in options['options']]
 
 class MyServer(BaseHTTPRequestHandler):
@@ -33,9 +34,15 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
         prompt = ''
         if(self.path[0:4] == '/?q='):
-            prompt = self.path[4:]
+            prompt = self.path[4:].replace('+', ' ')
+            parts = prompt.split('%')
+            tmp = parts[0]
+            for part in parts[1:]:
+                tmp += chr(int(part[:2], 16)) + part[2:]
+            prompt = tmp
+            print(prompt)
 
-        if(prompt != ''):
+        if(prompt != ''): # prompt is supplied, show result
             encoding = None
             if(options['model'] == 'text-embedding-ada-002'):
                 encoding = openai.Embedding.create(input = [prompt], model='text-embedding-ada-002')['data'][0]['embedding']
@@ -43,13 +50,16 @@ class MyServer(BaseHTTPRequestHandler):
                 encoding = model.encode(prompt)
             
             sim = cosine_similarity([encoding], opt_enc)
-            url = opt_url[sim[0].tolist().index(max(sim[0]))]
-            print('Similarity: %f, %s' % (max(sim[0]), url))
+            answer = opts[sim[0].tolist().index(max(sim[0]))]
+            print('Similarity: %f, %s' % (max(sim[0]), answer))
             self.wfile.write(bytes('<html><head>', 'utf-8'))
-            self.wfile.write(bytes('<title>Sample AI</title>', 'utf-8'))
-            self.wfile.write(bytes('<meta http-equiv="Refresh" content="0; url=\''+url+'\'" />', 'utf-8'))
-            self.wfile.write(bytes('</head><body>Redirecting to dashboard. Click <a href="'+url+'">here</a> if not redirected.</body></html>', 'utf-8'))
-        else:
+            self.wfile.write(bytes('<title>Sample AI</title><style>body {font-size: 2em;}</style>', 'utf-8'))
+            if(answer[:5] == 'https'):
+                self.wfile.write(bytes('<meta http-equiv="Refresh" content="0; url=\''+answer+'\'" />', 'utf-8'))
+                self.wfile.write(bytes('</head><body>Redirecting to dashboard. Click <a href="'+answer+'">here</a> if not redirected.</body></html>', 'utf-8'))
+            else: # answer like SELECT
+                self.wfile.write(bytes('</head><body><p>Jim: '+prompt+'</p><p>AI: '+answer+'</p></body></html>', 'utf-8'))
+        else: # prompt == '', show prompt page
             self.wfile.write(bytes('<html><head><title>Sample AI</title><style>body {font-size: 2em;} input {font-size: 1em;}</style></head>', 'utf-8'))
             self.wfile.write(bytes('<body>', 'utf-8'))
             #self.wfile.write(bytes('<a target="_blank" href="https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9">Result</a>', 'utf-8'))

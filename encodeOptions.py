@@ -2,7 +2,8 @@ from sentence_transformers import SentenceTransformer
 import json
 import openai
 
-modelName = 'text-embedding-ada-002'
+modelName = 'all-MiniLM-L12-v2'
+# openAI 'text-embedding-ada-002'
 jsonFileName = 'Options.json'
 
 if(modelName == 'text-embedding-ada-002'):

@@ -25,10 +25,10 @@ f.close()
 
 results = {}
 
-opt_url = [option['url'] for option in options['options']]
+opts = [option['url'] if option['type'] == 'url' else option['query'] for option in options['options']]
 opt_desc = [option['desc'] for option in options['options']]
 tst_prompt = [answer['prompt'] for answer in answers['pairs']]
-tst_url = [answer['url'] for answer in answers['pairs']]
+tst_ans = [answer['ans'] for answer in answers['pairs']]
 
 for modelName in modelsToTest:
     model = SentenceTransformer(modelName)
@@ -36,13 +36,13 @@ for modelName in modelsToTest:
     starttime = datetime.datetime.now()
 
     optEncodings = model.encode(opt_desc)
-    for prompt, url in zip(tst_prompt, tst_url):
+    for prompt, ans in zip(tst_prompt, tst_ans):
         promptEncoding = model.encode(prompt)
         sim = cosine_similarity([promptEncoding], optEncodings)
-        guess_url = opt_url[sim[0].tolist().index(max(sim[0]))]
-        if(guess_url == url):
+        guess = opts[sim[0].tolist().index(max(sim[0]))]
+        if(guess == ans):
             results[modelName]['score'] += 1
-        results[modelName]['results'].append([guess_url == url, prompt, guess_url])
+        results[modelName]['results'].append([guess == ans, prompt, guess])
     results[modelName]['score'] /= len(tst_prompt)
     endtime = datetime.datetime.now()
     results[modelName]['time'] = (endtime-starttime).seconds
@@ -55,13 +55,13 @@ try:
         starttime = datetime.datetime.now()
         optEncodings = [data['embedding'] for data in openai.Embedding.create(input = opt_desc, model=openaiToTest)['data']]
 
-        for prompt, url in zip(tst_prompt, tst_url):
+        for prompt, ans in zip(tst_prompt, tst_ans):
             promptEncoding = openai.Embedding.create(input = [prompt], model=openaiToTest)['data'][0]['embedding']
             sim = cosine_similarity([promptEncoding], optEncodings)
-            guess_url = opt_url[sim[0].tolist().index(max(sim[0]))]
-            if(guess_url == url):
+            guess = opts[sim[0].tolist().index(max(sim[0]))]
+            if(guess == ans):
                 results[modelName]['score'] += 1
-            results[modelName]['results'].append([guess_url == url, prompt, guess_url])
+            results[modelName]['results'].append([guess == ans, prompt, guess])
         results[modelName]['score'] /= len(tst_prompt)
         endtime = datetime.datetime.now()
         results[modelName]['time'] = (endtime-starttime).seconds
