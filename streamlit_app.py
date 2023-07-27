@@ -49,8 +49,8 @@ def page_Setup():
     )
 
     # Open CSS file
-    with open('css/style.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    #with open('css/style.css') as f:
+    #   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
     # Page Header/Subheader
     st.title("AI Turkey")
