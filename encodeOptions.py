@@ -4,10 +4,10 @@ import openai
 
 modelName = 'all-MiniLM-L12-v2'
 # openAI 'text-embedding-ada-002'
-jsonFileName = 'Options.json'
+jsonFileName = 'json\\Options.json'
 
 if(modelName == 'text-embedding-ada-002'):
-    f = open('secrets.json','r')
+    f = open('json\\secrets.json','r')
     secrets = json.load(f)
     f.close()
     openai.organization = secrets['organization']
