@@ -85,7 +85,6 @@ def main():
 
     # recieve prompt from user and draw a line to seperate results from question
     prompt = st.text_input('What would you like to see?', 'What was the total sales revenue yesterday?')
-    st.divider() 
 
     # run the prompt against the AI to recieve an answer
     answer, sim = do_GET(prompt, options, model, opt_enc, opts)
@@ -100,8 +99,6 @@ def main():
             else:
                 st.write("No query results")
 
-    # seperates dashboard results from query results
-    st.divider() 
 
     # shows dashboards results if any
     with st.expander("Dashboard results", expanded=True):
