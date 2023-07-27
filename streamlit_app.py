@@ -6,9 +6,6 @@ from sentence_transformers import SentenceTransformer
 #data types
 import json
 
-# AI 
-import openai
-
 # Visualizations 
 import streamlit as st
 from PIL import Image
@@ -28,15 +25,7 @@ def env_Setup():
     options = json.load(f)
     f.close()
 
-    # OpenAI model
-    if(options['model'] == 'text-embedding-ada-002'):
-        f       = open('json/secrets.json','r')
-        secrets = json.load(f)
-        f.close()
-        openai.organization = secrets['organization']
-        openai.api_key      = secrets['api_key']
-    else:
-        model = SentenceTransformer(options['model'])
+    model = SentenceTransformer(options['model'])
 
     #recieve options and their encodings and return    
     opts    = [option['url'] if option['type'] == 'url' else option['result'] for option in options['options']]
@@ -72,10 +61,7 @@ def do_GET(prompt, options, model, opt_enc, opts):
     encoding = None
     
     # Encode prompt based off which model is being used
-    if(options['model'] == 'text-embedding-ada-002'):
-        encoding = openai.Embedding.create(input = [prompt], model='text-embedding-ada-002')['data'][0]['embedding']
-    else:
-        encoding = model.encode(prompt)
+    encoding = model.encode(prompt)
     
     # pick and return an answer based off options.json
     sim = cosine_similarity([encoding], opt_enc)
