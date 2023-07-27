@@ -17,7 +17,7 @@ import webbrowser
 # funny things with simple HTML.
 def nav_to(url):
     nav_script = """
-        <meta http-equiv="refresh" content="0; url='%s'">
+        <script type="text/javascript">window.open('%s','_blank');</script>
     """ % (url)
     st.write(nav_script, unsafe_allow_html=True)
 
