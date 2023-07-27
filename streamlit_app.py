@@ -101,8 +101,8 @@ def main():
     # shows dashboards results if any
     with st.expander("Dashboard results", expanded=True):
         with st.spinner(text = "In Progress..."):
-            time.sleep(.5)        
-            if(answer[:25] == 'https'):
+            time.sleep(.25)        
+            if(answer[:5] == 'https'):
                 #print('Similarity: %f, %s' % (max(sim[0]), answer))              
                 if st.button('Open Dashboard'):
                     webbrowser.open_new_tab(answer)
