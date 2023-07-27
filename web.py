@@ -1,6 +1,7 @@
 # data manipulation 
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
+import time
 
 #data types
 import json
@@ -91,24 +92,28 @@ def main():
 
     # shows query results if any
     with st.expander("Query results", expanded=True):  
-        if((answer[:5] != 'https') and (answer != '')):
-            print('Similarity: %f, %s' % (max(sim[0]), answer))
-            st.write(answer)
-        else:
-            st.write("No query results")
+        with st.spinner(text = "In Progress..."):
+            time.sleep(.5)
+            if((answer[:5] != 'https') and (answer != '')):
+                print('Similarity: %f, %s' % (max(sim[0]), answer))            
+                st.write(answer)
+            else:
+                st.write("No query results")
 
     # seperates dashboard results from query results
     st.divider() 
 
     # shows dashboards results if any
-    with st.expander("Dashboard results", expanded=True):        
-        if(answer[:5] == 'https'):
-            print('Similarity: %f, %s' % (max(sim[0]), answer))
-            url = answer
-            if st.button('Open Dashboard'):
-                webbrowser.open_new_tab(url)
-        else:            
-            st.write("No dashboard results")
+    with st.expander("Dashboard results", expanded=True):
+        with st.spinner(text = "In Progress..."):
+            time.sleep(.5)        
+            if(answer[:5] == 'https'):
+                print('Similarity: %f, %s' % (max(sim[0]), answer))
+                url = answer
+                if st.button('Open Dashboard'):
+                    webbrowser.open_new_tab(url)
+            else:
+                st.write("No dashboard results")
 
 if __name__ == '__main__':        
     main()
