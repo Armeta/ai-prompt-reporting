@@ -98,7 +98,6 @@ def main():
             else:
                 st.write("No query results")
 
-    st.write(answer)
     # shows dashboards results if any
     with st.expander("Dashboard results", expanded=True):
         with st.spinner(text = "In Progress..."):
