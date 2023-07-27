@@ -112,7 +112,7 @@ def main():
             if(answer[:5] == 'https'):
                 #print('Similarity: %f, %s' % (max(sim[0]), answer))              
                 if st.button('Open Dashboard'):
-                    nav_to("https://www.google.com")
+                    nav_to(answer)
             else:
                 st.write("No dashboard results")
 
