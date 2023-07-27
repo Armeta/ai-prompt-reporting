@@ -51,6 +51,10 @@ def page_Setup():
         }
     )
 
+    # Open CSS file
+    with open('style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
     # Page Header/Subheader
     st.title("AI Turkey")
 
@@ -76,10 +80,10 @@ def main():
 
     # sets up initial streamlit instance
     page_Setup()
-    
+ 
+
     # recieve prompt from user and draw a line to seperate results from question
-    st.subheader('What would you like to see?')
-    prompt = st.text_input('What would you like to see?', 'What was the total sales revenue yesterday?', label_visibility='collapsed')
+    prompt = st.text_input('What would you like to see?', 'What was the total sales revenue yesterday?')
     st.divider() 
 
     # run the prompt against the AI to recieve an answer
