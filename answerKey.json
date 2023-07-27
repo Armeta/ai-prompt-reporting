@@ -57,6 +57,102 @@
     ,   {"prompt": "What are the top-selling by category?", "ans":"https://ip.armeta.com/demo/analytics/top-styles"}
     ,   {"prompt": "What are the top-selling by brand?", "ans":"https://ip.armeta.com/demo/analytics/top-styles"}
     ,   {"prompt": "What are the top-selling by price status?", "ans":"https://ip.armeta.com/demo/analytics/top-styles"}
+    ,   {"prompt": "How are the sales this month compared to the same month last year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "How does the sales performance of our physical stores compare to our online store this month?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?filter=e30%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D&view=e30%3D"}
+    ,   {"prompt": "How does the sales performance of our physical stores compare to our online store this week?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "How does the sales performance of our physical stores compare to our online store this year?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "How many orders this month?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "How many orders this week?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "How many orders this year?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What are the top-selling products this week?", "ans":"https://ip.armeta.com/demo/analytics/top-styles"}
+    ,   {"prompt": "What is the current total inventory value?", "ans":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What is the trend in customer visits to our physical stores?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?filter=e30%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D&view=e30%3D"}
+    ,   {"prompt": "What is the trend in the sales of our private label products this year?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What is the trend in the sales of our private label products this month?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What is the trend in the sales of our private label products this week?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What percentage of our stock is currently unsold?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?filter=eyJkaW1lbnNpb24xIjoicHJvZHVjdEZhbWlseSJ9&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What was the highest revenue-generating product category last month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What was the highest revenue-generating product category last week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What was the highest revenue-generating product category last year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What was the total sales revenue yesterday?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJtZXRyaWMiOiJkb2xsYXJzIiwidGltZWZyYW1lIjoiREFZIn0%3D"}
+    ,   {"prompt": "What's the average transaction value this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "What's the conversion rate on our online store?", "ans":"https://ip.armeta.com/demo/analytics/sales-digital"}
+    ,   {"prompt": "What's the most profitable store location?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJZVEQiLCJtZXRyaWMiOiJkb2xsYXJzIn0%3D"}
+    ,   {"prompt": "What's the overhead cost as a percentage of sales?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?filter=eyJkaW1lbnNpb24xIjoiY2F0ZWdvcnkiLCJkaW1lbnNpb24yIjoibG9jYXRpb24ifQ%3D%3D"}
+    ,   {"prompt": "What's the performance of our private label products this month?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the performance of our private label products this year?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the performance of our private label products week?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the performance of seasonal products?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D&view=e30%3D"}
+    ,   {"prompt": "What's the rate of sales growth?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJZVEQiLCJtZXRyaWMiOiJkb2xsYXJzIn0%3D"}
+    ,   {"prompt": "What's the sell-through rate of brand Z?", "ans":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What's the sell-through rate of city B?", "ans":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What's the sell-through rate of product category Y?", "ans":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What's the sell-through rate of region C?", "ans":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What's the sell-through rate of store location A?", "ans":"https://ip.armeta.com/demo/analytics/sales-opportunity"}
+    ,   {"prompt": "What's the total cost of sales from brand Z this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?filter=eyJkaW1lbnNpb24xIjoiYnJhbmQiLCJkaW1lbnNpb24yIjoidmVuZG9yIn0%3D&query=e30%3D&view=e30%3D"}
+    ,   {"prompt": "What's the total cost of sales from brand Z this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from brand Z this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from district/state B this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?filter=eyJkaW1lbnNpb24xIjoiZGlzdHJpY3QifQ%3D%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from district/state B this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from district/state B this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from product category Y this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from product category Y this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from product category Y this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from region C this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from region C this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from region C this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from store location/city A this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from store location/city A this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total cost of sales from store location/city A this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total number of online store sessions?", "ans":"https://ip.armeta.com/demo/analytics/sales-digital?filter=e30%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D&view=e30%3D"}
+    ,   {"prompt": "What's the total number of online store visitors?", "ans":"https://ip.armeta.com/demo/analytics/sales-digital?filter=e30%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D&view=e30%3D"}
+    ,   {"prompt": "What's the total sales revenue from brand Z this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-compare?filter=eyJkaW1lbnNpb24xIjoiYnJhbmQiLCJkaW1lbnNpb24yIjoidmVuZG9yIn0%3D"}
+    ,   {"prompt": "What's the total sales revenue from brand Z this week?", "ans":"https://ip.armeta.com/demo/analytics/location-review?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from city B this month?", "ans":"https://ip.armeta.com/demo/analytics/location-review"}
+    ,   {"prompt": "What's the total sales revenue from city B this week?", "ans":"https://ip.armeta.com/demo/analytics/location-review?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Knit Tops this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxMzciXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Knit Tops this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxMzciXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Knit Tops this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxMzciXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Long Denim this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNDEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Long Denim this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNDEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Long Denim this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNDEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Male Neckwear this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNDUiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Male Neckwear this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNDUiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Male Neckwear this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNDUiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Outerwear this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNTEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Outerwear this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNTEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category Outwear this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNTEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category underwear this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNzgiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category underwear this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNzgiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product category underwear this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJjYXRlZ29yeSI6WyIxNzgiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family accessories this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjciXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family accessories this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjciXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family accessories this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjciXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family cosmetics this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjYiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family cosmetics this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjYiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family cosmetics this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjYiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family mens this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family mens this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family mens this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjEiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family womens this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjMiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family womens this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjMiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from product family womens this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?filter=eyJwcm9kdWN0RmFtaWx5IjpbIjMiXX0%3D&query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from region C this month?", "ans":"https://ip.armeta.com/demo/analytics/location-review"}
+    ,   {"prompt": "What's the total sales revenue from region C this week?", "ans":"https://ip.armeta.com/demo/analytics/location-review?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "What's the total sales revenue from store location A this month?", "ans":"https://ip.armeta.com/demo/analytics/location-review"}
+    ,   {"prompt": "What's the total sales revenue from store location A this week?", "ans":"https://ip.armeta.com/demo/analytics/location-review?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "Which are the best-selling product categories this year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail"}
+    ,   {"prompt": "Which are the best-selling product categories this month?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "Which are the best-selling product categories this week?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "Which city has the most sales this month?", "ans":"https://ip.armeta.com/demo/analytics/location-review"}
+    ,   {"prompt": "Which city has the most sales this week?", "ans":"https://ip.armeta.com/demo/analytics/location-review?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "Which marketing channel is the most effective?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D&view=e30%3D"}
+    ,   {"prompt": "Which product is the most profitable this month?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJNVEQifQ%3D%3D"}
+    ,   {"prompt": "Which product is the most profitable this week?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
+    ,   {"prompt": "Which product is the most profitable this year?", "ans":"https://ip.armeta.com/demo/analytics/analysis-product?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "Which products are the least sold this month?", "ans":"https://ip.armeta.com/demo/analytics/top-styles"}
+    ,   {"prompt": "Which region showed the most growth in revenue last year?", "ans":"https://ip.armeta.com/demo/analytics/sales-retail?query=eyJ0aW1lZnJhbWUiOiJZVEQifQ%3D%3D"}
+    ,   {"prompt": "Which store location had the highest sales this week?", "ans":"https://ip.armeta.com/demo/analytics/location-review?query=eyJ0aW1lZnJhbWUiOiJXVEQifQ%3D%3D"}
     ,   {"prompt": "Which store location had the highest sales this week?", "ans":"SELECT TOP 1 CONCAT(LL.LOCATION_LABEL, ' is the location with the highest weekly sales of ', FORMAT(SUM(SA.[REVENUE_DOLLARS_TY]), 'C')) FROM [DASHBOARD].[STORY_RETAIL_SALES_ANALYSIS] SA JOIN [STORY].[LKP_LOCATION] LL ON SA.LOCATION_CD = LL.LOCATION_CD WHERE TIMEFRAME = 'WTD' GROUP BY LL.LOCATION_LABEL ORDER BY SUM(SA.[REVENUE_DOLLARS_TY]) DESC;"}
     ,   {"prompt": "Which store location had the highest sales this month?", "ans":"SELECT TOP 1 CONCAT(LL.LOCATION_LABEL, ' is the location with the highest MTD sales of ', FORMAT(SUM(SA.[REVENUE_DOLLARS_TY]), 'C')) FROM [DASHBOARD].[STORY_RETAIL_SALES_ANALYSIS] SA JOIN [STORY].[LKP_LOCATION] LL ON SA.LOCATION_CD = LL.LOCATION_CD WHERE TIMEFRAME = 'MTD' GROUP BY LL.LOCATION_LABEL ORDER BY SUM(SA.[REVENUE_DOLLARS_TY]) DESC;"}
     ,   {"prompt": "Which store location had the highest sales this year?", "ans":"SELECT TOP 1 CONCAT(LL.LOCATION_LABEL, ' is the location with the highest YTD sales of ', FORMAT(SUM(SA.[REVENUE_DOLLARS_TY]), 'C')) FROM [DASHBOARD].[STORY_RETAIL_SALES_ANALYSIS] SA JOIN [STORY].[LKP_LOCATION] LL ON SA.LOCATION_CD = LL.LOCATION_CD WHERE TIMEFRAME = 'YTD' GROUP BY LL.LOCATION_LABEL ORDER BY SUM(SA.[REVENUE_DOLLARS_TY]) DESC;"}
