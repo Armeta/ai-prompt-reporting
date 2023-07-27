@@ -14,6 +14,13 @@ import streamlit as st
 from PIL import Image
 import webbrowser
 
+# funny things with simple HTML.
+def nav_to(url):
+    nav_script = """
+        <meta http-equiv="refresh" content="0; url='%s'">
+    """ % (url)
+    st.write(nav_script, unsafe_allow_html=True)
+
 # load options file and set up model
 def env_Setup():
     # Open and collect options.json
@@ -105,7 +112,7 @@ def main():
             if(answer[:5] == 'https'):
                 #print('Similarity: %f, %s' % (max(sim[0]), answer))              
                 if st.button('Open Dashboard'):
-                    webbrowser.open_new_tab(answer)
+                    nav_to(answer)
             else:
                 st.write("No dashboard results")
 
