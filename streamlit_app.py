@@ -17,13 +17,13 @@ import webbrowser
 # load options file and set up model
 def env_Setup():
     # Open and collect options.json
-    f       = open('.\\json\\Options.json','r')
+    f       = open('./json/Options.json','r')
     options = json.load(f)
     f.close()
 
     # OpenAI model
     if(options['model'] == 'text-embedding-ada-002'):
-        f       = open('.\\json\\secrets.json','r')
+        f       = open('./json/secrets.json','r')
         secrets = json.load(f)
         f.close()
         openai.organization = secrets['organization']
@@ -39,7 +39,7 @@ def env_Setup():
 # sets up initial streamlit instance
 def page_Setup():
     # tab icon
-    image = Image.open('.\\img\\icons\\armeta-icon.png')
+    image = Image.open('./img/icons/armeta-icon.png')
 
     # Page Config
     st.set_page_config(
@@ -53,7 +53,7 @@ def page_Setup():
     )
 
     # Open CSS file
-    with open('.\\css\\style.css') as f:
+    with open('./css/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
     # Page Header/Subheader
