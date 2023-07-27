@@ -35,12 +35,12 @@ def env_Setup():
 # sets up initial streamlit instance
 def page_Setup():
     # tab icon
-    image = Image.open('img/icons/armeta-icon.png')
+    #image = Image.open('img/icons/armeta-icon.png')
 
     # Page Config
     st.set_page_config(
         page_title="AI Turkey",
-        page_icon=image,
+        #page_icon=image,
         layout="wide",
         initial_sidebar_state="expanded",
         menu_items={
