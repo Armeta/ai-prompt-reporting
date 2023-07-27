@@ -73,7 +73,7 @@ def do_GET(prompt, options, model, opt_enc, opts):
     # pick and return an answer based off options.json
     sim = cosine_similarity([encoding], opt_enc)
     answer = opts[sim[0].tolist().index(max(sim[0]))]
-    return answer, sim
+    return answer
 
 def main():
     # gets mapping file and their encodings as well as meta data for the model being used
@@ -82,19 +82,18 @@ def main():
     # sets up initial streamlit instance
     page_Setup()
  
-
     # recieve prompt from user and draw a line to seperate results from question
     prompt = st.text_input('What would you like to see?', 'What was the total sales revenue yesterday?')
 
     # run the prompt against the AI to recieve an answer
-    answer, sim = do_GET(prompt, options, model, opt_enc, opts)
+    answer = do_GET(prompt, options, model, opt_enc, opts)
 
     # shows query results if any
     with st.expander("Query results", expanded=True):  
         with st.spinner(text = "In Progress..."):
-            time.sleep(.5)
+            time.sleep(.25)
             if((answer[:5] != 'https') and (answer != '')):
-                print('Similarity: %f, %s' % (max(sim[0]), answer))            
+                #print('Similarity: %f, %s' % (max(sim[0]), answer))            
                 st.write(answer)
             else:
                 st.write("No query results")
@@ -104,11 +103,11 @@ def main():
     with st.expander("Dashboard results", expanded=True):
         with st.spinner(text = "In Progress..."):
             time.sleep(.5)        
-            if(answer[:5] == 'https'):
-                print('Similarity: %f, %s' % (max(sim[0]), answer))
-                url = answer
+            if(answer[:25] == 'https'):
+                #print('Similarity: %f, %s' % (max(sim[0]), answer))
+                st.write(answer)
                 if st.button('Open Dashboard'):
-                    webbrowser.open_new_tab(url)
+                    webbrowser.open_new_tab(answer)
             else:
                 st.write("No dashboard results")
 
