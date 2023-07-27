@@ -8,7 +8,7 @@ modelsToTest = ['bert-base-nli-mean-tokens', 'all-mpnet-base-v2', 'all-distilrob
 
 openaiToTest = 'text-embedding-ada-002'
 if(openaiToTest):
-    f = open('secrets.json','r')
+    f = open('json\\secrets.json','r')
     secrets = json.load(f)
     f.close()
     openai.organization = secrets['organization']
@@ -16,10 +16,10 @@ if(openaiToTest):
     #print(openai.Embedding.create(input = ['What was the total sales revenue yesterday?'], model=openaiToTest)['data'][0]['embedding'])
 
 
-f = open('Options.json','r')
+f = open('json\\Options.json','r')
 options = json.load(f)
 f.close()
-f = open('AnswerKey.json','r')
+f = open('json\\answerKey.json','r')
 answers = json.load(f)
 f.close()
 
@@ -69,6 +69,6 @@ try:
 except:
     print('openAI failed')
 
-f = open('TestResults.json','w')
+f = open('json\\TestResults.json','w')
 f.write(json.dumps(results, indent=4))
 f.close()
