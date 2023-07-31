@@ -6,9 +6,6 @@ from sentence_transformers import SentenceTransformer
 #data types
 import json
 
-# AI 
-import openai
-
 # Visualizations 
 import streamlit as st
 from PIL import Image
@@ -23,35 +20,33 @@ def nav_to(url):
 
 # load options file and set up model
 def env_Setup():
-    # Open and collect options.json
+    # Open and collect options
     f       = open('json/Options.json','r')
-    options = json.load(f)
+    options_dash = json.load(f)
+    f.close()
+    f       = open('json/QueryOptions.json','r')
+    options_query = json.load(f)
     f.close()
 
-    # OpenAI model
-    if(options['model'] == 'text-embedding-ada-002'):
-        f       = open('json/secrets.json','r')
-        secrets = json.load(f)
-        f.close()
-        openai.organization = secrets['organization']
-        openai.api_key      = secrets['api_key']
-    else:
-        model = SentenceTransformer(options['model'])
+    model = SentenceTransformer(options_dash['model'])
 
-    #recieve options and their encodings and return    
-    opts    = [option['url'] if option['type'] == 'url' else option['result'] for option in options['options']]
-    opt_enc = [option['encoding'] for option in options['options']]
-    return options, model, opt_enc, opts
+    #recieve options and their encodings and return
+    dash_opts = [option['url'] for option in options_dash['options']]
+    dash_enc = [option['encoding'] for option in options_dash['options']]
+    #query_opts = [option['query'] for option in options_query['options']]
+    query_opts = [option['result'] for option in options_query['options']]
+    query_enc = [option['encoding'] for option in options_query['options']]
+    return model, dash_enc, dash_opts, query_enc, query_opts
 
 # sets up initial streamlit instance
 def page_Setup():
     # tab icon
-    image = Image.open('img/icons/armeta-icon.png')
+    #image = Image.open('img/icons/armeta-icon.png')
 
     # Page Config
     st.set_page_config(
         page_title="AI Turkey",
-        page_icon=image,
+        #page_icon=image,
         layout="wide",
         initial_sidebar_state="expanded",
         menu_items={
@@ -60,31 +55,31 @@ def page_Setup():
     )
 
     # Open CSS file
-    with open('css/style.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    #with open('css/style.css') as f:
+    #   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
     # Page Header/Subheader
     st.title("AI Turkey")
 
 # run the prompt against the AI to recieve an answer
-def do_GET(prompt, options, model, opt_enc, opts):   
+def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):   
     #init 
     encoding = None
     
     # Encode prompt based off which model is being used
-    if(options['model'] == 'text-embedding-ada-002'):
-        encoding = openai.Embedding.create(input = [prompt], model='text-embedding-ada-002')['data'][0]['embedding']
-    else:
-        encoding = model.encode(prompt)
+    encoding = model.encode(prompt)
     
-    # pick and return an answer based off options.json
-    sim = cosine_similarity([encoding], opt_enc)
-    answer = opts[sim[0].tolist().index(max(sim[0]))]
-    return answer
+    # pick and return a dashboard answer based off options.json
+    sim = cosine_similarity([encoding], dash_enc)
+    dash_answer = dash_opts[sim[0].tolist().index(max(sim[0]))]
+    # pick and return a query answer
+    sim = cosine_similarity([encoding], query_enc)
+    query_answer = query_opts[sim[0].tolist().index(max(sim[0]))]
+    return dash_answer, query_answer
 
 def main():
     # gets mapping file and their encodings as well as meta data for the model being used
-    options, model, opt_enc, opts = env_Setup()
+    model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
 
     # sets up initial streamlit instance
     page_Setup()
@@ -93,15 +88,15 @@ def main():
     prompt = st.text_input('What would you like to see?', 'What was the total sales revenue yesterday?')
 
     # run the prompt against the AI to recieve an answer
-    answer = do_GET(prompt, options, model, opt_enc, opts)
+    dash_answer, query_answer = do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)
 
     # shows query results if any
     with st.expander("Query results", expanded=True):  
         with st.spinner(text = "In Progress..."):
             time.sleep(.25)
-            if((answer[:5] != 'https') and (answer != '')):
+            if(query_answer != ''):
                 #print('Similarity: %f, %s' % (max(sim[0]), answer))            
-                st.write(answer)
+                st.write(query_answer)
             else:
                 st.write("No query results")
 
@@ -109,10 +104,10 @@ def main():
     with st.expander("Dashboard results", expanded=True):
         with st.spinner(text = "In Progress..."):
             time.sleep(.25)        
-            if(answer[:5] == 'https'):
+            if(dash_answer != ''):
                 #print('Similarity: %f, %s' % (max(sim[0]), answer))              
                 if st.button('Open Dashboard'):
-                    nav_to(answer)
+                    nav_to(dash_answer)
             else:
                 st.write("No dashboard results")
 
