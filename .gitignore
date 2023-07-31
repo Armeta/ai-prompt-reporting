@@ -2,3 +2,5 @@ secrets.json
 pipfile
 pipfile.lock
 ~*
+LocalModel
+LocalModel/*
