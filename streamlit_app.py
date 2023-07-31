@@ -33,7 +33,8 @@ def env_Setup():
     #recieve options and their encodings and return
     dash_opts = [option['url'] for option in options_dash['options']]
     dash_enc = [option['encoding'] for option in options_dash['options']]
-    query_opts = [option['query'] for option in options_query['options']]
+    #query_opts = [option['query'] for option in options_query['options']]
+    query_opts = [option['result'] for option in options_query['options']]
     query_enc = [option['encoding'] for option in options_query['options']]
     return model, dash_enc, dash_opts, query_enc, query_opts
 
