@@ -7,7 +7,10 @@ modelsToTest = ['bert-base-nli-mean-tokens', 'all-mpnet-base-v2', 'all-distilrob
 
 
 f = open('json\\Options.json','r')
-options = json.load(f)
+optionsDash = json.load(f)
+f.close()
+f = open('json\\QueryOptions.json','r')
+optionsQuery = json.load(f)
 f.close()
 f = open('json\\answerKey.json','r')
 answers = json.load(f)
@@ -15,25 +18,32 @@ f.close()
 
 results = {}
 
-opts = [option['url'] if option['type'] == 'url' else option['query'] for option in options['options']]
-opt_desc = [option['desc'] for option in options['options']]
-tst_prompt = [answer['prompt'] for answer in answers['pairs']]
-tst_ans = [answer['ans'] for answer in answers['pairs']]
+dash_opts = [option['url'] for option in optionsDash['options']]
+dash_desc = [option['desc'] for option in optionsDash['options']]
+query_opts = [option['query'] for option in optionsQuery['options']]
+query_desc = [option['desc'] for option in optionsQuery['options']]
+test_pairs = [(pair['prompt'], pair['ans']) for pair in answers['pairs']]
+
 
 for modelName in modelsToTest:
     model = SentenceTransformer(modelName)
     results[modelName] = {'score': 0.0, 'time': None, 'results':[]}
     starttime = datetime.datetime.now()
 
-    optEncodings = model.encode(opt_desc)
-    for prompt, ans in zip(tst_prompt, tst_ans):
+    dashEncodings = model.encode(dash_desc)
+    queryEncodings = model.encode(query_desc)
+    for prompt, ans in test_pairs:
         promptEncoding = model.encode(prompt)
-        sim = cosine_similarity([promptEncoding], optEncodings)
-        guess = opts[sim[0].tolist().index(max(sim[0]))]
+        if(ans[:5] == 'https'): # dashboard
+            sim = cosine_similarity([promptEncoding], dashEncodings)
+            guess = dash_opts[sim[0].tolist().index(max(sim[0]))]
+        else: # query
+            sim = cosine_similarity([promptEncoding], queryEncodings)
+            guess = query_opts[sim[0].tolist().index(max(sim[0]))]
         if(guess == ans):
             results[modelName]['score'] += 1
         results[modelName]['results'].append([guess == ans, prompt, guess])
-    results[modelName]['score'] /= len(tst_prompt)
+    results[modelName]['score'] /= len(test_pairs)
     endtime = datetime.datetime.now()
     results[modelName]['time'] = (endtime-starttime).seconds
     print('%2.0f%% %s' % (results[modelName]['score']*100, modelName))
