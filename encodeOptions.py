@@ -1,10 +1,15 @@
 from sentence_transformers import SentenceTransformer
 import json
+import datetime
 
-modelName = 'all-mpnet-base-v2'
+modelName = 'all-MiniLM-L12-v2'#'all-mpnet-base-v2'
+
 
 
 def encodeFile(fileName):
+    
+    starttime = datetime.datetime.now()
+
     f = open(fileName,'r')
     options = json.load(f)
     f.close()
@@ -18,7 +23,8 @@ def encodeFile(fileName):
     f.write(json.dumps(options).replace('{', '\n{').replace('",', '",\n').replace('"}', '"\n}'))
     f.close()
 
-    print('Encoded '+fileName+' with '+modelName)
+    endtime = datetime.datetime.now()
+    print('Encoded %s with %s in %d seconds' % (fileName, modelName, (endtime-starttime).seconds))
 
 
 model = SentenceTransformer(modelName)
