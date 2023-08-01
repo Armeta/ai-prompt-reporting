@@ -11,14 +11,8 @@ import json
 # Visualizations 
 import streamlit as st
 from PIL import Image
-import webbrowser
-import numpy as np
-from bokeh.models.widgets import Div
 from streamlit.components.v1 import html
 
-# funny things with simple HTML.
-def nav_page(page_name):
-    webbrowser.open_new_tab(page_name)
 
 # load options file and set up model
 def env_Setup():
@@ -203,12 +197,10 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
 def main():
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
-    OpenDashboard = 0
 
     # sets up initial streamlit instance
     page_Setup()
     prompt = st.chat_input("Send a Message")
-
 
     # initiiate new session cache
     if "messages" not in st.session_state:
@@ -232,36 +224,38 @@ def main():
         st.session_state.messages.append({"role": "user", "content": prompt})
         # End chat - user
 
-        AssistantCache = ''
+        query_answer = ''
         #Start chat - assistant
         with st.chat_message("assistant"):
 
             # random greeting
             message_placeholder, full_response = randomGreeting() 
             message_placeholder.markdown(full_response)
-            AssistantCache += full_response
+            
+            # Write session cache for assistant 
+            st.session_state.messages.append({"role": "assistant", "content": full_response})
 
+            # check to make sure query was a question
             if prompt.find("?") != -1:
                 # Show query result 
                 if(query_answer != ''):
                     st.write(query_answer)
-                    AssistantCache += query_answer
+
+                    # Write session cache for assistant 
+                    st.session_state.messages.append({"role": "assistant", "content": query_answer})                   
                 else:
                     st.write("No query results")
-                    AssistantCache  += "No query results"
-    
+
+                    # Write session cache for assistant 
+                    st.session_state.messages.append({"role": "assistant", "content": "No query results"})  
+
                 # Show dashboard result  
                 if(dash_answer != ''):                  
                     url = dash_answer
                     st.markdown("Your query reminds me of this dashboard: [here](%s)" % url)
-                    AssistantCache  += "Your query reminds me of this dashboard: [here](%s)" % url
 
-    
-        # Write session cache for assistant                
-        st.session_state.messages.append({"role": "assistant", "content": query_answer})
-        st.session_state.messages.append({"role": "assistant", "content": AssistantCache}) 
-
- 
+                    # Write session cache for assistant 
+                    st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this dashboard: [here](%s)" % url})                        
         # End chat - assistant
 
 
