@@ -3,7 +3,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 import json
 import datetime
 
-modelsToTest = ['bert-base-nli-mean-tokens', 'all-mpnet-base-v2', 'all-distilroberta-v1', 'all-MiniLM-L12-v2', 'multi-qa-distilbert-cos-v1', 'all-MiniLM-L6-v2', 'multi-qa-MiniLM-L6-cos-v1', 'paraphrase-albert-small-v2', 'paraphrase-MiniLM-L3-v2']
+modelsToTest = ['bert-base-nli-mean-tokens', 'all-mpnet-base-v2', 'all-MiniLM-L12-v2', 'paraphrase-MiniLM-L3-v2']
+#modelsToTest = ['bert-base-nli-mean-tokens', 'all-mpnet-base-v2', 'all-distilroberta-v1', 'all-MiniLM-L12-v2', 'multi-qa-distilbert-cos-v1', 'all-MiniLM-L6-v2', 'multi-qa-MiniLM-L6-cos-v1', 'paraphrase-albert-small-v2', 'paraphrase-MiniLM-L3-v2']
 
 
 f = open('json\\Options.json','r')
