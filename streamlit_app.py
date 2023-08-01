@@ -213,6 +213,8 @@ def main():
 
     # recieve prompt from user                       
     if prompt : 
+        
+        query_answer = ''
         # run the prompt against the AI to recieve an answer
         dash_answer, query_answer = do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)
 
@@ -224,7 +226,7 @@ def main():
         st.session_state.messages.append({"role": "user", "content": prompt})
         # End chat - user
 
-        query_answer = ''
+        
         #Start chat - assistant
         with st.chat_message("assistant"):
 
@@ -235,28 +237,27 @@ def main():
             # Write session cache for assistant 
             st.session_state.messages.append({"role": "assistant", "content": full_response})
 
-            # check to make sure query was a question
-            if prompt.find("?") != -1:
-                # Show query result 
-                if(query_answer != ''):
-                    st.write(query_answer)
 
-                    # Write session cache for assistant 
-                    st.session_state.messages.append({"role": "assistant", "content": query_answer})                   
-                else:
-                    st.write("No query results")
+            # Show query result 
+            if(query_answer != ''):
+                st.write(query_answer)
 
-                    # Write session cache for assistant 
-                    st.session_state.messages.append({"role": "assistant", "content": "No query results"})  
+                # Write session cache for assistant 
+                st.session_state.messages.append({"role": "assistant", "content": query_answer})                   
+            else:
+                st.write("No query results")
 
-                # Show dashboard result  
-                if(dash_answer != ''):                  
-                    url = dash_answer
-                    st.markdown("Your query reminds me of this dashboard: [here](%s)" % url)
+                # Write session cache for assistant 
+                st.session_state.messages.append({"role": "assistant", "content": "No query results"})  
 
-                    # Write session cache for assistant 
-                    st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this dashboard: [here](%s)" % url})                        
-        # End chat - assistant
+            # Show dashboard result  
+            if(dash_answer != ''):                  
+                url = dash_answer
+                st.markdown("Your query reminds me of this dashboard: [here](%s)" % url)
+
+                # Write session cache for assistant 
+                st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this dashboard: [here](%s)" % url})                        
+    # End chat - assistant
 
 
 
