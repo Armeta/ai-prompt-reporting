@@ -232,6 +232,7 @@ def main():
 
             # random greeting
             message_placeholder, full_response = randomGreeting() 
+            full_response = "Hello! \n"
             message_placeholder.markdown(full_response)
             
             # Write session cache for assistant 
