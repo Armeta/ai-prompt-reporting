@@ -1,0 +1,41 @@
+Here is the formatted data:
+
+Region: All
+Vol Group: All
+Product Group: All
+
+Data Through: Tue Aug 01 2023
+
+Total Opportunity: $6,588,699
+Total Sales: $31,000,592
+Sell Thru %: 44.3%
+
+Department:
+Opportunity   Total Sales    Current Inventory
+
+Category     Actual     Actual $     Units
+Knit Tops    $503,330    $2,332,985    $3,052,517
+Dresses      $374,465    $1,448,520    $1,983,349
+Long Pants   $343,208    $1,464,726    $1,978,644
+Boots        $326,984    $1,491,147    $2,010,018
+Woven Tops   $325,824    $1,164,894    $1,574,962
+
+Brand:
+Opportunity   Total Sales     District Actual
+
+Brand        Total $        Total $      Units
+24 - TEXAS    $1,853,881    $5,271,251    1,118,336
+9 - LOUISIANA    $723,621    $1,430,823    601,475
+20 - PENNSYLVANIA    $601,475    $3,943,427    574,808
+1 - ALABAMA    $574,808    $1,921,911    534,155
+19 - OREGON    $534,155    $1,654,950    502,886
+
+Location:
+Opportunity   Total Sales    Sell Thru %    Location
+
+Location      Actual $    Units    %
+9 - BATON ROUGE, LA    $578,168    $696,751    28,165    44.3%
+10 - BIRMINGHAM, AL    $427,226    $845,644    33,366    44.9%
+45 - EL PASO, TX    $413,490    $876,575    31,322    44.1%
+27 - BRICK, NJ    $400,727    $854,015    30,355    44.6%
+23 - DALLAS, TX    $382,946    $685,534    24,608    43.5%

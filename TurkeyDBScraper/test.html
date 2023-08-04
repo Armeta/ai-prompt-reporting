@@ -1,0 +1,648 @@
+<html><head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Armeta - Demo</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-PWT8LYC1CF&amp;cx=c&amp;_slc=1"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="/check-browser-support-497473bd8d52fc5d8af557199ac4bb80.js" async=""></script>
+		
+<meta name="monocle/config/environment" content="%7B%22modulePrefix%22%3A%22monocle%22%2C%22environment%22%3A%22production%22%2C%22feedbackEnabled%22%3Atrue%2C%22locationType%22%3A%22auto%22%2C%22rootURL%22%3A%22/%22%2C%22disableCache%22%3Afalse%2C%22appDebug%22%3Afalse%2C%22apiDebug%22%3Afalse%2C%22apiTrustedHosts%22%3A%5B%7B%7D%5D%2C%22legacyURL%22%3A%22https%3A//intelligenceplatform.armeta.com/ip/%22%2C%22spinnerFadeTime%22%3A400%2C%22showAppLogo%22%3Afalse%2C%22showFooterLogo%22%3Atrue%2C%22showFooterVersion%22%3Atrue%2C%22googleAnalyticsTracking%22%3Atrue%2C%22dashboardMockupExtensions%22%3A%5B%22png%22%2C%22jpg%22%2C%22jpeg%22%2C%22gif%22%2C%22webp%22%5D%2C%22supportedModules%22%3A%5B%22MODU%3Aadmin%22%2C%22MODU%3Aadsubmit%22%2C%22MODU%3Aanalytics%22%5D%2C%22disabledEngines%22%3A%5B%5D%2C%22ember-toggle%22%3A%7B%22includedThemes%22%3A%5B%22default%22%5D%7D%2C%22ember-simple-auth%22%3A%7B%22authenticationRoute%22%3A%22login%22%2C%22routeAfterInvalidation%22%3A%22login%22%2C%22routeAfterAuthentication%22%3A%22home%22%2C%22routeIfAlreadyAuthenticated%22%3A%22home%22%2C%22auth0%22%3A%7B%22configurationBaseUrl%22%3A%22https%3A//cdn.auth0.com%22%2C%22clientID%22%3A%22wnd3kZKPBvFxGK7ZFuLH4Ptt7wGqlSmq%22%2C%22domain%22%3A%22auth0.armeta.com%22%2C%22scope%22%3A%22openid%20email%22%2C%22responseType%22%3A%22token%20id_token%22%2C%22redirect%22%3Afalse%2C%22sso%22%3Atrue%2C%22hardLogout%22%3Atrue%2C%22logoutReturnToPath%22%3A%22/login%22%2C%22silentAuth%22%3A%7B%22renewSeconds%22%3A1800%2C%22onSessionRestore%22%3Atrue%2C%22onSessionExpire%22%3Atrue%2C%22options%22%3A%7B%22responseType%22%3A%22token%20id_token%22%2C%22scope%22%3A%22openid%20profile%20email%22%2C%22timeout%22%3A5000%7D%7D%2C%22redirectUri%22%3A%22https%3A//ip.armeta.com/login%22%2C%22realm%22%3A%22IP-DB%22%7D%2C%22azureAD%22%3A%7B%22clientId%22%3A%22b15faf6e-7291-4236-81eb-142a022f8fd6%22%2C%22redirectUri%22%3A%22https%3A//ip.armeta.com/torii/redirect.html%22%2C%22redirectUriLogout%22%3A%22https%3A//ip.armeta.com/logout%22%2C%22scope%22%3A%22api%3A//0244f7e9-037d-4f98-8ebe-7c0989b26292/user_impersonation%22%7D%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22azure-aad%22%3A%7B%22apiKey%22%3A%22bc8d672c-cf60-4345-b046-53b707dfd473%22%2C%22redirectUri%22%3A%22http%3A//localhost%3A4200/torii/redirect.html%22%2C%22state%22%3A%22STATE%22%7D%7D%7D%2C%22ember-cli-markdown-resolver%22%3A%7B%22folders%22%3A%7B%22legal%22%3A%22app/docs/legal%22%2C%22walkthrough%22%3A%22app/docs/walkthrough%22%7D%7D%2C%22ember-cli-lightbox%22%3A%7B%22lightboxOptions%22%3A%7B%22fadeDuration%22%3A100%2C%22imageFadeDuration%22%3A200%2C%22resizeDuration%22%3A200%7D%7D%2C%22ember-cli-mirage%22%3A%7B%22enabled%22%3Afalse%2C%22excludeFilesFromBuild%22%3Atrue%2C%22usingProxy%22%3Afalse%2C%22useDefaultPassthroughs%22%3Atrue%7D%2C%22ifa%22%3A%7B%22enabled%22%3Atrue%2C%22inline%22%3Atrue%7D%2C%22fontawesome%22%3A%7B%22icons%22%3A%7B%22pro-solid-svg-icons%22%3A%22all%22%2C%22pro-regular-svg-icons%22%3A%22all%22%2C%22pro-light-svg-icons%22%3A%22all%22%7D%7D%2C%22metricsAdapters%22%3A%5B%7B%22name%22%3A%22GoogleAnalytics%22%2C%22environments%22%3A%5B%22production%22%2C%22development%22%5D%2C%22config%22%3A%7B%22id%22%3A%22UA-2730929-9%22%7D%7D%5D%2C%22contentSecurityPolicy%22%3A%7B%22font-src%22%3A%22%27self%27%20data%3A%20https%3A//*.armeta.com%22%2C%22style-src%22%3A%22%27self%27%20%27unsafe-inline%27%22%2C%22script-src%22%3A%5B%22%27self%27%20%27unsafe-eval%27%20https%3A//*.armeta.com%22%2C%22%27self%27%20www.google-analytics.com%22%5D%2C%22img-src%22%3A%22*.gravatar.com%20*.wp.com%20data%3A%22%2C%22connect-src%22%3A%5B%22%27self%27%20http%3A//localhost%3A*%20https%3A//auth0.armeta.com%22%2C%22%27self%27%20www.google-analytics.com%22%5D%7D%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22_JQUERY_INTEGRATION%22%3Atrue%7D%2C%22APP%22%3A%7B%22modules%22%3A%7B%22@armeta/monocle-commons%22%3A%7B%22name%22%3A%22@armeta/monocle-commons%22%2C%22version%22%3A%223.1.0%22%7D%2C%22@armeta/ip-admin%22%3A%7B%22name%22%3A%22@armeta/ip-admin%22%2C%22version%22%3A%223.1.0%22%7D%2C%22@armeta/ip-adsubmit%22%3A%7B%22name%22%3A%22@armeta/ip-adsubmit%22%2C%22version%22%3A%223.1.0%22%7D%2C%22@armeta/ip-analytics%22%3A%7B%22name%22%3A%22@armeta/ip-analytics%22%2C%22version%22%3A%223.1.0%22%7D%2C%22@armeta/monocle-home%22%3A%7B%22name%22%3A%22@armeta/monocle-home%22%2C%22version%22%3A%224.1.0%22%7D%7D%2C%22name%22%3A%22monocle%22%2C%22version%22%3A%224.3.6+1a8bed6e%22%7D%2C%22apiAuthType%22%3A%22auth0-lock%22%2C%22apiUsername%22%3A%22%22%2C%22apiPassword%22%3A%22%22%2C%22apiHost%22%3A%22https%3A//ip.armeta.com%22%2C%22apiNamespace%22%3A%22IP.Thor%22%2C%22apiRoot%22%3A%22https%3A//ip.armeta.com/IP.Thor/%22%2C%22exportApplicationGlobal%22%3Afalse%2C%22google-analytics-embed%22%3A%7B%22clientId%22%3A%22testservice@gifted-relic-175714.iam.gserviceaccount.com%22%2C%22apiKey%22%3A%22AIzaSyASwqoQhtMv2R6TTnNHv-qvYXaqvVpLsJU%22%7D%7D">
+<meta name="ip-admin/config/environment" content="%7B%22modulePrefix%22%3A%22ip-admin%22%2C%22environment%22%3A%22production%22%2C%22google-analytics-embed%22%3A%7B%22clientId%22%3A%22testservice@gifted-relic-175714.iam.gserviceaccount.com%22%2C%22apiKey%22%3A%22AIzaSyASwqoQhtMv2R6TTnNHv-qvYXaqvVpLsJU%22%7D%7D">
+<meta name="ip-adsubmit/config/environment" content="%7B%22modulePrefix%22%3A%22ip-adsubmit%22%2C%22environment%22%3A%22production%22%7D">
+<meta name="ip-analytics/config/environment" content="%7B%22modulePrefix%22%3A%22ip-analytics%22%2C%22environment%22%3A%22production%22%7D">
+<meta name="monocle-home/config/environment" content="%7B%22modulePrefix%22%3A%22monocle-home%22%2C%22environment%22%3A%22production%22%7D">
+
+		<link rel="shortcut icon" href="/assets/images/Armeta.icon.blue.32-d3eced6a2e4f65dc0e71b762aace8912.png">
+		<link rel="stylesheet" href="/assets/fonts/icons-c426c9fd4d66d331ad6a61c72f4d325d.css" type="text/css">
+<!--	<link rel='stylesheet' href='/assets/fonts/fonts-23b7bfd80b71dc8115b6c404248cd0c9.css' type='text/css' />	-->
+		<link href="https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans:300,400,600" rel="stylesheet">
+		<link rel="stylesheet" href="/assets/vendor-0b0d35d4d31ba33dc602e977c227e21b.css">
+		<link rel="stylesheet" href="/assets/monocle-321b34f8e357097e78809442a5160ddc.css" title="theme" id="theme-stylesheet" crossorigin="anonymous">
+
+		<meta name="monocle/config/asset-manifest" content="%7B%22bundles%22%3A%7B%22ip-admin%22%3A%7B%22assets%22%3A%5B%7B%22uri%22%3A%22/engines-dist/ip-admin/assets/engine-040442a72f1ef1e36ba10ebd8f69cab8.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-admin/assets/engine-vendor-b7313cd8744558cfb5aa7f49b34c3a66.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-admin/assets/engine-vendor-e5407cb23f4490aabdb6a5e13f991ade.css%22%2C%22type%22%3A%22css%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-admin/config/environment-7b0b3af6015af29059d23a3a603889c8.js%22%2C%22type%22%3A%22js%22%7D%5D%7D%2C%22ip-adsubmit%22%3A%7B%22assets%22%3A%5B%7B%22uri%22%3A%22/engines-dist/ip-adsubmit/assets/engine-1f229107b840e93de1b0324df9d5b352.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-adsubmit/assets/engine-vendor-3d0194215bb9c63b39ed589be9862288.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-adsubmit/assets/engine-vendor-e5407cb23f4490aabdb6a5e13f991ade.css%22%2C%22type%22%3A%22css%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-adsubmit/config/environment-b2d76863612887ff8504e2a75df8ab49.js%22%2C%22type%22%3A%22js%22%7D%5D%7D%2C%22ip-analytics%22%3A%7B%22assets%22%3A%5B%7B%22uri%22%3A%22/engines-dist/ip-analytics/assets/engine-93c02742d02e108efe870296ab808a7a.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-analytics/assets/engine-vendor-d2c263e770ffe12eeee12b559bdf45ac.css%22%2C%22type%22%3A%22css%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-analytics/assets/engine-vendor-ee0a830124512237530b61484e5e1ced.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/ip-analytics/config/environment-26f646e5e5d217c988c55960b5a83463.js%22%2C%22type%22%3A%22js%22%7D%5D%7D%2C%22monocle-home%22%3A%7B%22assets%22%3A%5B%7B%22uri%22%3A%22/engines-dist/monocle-home/assets/engine-4b66be5e41891620360a7eff7b104956.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/monocle-home/assets/engine-vendor-499ef1c1a521a7cdd398349d99b26aa1.js%22%2C%22type%22%3A%22js%22%7D%2C%7B%22uri%22%3A%22/engines-dist/monocle-home/config/environment-d7493e22cda29e1836b9404a7048de38.js%22%2C%22type%22%3A%22js%22%7D%5D%7D%7D%7D">
+	<script src="/engines-dist/monocle-home/assets/engine-4b66be5e41891620360a7eff7b104956.js"></script><script src="/engines-dist/monocle-home/assets/engine-vendor-499ef1c1a521a7cdd398349d99b26aa1.js"></script><script src="/engines-dist/monocle-home/config/environment-d7493e22cda29e1836b9404a7048de38.js"></script><script src="/engines-dist/ip-analytics/assets/engine-93c02742d02e108efe870296ab808a7a.js"></script><link rel="stylesheet" href="/engines-dist/ip-analytics/assets/engine-vendor-d2c263e770ffe12eeee12b559bdf45ac.css"><script src="/engines-dist/ip-analytics/assets/engine-vendor-ee0a830124512237530b61484e5e1ced.js"></script><script src="/engines-dist/ip-analytics/config/environment-26f646e5e5d217c988c55960b5a83463.js"></script></head>
+	<body style="display:none;" class="ember-application">
+		
+
+		<script src="/assets/vendor-75d345c102380d67f43f1d382317400f.js"></script>
+		<script src="/assets/monocle-00bb2419303d71cd57dbf0c82be9974e.js"></script>
+
+		<div class="torii-iframe-placeholder-wrapper">
+			<div class="torii-iframe-placeholder"></div>
+		</div>
+
+		<div id="ember-bootstrap-wormhole"></div>
+<div id="ember-basic-dropdown-wormhole"></div>
+	
+
+<div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href=""></a><a class="lb-next" aria-label="Next image" href=""></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div><div class="ember-view" id="ember4"><header id="ember148" class="page-header noprint ember-view"><nav id="ember149" class="navbar navbar-light navbar-expand-lg bg-light ember-view">  
+	<div class="navbar-header">
+		<div class="d-flex flex-row">
+			<button id="ember150" class="navbar-toggler collapsed ember-view">  <span class="navbar-toggler-icon"></span>
+</button>
+		</div>
+	</div>
+
+<a href="/demo/analytics" id="ember151" class="navbar-brand-tenant active ember-view">				<img src="https://static.armeta.com/IP/Logos/Tenants/Demo.png" alt="Demo">
+</a>
+	<!-- Not ever shown since ENV.showAppLogo is always false -->
+<!---->
+<div id="ember152" class="navbar-collapse collapse ember-view"><ul id="ember153" class="nav navbar-nav ember-view"><li id="ember155" class="nav-item ember-view" role="presentation"><a href="/demo" id="ember157" class="nav-link disable-active active ember-view">										Home
+
+</a>
+</li><div class="hidden-md-down">
+<li id="ember160" class="nav-item dropdown  dropdown nav-item ember-view"><a href="#" id="ember161" class="nav-link dropdown-toggle  dropdown-toggle nav-link ember-view" role="button"><!---->			Controls
+</a><!---->
+</li></div>
+
+	<div class="hidden-lg-up">
+								<div id="ember163" class="dropdown-divider dropdown-noclick dropdown-top-spacer ember-view"></div>
+		<li class="nav-item">
+<a href="/demo/analytics/controls" id="ember167" class="nav-link ember-view">															Control Panel
+
+
+</a>		</li>
+
+	</div>
+<div class="hidden-md-down">
+<li id="ember170" class="nav-item dropdown active dropdown nav-item ember-view"><a href="#" id="ember171" class="nav-link dropdown-toggle  dropdown-toggle nav-link ember-view" role="button"><!---->			Sales Accelerator
+</a><!---->
+</li></div>
+
+	<div class="hidden-lg-up">
+								<div id="ember173" class="dropdown-divider dropdown-noclick dropdown-top-spacer ember-view"></div>
+		<li class="nav-item">
+<a href="/demo/analytics/sales-opportunity?filter=e30%3D&amp;query=eyJmYW1pbHkiOjl9&amp;view=e30%3D" id="ember177" class="nav-link active ember-view">															Sales Opportunity
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/sales-retail" id="ember181" class="nav-link ember-view">															Sales Analysis
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/sales-compare" id="ember185" class="nav-link ember-view">															Dynamic Compare
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/sales-digital" id="ember189" class="nav-link ember-view">															Digital Analysis
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/analysis-product" id="ember193" class="nav-link ember-view">															Product Insight
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/location-review" id="ember197" class="nav-link ember-view">															Location Review
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/top-styles" id="ember201" class="nav-link ember-view">															Top Styles
+
+
+</a>		</li>
+
+	</div>
+<div class="hidden-md-down">
+<li id="ember204" class="nav-item dropdown  dropdown nav-item ember-view"><a href="#" id="ember205" class="nav-link dropdown-toggle  dropdown-toggle nav-link ember-view" role="button"><!---->			Omnichannel Drivers
+</a><!---->
+</li></div>
+
+	<div class="hidden-lg-up">
+								<div id="ember207" class="dropdown-divider dropdown-noclick dropdown-top-spacer ember-view"></div>
+		<li class="nav-item">
+<a href="/demo/analytics/conversion-maximizer" id="ember211" class="nav-link ember-view">															Conversion Maximizer
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/mobile-engagement" id="ember215" class="nav-link ember-view">															Mobile Engagement
+
+
+</a>		</li>
+
+	</div>
+<div class="hidden-md-down">
+<li id="ember218" class="nav-item dropdown  dropdown nav-item ember-view"><a href="#" id="ember219" class="nav-link dropdown-toggle  dropdown-toggle nav-link ember-view" role="button"><!---->			Optical Demo
+</a><!---->
+</li></div>
+
+	<div class="hidden-lg-up">
+								<div id="ember221" class="dropdown-divider dropdown-noclick dropdown-top-spacer ember-view"></div>
+		<li class="nav-item">
+<a href="/demo/analytics/optical-analysis-sales" id="ember225" class="nav-link ember-view">															Sales Analysis
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/optical-analysis-product" id="ember229" class="nav-link ember-view">															Lens Product Analysis
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/optical-compare-exams" id="ember233" class="nav-link ember-view">															Dynamic Compare Exams
+
+
+</a>		</li>
+		<li class="nav-item">
+<a href="/demo/analytics/optical-compare-product" id="ember237" class="nav-link ember-view">															Dynamic Compare Product
+
+
+</a>		</li>
+
+	</div>
+<div class="hidden-md-down">
+<li id="ember240" class="nav-item dropdown  dropdown nav-item ember-view"><a href="#" id="ember241" class="nav-link dropdown-toggle  dropdown-toggle nav-link ember-view" role="button"><!---->			Client Demos
+</a><!---->
+</li></div>
+
+	<div class="hidden-lg-up">
+								<div id="ember243" class="dropdown-divider dropdown-noclick dropdown-top-spacer ember-view"></div>
+		<li class="nav-item">
+<a href="/demo/analytics/swell-product-insights" id="ember247" class="nav-link ember-view">															S'Well Product Insights
+
+
+</a>		</li>
+
+	</div>
+<li id="ember249" class="nav-item ember-view" role="presentation"><a href="/demo/analytics/quickgrid" id="ember251" class="nav-link ember-view">										QUICK \ GRID
+
+</a>
+</li>
+			<div id="ember252" class="ember-view"></div>
+
+			<li class="nav-divider"></li>
+<!---->			<li class="nav-widgets">
+					<div class="d-lg-none nav-widget">
+<a href="/demo" id="ember253" class="nav-widget-icon nav-widget-link ember-view">								<svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="home" data-prefix="fas" id="ember254" class="svg-inline--fa fa-home fa-w-18 ember-view"><path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
+</svg>
+</a>					</div>
+				<!---->
+					<div class="nav-widget " data-ember-action="" data-ember-action-258="258">
+		<div class="nav-widget-icon">
+			<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="bell" data-prefix="fas" id="ember257" class="svg-inline--fa fa-bell fa-w-14 ember-view"><path fill="currentColor" d="M224 512c35.32 0 63.97-28.65 63.97-64H160.03c0 35.35 28.65 64 63.97 64zm215.39-149.71c-19.32-20.76-55.47-51.99-55.47-154.29 0-77.7-54.48-139.9-127.94-155.16V32c0-17.67-14.32-32-31.98-32s-31.98 14.33-31.98 32v20.84C118.56 68.1 64.08 130.3 64.08 208c0 102.3-36.15 133.53-55.47 154.29-6 6.45-8.66 14.16-8.61 21.71.11 16.4 12.98 32 32.1 32h383.8c19.12 0 32-15.6 32.1-32 .05-7.55-2.61-15.27-8.61-21.71z"></path>
+</svg>
+		</div>
+<!---->	</div>
+
+			</li>
+
+<div class="hidden-md-down">
+<li id="ember260" class="nav-item dropdown page-header-menu dropdown nav-item ember-view"><a href="#" id="ember261" class="nav-link dropdown-toggle  dropdown-toggle nav-link ember-view" role="button">				<span class="dropdown-icon">
+					<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="user" data-prefix="fas" id="ember262" class="svg-inline--fa fa-user fa-w-14 ember-view"><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path>
+</svg>
+				</span>
+			
+</a><!---->
+</li></div>
+
+	<div class="hidden-lg-up">
+		<!----><!----><!---->		<li class="nav-item">
+<a href="/logout-azure" id="ember267" class="nav-link ember-view">													Log Out
+
+
+</a>		</li>
+
+	</div>
+
+			<div class="nav-spacer"></div>
+
+
+</ul>
+</div>
+</nav><!----></header>
+
+<main id="main-body" class="main-body">
+	<article class="container-fluid">
+				<div id="ember268" class="interact-layout layout-insight responsive-md dashboard-demo-sales-accelerator ember-view">
+<!---->
+
+
+<div class="row">
+		<div class="col-md form-group ">
+				<div id="ember273" class="input-group input-group-default input-group-full ember-view">	<label class="input-group-addon" style="">
+		Region<!---->
+<!---->	</label>
+
+<div aria-owns="ember-basic-dropdown-content-ember275" tabindex="0" data-ebd-id="ember275-trigger" role="button" id="ember276" class="ember-power-select-trigger interact-select-trigger ember-basic-dropdown-trigger ember-view">    <span class="ember-power-select-selected-item">      		<span class="ember-power-select-indent-0">All</span>
+
+</span>
+<!----><span class="ember-power-select-status-icon"></span>
+</div>
+  <div id="ember-basic-dropdown-content-ember275" class="ember-basic-dropdown-content-placeholder" style="display: none;"></div>
+
+
+</div>
+<!---->
+		</div>
+		<div class="col-md form-group ">
+				<div id="ember283" class="input-group input-group-default input-group-full ember-view">	<label class="input-group-addon" style="">
+		Vol Group<!---->
+<!---->	</label>
+
+<div aria-owns="ember-basic-dropdown-content-ember285" tabindex="0" data-ebd-id="ember285-trigger" role="button" id="ember286" class="ember-power-select-trigger interact-select-trigger ember-basic-dropdown-trigger ember-view">    <span class="ember-power-select-selected-item">      		<span class="ember-power-select-indent-0">All</span>
+
+</span>
+<!----><span class="ember-power-select-status-icon"></span>
+</div>
+  <div id="ember-basic-dropdown-content-ember285" class="ember-basic-dropdown-content-placeholder" style="display: none;"></div>
+
+
+</div>
+<!---->
+		</div>
+		<div class="col-md form-group ">
+				<div id="ember293" class="input-group input-group-default input-group-full ember-view">	<label class="input-group-addon" style="">
+		Product Group<!---->
+<!---->	</label>
+
+<div aria-owns="ember-basic-dropdown-content-ember295" tabindex="0" data-ebd-id="ember295-trigger" role="button" id="ember296" class="ember-power-select-trigger interact-select-trigger ember-basic-dropdown-trigger ember-view">    <span class="ember-power-select-selected-item">      		<span class="ember-power-select-indent-0">9 - HOME</span>
+
+</span>
+<!----><span class="ember-power-select-status-icon"></span>
+</div>
+  <div id="ember-basic-dropdown-content-ember295" class="ember-basic-dropdown-content-placeholder" style="display: none;"></div>
+
+
+</div>
+<!---->
+		</div>
+<!---->	<div class="col-md-12 form-group">
+		<div id="ember300" class="input-group interact-filter-bar ember-view"><div class="input-group-addon">
+	<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="filter" data-prefix="fas" id="ember301" class="svg-inline--fa fa-filter fa-w-16 ember-view"><path fill="currentColor" d="M487.976 0H24.028C2.71 0-8.047 25.866 7.058 40.971L192 225.941V432c0 7.831 3.821 15.17 10.237 19.662l80 55.98C298.02 518.69 320 507.493 320 487.98V225.941l184.947-184.97C520.021 25.896 509.338 0 487.976 0z"></path>
+</svg>
+</div>
+<div class="input-group-addon btn btn-secondary active" role="button" data-ember-action="" data-ember-action-304="304">
+	<svg viewBox="0 0 384 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="bookmark" data-prefix="fas" id="ember302" class="svg-inline--fa fa-bookmark fa-w-12 ember-view"><path fill="currentColor" d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path>
+</svg>
+	
+<!---->
+</div>
+<div id="ember305" class="form-control filter-bar collapse ember-view">		<dl id="_interact_filterBar" class="dc-chart wash-filterList wash-chart wash-chart-interactive"><div><dt><span class="wash-filterList-reset" hidden="true">×</span><span class="wash-filterList-title">Data Through</span></dt><dd>Wed Aug 02 2023</dd></div></dl>
+
+</div><!----><div class="input-group-addon btn btn-secondary" role="button" data-ember-action="" data-ember-action-309="309">
+	<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="undo" data-prefix="fas" id="ember307" class="svg-inline--fa fa-undo fa-w-16 ember-view"><path fill="currentColor" d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z"></path>
+</svg>
+	
+<!---->
+</div>
+</div>
+	</div>
+<!----><!----></div>
+
+
+
+<!---->
+<!---->
+<!---->
+<!---->
+
+					<div class="row">
+							<div id="ember317" class="card-sleeve col-md card-break-md ember-view"><div class="card card-money">
+	<div class="card-block text-center">
+		<span class="stat-title">Total Opportunity</span>
+		<h2 class="stat-content">
+				<span id="totalOpportunity" class="dc-chart wash-chart wash-chart-interactive"><span class="number-display ">$603,115</span></span>
+
+<!---->		</h2>
+	</div>
+</div>
+</div>
+
+					<div id="ember321" class="card-sleeve col-md card-break-md ember-view"><div class="card card-thin">
+	<div class="card-block text-center">
+		<span class="stat-title">Total Sales</span>
+		<h2 class="stat-content">
+				<span id="totalSales" class="dc-chart wash-chart wash-chart-interactive"><span class="number-display ">$2,123,136</span></span>
+
+<!---->		</h2>
+	</div>
+</div>
+</div>
+
+					<div id="ember325" class="card-sleeve col-md card-break-md ember-view"><div class="card card-thin">
+	<div class="card-block text-center">
+		<span class="stat-title">Sell Thru %</span>
+		<h2 class="stat-content">
+				<span id="totalSellThru" class="dc-chart wash-chart wash-chart-interactive"><span class="number-display ">45.6%</span></span>
+
+<!---->		</h2>
+	</div>
+</div>
+</div>
+
+
+	</div>
+
+
+				<div class="row">
+							<div id="ember332" class="card-sleeve col-md-3 card-break-md ember-view"><!---->
+
+<div class="card ">
+
+<!---->
+	<div class="card-block">
+				<div id="productDepartment" class="card-chart dc-chart wash-chart wash-chart-interactive"><svg viewBox="0 0 193.8916015625 193.8916015625" style="max-height: 200px;"><g transform="translate(96.94580078125,96.94580078125)"><g class="pie-slice-group"><g class="pie-slice _0 wash-selectable"><path fill="rgb(48, 69, 21)" d="M5.9362182308767396e-15,-96.94580078125A96.94580078125,96.94580078125 0 0,1 0.12596966125790357,-96.945718939839L0.06298483062895179,-48.4728594699195A48.472900390625,48.472900390625 0 0,0 2.9681091154383698e-15,-48.472900390625Z"></path><title></title></g><g class="pie-slice _1 wash-selectable"><path fill="rgb(83, 119, 38)" d="M0.12596966125790357,-96.945718939839A96.94580078125,96.94580078125 0 0,1 0.14696049227306907,-96.94568939221344L0.07348024613653453,-48.47284469610672A48.472900390625,48.472900390625 0 0,0 0.06298483062895179,-48.4728594699195Z"></path><title></title></g><g class="pie-slice _2 wash-selectable"><path fill="rgb(117, 163, 53)" d="M0.14696049227306907,-96.94568939221344A96.94580078125,96.94580078125 0 0,1 0.16777922865659983,-96.94565559759883L0.08388961432829992,-48.472827798799415A48.472900390625,48.472900390625 0 0,0 0.07348024613653453,-48.47284469610672Z"></path><title></title></g><g class="pie-slice _3 wash-selectable"><path fill="rgb(162, 198, 72)" d="M0.16777922865659983,-96.94565559759883A96.94580078125,96.94580078125 0 0,1 0.1679268784133909,-96.94565534195598L0.08396343920669545,-48.47282767097799A48.472900390625,48.472900390625 0 0,0 0.08388961432829992,-48.472827798799415Z"></path><title></title></g></g><g class="pie-label-group"><text class="pie-slice pie-label _0 wash-selectable" text-anchor="middle" transform="translate(0.014167325924514773,0.014180305401168826)">6 - SOFT HOME</text><text class="pie-slice pie-label _1 wash-selectable" text-anchor="middle" transform="translate(-0.018511955967346196,-0.007687763898399354)">5 - LUGGAGE</text><text class="pie-slice pie-label _2 wash-selectable" text-anchor="middle" transform="translate(-0.00771347518789673,-0.01850125647006226)">7 - HARD HOME</text><text class="pie-slice pie-label _3 wash-selectable" text-anchor="middle" transform="translate(-0.00005536866932725907,-0.02004472888806153)"></text></g></g><g id="backButton" style="visibility: hidden; opacity: 0.999744;"><g><circle r="20" fill="white" class="pie-slice _B ring-button" cx="96.94580078125" cy="96.94580078125"></circle></g><svg viewBox="0 0 512 512"><path fill="currentColor" d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z" style="transform-origin: center center; transform: scale(0.08); pointer-events: none;"></path></svg><text class="_B" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="pointer-events: none; visibility: hidden;">tooltip</text></g></svg></div>
+
+				<div class="card-chart"></div>
+
+			</div>
+
+		<div class="card-footer ">
+			<div class="chart-footer">
+<!----><!---->			</div>
+					<h3>
+		Department
+	</h3>
+<!---->
+<!---->
+				
+		</div>
+</div>
+</div>
+
+					<div id="ember339" class="card-sleeve col-md-6 card-break-md ember-view"><!---->
+
+<div class="card ">
+
+		<div class="card-header ">
+<!---->				<div id="ember341" class="mb-3 ember-view"><div id="ember342" class="ember-view"><div class="input-group input-search-box">
+		<div class="input-group-addon">
+			<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="search" data-prefix="fas" id="ember343" class="svg-inline--fa fa-search fa-w-16 ember-view"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+</svg>
+		</div>
+	<input autocomplete="off" placeholder="Search..." id="ember344" class="form-control ember-text-field ember-view" type="text">
+</div>
+</div>
+
+<!----></div>
+		</div>
+
+	<div class="card-block">
+			<div class="card-block-scroll">
+					<table id="productCategories" class="table table-hover table-bordered table-sm dc-data-table metric-table dc-chart wash-chart wash-chart-interactive"><thead><tr class="wash-table-header wash-table-extra"><th colspan="1"></th><th colspan="1">Opportunity</th><th colspan="1">Total Sales</th><th colspan="2">Current Inventory</th></tr><tr class="wash-table-header"><th class="dc-table-head"><a class="wash-table-sort">Category<span class="wash-sort-chevron"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">Actual<span class="wash-sort-chevron wash-sort-desc"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">Actual<span class="wash-sort-chevron"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">$<span class="wash-sort-chevron"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">Units<span class="wash-sort-chevron"></span></a></th></tr><tr class="wash-table-total"><th>Total</th><th>$603,115</th><th>$2,123,136</th><th>$2,587,898</th><th>105,140</th></tr></thead><tbody><tr class="dc-table-row"><td class="dc-table-column _0">Kitchen Electrics</td><td class="dc-table-column _1 wash-table-money">$86,761</td><td class="dc-table-column _2">$399,456</td><td class="dc-table-column _3">$439,356</td><td class="dc-table-column _4">10,163</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">Tabletop</td><td class="dc-table-column _1 wash-table-money">$75,814</td><td class="dc-table-column _2">$255,551</td><td class="dc-table-column _3">$316,800</td><td class="dc-table-column _4">17,649</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">Luggage</td><td class="dc-table-column _1 wash-table-money">$75,389</td><td class="dc-table-column _2">$297,714</td><td class="dc-table-column _3">$400,142</td><td class="dc-table-column _4">6,921</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">Home Decor</td><td class="dc-table-column _1 wash-table-money">$72,353</td><td class="dc-table-column _2">$194,399</td><td class="dc-table-column _3">$244,277</td><td class="dc-table-column _4">12,301</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">Basic Housewares</td><td class="dc-table-column _1 wash-table-money">$67,536</td><td class="dc-table-column _2">$155,395</td><td class="dc-table-column _3">$187,435</td><td class="dc-table-column _4">12,729</td></tr></tbody></table>
+
+					<div class="card-chart"></div>
+
+			</div>
+			<div class="card-block-shadow"></div>
+	</div>
+
+		<div class="card-footer ">
+			<div class="chart-footer">
+<!---->					<nav id="ember347" class="chart-pager ember-view"><ul id="ember348" class="pagination ember-view">	<li class="page-item disabled">
+		<a class="page-link" aria-label="Previous" data-ember-action="" data-ember-action-349="349">
+			<span aria-hidden="true">«</span>
+			<span class="sr-only">Previous</span>
+		</a>
+	</li>
+	<li class="page-item active ">
+		<a class="page-link" data-ember-action="" data-ember-action-409="409">1</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-411="411">2</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-413="413">3</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-415="415">4</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-417="417">5</a>
+	</li>
+	<li class="page-item ">
+		<a class="page-link" aria-label="Next" data-ember-action="" data-ember-action-352="352">
+			<span aria-hidden="true">»</span>
+			<span class="sr-only">Next</span>
+		</a>
+	</li>
+</ul>
+</nav>
+			</div>
+<!---->		</div>
+</div>
+</div>
+
+					<div id="ember355" class="card-sleeve col-md-3 card-break-md ember-view"><!---->
+
+<div class="card ">
+
+<!---->
+	<div class="card-block">
+				<div id="productBrand" class="card-chart dc-chart wash-chart wash-chart-interactive"><svg viewBox="0 0 193.8916015625 193.8916015625" style="max-height: 200px;"><g transform="translate(96.94580078125,96.94580078125)"><g class="pie-slice-group"><g class="pie-slice _0 wash-selectable"><path fill="rgb(48, 69, 21)" d="M5.9362182308767396e-15,-96.94580078125A96.94580078125,96.94580078125 0 0,1 0.0023490650971505693,-96.94580075279025L0.0011745325485752846,-48.472900376395124A48.472900390625,48.472900390625 0 0,0 2.9681091154383698e-15,-48.472900390625Z"></path><title></title></g><g class="pie-slice _1 wash-selectable"><path fill="rgb(83, 119, 38)" d="M0.0023490650971505693,-96.94580075279025A96.94580078125,96.94580078125 0 0,1 0.00447798696006413,-96.9458006778295L0.002238993480032065,-48.47290033891475A48.472900390625,48.472900390625 0 0,0 0.0011745325485752846,-48.472900376395124Z"></path><title></title></g><g class="pie-slice _2 wash-selectable"><path fill="rgb(117, 163, 53)" d="M0.00447798696006413,-96.9458006778295A96.94580078125,96.94580078125 0 0,1 0.006406933492497956,-96.94580056953997L0.003203466746248978,-48.472900284769985A48.472900390625,48.472900390625 0 0,0 0.002238993480032065,-48.47290033891475Z"></path><title></title></g><g class="pie-slice _3 wash-selectable"><path fill="rgb(162, 198, 72)" d="M0.006406933492497956,-96.94580056953997A96.94580078125,96.94580078125 0 0,1 0.008214862006494033,-96.94580043320008L0.004107431003247016,-48.47290021660004A48.472900390625,48.472900390625 0 0,0 0.003203466746248978,-48.472900284769985Z"></path><title></title></g><g class="pie-slice _4 wash-selectable"><path fill="rgb(0, 42, 90)" d="M0.008214862006494033,-96.94580043320008A96.94580078125,96.94580078125 0 0,1 0.010001944834153183,-96.94580026529728L0.005000972417076591,-48.47290013264864A48.472900390625,48.472900390625 0 0,0 0.004107431003247016,-48.47290021660004Z"></path><title></title></g><g class="pie-slice _5 wash-selectable"><path fill="rgb(56, 87, 123)" d="M0.010001944834153183,-96.94580026529728A96.94580078125,96.94580078125 0 0,1 0.07983967269109146,-96.94576790528032L0.03991983634554573,-48.47288395264016A48.472900390625,48.472900390625 0 0,0 0.005000972417076591,-48.47290013264864Z"></path><title></title></g></g><g class="pie-label-group"><text class="pie-slice pie-label _0 wash-selectable" text-anchor="middle" transform="translate(0.0008796455625000001,-0.009489477000000001)"></text><text class="pie-slice pie-label _1 wash-selectable" text-anchor="middle" transform="translate(0.0025294632500000003,-0.009188349)"></text><text class="pie-slice pie-label _2 wash-selectable" text-anchor="middle" transform="translate(0.003958184,-0.008669298)"></text><text class="pie-slice pie-label _3 wash-selectable" text-anchor="middle" transform="translate(0.005185628,-0.0079958245)"></text><text class="pie-slice pie-label _4 wash-selectable" text-anchor="middle" transform="translate(0.006261145,-0.007184846000000001)"></text><text class="pie-slice pie-label _5 wash-selectable" text-anchor="middle" transform="translate(-0.0036546497500000003,0.008801562)">Others</text></g></g><g id="backButton" style="visibility: hidden; opacity: 0.999892;"><g><circle r="20" fill="white" class="pie-slice _B ring-button" cx="96.94580078125" cy="96.94580078125"></circle></g><svg viewBox="0 0 512 512"><path fill="currentColor" d="M212.333 224.333H12c-6.627 0-12-5.373-12-12V12C0 5.373 5.373 0 12 0h48c6.627 0 12 5.373 12 12v78.112C117.773 39.279 184.26 7.47 258.175 8.007c136.906.994 246.448 111.623 246.157 248.532C504.041 393.258 393.12 504 256.333 504c-64.089 0-122.496-24.313-166.51-64.215-5.099-4.622-5.334-12.554-.467-17.42l33.967-33.967c4.474-4.474 11.662-4.717 16.401-.525C170.76 415.336 211.58 432 256.333 432c97.268 0 176-78.716 176-176 0-97.267-78.716-176-176-176-58.496 0-110.28 28.476-142.274 72.333h98.274c6.627 0 12 5.373 12 12v48c0 6.627-5.373 12-12 12z" style="transform-origin: center center; transform: scale(0.08); pointer-events: none;"></path></svg><text class="_B" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" style="pointer-events: none; visibility: hidden;">tooltip</text></g></svg></div>
+
+				<div class="card-chart"></div>
+
+			</div>
+
+		<div class="card-footer ">
+			<div class="chart-footer">
+<!----><!---->			</div>
+					<h3>
+		Brand
+	</h3>
+<!---->
+<!---->
+				
+		</div>
+</div>
+</div>
+
+
+	</div>
+
+
+				<div class="row">
+							<div id="ember365" class="card-sleeve col-md-4 card-break-md ember-view"><!---->
+
+<div class="card ">
+
+		<div class="card-header ">
+<!---->				<div id="ember367" class="mb-3 ember-view"><div id="ember368" class="ember-view"><div class="input-group input-search-box">
+		<div class="input-group-addon">
+			<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="search" data-prefix="fas" id="ember369" class="svg-inline--fa fa-search fa-w-16 ember-view"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+</svg>
+		</div>
+	<input autocomplete="off" placeholder="Search..." id="ember370" class="form-control ember-text-field ember-view" type="text">
+</div>
+</div>
+
+<!----></div>
+		</div>
+
+	<div class="card-block">
+			<div class="card-block-scroll">
+					<table id="totalDistricts" class="table table-hover table-bordered table-sm dc-data-table metric-table dc-chart wash-chart wash-chart-interactive"><thead><tr class="wash-table-header wash-table-extra"><th colspan="1"></th><th colspan="1">Opportunity</th><th colspan="1">Total Sales</th></tr><tr class="wash-table-header"><th class="dc-table-head"><a class="wash-table-sort">District<span class="wash-sort-chevron"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">Actual<span class="wash-sort-chevron wash-sort-desc"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">$<span class="wash-sort-chevron"></span></a></th></tr><tr class="wash-table-total"><th>Total</th><th>$603,115</th><th>$2,123,136</th></tr></thead><tbody><tr class="dc-table-row"><td class="dc-table-column _0">24 - TEXAS</td><td class="dc-table-column _1 wash-table-money">$128,125</td><td class="dc-table-column _2">$514,740</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">9 - LOUISIANA</td><td class="dc-table-column _1 wash-table-money">$91,899</td><td class="dc-table-column _2">$91,983</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">17 - NEW JERSEY</td><td class="dc-table-column _1 wash-table-money">$76,770</td><td class="dc-table-column _2">$98,255</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">19 - OREGON</td><td class="dc-table-column _1 wash-table-money">$67,036</td><td class="dc-table-column _2">$86,864</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">1 - ALABAMA</td><td class="dc-table-column _1 wash-table-money">$63,552</td><td class="dc-table-column _2">$153,225</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">20 - PENNSYLVANIA</td><td class="dc-table-column _1 wash-table-money">$51,059</td><td class="dc-table-column _2">$262,174</td></tr></tbody></table>
+
+					<div class="card-chart"></div>
+
+			</div>
+			<div class="card-block-shadow"></div>
+	</div>
+
+		<div class="card-footer ">
+			<div class="chart-footer">
+<!---->					<nav id="ember373" class="chart-pager ember-view"><ul id="ember374" class="pagination ember-view">	<li class="page-item disabled">
+		<a class="page-link" aria-label="Previous" data-ember-action="" data-ember-action-375="375">
+			<span aria-hidden="true">«</span>
+			<span class="sr-only">Previous</span>
+		</a>
+	</li>
+	<li class="page-item active ">
+		<a class="page-link" data-ember-action="" data-ember-action-419="419">1</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-421="421">2</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-423="423">3</a>
+	</li>
+	<li class="page-item ">
+		<a class="page-link" aria-label="Next" data-ember-action="" data-ember-action-378="378">
+			<span aria-hidden="true">»</span>
+			<span class="sr-only">Next</span>
+		</a>
+	</li>
+</ul>
+</nav>
+			</div>
+<!---->		</div>
+</div>
+</div>
+
+					<div id="ember381" class="card-sleeve col-md-8 card-break-md ember-view"><!---->
+
+<div class="card ">
+
+		<div class="card-header ">
+<!---->				<div id="ember383" class="mb-3 ember-view"><div id="ember384" class="ember-view"><div class="input-group input-search-box">
+		<div class="input-group-addon">
+			<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="search" data-prefix="fas" id="ember385" class="svg-inline--fa fa-search fa-w-16 ember-view"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
+</svg>
+		</div>
+	<input autocomplete="off" placeholder="Search..." id="ember386" class="form-control ember-text-field ember-view" type="text">
+</div>
+</div>
+
+<!----></div>
+		</div>
+
+	<div class="card-block">
+			<div class="card-block-scroll">
+					<table id="totalLocations" class="table table-hover table-bordered table-sm dc-data-table metric-table dc-chart wash-chart wash-chart-interactive"><thead><tr class="wash-table-header wash-table-extra"><th colspan="1"></th><th colspan="1">Opportunity</th><th colspan="2">Total Sales</th><th colspan="1">Sell Thru %</th></tr><tr class="wash-table-header"><th class="dc-table-head"><a class="wash-table-sort">Location<span class="wash-sort-chevron"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">Actual<span class="wash-sort-chevron wash-sort-desc"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">$<span class="wash-sort-chevron"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">Units<span class="wash-sort-chevron"></span></a></th><th class="dc-table-head"><a class="wash-table-sort">%<span class="wash-sort-chevron"></span></a></th></tr><tr class="wash-table-total"><th>Total</th><th>$603,115</th><th>$2,123,136</th><th>88,087</th><th>45.6%</th></tr></thead><tbody><tr class="dc-table-row"><td class="dc-table-column _0">9 - BATONROUGE,LA</td><td class="dc-table-column _1 wash-table-money">$81,767</td><td class="dc-table-column _2">$47,353</td><td class="dc-table-column _3">2,051</td><td class="dc-table-column _4">46.9%</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">27 - BRICK,NJ</td><td class="dc-table-column _1 wash-table-money">$76,770</td><td class="dc-table-column _2">$98,255</td><td class="dc-table-column _3">3,309</td><td class="dc-table-column _4">46.1%</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">10 - BIRMINGHAM,AL</td><td class="dc-table-column _1 wash-table-money">$56,638</td><td class="dc-table-column _2">$64,488</td><td class="dc-table-column _3">2,771</td><td class="dc-table-column _4">47.8%</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">41 - EUGENE,OR</td><td class="dc-table-column _1 wash-table-money">$53,744</td><td class="dc-table-column _2">$48,897</td><td class="dc-table-column _3">2,045</td><td class="dc-table-column _4">45.7%</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">38 - AUSTIN,TX</td><td class="dc-table-column _1 wash-table-money">$32,638</td><td class="dc-table-column _2">$106,367</td><td class="dc-table-column _3">3,072</td><td class="dc-table-column _4">44.6%</td></tr><tr class="dc-table-row"><td class="dc-table-column _0">23 - DALLAS,TX</td><td class="dc-table-column _1 wash-table-money">$29,686</td><td class="dc-table-column _2">$75,971</td><td class="dc-table-column _3">2,633</td><td class="dc-table-column _4">42.3%</td></tr></tbody></table>
+
+					<div class="card-chart"></div>
+
+			</div>
+			<div class="card-block-shadow"></div>
+	</div>
+
+		<div class="card-footer ">
+			<div class="chart-footer">
+<!---->					<nav id="ember389" class="chart-pager ember-view"><ul id="ember390" class="pagination ember-view">	<li class="page-item disabled">
+		<a class="page-link" aria-label="Previous" data-ember-action="" data-ember-action-391="391">
+			<span aria-hidden="true">«</span>
+			<span class="sr-only">Previous</span>
+		</a>
+	</li>
+	<li class="page-item active ">
+		<a class="page-link" data-ember-action="" data-ember-action-425="425">1</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-427="427">2</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-429="429">3</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-431="431">4</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-433="433">5</a>
+	</li>
+	<li class="page-item  ">
+		<a class="page-link" data-ember-action="" data-ember-action-435="435">6</a>
+	</li>
+	<li class="page-item ">
+		<a class="page-link" aria-label="Next" data-ember-action="" data-ember-action-394="394">
+			<span aria-hidden="true">»</span>
+			<span class="sr-only">Next</span>
+		</a>
+	</li>
+</ul>
+</nav>
+			</div>
+<!---->		</div>
+</div>
+</div>
+
+
+	</div>
+
+
+
+
+
+
+</div>
+<!---->
+<div id="ember396" class="liquid-spinner noprint liquid-container ember-view"><!----></div>
+
+<div id="ember399" class="interact-help ember-view"><!----></div>
+<!---->
+
+
+
+	</article>
+</main>
+
+	<footer id="ember400" class="navbar navbar-default page-footer page-footer-overlay-md noprint ember-view">	<span class="page-footer-left">
+		<img src="/assets/images/Armeta.logo.footer-841f87535a6daa03724b4ae5f7b36bc7.png">
+	</span>
+
+	<span class="page-footer-right">
+		Version 4.3.6
+	</span>
+</footer>
+
+
+	<footer id="ember401" class="navbar navbar-default page-footer page-footer-overlay-md noprint ember-view">	<span class="page-footer-left">
+		<img src="/assets/images/Armeta.logo.footer-841f87535a6daa03724b4ae5f7b36bc7.png">
+	</span>
+
+	<span class="page-footer-right">
+		Version 4.3.6
+	</span>
+</footer>
+
+<div class="container-fluid">
+
+<!---->
+<!---->
+<!---->
+	<div id="ember402" class="ember-view"><!----></div>
+
+	<div id="ember403" class="ember-view"><!----></div>
+
+		<div id="ember404" class="ember-view"><!----></div>
+
+</div>
+
+<div id="ember12" class="liquid-spinner noprint liquid-page-spinner liquid-container ember-view liquid-animating" style="width: 1020.71px; height: 574.11px;"><!----><div id="ember62" class="liquid-child ember-view velocity-animating" style="top: 0px; left: 0px; width: 1020.71px; height: 574.11px; position: absolute; opacity: 0.98468;">        	<div class="page-spinner">
+		<div class="page-spinner-container"><svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" role="img" focusable="false" aria-hidden="true" data-icon="cog" data-prefix="fas" id="ember63" class="svg-inline--fa fa-cog fa-w-16 fa-spin fa-5x ember-view"><path fill="currentColor" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"></path>
+</svg></div>
+		
+	</div>
+
+</div></div>
+
+<div id="outlet-modal"></div>
+<div id="outlet-submit"></div>
+</div><div class="d3-tip wash-tip" style="position: absolute; top: 0px; opacity: 0; pointer-events: none; box-sizing: border-box;"></div><div class="d3-tip wash-tip" style="position: absolute; top: 0px; opacity: 0; pointer-events: none; box-sizing: border-box;"></div></body></html>

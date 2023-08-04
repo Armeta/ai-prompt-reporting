@@ -1,0 +1,367 @@
+
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?filter=e30%3D&query=e30%3D&view=e30%3D
+
+region = , vol group = , product group = 
+
+Total oppurtunity = $6,588,699, Total Sales = $31,000,592, Sell Thru = 44.3%
+
+Department, Opportunity, Total Sales, Current Inventory, Category, Actual Actual $ Units, Total $, Total $6,588,699, $31,000,592, $39,205,941, 1,403,727, Knit Tops, $503,330, $2,332,985, $3,052,517, 155,078, Dresses, $374,465, $1,448,520, $1,983,349, 59,802, Long Pants, $343,208, $1,464,726, $1,978,644, 73,654, Boots, $326,984, $1,491,147, $2,010,018, 34,272, Woven Tops, $325,824, $1,164,894, $1,574,962, 64,676
+
+Brand, Opportunity, Total Sales, District Actual, Total $, Total $6,588,699, $31,000,592, 24 - TEXAS, $1,853,881, $5,271,251, 9 - LOUISIANA, $723,621, $1,430,823, 20 - PENNSYLVANIA, $601,475, $3,943,427, 1 - ALABAMA, $574,808, $1,921,911, 19 - OREGON, $534,155, $1,654,950, 16 - NEW HAMPSHIRE, $502,886, $1,648,139
+
+Location, Opportunity, Total Sales, Sell Thru %, Location Actual, $ Units, %, Total $, Total $6,588,699, $31,000,592, 1,118,336, 44.3%, 9 - BATON ROUGE, LA, $578,168, $696,751, 28,165, 44.3%, 10 - BIRMINGHAM, AL, $427,226, $845,644, 33,366, 44.9%, 45 - EL PASO, TX, $413,490, $876,575, 31,322, 44.1%, 27 - BRICK, NJ, $400,727, $854,015, 30,355, 44.6%, 23 - DALLAS, TX, $382,946, $685,534, 24,608, 43.5%, 41 - EUGENE, OR, $381,869, $822,982, 28,342
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjl9
+
+region = All, vol group = All, product group = 9 - HOME
+ Total opportunity = $603,115, Total Sales = $2,123,136, Sell Thru = 45.6%
+
+Department, Opportunity, Total Sales, Current Inventory
+Kitchen Electrics, $86,761, $399,456, $439,356
+Tabletop, $75,814, $255,551, $316,800
+Luggage, $75,389, $297,714, $400,142
+Home Decor, $72,353, $194,399, $244,277
+Basic Housewares, $67,536, $155,395, $187,435
+
+Brand, Opportunity, Total Sales, District
+24 - TEXAS, $128,125, $514,740
+9 - LOUISIANA, $91,899, $91,983
+17 - NEW JERSEY, $76,770, $98,255
+19 - OREGON, $67,036, $86,864
+1 - ALABAMA, $63,552, $153,225
+20 - PENNSYLVANIA, $51,059, $262,174
+
+Location, Opportunity, Total Sales, Sell Thru %
+9 - BATON ROUGE, LA, $81,767, $47,353, 46.9%
+27 - BRICK, NJ, $76,770, $98,255, 46.1%
+10 - BIRMINGHAM, AL, $56,638, $64,488, 47.8%
+41 - EUGENE, OR, $53,744, $48,897, 45.7%
+38 - AUSTIN, TX, $32,638, $106,367, 44.6%
+23 - DALLAS, TX, $29,686, $75,971, 42.3%
+
+Others: 
+Opportunity: $5,583,619
+Opportunity % To Total: 84.75%
+Sales: $25,882,784
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjh9
+
+Region = All
+Vol Group = All
+Product Group = 8 - SHOES
+Total Opportunity = $852,394
+Total Sales = $4,108,766
+Sell Thru % = 42.4%
+
+Department, Opportunity, Total Sales, Current Inventory
+Boots, $321,280, $1,471,683, $1,987,045
+Casual Shoes, $247,527, $1,592,427, $2,076,661
+Dress Shoes, $159,603, $663,842, $946,246
+Sandals, $65,469, $166,326, $222,877
+Athletic Shoes, $52,455, $202,730, $286,238
+
+Brand, Opportunity, Total Sales, District
+24 - TEXAS, $304,004, $627,454
+16 - NEW HAMPSHIRE, $95,369, $158,983
+9 - LOUISIANA, $70,792, $194,046
+1 - ALABAMA, $64,524, $264,246
+19 - OREGON, $56,422, $197,759
+3 - CALIFORNIA, $54,571, $215,040
+
+Location, Opportunity, Total Sales, Sell Thru %
+25 - MANCHESTER, NH, $68,411, $60,607, 43.0%
+45 - EL PASO, TX, $67,853, $58,313, 43.0%
+23 - DALLAS, TX, $64,419, $55,558, 40.9%
+38 - AUSTIN, TX, $58,287, $149,661, 46.3%
+9 - BATON ROUGE, LA, $48,357, $111,417, 43.8%
+48 - WACO, TX, $47,253, $99,982, 41.2%
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjd9
+
+Region,Vol Group,Product Group
+All,All,7 - ACCESSORIES
+
+Total Opportunity,$680,310
+Total Sales,$3,750,661
+Sell Thru %,44.4%
+
+Department,Opportunity,Total Sales,Current Inventory
+Category,Actual $,Actual Units,Total $
+Handbags,$202,225,27,908,$1,724,875
+Legwear,$62,820,36,481,$331,609
+Earrings,$58,527,25,573,$451,749
+Small Leather Goods,$55,178,9,503,$328,837
+Watches,$52,159,5,134,$363,945
+
+Brand,Opportunity,Total Sales
+District,Actual $,Total $
+24 - TEXAS,$202,614,$652,227
+9 - LOUISIANA,$79,865,$179,928
+1 - ALABAMA,$60,757,$185,047
+19 - OREGON,$57,229,$246,581
+20 - PENNSYLVANIA,$53,516,$447,708
+16 - NEW HAMPSHIRE,$51,652,$238,270
+
+Location,Opportunity,Total Sales,Sell Thru %
+Actual $,Actual Units,Total %,Location
+$Units,132,287,44.4%,9 - BATONROUGE,LA
+$Units,3,633,44.9%,23 - DALLAS,TX
+$Units,2,911,42.5%,10 - BIRMINGHAM,AL
+$Units,3,515,45.2%,41 - EUGENE,OR
+$Units,5,897,47.5%,45 - ELPASO,TX
+$Units,4,405,44.9%,38 - AUSTIN,TX
+
+Others Opportunity,$5,583,619
+Opportunity % To Total,84.75%
+Sales,$25,882,784
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjZ9
+
+region = All
+vol group = All
+product group = 7 - ACCESSORIES
+
+Total opportunity = $680,310
+Total sales = $3,750,661
+Sell Thru = 44.4%
+
+Department, Opportunity, Total Sales, Current Inventory, Category, Actual Units, Total, Handbags, $202,225, $1,345,030, $1,724,875, 27,908
+Legwear, $62,820, $306,143, $331,609, 36,481
+Earrings, $58,527, $347,268, $451,749, 25,573
+Small Leather Goods, $55,178, $252,055, $328,837, 9,503
+Watches, $52,159, $240,485, $363,945, 5,134
+
+Brand, Opportunity, Total Sales, District, Actual, Total, Michael Kors, $202,614, $652,227, 9 - LOUISIANA, $79,865, $179,928, 1 - ALABAMA, $60,757, $185,047, 19 - OREGON, $57,229, $246,581, 20 - PENNSYLVANIA, $53,516, $447,708, 16 - NEW HAMPSHIRE, $51,652, $238,270
+
+Location, Opportunity, Total Sales, Sell Thru %, Actual, Units, Total, 9 - BATON ROUGE, LA, $69,500, $74,726, 3,633, 44.9%
+23 - DALLAS, TX, $48,110, $80,410, 2,911, 42.5%
+10 - BIRMINGHAM, AL, $45,004, $73,947, 3,515, 45.2%
+41 - EUGENE, OR, $43,671, $140,996, 2,855, 43.1%
+45 - EL PASO, TX, $42,628, $138,958, 5,897, 47.5%
+38 - AUSTIN, TX, $36,360, $135,090, 4,405, 44.9%
+
+Others:
+Opportunity: $5,583,619
+Opportunity % To Total: 84.75%
+Sales: $25,882,784
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjV9
+
+region=All, vol group=All, product group=5 - CHILDRENS
+Total Opportunity=$806,217
+Total Sales=$2,467,571
+Sell Thru %=43.2%
+
+Department,Opportunity,Total Sales,Current Inventory,CategoryActual,Actual$Units,Total,$806,217,$2,467,571,$3,221,522,202,994
+- GIRLS, $98,453, $303,322, $419,323, 32,007
+- BOYS, $96,499, $280,555, $378,056, 23,498
+- KIDS BASIC, $59,898, $241,164, $301,293, 11,519
+- NEWBORN, $51,292, $179,683, $229,934, 12,206
+- Layette, $51,054, $278,711, $369,122, 32,910
+
+Brand,Opportunity,Total Sales,District,Actual$Total,$806,217,$2,467,571
+Carter's, $171,512, $584,001, 24 - TEXAS
+Under Armour, $112,824, $69,891, 9 - LOUISIANA
+Others, $102,038, $184,871, 1 - ALABAMA
+, $90,924, $90,892, 19 - OREGON
+, $89,874, $259,110, 20 - PENNSYLVANIA
+, $75,050, $48,607, 17 - NEW JERSEY
+
+Location,Opportunity,Total Sales,Sell Thru %,Actual$Units,%Total,$806,217,$2,467,571,154,108,43.2%
+BATON ROUGE,LA, $94,609, $33,133, 2,933, 41.8%
+BIRMINGHAM,AL, $88,833, $99,448, 6,625, 44.7%
+EUGENE,OR, $76,366, $40,966, 3,079, 41.7%
+BRICK,NJ, $75,050, $48,607, 3,369, 41.6%
+EL PASO,TX, $51,615, $149,525, 5,471, 43.3%
+PHILADELPHIA,PA, $38,692, $81,328, 6,666, 44.1%
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjR9
+
+Region = All
+Vol Group = All
+Product Group = 4 - JUNIORS
+
+Total Opportunity = $367,486
+Total Sales = $1,263,620
+Sell Thru % = 42.7%
+
+Department, Opportunity, Total Sales, Current Inventory, Category, Actual, Actual, $Units
+Dresses, $63,600, $214,828, $300,637, 9,572
+Long Denim, $61,129, $282,878, $374,437, 10,314
+Knit Tops, $58,415, $169,684, $227,592, 14,749
+Woven Tops, $55,826, $200,083, $276,864, 12,146
+Sweaters, $34,875, $142,371, $181,536, 7,088
+
+Brand, Opportunity, Total Sales, District, Actual, $Total
+Silver, $72,187, $290,649, 24 - TEXAS
+Byer, $51,618, $52,439, 9 - LOUISIANA
+Hippie Laundry, $41,434, $89,966, 1 - ALABAMA
+Others, $165,247, $830,566, 
+
+Location, Opportunity, Total Sales, Sell Thru %, Location, Actual, $Units, %
+9 - BATONROUGE,LA, $43,040, $22,465, 42.3%, 1,137
+27 - BRICK,NJ, $34,501, $28,010, 42.0%, 1,098
+10 - BIRMINGHAM,AL, $33,534, $40,179, 43.5%, 1,435
+41 - EUGENE,OR, $29,039, $29,586, 43.2%, 1,482
+45 - ELPASO,TX, $22,998, $59,997, 43.9%, 2,565
+23 - DALLAS,TX, $15,584, $56,068, 43.0%, 1,855
+
+Others: 
+Opportunity: $5,583,619
+Opportunity % To Total: 84.75%
+Sales: $25,882,784
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjN9
+
+region = All, vol group = All, product group = 3 - WOMENS
+
+Total Opportunity = $1,834,121
+Total Sales = $8,303,379
+Sell Thru % = 43.0%
+
+Department, Opportunity, Total Sales, Current Inventory, Category, Actual, Actual$Units, Total$ 
+Dresses, $263,545, $1,080,898, $1,466,958, 38,958
+Knit Tops, $220,306, $1,318,273, $1,691,150, 75,495
+Sweaters, $185,406, $735,210, $922,901, 32,582
+Outerwear, $175,009, $1,004,729, $1,352,885, 15,564
+Woven Tops, $152,046, $550,412, $728,207, 28,192
+
+Brand, Opportunity, Total Sales, District, Actual, $Total
+24 - TEXAS, $556,700, $1,288,499
+9 - LOUISIANA, $181,555, $441,256
+20 - PENNSYLVANIA, $176,480, $1,156,609
+16 - NEW HAMPSHIRE, $175,655, $334,850
+1 - ALABAMA, $143,328, $495,204
+19 - OREGON, $115,324, $473,567
+
+Location, Opportunity, Total Sales, Sell Thru %, Actual, $Units, %
+9 - BATON ROUGE, LA, $139,074, $231,136, 9,401, 43.8%
+45 - EL PASO, TX, $131,281, $167,644, 5,501, 43.1%
+38 - AUSTIN, TX, $123,686, $135,409, 6,771, 43.3%
+25 - MANCHESTER, NH, $109,427, $152,526, 5,413, 43.1%
+27 - BRICK, NJ, $100,218, $244,354, 8,671, 44.4%
+23 - DALLAS, TX, $99,966, $224,334, 6,371, 44.3%
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjF9
+
+region = All, vol group = All, product group = 1 - MENS
+
+Total opportunity = $911,723, Total Sales = $3,596,969, Sell Thru = 42.5%
+
+Department:
+Opportunity, Total Sales, Current Inventory, Category
+Long Pants, $126,735, $521,606, $746,242
+Knit Tops, $121,335, $520,421, $688,100
+Woven Tops, $95,284, $359,449, $494,381
+Sportswear-Fleece, $83,061, $268,213, $356,215
+Male Tailored, $71,352, $316,924, $464,754
+
+Brand:
+Opportunity, Total Sales, District
+Polo Ralph Lauren, $269,195, $592,196
+Other, $79,072, $146,299
+Total, $911,723, $3,596,969
+
+Location:
+Opportunity, Total Sales, Sell Thru %
+9 - BATON ROUGE, LA, $63,898, $55,532, 41.9%
+38 - AUSTIN, TX, $59,354, $91,419, 42.5%
+25 - MANCHESTER, NH, $57,991, $107,365, 45.2%
+23 - DALLAS, TX, $55,540, $99,468, 44.5%
+27 - BRICK, NJ, $48,961, $117,864, 43.1%
+45 - EL PASO, TX, $48,531, $85,512, 41.7%
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJmYW1pbHkiOjB9
+
+region = All
+vol group = All
+product group = 0 - OTHER
+
+Total oppurtunity = $66,477, Total Sales = $400,428, Sell Thru = 53.1%
+
+Department, Opportunity, Total Sales, Current Inventory, Category
+33 - FOOD, $40,981, $267,272, $235,941, 25,496
+0 - OTHER, $5,929, $39,414, $38,137, 2,567
+TREATMENT, $5,072, $34,448, $33,361, 1,703
+LONG PANTS, $3,530, $4,504, $6,863, 278
+KNIT TOPS, $2,791, $19,677, $25,170, 1,824
+
+Brand, Opportunity, Total Sales, District
+Three Seasons Maternity, $11,090, $4,887, 17 - NEW JERSEY
+Keurig, $11,050, $14,395, 9 - LOUISIANA
+Godiva, $10,307, $88,345, 24 - TEXAS
+Others, $9,065, $30,084, 6 - ILLINOIS
+Others, $5,124, $52,704, 20 - PENNSYLVANIA
+Others, $4,368, $9,415, 3 - CALIFORNIA
+
+Location, Opportunity, Total Sales, Sell Thru
+27 - BRICK, NJ, $11,090, $4,887, 40.6%
+54 - BLOOMNGTN, IL, $8,907, $18,497, 54.6%
+9 - BATONROUGE, LA, $7,975, $6,618, 82.9%
+10 - BIRMINGHAM, AL, $4,043, $10,855, 52.9%
+11 - PHILADELPHIA, PA, $3,196, $15,124, 51.8%
+7 - NEWORLEANS, LA, $3,075, $7,777, 68.2%
+
+https://ip.armeta.com/demo/analytics/sales-opportunity
+
+region = All
+vol group = All
+product group = All
+
+Total Opportunity = $6,588,699
+Total Sales = $31,000,592
+Sell Thru % = 44.3%
+
+Department, Opportunity, Total Sales, Current Inventory
+Knit Tops, $503,330, $2,332,985, $3,052,517
+Dresses, $374,465, $1,448,520, $1,983,349
+Long Pants, $343,208, $1,464,726, $1,978,644
+Boots, $326,984, $1,491,147, $2,010,018
+Woven Tops, $325,824, $1,164,894, $1,574,962
+
+Brand, Opportunity, Total Sales, District
+24 - TEXAS, $1,853,881, $5,271,251
+9 - LOUISIANA, $723,621, $1,430,823
+20 - PENNSYLVANIA, $601,475, $3,943,427
+1 - ALABAMA, $574,808, $1,921,911
+19 - OREGON, $534,155, $1,654,950
+
+Location, Opportunity, Total Sales, Sell Thru%
+9 - BATON ROUGE, LA, $578,168, $696,751, 28.165
+10 - BIRMINGHAM, AL, $427,226, $845,644, 33.366
+45 - EL PASO, TX, $413,490, $876,575, 31.322
+27 - BRICK, NJ, $400,727, $854,015, 30.355
+23 - DALLAS, TX, $382,946, $685,534, 24.608
+41 - EUGENE, OR, $381,869, $822,982, 28.342
+
+https://ip.armeta.com/demo/analytics/sales-opportunity?query=eyJ2b2x1bWVHcm91cCI6NH0%3D
+
+region = All
+vol group = 4 - GROUP 4
+product group = All
+Total Opportunity = $2,099,271
+Total Sales = $8,460,204
+Sell Thru % = 44.4%
+
+Department, Opportunity, Total Sales, Current Inventory
+Knit Tops, $158,102, $629,743, $837,031
+Dresses, $113,163, $415,316, $550,988
+Long Pants, $110,995, $412,284, $570,760
+Woven Tops, $102,278, $306,566, $415,849
+Outerwear, $88,543, $393,586, $544,001
+
+Brand, Opportunity, Total Sales, District
+9 - LOUISIANA, $723,621, $1,430,823
+24 - TEXAS, $585,112, $1,779,362
+17 - NEW JERSEY, $400,727, $854,015
+20 - PENNSYLVANIA, $152,838, $1,391,983
+28 - WYOMING, $141,036, $677,018
+
+Location, Opportunity, Total Sales, Sell Thru %
+9 - BATON ROUGE, LA, $578,168, $696,751, 44.3%
+27 - BRICK, NJ, $400,727, $854,015, 44.6%
+38 - AUSTIN, TX, $378,301, $901,780, 44.1%
+43 - FORT WORTH, TX, $206,811, $877,582, 44.5%
+7 - NEW ORLEANS, LA, $145,453, $734,072, 44.1%
+13 - YORK, PA, $142,036, $711,908, 44.7%
