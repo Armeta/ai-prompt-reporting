@@ -16,10 +16,10 @@ import streamlit as st
 # load options file and set up model
 def env_Setup():
     # Open and collect options
-    f       = open('src\\json\\Options.json','r')
+    f       = open('Options.json','r')
     options_dash = json.load(f)
     f.close()
-    f       = open('src\\json\\QueryOptions.json','r')
+    f       = open('QueryOptions.json','r')
     options_query = json.load(f)
     f.close()
 
