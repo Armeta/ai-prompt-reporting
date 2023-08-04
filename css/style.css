@@ -41,5 +41,18 @@ div[class*= "st-bd"]{
     border-style: solid;
     border-color: #002e5d;
 }
+div[class*= "st-b3"]{
 
- 
+    border-style: solid;
+    border-color: #002e5d;
+}
+div[class*= "st-bh"]{
+
+    border-style: solid;
+    border-color: #002e5d;
+}
+div[class*= "st-aw"]{
+
+    border-style: solid;
+    border-color: #002e5d;
+}
