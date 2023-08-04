@@ -1,6 +1,7 @@
 # data manipulation 
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
+from pathlib import Path
 
 #data types
 import json
@@ -10,8 +11,9 @@ import streamlit as st
 from PIL import Image
 from streamlit.components.v1 import html
 from streamlit_option_menu import option_menu
-
+import time
 import streamlit as st
+
 
 # load options file and set up model
 def env_Setup():
@@ -57,7 +59,7 @@ st.set_page_config(
     page_title="Retail Analytics Digital Assistant",
     page_icon=image,
     layout="wide",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="collapsed",
     menu_items={
         'About': "This is a webpage with a user input box where to input natural language and recieve real information along with links to a dashboard to help satisfy your query"
     }
@@ -70,12 +72,24 @@ f.close()
 if 'messages' not in st.session_state:
     st.session_state['messages'] = []
 
+p = Path('.')
+[x for x in p.iterdir() if x.is_file()]
+
 # Page Header/Subheader
 st.title("💬 rvai") 
 with st.chat_message("assistant", avatar=image):
     st.write("How can I help you?")
 
 def main():
+
+    # Using "with" notation
+    with st.sidebar:
+        if st.button("Reset chat"):            
+            with st.spinner("Loading..."):
+                del st.session_state['messages']
+                st.session_state['messages'] = []
+                st.success("Done!")
+
     # tab icon
     image = Image.open('./armeta-icon.png')
     imageuser = Image.open('./usericon.png') 
