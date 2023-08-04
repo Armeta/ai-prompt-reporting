@@ -15,6 +15,7 @@ import time
 import streamlit as st
 
 
+p = Path('.')
 # load options file and set up model
 def env_Setup():
     # Open and collect options
@@ -52,7 +53,7 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
     return dash_answer, query_answer
 
 # tab icon
-image = Image.open('./armeta-icon.png')
+image = Image.open('armeta-icon.png')
 
 # Page Config
 st.set_page_config(
@@ -72,8 +73,7 @@ f.close()
 if 'messages' not in st.session_state:
     st.session_state['messages'] = []
 
-p = Path('.')
-[x for x in p.iterdir() if x.is_file()]
+#[x for x in p.iterdir() if x.is_file()]
 
 # Page Header/Subheader
 st.title("💬 rvai") 
@@ -91,8 +91,8 @@ def main():
                 st.success("Done!")
 
     # tab icon
-    image = Image.open('./armeta-icon.png')
-    imageuser = Image.open('./usericon.png') 
+    image = Image.open('armeta-icon.png')
+    imageuser = Image.open('usericon.png')
 
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
