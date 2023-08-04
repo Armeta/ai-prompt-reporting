@@ -50,7 +50,7 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
     return dash_answer, query_answer
 
 # tab icon
-image = Image.open('src\\media\\armeta-icon.png')
+image = Image.open('src\\media\\armeta-icon.jpeg')
 
 # Page Config
 st.set_page_config(
@@ -77,8 +77,8 @@ with st.chat_message("assistant", avatar=image):
 
 def main():
     # tab icon
-    image = Image.open('src\\media\\armeta-icon.png')
-    imageuser = Image.open('src\\media\\usericon.png') 
+    image = Image.open('src\\media\\armeta-icon.jpeg')
+    imageuser = Image.open('src\\media\\usericon.jpeg') 
 
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
