@@ -16,10 +16,10 @@ import streamlit as st
 # load options file and set up model
 def env_Setup():
     # Open and collect options
-    f       = open('json/Options.json','r')
+    f       = open('src\\json\\Options.json','r')
     options_dash = json.load(f)
     f.close()
-    f       = open('json/QueryOptions.json','r')
+    f       = open('src\\json\\QueryOptions.json','r')
     options_query = json.load(f)
     f.close()
 
@@ -28,7 +28,6 @@ def env_Setup():
     #recieve options and their encodings and return
     dash_opts = [option['url'] for option in options_dash['options']]
     dash_enc = [option['encoding'] for option in options_dash['options']]
-    #query_opts = [option['query'] for option in options_query['options']]
     query_opts = [option['result'] for option in options_query['options']]
     query_enc = [option['encoding'] for option in options_query['options']]
     return model, dash_enc, dash_opts, query_enc, query_opts
