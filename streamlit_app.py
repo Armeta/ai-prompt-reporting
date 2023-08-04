@@ -1,9 +1,6 @@
 # data manipulation 
 from sklearn.metrics.pairwise import cosine_similarity
-import time
 from sentence_transformers import SentenceTransformer
-import time
-import random
 
 #data types
 import json
@@ -15,8 +12,6 @@ from streamlit.components.v1 import html
 from streamlit_option_menu import option_menu
 
 import streamlit as st
-
-
 
 # load options file and set up model
 def env_Setup():
@@ -71,6 +66,7 @@ st.set_page_config(
 # Open CSS file
 with open('css/style.css') as f:
    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+   f.close()
    
 if 'messages' not in st.session_state:
     st.session_state['messages'] = []
@@ -80,7 +76,7 @@ st.title("💬 rvai")
 with st.chat_message("assistant", avatar=image):
     st.write("How can I help you?")
 
-def main() -> None:
+def main():
     # tab icon
     image = Image.open('img/icons/armeta-icon.png')
     imageuser = Image.open('img/icons/testing.png') 
@@ -136,8 +132,9 @@ def main() -> None:
                 # Write session cache for assistant 
                 st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this dashboard: [here](%s)" % url})                        
     # End chat - assistant
-
-
+    image.close()
+    imageuser.close()
+image.close()
 
 if __name__ == '__main__':  
     main()
