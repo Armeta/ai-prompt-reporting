@@ -76,7 +76,7 @@ if 'messages' not in st.session_state:
 #[x for x in p.iterdir() if x.is_file()]
 
 # Page Header/Subheader
-st.title("💬 rvai") 
+st.title("💬 arai") 
 with st.chat_message("assistant", avatar=image):
     st.write("How can I help you?")
 
