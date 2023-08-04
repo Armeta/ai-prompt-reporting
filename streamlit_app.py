@@ -50,7 +50,7 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
     return dash_answer, query_answer
 
 # tab icon
-image = Image.open('../armeta-icon.png')
+image = Image.open('./armeta-icon.png')
 
 # Page Config
 st.set_page_config(
