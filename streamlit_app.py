@@ -16,9 +16,7 @@ from streamlit_option_menu import option_menu
 
 import streamlit as st
 
-# Open CSS file
-#with open('css/style.css') as f:
-#   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 
 # load options file and set up model
 def env_Setup():
@@ -40,7 +38,6 @@ def env_Setup():
     query_enc = [option['encoding'] for option in options_query['options']]
     return model, dash_enc, dash_opts, query_enc, query_opts
 
-
 # run the prompt against the AI to recieve an answer
 def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):   
     #init 
@@ -60,11 +57,10 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
 
 # tab icon
 image = Image.open('img/icons/armeta-icon.png')
-imageUSer = Image.open('img/icons/armeta-iconuSER2.png') 
 
 # Page Config
 st.set_page_config(
-    page_title="AI Turkey",
+    page_title="Retail Analytics Digital Assistant",
     page_icon=image,
     layout="wide",
     initial_sidebar_state="expanded",
@@ -72,7 +68,10 @@ st.set_page_config(
         'About': "This is a webpage with a user input box where to input natural language and recieve real information along with links to a dashboard to help satisfy your query"
     }
 )
-
+# Open CSS file
+with open('css/style.css') as f:
+   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+   
 if 'messages' not in st.session_state:
     st.session_state['messages'] = []
 
@@ -84,8 +83,7 @@ with st.chat_message("assistant", avatar=image):
 def main() -> None:
     # tab icon
     image = Image.open('img/icons/armeta-icon.png')
-    imageUSer = Image.open('img/icons/armeta-iconuSER2.png') 
-    img\icons\armeta-iconuSER2.png
+    imageuser = Image.open('img/icons/testing.png') 
 
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
@@ -93,7 +91,7 @@ def main() -> None:
     # load old session cache
     for message in st.session_state.messages:
         if(message["role"] == "user"):
-            with st.chat_message("user", avatar=imageUSer):
+            with st.chat_message("user", avatar=imageuser):
                 st.markdown(message["content"])
         else:       
             with st.chat_message("assistant", avatar=image):
@@ -103,15 +101,15 @@ def main() -> None:
 
     # recieve prompt from user                       
     if prompt : 
-        
-        query_answer = ''
-        # run the prompt against the AI to recieve an answer
-        dash_answer, query_answer = do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)
-
         # Start Chat - user
-        with st.chat_message("user", avatar=imageUSer):
+        with st.chat_message("user", avatar=imageuser):
             st.markdown(prompt)
-            
+
+        query_answer = ''
+
+        # run the prompt against the AI to recieve an answer
+        dash_answer, query_answer = do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
+                   
         # Write to session cache for user
         st.session_state.messages.append({"role": "user", "content": prompt})
         # End chat - user
@@ -133,7 +131,7 @@ def main() -> None:
             # Show dashboard result  
             if(dash_answer != ''):                  
                 url = dash_answer
-                st.markdown("Your query reminds me of this dashboard: [here](%s)" % url)
+                st.markdown("Your query reminds me of this [dashboard.](%s)" % url)
 
                 # Write session cache for assistant 
                 st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this dashboard: [here](%s)" % url})                        
