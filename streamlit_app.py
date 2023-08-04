@@ -65,7 +65,7 @@ st.set_page_config(
 # Open CSS file
 with open('src\\css\\style.css') as f:
    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-   f.close()
+f.close()
    
 if 'messages' not in st.session_state:
     st.session_state['messages'] = []
