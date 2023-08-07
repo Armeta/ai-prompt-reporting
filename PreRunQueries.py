@@ -2,7 +2,7 @@ import json
 import pyodbc
 
 
-f = open('json\\QueryOptions.json','r')
+f = open('QueryOptions.json','r')
 options = json.load(f)
 f.close()
 
@@ -25,6 +25,6 @@ for option in options['options']:
         except:
             print('Error on '+option['query'])
 
-f = open('json\\QueryOptions.json','w')
+f = open('QueryOptions.json','w')
 f.write(json.dumps(options).replace('{', '\n{').replace('",', '",\n').replace('"}', '"\n}'))
 f.close()
