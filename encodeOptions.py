@@ -28,5 +28,5 @@ def encodeFile(fileName):
 
 
 model = SentenceTransformer(modelName)
-encodeFile('json\\Options.json')
-encodeFile('json\\QueryOptions.json')
+encodeFile('Options.json')
+encodeFile('QueryOptions.json')
