@@ -143,7 +143,7 @@ def main():
                 st.markdown("Your query reminds me of this [dashboard.](%s)" % url)
 
                 # Write session cache for assistant 
-                st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this dashboard: [here](%s)" % url})                        
+                st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this [dashboard.](%s)" % url})                        
     # End chat - assistant
     image.close()
     imageuser.close()
