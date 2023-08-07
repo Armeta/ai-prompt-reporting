@@ -77,7 +77,7 @@ if 'messages' not in st.session_state:
 
 # Page Header/Subheader
 st.title("💬 arai") 
-with st.chat_message("assistant", avatar=image):
+with st.chat_message("assistant", avatar="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAW5JREFUeNpiYBgFIx0wkqpB1DBKAEitxyEd+Pr8sg+kmMdChqPrgdgBj1whzUIA6HsFIHWfgDJFYCg8INZMJhJ9P59Kakh3AND3DniCHhk4QNVSPQTm00ItM5G+LwBSESQ4QIBbUvfjtxeXT1CcCKHZDpTwBEhMLx+gCfIDpVFQj8fyRCDGleIFoHrJTwPQbFeAQ/oB0HcLgHQjHiMKoGaQHQL4EhPYYqgjHpCbIJnIzHYw36M4hpxsyUSJ72GAklBgwpPtFPCk7g2EHIUGFKBmEs6GRGS7RqCPG3A4/D4Bh2NkSyYSsx1I8wRio4aYbMlIYm2H0/dEhgJGbclCYhl+ASlFfwAadAFHKMwnkCAdMUIAavB+EotbQWxFLRGh4AjUdwA9DcxnIB0kkJEWUOxiIiLb4QPx2ASJKBfg2ZKRgtoObxMMaG4CgVAFZ0smAtmOGJCPJxQOEMqWoFxgQEAhJYBQWjAY7RmNAoAAAwDdxn45gDfpcgAAAABJRU5ErkJggg=="):
     st.write("How can I help you?")
 
 def main():
@@ -124,7 +124,7 @@ def main():
         # End chat - user
         
         #Start chat - assistant
-        with st.chat_message("assistant", avatar=image):
+        with st.chat_message("assistant", avatar="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAW5JREFUeNpiYBgFIx0wkqpB1DBKAEitxyEd+Pr8sg+kmMdChqPrgdgBj1whzUIA6HsFIHWfgDJFYCg8INZMJhJ9P59Kakh3AND3DniCHhk4QNVSPQTm00ItM5G+LwBSESQ4QIBbUvfjtxeXT1CcCKHZDpTwBEhMLx+gCfIDpVFQj8fyRCDGleIFoHrJTwPQbFeAQ/oB0HcLgHQjHiMKoGaQHQL4EhPYYqgjHpCbIJnIzHYw36M4hpxsyUSJ72GAklBgwpPtFPCk7g2EHIUGFKBmEs6GRGS7RqCPG3A4/D4Bh2NkSyYSsx1I8wRio4aYbMlIYm2H0/dEhgJGbclCYhl+ASlFfwAadAFHKMwnkCAdMUIAavB+EotbQWxFLRGh4AjUdwA9DcxnIB0kkJEWUOxiIiLb4QPx2ASJKBfg2ZKRgtoObxMMaG4CgVAFZ0smAtmOGJCPJxQOEMqWoFxgQEAhJYBQWjAY7RmNAoAAAwDdxn45gDfpcgAAAABJRU5ErkJggg=="):
             # Show query result 
             if(query_answer != ''):
                 st.write(query_answer)
@@ -143,7 +143,7 @@ def main():
                 st.markdown("Your query reminds me of this [dashboard.](%s)" % url)
 
                 # Write session cache for assistant 
-                st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this dashboard: [here](%s)" % url})                        
+                st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this [dashboard.](%s)" % url})                        
     # End chat - assistant
     image.close()
     imageuser.close()
