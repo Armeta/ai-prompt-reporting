@@ -53,7 +53,7 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
     return dash_answer, query_answer
 
 # tab icon
-image = Image.open('.\src\\media\\armeta-icon.png')
+image = Image.open('src/media/armeta-icon.png')
 
 # Bot Avatar Icon
 with open('.\src\\txt\\armeta-icon_Base64Source.txt') as f:
