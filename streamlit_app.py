@@ -89,7 +89,7 @@ with st.chat_message("assistant", avatar = BotAvatar):
 
 def main():
 
-    # Using "with" notation
+    # sidebar options
     with st.sidebar:
         if st.button("Reset chat"):            
             with st.spinner("Loading..."):
@@ -108,10 +108,9 @@ def main():
         else:       
             with st.chat_message("assistant", avatar = BotAvatar):
                 st.markdown(message["content"])
-
-    prompt = st.chat_input("Send a Message")
-
-    # recieve prompt from user                       
+    
+    # recieve prompt from user
+    prompt = st.chat_input("Send a Message")                     
     if prompt : 
         # Start Chat - user
         with st.chat_message("user", avatar = UserAvatar):
