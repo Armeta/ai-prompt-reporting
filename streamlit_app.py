@@ -19,20 +19,20 @@ p = Path('.')
 # load options file and set up model
 def env_Setup():
     # Open and collect options
-    f       = open('Options.json','r')
+    f            = open('.\src\\json\\Options.json','r')
     options_dash = json.load(f)
     f.close()
-    f       = open('QueryOptions.json','r')
+    f             = open('.\src\\json\\QueryOptions.json','r')
     options_query = json.load(f)
     f.close()
 
     model = SentenceTransformer(options_dash['model'])
 
     #recieve options and their encodings and return
-    dash_opts = [option['url'] for option in options_dash['options']]
-    dash_enc = [option['encoding'] for option in options_dash['options']]
-    query_opts = [option['result'] for option in options_query['options']]
-    query_enc = [option['encoding'] for option in options_query['options']]
+    dash_opts  = [option['url']      for option in options_dash['options']]
+    dash_enc   = [option['encoding'] for option in options_dash['options']]
+    query_opts = [option['result']   for option in options_query['options']]
+    query_enc  = [option['encoding'] for option in options_query['options']]
     return model, dash_enc, dash_opts, query_enc, query_opts
 
 # run the prompt against the AI to recieve an answer
@@ -53,7 +53,16 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
     return dash_answer, query_answer
 
 # tab icon
-image = Image.open('armeta-icon.png')
+image = Image.open('.\src\\media\\armeta-icon.png')
+
+# Bot Avatar Icon
+with open('.\src\\txt\\armeta-icon_Base64Source.txt') as f:
+    BotAvatar = f.read()
+f.close()
+# User Avatar Icon
+with open('.\src\\txt\\usericon_Base64Source.txt') as f:
+    UserAvatar = f.read()
+f.close()
 
 # Page Config
 st.set_page_config(
@@ -65,15 +74,14 @@ st.set_page_config(
         'About': "This is a webpage with a user input box where to input natural language and recieve real information along with links to a dashboard to help satisfy your query"
     }
 )
+
 # Open CSS file
-with open('style.css') as f:
+with open('.\src\\css\\style.css') as f:
    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 f.close()
    
 if 'messages' not in st.session_state:
     st.session_state['messages'] = []
-
-#[x for x in p.iterdir() if x.is_file()]
 
 # Page Header/Subheader
 st.title("💬 arai") 
@@ -89,10 +97,6 @@ def main():
                 del st.session_state['messages']
                 st.session_state['messages'] = []
                 st.success("Done!")
-
-    # tab icon
-    image = Image.open('armeta-icon.png')
-    imageuser = Image.open('usericon.png')
 
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
@@ -145,8 +149,6 @@ def main():
                 # Write session cache for assistant 
                 st.session_state.messages.append({"role": "assistant", "content": "Your query reminds me of this [dashboard.](%s)" % url})                        
     # End chat - assistant
-    image.close()
-    imageuser.close()
 image.close()
 
 if __name__ == '__main__':  
