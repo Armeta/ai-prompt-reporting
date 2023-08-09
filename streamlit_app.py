@@ -19,10 +19,10 @@ p = Path('.')
 # load options file and set up model
 def env_Setup():
     # Open and collect options
-    f            = open('.\src\\json\\Options.json','r')
+    f            = open('src/json/Options.json','r')
     options_dash = json.load(f)
     f.close()
-    f             = open('.\src\\json\\QueryOptions.json','r')
+    f             = open('src/json/QueryOptions.json','r')
     options_query = json.load(f)
     f.close()
 
@@ -56,11 +56,11 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
 image = Image.open('src/media/armeta-icon.png')
 
 # Bot Avatar Icon
-with open('.\src\\txt\\armeta-icon_Base64Source.txt') as f:
+with open('src/txt/armeta-icon_Base64Source.txt') as f:
     BotAvatar = f.read()
 f.close()
 # User Avatar Icon
-with open('.\src\\txt\\usericon_Base64Source.txt') as f:
+with open('src/txt/usericon_Base64Source.txt') as f:
     UserAvatar = f.read()
 f.close()
 
