@@ -70,6 +70,7 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
     # pick and return a dashboard answer based off options.json
     sim = cosine_similarity([encoding], dash_enc)
     dash_answer = dash_opts[sim[0].tolist().index(max(sim[0]))]
+
     # pick and return a query answer
     sim = cosine_similarity([encoding], query_enc)
     query_answer = query_opts[sim[0].tolist().index(max(sim[0]))]
@@ -85,7 +86,6 @@ def save_AssistantCache(i, content):
     # set indice
     name = 'messages' + str(i) 
     st.session_state[name].append({"role": "assistant", "content": content})
-
 
 # Open CSS file
 with open('src/css/style.css') as f:
@@ -156,8 +156,13 @@ def main():
         with st.chat_message("assistant", avatar = BotAvatar):
             # Show query result 
             if(query_answer != '') and (options != 'Dashboards Only'):
+
                 # Write results + session cache for assistant
-                st.write(query_answer)                
+                #st.write(query_answer)
+                query_answer = query_answer.replace("$", "\\$")
+                print(query_answer)
+                st.markdown(query_answer) 
+                   
                 save_AssistantCache(number, query_answer)
 
             elif (options != 'Dashboards Only'):
