@@ -2,7 +2,7 @@ from sentence_transformers import SentenceTransformer
 import json
 import datetime
 
-modelName = 'all-MiniLM-L12-v2'#'all-mpnet-base-v2'
+modelName = 'all-distilroberta-v1'#'all-mpnet-base-v2'
 
 
 
@@ -28,5 +28,5 @@ def encodeFile(fileName):
 
 
 model = SentenceTransformer(modelName)
-encodeFile('Options.json')
-encodeFile('QueryOptions.json')
+encodeFile('src/json/Options.json')
+encodeFile('src/json/QueryOptions.json')

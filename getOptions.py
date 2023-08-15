@@ -1,9 +1,9 @@
 import json
 
-f = open('json\\answerKey.json','r')
+f = open('src/json/answerKey.json','r')
 key = json.load(f)
 f.close()
-f = open('json\\Options.json','r')
+f = open('src/json/Options.json','r')
 options = json.load(f)
 f.close()
 
@@ -49,7 +49,7 @@ for pair in key['pairs']:
             options['options'].append({'type': 'url','url': pair['ans'], 'desc': promptDesc, 'encoding':None})
             count += 1
 
-f = open('json\\Options.json','w')
+f = open('src/json/Options.json','w')
 f.write(json.dumps(options).replace('{', '\n{').replace('",', '",\n').replace('"}', '"\n}'))
 f.close()
 

@@ -1,0 +1,25 @@
+encodeOptions.py
+    Main file, runs the selected model against all dashboard and query option descriptions, and saves the encoding. Allows the comparison of prompt encodings without re-running the model against all options.
+
+pullDashboardOptions.py
+    Helper file, inserts each dashboard option from the json file into the local DB. Parses the JSON into DB fields for storage in a snowflake table.
+
+pullQueryOptions.py
+    Helper file, inserts each query option from the json file into the local DB. Parses the JSON into DB fields for storage in a snowflake table.
+
+getOptions.py
+    Helper file, used to create initial dashboard options from answer key
+
+AddMoreQueries.py
+    Helper file, generated additional query options from new location combinations. Saved to a new file and then manually copied over.
+
+PreRunQueries.py
+    Helper file, ran query options against local DB, and saved the output result to the query option file. Usage of the result field avoid DB queries during AI chat runtime.
+
+Order of usage:
+1. getOptions.py
+2. AddMoreQueries.py
+3. PreRunQueries.py
+4. encodeOptions.py
+5. pullDashboardOptions.py
+6. pullQueryOptions.py
