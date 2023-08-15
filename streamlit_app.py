@@ -14,6 +14,16 @@ from streamlit_option_menu import option_menu
 import time
 import streamlit as st
 
+#snowpark
+import   sys
+from     snowflake.snowpark           import Session
+from     snowflake.snowpark.functions import col, to_timestamp
+from     snowflake.snowpark.types     import IntegerType, StringType, StructField, StructType, DateType,LongType,DoubleType
+from lib import code_library
+
+# add src to system path
+sys.path.append('src')
+
 # tab icon
 image = Image.open('src/media/armeta-icon.png')
 
@@ -41,6 +51,11 @@ st.set_page_config(
 # load options file and set up model
 @st.cache_data()
 def env_Setup():
+    # Get connection string paramaters
+    connectionString = open('src/json/connection_details.json', "r")
+    connectionString = json.loads(connectionString.read())
+    session          = code_library.snowconnection(connectionString)    
+
     # Open and collect options
     f            = open('src/json/Options.json','r')
     options_dash = json.load(f)
