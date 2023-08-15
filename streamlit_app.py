@@ -8,9 +8,9 @@ import json
 
 # Visualizations 
 import streamlit as st
-from PIL import Image
-from streamlit.components.v1 import html
-from streamlit_option_menu import option_menu
+from   PIL import Image
+from   streamlit.components.v1 import html
+from   streamlit_option_menu import option_menu
 import time
 import streamlit as st
 
@@ -19,10 +19,11 @@ import   sys
 from     snowflake.snowpark           import Session
 from     snowflake.snowpark.functions import col, to_timestamp
 from     snowflake.snowpark.types     import IntegerType, StringType, StructField, StructType, DateType,LongType,DoubleType
-from lib import code_library
 
 # add src to system path
 sys.path.append('src')
+
+from lib import code_library
 
 # tab icon
 image = Image.open('src/media/armeta-icon.png')
@@ -56,15 +57,19 @@ def env_Setup():
     connectionString = json.loads(connectionString.read())
     session          = code_library.snowconnection(connectionString)    
 
-    # Open and collect options
-    f            = open('src/json/Options.json','r')
-    options_dash = json.load(f)
-    f.close()
-    f             = open('src/json/QueryOptions.json','r')
-    options_query = json.load(f)
-    f.close()
+    # # Open and collect options
+    # f            = open('src/json/Options.json','r')
+    # options_dash = json.load(f)
+    # f.close()
+    # f             = open('src/json/QueryOptions.json','r')
+    # options_query = json.load(f)
+    # f.close()
 
-    model = SentenceTransformer(options_dash['model'])
+    options_dash  = session.table("\"OptionsDashboard\"")
+    options_query = session.table("\"OptionsQuery\"")
+    #options_dash_test.show()
+
+    model = SentenceTransformer('all-MiniLM-L12-v2')
 
     #recieve options and their encodings and return
     dash_opts  = [option['url']      for option in options_dash['options']]
@@ -91,7 +96,6 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):
     query_answer = query_opts[sim[0].tolist().index(max(sim[0]))]
     return dash_answer, query_answer
 
-
 def save_UserCache(i, content):
     # set indice
     name = 'messages' + str(i) 
@@ -111,9 +115,6 @@ f.close()
 st.title("💬 arai") 
 with st.chat_message("assistant", avatar = BotAvatar):
     st.write("How can I help you?")
-
-if 'sessionCount' not in st.session_state:
-        st.session_state['sessionCount'] = 0
 
 def main():
 
