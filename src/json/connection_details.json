@@ -1,0 +1,9 @@
+{"account":"DV85117.us-east-2.aws",
+    "user":"SnowPark",
+    "password": "123",
+    "role":"SnowParkEngineering",
+    "warehouse":"snowpark_WH",
+    "database":"landing_DB",
+    "schema":"AWS"
+    }
+
