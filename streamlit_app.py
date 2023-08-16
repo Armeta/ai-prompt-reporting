@@ -174,7 +174,8 @@ def main():
 
                 # Write results + session cache for assistant
                 #st.write(query_answer)
-                query_answer = query_answer.replace("$", "\\$")
+
+                query_answer = str(query_answer).replace("$", "\\$")
                 print(query_answer)
                 st.markdown(query_answer) 
                    
@@ -187,9 +188,10 @@ def main():
 
             # Show dashboard result  
             if(dash_answer != '') and (options != 'Query Results Only'): 
+
                 # Write results + session cache for assistant
-                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)                
-                save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
+                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer[0])                
+                save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer[0])
     # End chat - assistant
 image.close()
 
