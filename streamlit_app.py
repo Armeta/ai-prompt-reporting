@@ -5,6 +5,7 @@ from pathlib import Path
 
 #data types
 import json
+import struct
 
 # Visualizations 
 import streamlit as st
@@ -49,6 +50,10 @@ st.set_page_config(
     }
 )
 
+def parseBinaryEncoding(bin_enc):
+    return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
+
+
 # load options file and set up model
 @st.cache_data()
 def env_Setup():
@@ -66,9 +71,9 @@ def env_Setup():
     
     #recieve options and their encodings and return
     dash_opts  = options_dash.select(['url']).to_pandas().values.tolist()
-    dash_enc   = options_dash.select(['encoding']).to_pandas().values.tolist()
+    dash_enc   = [parseBinaryEncoding(bytearray(row[0])) for row in options_dash.select(['encoding']).to_pandas().values.tolist()]
     query_opts = options_query.select(['RESULT_CACHE']).to_pandas().values.tolist()
-    query_enc  = options_query.select(['encoding']).to_pandas().values.tolist()
+    query_enc  = [parseBinaryEncoding(bytearray(row[0])) for row in options_query.select(['encoding']).to_pandas().values.tolist()]
 
     return model, dash_enc, dash_opts, query_enc, query_opts
 
