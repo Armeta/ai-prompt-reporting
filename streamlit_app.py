@@ -58,24 +58,18 @@ def env_Setup():
     session          = code_library.snowconnection(connectionString)    
 
     # # Open and collect options
-    # f            = open('src/json/Options.json','r')
-    # options_dash = json.load(f)
-    # f.close()
-    # f             = open('src/json/QueryOptions.json','r')
-    # options_query = json.load(f)
-    # f.close()
-
-    options_dash  = session.table("\"OptionsDashboard\"")
+    options_dash  = session.table("\"OptionsDashboard\"") 
     options_query = session.table("\"OptionsQuery\"")
-    #options_dash_test.show()
 
-    model = SentenceTransformer('all-MiniLM-L12-v2')
-
+    # model selection
+    model = SentenceTransformer('all-distilroberta-v1')
+    
     #recieve options and their encodings and return
-    dash_opts  = [option['url']      for option in options_dash['options']]
-    dash_enc   = [option['encoding'] for option in options_dash['options']]
-    query_opts = [option['result']   for option in options_query['options']]
-    query_enc  = [option['encoding'] for option in options_query['options']]
+    dash_opts  = options_dash.select(['url']).to_pandas().values.tolist()
+    dash_enc   = options_dash.select(['encoding']).to_pandas().values.tolist()
+    query_opts = options_query.select(['RESULT_CACHE']).to_pandas().values.tolist()
+    query_enc  = options_query.select(['encoding']).to_pandas().values.tolist()
+
     return model, dash_enc, dash_opts, query_enc, query_opts
 
 # run the prompt against the AI to recieve an answer
