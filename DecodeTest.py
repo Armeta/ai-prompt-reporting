@@ -4,6 +4,8 @@ from sentence_transformers import SentenceTransformer
 
 #data types
 import json
+import struct
+import numpy
 
 #snowpark
 import   sys
@@ -16,31 +18,29 @@ sys.path.append('src')
 
 from lib import code_library
 
+def parseBinaryEncoding(bin_enc):
+    return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
+
+
 def env_Setup():
     # Get connection string paramaters
     connectionString = open('src/json/connection_details.json', "r")
     connectionString = json.loads(connectionString.read())
     session          = code_library.snowconnection(connectionString)    
 
-    # # Open and collect options
-    # f            = open('src/json/Options.json','r')
-    # options_dash = json.load(f)
-    # f.close()
-    # f             = open('src/json/QueryOptions.json','r')
-    # options_query = json.load(f)
-    # f.close()
-
     options_dash  = session.table("\"OptionsDashboard\"")
     options_query = session.table("\"OptionsQuery\"")
     #options_dash_test.show()
 
-    model = SentenceTransformer('all-MiniLM-L12-v2')
-
+    # model selection
+    model = SentenceTransformer('all-distilroberta-v1')
+    
     #recieve options and their encodings and return
-    dash_opts  = [option['url']      for option in options_dash['options']]
-    dash_enc   = [option['encoding'] for option in options_dash['options']]
-    query_opts = [option['result']   for option in options_query['options']]
-    query_enc  = [option['encoding'] for option in options_query['options']]
+    dash_opts  = options_dash.select(['url']).to_pandas().values.tolist()
+    dash_enc   = [parseBinaryEncoding(bytearray(row[0])) for row in options_dash.select(['encoding']).to_pandas().values.tolist()]
+    query_opts = options_query.select(['RESULT_CACHE']).to_pandas().values.tolist()
+    query_enc  = [parseBinaryEncoding(bytearray(row[0])) for row in options_query.select(['encoding']).to_pandas().values.tolist()]
+
     return model, dash_enc, dash_opts, query_enc, query_opts
 
 # run the prompt against the AI to recieve an answer
@@ -67,7 +67,8 @@ def main():
 
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
-    
+
+
     dash_answer, query_answer = do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)
 
     print(dash_answer)
