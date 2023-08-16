@@ -173,13 +173,9 @@ def main():
             if(query_answer != '') and (options != 'Dashboards Only'):
 
                 # Write results + session cache for assistant
-                #st.write(query_answer)
-
-                query_answer = str(query_answer).replace("$", "\\$")
-                print(query_answer)
-                st.markdown(query_answer) 
-                   
-                save_AssistantCache(number, query_answer)
+                query_answer = str(query_answer[0]).replace("$", "\\$")
+                st.markdown(query_answer[0]) 
+                save_AssistantCache(number, query_answer[0])
 
             elif (options != 'Dashboards Only'):
                 # Write results + session cache for assistant 
