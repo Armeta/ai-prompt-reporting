@@ -174,8 +174,8 @@ def main():
 
                 # Write results + session cache for assistant
                 query_answer = str(query_answer[0]).replace("$", "\\$")
-                st.markdown(query_answer[0]) 
-                save_AssistantCache(number, query_answer[0])
+                st.markdown(query_answer) 
+                save_AssistantCache(number, query_answer)
 
             elif (options != 'Dashboards Only'):
                 # Write results + session cache for assistant 
