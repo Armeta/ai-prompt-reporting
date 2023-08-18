@@ -26,12 +26,14 @@ model = SentenceTransformer('all-distilroberta-v1')
 
 dash    = options_dash.select(['SK', 'DESC']).to_pandas().values.tolist()
 for row in dash:
-    enc = model.encode(row[1])
+    enc = model.encode(row[1]).tolist()
+    enc_json = '{"encoding": '+str(enc)+'}'
     bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
-    session.sql('UPDATE "MODEL"."OptionsDashboard" SET ENCODING=TO_BINARY(\''+bin+'\') WHERE SK='+str(row[0])+';').collect()
+    session.sql('UPDATE "MODEL"."OptionsDashboard" SET ENCODING=TO_BINARY(\''+bin+'\'), ENCODING_JSON=\''+enc_json+'\' WHERE SK='+str(row[0])+';').collect()
 
 query   = options_query.select(['SK', 'DESC']).to_pandas().values.tolist()
 for row in query:
-    enc = model.encode(row[1])
+    enc = model.encode(row[1]).tolist()
+    enc_json = '{"encoding": '+str(enc)+'}'
     bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
-    session.sql('UPDATE "MODEL"."OptionsQuery" SET ENCODING=TO_BINARY(\''+bin+'\') WHERE SK='+str(row[0])+';').collect()
+    session.sql('UPDATE "MODEL"."OptionsQuery" SET ENCODING=TO_BINARY(\''+bin+'\'), ENCODING_JSON=\''+enc_json+'\' WHERE SK='+str(row[0])+';').collect()
