@@ -5,7 +5,7 @@ from sentence_transformers import SentenceTransformer
 #data types
 import json
 import struct
-import numpy
+import datetime
 
 #snowpark
 import   sys
@@ -21,8 +21,26 @@ from lib import code_library
 def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
 
+def localRead():
+    jsonstarttime = datetime.datetime.now()
+    f       = open('src/json/Options.json','r')
+    options_dash = json.load(f)
+    f.close()
+    f       = open('src/json/QueryOptions.json','r')
+    options_query = json.load(f)
+    f.close()
+
+    #recieve options and their encodings and return
+    dash_enc = [option['encoding'] for option in options_dash['options']]
+    query_enc = [option['encoding'] for option in options_query['options']]
+    
+    endtime = datetime.datetime.now()
+    print('Total JSON encoding load time %d.%06d sec' % ((endtime - jsonstarttime).seconds, (endtime - jsonstarttime).microseconds))
+    
+    return '%d.%06d' % ((endtime - jsonstarttime).seconds, (endtime - jsonstarttime).microseconds)
 
 def env_Setup():
+    snowstarttime = datetime.datetime.now()
     # Get connection string paramaters
     connectionString = open('src/json/connection_details.json', "r")
     connectionString = json.loads(connectionString.read())
@@ -37,11 +55,37 @@ def env_Setup():
     
     #recieve options and their encodings and return
     dash_opts  = options_dash.select(['url']).to_pandas().values.tolist()
-    dash_enc   = [parseBinaryEncoding(bytearray(row[0])) for row in options_dash.select(['encoding']).to_pandas().values.tolist()]
     query_opts = options_query.select(['RESULT_CACHE']).to_pandas().values.tolist()
-    query_enc  = [parseBinaryEncoding(bytearray(row[0])) for row in options_query.select(['encoding']).to_pandas().values.tolist()]
 
-    return model, dash_enc, dash_opts, query_enc, query_opts
+    binstarttime = datetime.datetime.now()
+
+    dash_bin  = options_dash.select(['encoding']).to_pandas().values.tolist()
+    query_bin =options_query.select(['encoding']).to_pandas().values.tolist()
+    dash_enc   = [parseBinaryEncoding(bytearray(row[0])) for row in dash_bin]
+    query_enc  = [parseBinaryEncoding(bytearray(row[0])) for row in query_bin]
+
+    binendtime = datetime.datetime.now()
+
+    jsonstarttime = datetime.datetime.now()
+
+    dash_json  = options_dash.select(['ENCODING_JSON']).to_pandas().values.tolist()
+    query_json = options_query.select(['ENCODING_JSON']).to_pandas().values.tolist()
+    dash_enc2   = [parseBinaryEncoding(bytearray(row[0])) for row in dash_bin]
+    query_enc2  = [parseBinaryEncoding(bytearray(row[0])) for row in query_bin]
+
+    endtime = datetime.datetime.now()
+
+
+    snowtime = '%d.%06d' % ((endtime - snowstarttime).seconds, (endtime - snowstarttime).microseconds)
+    bintime = '%d.%06d' % ((binendtime - binstarttime).seconds, (binendtime - binstarttime).microseconds)
+    jsontime = '%d.%06d' % ((endtime - jsonstarttime).seconds, (endtime - jsonstarttime).microseconds)
+
+    print('Total Snowflake encoding load time %s sec' % (snowtime))
+    print('Binary encoding parse time %s sec' % (bintime))
+    print('JSON encoding parse time %s sec' % (jsontime))
+
+    return model, dash_enc, dash_opts, query_enc, query_opts, snowtime, bintime, jsontime
+
 
 # run the prompt against the AI to recieve an answer
 def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):   
@@ -66,7 +110,14 @@ def main():
     prompt = 'test'
 
     # gets mapping file and their encodings as well as meta data for the model being used
-    model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
+    
+    localtime = localRead()
+
+    model, dash_enc, dash_opts, query_enc, query_opts, snowtime, binTime, jsontime = env_Setup()
+
+    f = open('DecodeSpeedData.csv', 'a')
+    f.write('\n'+snowtime+','+binTime+','+jsontime+','+localtime)
+    f.close()
 
 
     dash_answer, query_answer = do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)
