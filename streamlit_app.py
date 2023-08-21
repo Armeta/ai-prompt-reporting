@@ -70,10 +70,13 @@ def env_Setup():
     model = SentenceTransformer('all-distilroberta-v1')
     
     #recieve options and their encodings and return
-    dash_opts  = options_dash.select(['url']).to_pandas().values.tolist()
-    dash_enc   = [parseBinaryEncoding(bytearray(row[0])) for row in options_dash.select(['encoding']).to_pandas().values.tolist()]
-    query_opts = options_query.select(['RESULT_CACHE']).to_pandas().values.tolist()
-    query_enc  = [parseBinaryEncoding(bytearray(row[0])) for row in options_query.select(['encoding']).to_pandas().values.tolist()]
+    dash_rows = options_dash.select(['URL', 'ENCODING']).to_pandas().values.tolist()
+    query_rows = options_query.select(['RESULT_CACHE', 'ENCODING']).to_pandas().values.tolist()
+
+    dash_opts  = [row[0] for row in dash_rows]
+    query_opts = [row[0] for row in query_rows]
+    dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
+    query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
 
     return model, dash_enc, dash_opts, query_enc, query_opts
 
