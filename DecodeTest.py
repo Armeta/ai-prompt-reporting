@@ -70,8 +70,8 @@ def env_Setup():
 
     dash_json  = options_dash.select(['ENCODING_JSON']).to_pandas().values.tolist()
     query_json = options_query.select(['ENCODING_JSON']).to_pandas().values.tolist()
-    dash_enc2   = [parseBinaryEncoding(bytearray(row[0])) for row in dash_bin]
-    query_enc2  = [parseBinaryEncoding(bytearray(row[0])) for row in query_bin]
+    dash_enc2   = [json.loads(row[0])['encoding'] for row in dash_json]
+    query_enc2  = [json.loads(row[0])['encoding'] for row in query_json]
 
     endtime = datetime.datetime.now()
 
