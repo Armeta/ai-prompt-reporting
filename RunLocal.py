@@ -41,17 +41,11 @@ def env_Setup():
 
     dash_opts  = [row[0] for row in dash_rows]
     query_opts = [row[0] for row in query_rows]
+    dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
+    query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
 
-    
     dash_desc  = [row[2] for row in dash_rows]
     query_desc = [row[2] for row in query_rows]
-    
-
-    dash_bin  = [row[1] for row in dash_rows]
-    query_bin = [row[1] for row in query_rows]
-    dash_enc   = [parseBinaryEncoding(bytearray(row)) for row in dash_bin]
-    query_enc  = [parseBinaryEncoding(bytearray(row)) for row in query_bin]
-
 
     return model, dash_enc, dash_opts, query_enc, query_opts, dash_desc, query_desc
 
