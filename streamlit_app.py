@@ -1,7 +1,6 @@
 # data manipulation 
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
-from pathlib import Path
 
 #data types
 import json
@@ -12,14 +11,8 @@ import streamlit as st
 from   PIL import Image
 from   streamlit.components.v1 import html
 from   streamlit_option_menu import option_menu
-import time
 import streamlit as st
-
-#snowpark
 import   sys
-from     snowflake.snowpark           import Session
-from     snowflake.snowpark.functions import col, to_timestamp
-from     snowflake.snowpark.types     import IntegerType, StringType, StructField, StructType, DateType,LongType,DoubleType
 
 # add src to system path
 sys.path.append('src')
@@ -28,8 +21,6 @@ from lib import code_library
 
 # tab icon
 image = Image.open('src/media/armeta-icon.png')
-
-
 
 # Page Config
 st.set_page_config(
@@ -44,7 +35,6 @@ st.set_page_config(
 
 def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
-
 
 # load options file and set up model
 @st.cache_resource()
