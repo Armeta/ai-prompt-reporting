@@ -176,7 +176,7 @@ def main():
             if(query_answer != '') and (options != 'Dashboards Only'):
 
                 # Write results + session cache for assistant
-                query_answer = str(query_answer[0]).replace("$", "\\$")
+                query_answer = str(query_answer).replace("$", "\\$")
                 st.markdown(query_answer) 
                 save_AssistantCache(number, query_answer)
 
@@ -189,8 +189,8 @@ def main():
             if(dash_answer != '') and (options != 'Query Results Only'): 
 
                 # Write results + session cache for assistant
-                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer[0])                
-                save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer[0])
+                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)                
+                save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
     # End chat - assistant
 image.close()
 
