@@ -29,15 +29,7 @@ from lib import code_library
 # tab icon
 image = Image.open('src/media/armeta-icon.png')
 
-# Bot Avatar Icon
-with open('src/txt/armeta-icon_Base64Source.txt') as f:
-    BotAvatar = f.read()
-f.close()
 
-# User Avatar Icon
-with open('src/txt/usericon_Base64Source.txt') as f:
-    UserAvatar = f.read()
-f.close()
 
 # Page Config
 st.set_page_config(
@@ -55,8 +47,23 @@ def parseBinaryEncoding(bin_enc):
 
 
 # load options file and set up model
-@st.cache_data()
+@st.cache_resource()
 def env_Setup():
+    # Bot Avatar Icon
+    with open('src/txt/armeta-icon_Base64Source.txt') as f:
+        BotAvatar = f.read()
+    f.close()
+
+    # User Avatar Icon
+    with open('src/txt/usericon_Base64Source.txt') as f:
+        UserAvatar = f.read()
+    f.close()
+
+    # Open CSS file
+    with open('src/css/style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    f.close()
+
     # Get connection string paramaters
     connectionString = open('src/json/connection_details.json', "r")
     connectionString = json.loads(connectionString.read())
@@ -75,16 +82,21 @@ def env_Setup():
     query_opts = options_query.select(['RESULT_CACHE']).to_pandas().values.tolist()
     query_enc  = [parseBinaryEncoding(bytearray(row[0])) for row in options_query.select(['encoding']).to_pandas().values.tolist()]
 
-    return model, dash_enc, dash_opts, query_enc, query_opts
+    # Page Header/Subheader
+    st.title("💬 arai") 
+    with st.chat_message("assistant", avatar = BotAvatar):
+        st.write("How can I help you?")    
+
+    return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
 
 # run the prompt against the AI to recieve an answer
-def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts):   
+def do_GET(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   
     #init 
     encoding = None
     
     # Encode prompt based off which model is being used
     if(prompt != ''):
-        encoding = model.encode(prompt)
+        encoding = _model.encode(prompt)
     
     # pick and return a dashboard answer based off options.json
     sim = cosine_similarity([encoding], dash_enc)
@@ -105,20 +117,20 @@ def save_AssistantCache(i, content):
     name = 'messages' + str(i) 
     st.session_state[name].append({"role": "assistant", "content": content})
 
-# Open CSS file
-with open('src/css/style.css') as f:
-   st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-f.close()
-
-# Page Header/Subheader
-st.title("💬 arai") 
-with st.chat_message("assistant", avatar = BotAvatar):
-    st.write("How can I help you?")
+def load_Cache(UserAvatar, BotAvatar):
+    # load session cache or reset if none
+    for message in st.session_state.messages:
+        if(message["role"] == "user"):
+            with st.chat_message("user", avatar = UserAvatar):
+                st.markdown(message["content"])
+        else:       
+            with st.chat_message("assistant", avatar = BotAvatar):
+                st.markdown(message["content"])
 
 def main():
 
     # gets mapping file and their encodings as well as meta data for the model being used
-    model, dash_enc, dash_opts, query_enc, query_opts = env_Setup()
+    model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar = env_Setup()
     
     # (re)-initialize current chat 
     if 'messages' not in st.session_state:
@@ -147,22 +159,14 @@ def main():
             # Give filtering options for AI results
             options = st.radio("What would you like to see?",('Both Dashboard and Query Results', 'Dashboards Only', 'Query Results Only'))
 
-    # load session cache or reset if none
-    for message in st.session_state.messages:
-        if(message["role"] == "user"):
-            with st.chat_message("user", avatar = UserAvatar):
-                st.markdown(message["content"])
-        else:       
-            with st.chat_message("assistant", avatar = BotAvatar):
-                st.markdown(message["content"])
-   
+    load_Cache(UserAvatar, BotAvatar)
+
     # recieve prompt from user
     prompt = st.chat_input("Send a Message")                     
     if prompt : 
         # Start Chat - user
         with st.chat_message("user", avatar = UserAvatar):
             st.markdown(prompt)
-
         # run the prompt against the AI to recieve an answer And Write to session cache for user
         dash_answer, query_answer = do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
         save_UserCache(number, prompt)               
@@ -171,7 +175,6 @@ def main():
         with st.chat_message("assistant", avatar = BotAvatar):
             # Show query result 
             if(query_answer != '') and (options != 'Dashboards Only'):
-
                 # Write results + session cache for assistant
                 query_answer = str(query_answer[0]).replace("$", "\\$")
                 st.markdown(query_answer) 
@@ -184,7 +187,6 @@ def main():
 
             # Show dashboard result  
             if(dash_answer != '') and (options != 'Query Results Only'): 
-
                 # Write results + session cache for assistant
                 st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer[0])                
                 save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer[0])
