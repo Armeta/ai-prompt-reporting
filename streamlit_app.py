@@ -77,10 +77,13 @@ def env_Setup():
     model = SentenceTransformer('all-distilroberta-v1')
     
     #recieve options and their encodings and return
-    dash_opts  = options_dash.select(['url']).to_pandas().values.tolist()
-    dash_enc   = [parseBinaryEncoding(bytearray(row[0])) for row in options_dash.select(['encoding']).to_pandas().values.tolist()]
-    query_opts = options_query.select(['RESULT_CACHE']).to_pandas().values.tolist()
-    query_enc  = [parseBinaryEncoding(bytearray(row[0])) for row in options_query.select(['encoding']).to_pandas().values.tolist()]
+    dash_rows = options_dash.select(['URL', 'ENCODING']).to_pandas().values.tolist()
+    query_rows = options_query.select(['RESULT_CACHE', 'ENCODING']).to_pandas().values.tolist()
+
+    dash_opts  = [row[0] for row in dash_rows]
+    query_opts = [row[0] for row in query_rows]
+    dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
+    query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
 
     # Page Header/Subheader
     st.title("💬 arai") 
@@ -176,7 +179,7 @@ def main():
             # Show query result 
             if(query_answer != '') and (options != 'Dashboards Only'):
                 # Write results + session cache for assistant
-                query_answer = str(query_answer[0]).replace("$", "\\$")
+                query_answer = str(query_answer).replace("$", "\\$")
                 st.markdown(query_answer) 
                 save_AssistantCache(number, query_answer)
 
@@ -188,8 +191,8 @@ def main():
             # Show dashboard result  
             if(dash_answer != '') and (options != 'Query Results Only'): 
                 # Write results + session cache for assistant
-                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer[0])                
-                save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer[0])
+                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)                
+                save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
     # End chat - assistant
 image.close()
 
