@@ -15,7 +15,7 @@ connectionString = json.loads(connectionString.read())
 session          = code_library.snowconnection(connectionString)    
 
 
-f = open('src/json/QueryTemplates.json')
+f = open('src/json/QueryTemplates2.json')
 templates = json.load(f)['templates']
 f.close()
 
@@ -51,12 +51,12 @@ for template in templates:
         elif(newURLQuery != ''):
             newURL = newURL + '?query=' + str(base64.b64encode(newURLQuery.encode("ascii")))[2:-1].replace('=', '%3D')
 
-        insertQuery = 'INSERT INTO MODEL."OptionsQuery" (SK, DESC, DASHBOARD, QUERY) VALUES(%d,\'%s\',\'%s\',\'%s\')' % (id, newDesc, template['category'], newQuery)
+        insertQuery = 'INSERT INTO MODEL."OptionsQuery" (SK, DESC, DASHBOARD, QUERY) VALUES(%d,\'%s\',\'%s\',$$%s$$)' % (id, newDesc, template['category'], newQuery)
         insertDashboard = 'INSERT INTO MODEL."OptionsDashboard" (SK, DESC, DASHBOARD, URL) VALUES(%d,\'%s\',\'%s\',\'%s\')' % (id, newDesc, template['category'], newURL)
 
         qs.write(newQuestion+'\n')
-        session.sql(insertQuery).collect()
-        session.sql(insertDashboard).collect()
+        #session.sql(insertQuery).collect()
+        #session.sql(insertDashboard).collect()
 
         paramCount[0] += 1
         for i in range(len(paramCount)):
