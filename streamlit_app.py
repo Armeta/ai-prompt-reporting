@@ -1,7 +1,7 @@
 # Visualizations 
 import streamlit as st
 from   PIL import Image
-import   sys
+import sys
 
 # add src to system path
 sys.path.append('src')
