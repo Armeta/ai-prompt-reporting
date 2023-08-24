@@ -44,22 +44,40 @@ def load_Cache(UserAvatar, BotAvatar):
 def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
 
-# def write_converation(session, prompt):
-#     session_details = session.create_dataframe(
-#             [
-#                [
-#                   session._session_id
-#                 , session.sql("select current_user();").collect()[0][0]
-#                 , str(session.get_current_warehouse()).replace('"','')
-#                 , str(session.get_current_role()).replace('"','')
-#                # , str(prompt).replace('"','')
-#                 ]
-#             ]
-#             , schema=["session_id","user_name","warehouse","role", "input"]
-#          )
+# write session meta data
+def write_Audit(session, prompt):
+    session_details = session.create_dataframe(
+            [
+               [
+                  session._session_id
+                , str(prompt).replace('"','')
+                ]
+            ]
+            , schema=["session_id" , "input"]
+         )
+
+    # This logs write meta data to a table in snowflake
+    session_details.write.mode("append").save_as_table("session_message_audit")    
+
+# caching for chats  
+def manage_Cache():
+    # caching for chats  
+    number = st.number_input('Insert chat index number', min_value=0, max_value=None, value=0, step=1)
+    # create new cache
+    name = 'messages' + str(number) 
     
-#     # This logs write meta data to a table in snowflake
-#     session_details.write.mode("append").save_as_table("session_message_audit")    
+    # initialize session cache    
+    if name not in st.session_state:
+        st.session_state[name] = []
+
+        # remove data from current session cache # reinitialize current session cache
+        del st.session_state['messages']                          
+        st.session_state['messages'] = []                
+    else:                
+        # if the name exists then we just swap out the cache
+        st.session_state['messages'] = st.session_state[name]    
+    
+    return number
 
 # load options file and set up model
 @st.cache_resource()
@@ -105,10 +123,10 @@ def env_Setup():
     with st.chat_message("assistant", avatar = BotAvatar):
         st.write("How can I help you?")    
 
-    return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
+    return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar, session
 
 # run the prompt against the AI to recieve an answer
-def do_GET(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   
+def do_Get(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   
     #init 
     encoding = None
     

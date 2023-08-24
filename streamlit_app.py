@@ -27,7 +27,7 @@ st.set_page_config(
 def main():
 
     # gets mapping file and their encodings as well as meta data for the model being used
-    model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar = code_library.env_Setup()
+    model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar, session = code_library.env_Setup()
     
     # (re)-initialize current chat 
     if 'messages' not in st.session_state:
@@ -35,24 +35,11 @@ def main():
 
     # sidebar options
     with st.sidebar:
-            # caching for chats  
-            number = st.number_input('Insert chat index number', min_value=0, max_value=None, value=0, step=1)
-            # create new cache
-            name = 'messages' + str(number) 
-            
-            # initialize session cache    
-            if name not in st.session_state:
-                st.session_state[name] = []
+         # caching for chat
+        number = code_library.manage_Cache()
 
-                # remove data from current session cache # reinitialize current session cache
-                del st.session_state['messages']                          
-                st.session_state['messages'] = []                
-            else:                
-                # if the name exists then we just swap out the cache
-                st.session_state['messages'] = st.session_state[name]
-            
-            # Give filtering options for AI results
-            options = st.radio("What would you like to see?",('Both Dashboard and Query Results', 'Dashboards Only', 'Query Results Only'))
+         # Give filtering options for AI results
+        options = st.radio("What would you like to see?",('Both Dashboard and Query Results', 'Dashboards Only', 'Query Results Only'))
 
     # load chat history 
     code_library.load_Cache(UserAvatar, BotAvatar)
@@ -63,10 +50,13 @@ def main():
         # Start Chat - user
         with st.chat_message("user", avatar = UserAvatar):
             st.markdown(prompt)
+
         # run the prompt against the AI to recieve an answer And Write to session cache for user
-        dash_answer, query_answer = code_library.do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
+        dash_answer, query_answer = \
+        code_library.do_Get(prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
         code_library.save_UserCache(number, prompt)               
-        
+        code_library.write_Audit(session, prompt)
+
         #Start chat - assistant
         with st.chat_message("assistant", avatar = BotAvatar):
             # Show query result 
