@@ -55,7 +55,7 @@ def main():
         dash_answer, query_answer = \
         code_library.do_Get(prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
         code_library.save_UserCache(number, prompt)               
-        code_library.write_Audit(session, prompt)
+        #code_library.write_Audit(session, prompt)
 
         #Start chat - assistant
         with st.chat_message("assistant", avatar = BotAvatar):
