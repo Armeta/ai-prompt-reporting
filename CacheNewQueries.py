@@ -16,6 +16,9 @@ session          = code_library.snowconnection(connectionString)
 options_query = session.table("\"OptionsQuery\"")
 
 query   = options_query.filter(col('RESULT_CACHE' ).isNull()).select(['SK', 'QUERY']).to_pandas().values.tolist()
+total = len(query)
+count = 0
+print(str(total) + ' queries to cache')
 for row in query:
     result = session.sql(row[1]).collect()
     if(len(result) == 0 or result[0] == None):
@@ -25,3 +28,6 @@ for row in query:
     else:
         result_str = result[0][0].replace('\'', '\'\'')
     session.sql('UPDATE "MODEL"."OptionsQuery" SET RESULT_CACHE=\''+result_str+'\',RESULT_CACHE_TS=CURRENT_TIMESTAMP WHERE SK='+str(row[0])+';').collect()
+    count += 1
+    if(count % 50 == 0):
+        print( '%d (%d%%)' % (count, (100.0*count)/total) )

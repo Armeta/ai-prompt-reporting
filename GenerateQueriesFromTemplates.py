@@ -1,4 +1,6 @@
+from sentence_transformers import SentenceTransformer
 import json
+import struct
 import base64
 import   sys
 from     snowflake.snowpark           import Session
@@ -14,6 +16,7 @@ connectionString = open('src/json/connection_details.json', "r")
 connectionString = json.loads(connectionString.read())
 session          = code_library.snowconnection(connectionString)    
 
+model = SentenceTransformer('all-distilroberta-v1')
 
 f = open('src/json/QueryTemplates2.json')
 templates = json.load(f)['templates']
@@ -21,7 +24,14 @@ f.close()
 
 qs = open('GeneratedQuestions.txt', 'w')
 
-id = 1000
+stageQ = open('toStageQuery.csv', 'w')
+stageQ.write('DESC|DASHBOARD|QUERY|ENCODING|ENCODING_JSON\n')
+
+stageD = open('toStageDashboard.csv', 'w')
+stageD.write('DESC|DASHBOARD|URL|ENCODING|ENCODING_JSON|FILTER|QUERY\n')
+
+
+count = 0
 
 for template in templates:
     paramCount = [0 for param in template['parameters']]
@@ -43,7 +53,7 @@ for template in templates:
 
             newURLFilter = newURLFilter.replace(template['URLparameters'][p]['name'], str(template['URLparameters'][p]['values'][paramCount[p]]))
             newURLQuery = newURLQuery.replace(template['URLparameters'][p]['name'], str(template['URLparameters'][p]['values'][paramCount[p]]))
-        #newQuery = newQuery.replace('\'', '\'\'')
+        
         if(newURLFilter != '' and newURLQuery != ''):
             newURL = newURL + '?filter=' + str(base64.b64encode(newURLFilter.encode("ascii")))[2:-1].replace('=', '%3D') + '&query=' + str(base64.b64encode(newURLQuery.encode("ascii")))[2:-1].replace('=', '%3D')
         elif(newURLFilter != ''):
@@ -51,10 +61,21 @@ for template in templates:
         elif(newURLQuery != ''):
             newURL = newURL + '?query=' + str(base64.b64encode(newURLQuery.encode("ascii")))[2:-1].replace('=', '%3D')
 
-        insertQuery = 'INSERT INTO MODEL."OptionsQuery" (SK, DESC, DASHBOARD, QUERY) VALUES(%d,\'%s\',\'%s\',$$%s$$)' % (id, newDesc, template['category'], newQuery)
-        insertDashboard = 'INSERT INTO MODEL."OptionsDashboard" (SK, DESC, DASHBOARD, URL) VALUES(%d,\'%s\',\'%s\',\'%s\')' % (id, newDesc, template['category'], newURL)
+        enc = model.encode(newDesc).tolist()
+        enc_json = '{"encoding": '+str(enc)+'}'
+        enc_bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
 
         qs.write(newQuestion+'\n')
+
+        #DESC, DASHBOARD, QUERY, ENCODING, ENCODING_JSON
+        stageQ.write('%s|%s|%s|%s|%s\n' % (newDesc, template['category'], newQuery, enc_bin, enc_json))
+        
+        #DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY
+        stageD.write('%s|%s|%s|%s|%s|%s|%s\n' % (newDesc, template['category'], newURL, enc_bin, enc_json, newURLFilter, newURLQuery))
+
+        #insertQuery = 'INSERT INTO MODEL."OptionsQuery" (SK, DESC, DASHBOARD, QUERY) VALUES(%d,\'%s\',\'%s\',$$%s$$)' % (id, newDesc, template['category'], newQuery)
+        #insertDashboard = 'INSERT INTO MODEL."OptionsDashboard" (SK, DESC, DASHBOARD, URL) VALUES(%d,\'%s\',\'%s\',\'%s\')' % (id, newDesc, template['category'], newURL)
+        
         #session.sql(insertQuery).collect()
         #session.sql(insertDashboard).collect()
 
@@ -67,11 +88,20 @@ for template in templates:
                     paramCount[i+1] += 1
                     paramCount[i] = 0
 
-        id += 1
+        count += 1
+        if(count % 100 == 0):
+            print(count)
 
 qs.close()
-print('Generated %d options' % (id-1000))
+stageQ.close()
+stageD.close()
+print('Generated %d options' % (count))
 
+print('uploading stages...')
+session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageDashboard.csv @dashboard_option_stage;').collect()
+print('Uplaoded Dashboards')
+session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageQuery.csv @query_option_stage;').collect()
+print('Uplaoded Queries')
 """
 topStyleQ = [
 {'name':'timeframe', 'values':['MTD', 'WTD']},
