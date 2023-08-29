@@ -50,10 +50,13 @@ def main():
         # Start Chat - user
         with st.chat_message("user", avatar = UserAvatar):
             st.markdown(prompt)
-
+        
+        # clean the prompt before the AI recieves it
+        clean_prompt = prompt.replace('\'','').replace('-',' ');
+            
         # run the prompt against the AI to recieve an answer And Write to session cache for user
         dash_answer, query_answer = \
-        code_library.do_Get(prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
+        code_library.do_Get(clean_prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
         code_library.save_UserCache(number, prompt)               
         #code_library.write_Audit(session, prompt)
 
