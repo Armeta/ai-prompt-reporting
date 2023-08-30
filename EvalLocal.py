@@ -34,6 +34,7 @@ def env_Setup():
 
     # model selection
     model = SentenceTransformer('all-distilroberta-v1')
+    #model = SentenceTransformer('./LocalModel/')
     
     #recieve options and their encodings and return
     dash_rows = options_dash.select(['URL', 'ENCODING', 'DESC']).to_pandas().values.tolist()
@@ -41,8 +42,8 @@ def env_Setup():
 
     dash_opts  = [row[0] for row in dash_rows]
     query_opts = [row[0] for row in query_rows]
-    dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
-    query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
+    dash_enc   = [model.encode(row[2]) for row in dash_rows]
+    query_enc  = [model.encode(row[2]) for row in query_rows]
 
     dash_desc  = [row[2] for row in dash_rows]
     query_desc = [row[2] for row in query_rows]
@@ -61,7 +62,8 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts, dash_desc,
 
     # Encode prompt based off which model is being used
     if(prompt != ''):
-        encoding = model.encode(prompt)
+        clean_prompt = prompt.replace('\'', '').replace('-', '')
+        encoding = model.encode(clean_prompt)
     
         # pick and return a dashboard answer based off options.json
         sim = cosine_similarity([encoding], dash_enc)
@@ -88,10 +90,19 @@ def main():
     countQuery = 0
     totalBoth = 0
     countBoth = 0
-    
+    total = 0
 
     ak = open('src/json/answerKey.csv', 'r')
-    good = open('src/json/correctQuestions.csv', 'w')
+    for line in ak:
+        total += 1
+    ak.close()
+
+    ak = open('src/json/answerKey.csv', 'r')
+    good = open('src/json/Questions_good.csv', 'w')
+    bad = open('src/json/Questions_bad.csv', 'w')
+
+    currentCount = 0
+    starttime = datetime.datetime.now()
     for line in ak.readlines():
         if(line == ''):
             continue
@@ -112,7 +123,18 @@ def main():
             good.write(prompt+'\n')
             countBoth += 1
         if(dash_answer_desc != ans and query_answer_desc != ans):
-            print(ans +'|'+query_answer_desc+'|'+dash_answer_desc)
+            bad.write(prompt+'\n')
+
+        currentCount += 1
+        if(currentCount % 100 == 0):
+            endtime = datetime.datetime.now()
+            dur_s = (endtime - starttime).seconds
+            left_s = int(dur_s/currentCount * (total-currentCount))
+            dur_m = int(dur_s / 60)
+            dur_s = dur_s % 60
+            left_m = int(left_s / 60)
+            left_s = left_s % 60
+            print('Evaluated %5d entries (%d%%) in %2dm %02ds. Estimated time remaining: %2dm %02ds' % (currentCount, currentCount*100.0/total, dur_m, dur_s, left_m, left_s))
 
     print('Dashboards : %02.1f%%' % (countDash*100.0/totalDash))
     print('Queries    : %02.1f%%' % (countQuery*100.0/totalQuery))
