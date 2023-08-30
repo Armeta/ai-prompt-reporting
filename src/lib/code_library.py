@@ -23,8 +23,16 @@ def save_UserCache(i, content):
     st.session_state[name].append({"role": "user", "content": content})
 
 def get_LastPrompt(i):
-    name = 'messages' + str(i) 
-    return st.session_state[name]
+    name     = 'messages' + str(i) 
+    thislist = []
+    prompt = ''
+    for strings in st.session_state[name]:
+        if str(strings).find('user') > 0:
+            thislist.append(strings)
+    size = len(thislist)
+    prompt = str(thislist[size-1]).replace('\'','"')
+    prompt = json.loads(prompt)
+    return prompt["content"]
 
 def save_AssistantCache(i, content):
     # set indice
