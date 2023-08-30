@@ -95,7 +95,7 @@ def main():
     if toggle(widget = 'checkbox', label='Give Feedback', value = False):
         st.session_state.FeedbackText   = st.text_input("What could this answer be improved?", "... ")  
         st.session_state.FeedbackRating = st.radio("Was this helpful?", ["✅", "❌"], label_visibility=st.session_state.visibility, disabled=st.session_state.disabled, horizontal=st.session_state.horizontal, index = 0)                
-        if (st.session_state.FeedbackRating == "❌") and (st.session_state.FeedbackText != "... "):
+        if (st.session_state.FeedbackRating == "❌") or (st.session_state.FeedbackText != "... "):
             test = code_library.get_LastPrompt(number) 
             code_library.write_Audit(session, test, st.session_state.FeedbackRating, st.session_state.FeedbackText)
  
