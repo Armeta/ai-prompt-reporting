@@ -22,6 +22,10 @@ def save_UserCache(i, content):
     name = 'messages' + str(i) 
     st.session_state[name].append({"role": "user", "content": content})
 
+def get_LastPrompt(i):
+    name = 'messages' + str(i) 
+    return st.session_state[name]
+
 def save_AssistantCache(i, content):
     # set indice
     name = 'messages' + str(i) 

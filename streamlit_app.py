@@ -54,6 +54,7 @@ def main():
    
     # recieve prompt from user
     prompt = st.chat_input("Send a Message")  
+    test = ''
     if prompt : 
         st.session_state.disabled       = False
         # Start Chat - user
@@ -88,15 +89,16 @@ def main():
                 st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)                
                 code_library.save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
         # End chat - assistant
-        AuditPrompt = prompt
-
+        
 # ask user if reply was helpful
     #on =  toggle('Activate feature')
     if toggle(widget = 'checkbox', label='Give Feedback', value = False):
         st.session_state.FeedbackText   = st.text_input("What could this answer be improved?", "... ")  
         st.session_state.FeedbackRating = st.radio("Was this helpful?", ["✅", "❌"], label_visibility=st.session_state.visibility, disabled=st.session_state.disabled, horizontal=st.session_state.horizontal, index = 0)                
         if (st.session_state.FeedbackRating == "❌") and (st.session_state.FeedbackText != "... "):
-            code_library.write_Audit(session, AuditPrompt, st.session_state.FeedbackRating, st.session_state.FeedbackText)
+            test = code_library.get_LastPrompt(number)
+            print(test)
+            code_library.write_Audit(session, prompt, st.session_state.FeedbackRating, st.session_state.FeedbackText)
  
 
  
