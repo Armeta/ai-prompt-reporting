@@ -2,7 +2,7 @@
 import streamlit as st
 from   PIL import Image
 import sys
-
+from streamlit_toggle import toggle
 # add src to system path
 sys.path.append('src')
 
@@ -33,6 +33,14 @@ def main():
     if 'messages' not in st.session_state:
         st.session_state['messages'] = []
 
+    #manage feedback session state
+    if 'visibility' not in st.session_state:
+        st.session_state.visibility     = 'visible'
+        st.session_state.disabled       = True
+        st.session_state.horizontal     = True
+        st.session_state.FeedbackRating = ''
+        st.session_state.FeedbackText   = ''
+
     # sidebar options
     with st.sidebar:
          # caching for chat
@@ -43,10 +51,11 @@ def main():
 
     # load chat history 
     code_library.load_Cache(UserAvatar, BotAvatar)
-
+   
     # recieve prompt from user
-    prompt = st.chat_input("Send a Message")                     
+    prompt = st.chat_input("Send a Message")  
     if prompt : 
+        st.session_state.disabled       = False
         # Start Chat - user
         with st.chat_message("user", avatar = UserAvatar):
             st.markdown(prompt)
@@ -80,6 +89,16 @@ def main():
                 code_library.save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
         # End chat - assistant
 
+# ask user if reply was helpful
+    #on =  toggle('Activate feature')
+    if toggle(widget = 'checkbox', label='Give Feedback', value = False):
+        st.session_state.FeedbackText   = st.text_input("What could this answer be improved?", "... ")  
+        st.session_state.FeedbackRating = st.radio("Was this helpful?", ["✅", "❌"], label_visibility=st.session_state.visibility, disabled=st.session_state.disabled, horizontal=st.session_state.horizontal, index = 0)                
+        if (st.session_state.FeedbackRating == "❌") and (st.session_state.FeedbackText != "... "):
+            code_library.write_Audit(session, prompt, st.session_state.FeedbackRating, st.session_state.FeedbackText)
+ 
+
+ 
 image.close()
 
 if __name__ == '__main__':  
