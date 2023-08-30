@@ -22,6 +22,7 @@ def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
 
 def env_Setup():
+    starttime = datetime.datetime.now()
     
     # Get connection string paramaters
     connectionString = open('src/json/connection_details.json', "r")
@@ -33,7 +34,8 @@ def env_Setup():
     #options_dash_test.show()
 
     # model selection
-    model = SentenceTransformer('all-distilroberta-v1')
+    #model = SentenceTransformer('all-distilroberta-v1')
+    model = SentenceTransformer('./LocalModel/')
     
     #recieve options and their encodings and return
     dash_rows = options_dash.select(['URL', 'ENCODING', 'DESC']).to_pandas().values.tolist()
@@ -41,11 +43,17 @@ def env_Setup():
 
     dash_opts  = [row[0] for row in dash_rows]
     query_opts = [row[0] for row in query_rows]
-    dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
-    query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
+    #dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
+    #query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
+    dash_enc   = [model.encode(row[2]) for row in dash_rows]
+    query_enc  = [model.encode(row[2]) for row in query_rows]
 
     dash_desc  = [row[2] for row in dash_rows]
     query_desc = [row[2] for row in query_rows]
+
+    endtime = datetime.datetime.now()
+
+    print('Env Setup in %d sec' % ((endtime-starttime).seconds))
 
     return model, dash_enc, dash_opts, query_enc, query_opts, dash_desc, query_desc
 
@@ -61,7 +69,8 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts, dash_desc,
 
     # Encode prompt based off which model is being used
     if(prompt != ''):
-        encoding = model.encode(prompt)
+        clean_prompt = prompt.replace('\'', '').replace('-', '')
+        encoding = model.encode(clean_prompt)
     
         # pick and return a dashboard answer based off options.json
         sim = cosine_similarity([encoding], dash_enc)

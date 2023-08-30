@@ -1,0 +1,24 @@
+Original Model with 6332 entries in answerKey (8/29/2023 8:57AM)
+Dashboards : 88.7%
+Queries    : 88.6%
+Both       : 88.6%
+
+Tuned Model from 6332 entries answerKey (8/29/2023 8:57AM) (12 sets) (shuffle=True, batch_size=16, MultipleNegativesRankingLoss, epochs=1)
+Dashboards : 96.3%
+Queries    : 96.2%
+Both       : 96.2%
+Still confusing MEN for WOMENS. Some confusion about on hand equating to sell thru.
+
+Tuned Model from 6332 entries answerKey (8/29/2023 8:57AM) (12 sets) (shuffle=True, batch_size=16, MultipleNegativesRankingLoss, epochs=2)
+Total time to tune new model: 25m 3s (1503 sec)
+Dashboards : 98.5%
+Queries    : 98.5%
+Both       : 98.5%
+Fewer MEN mixups
+
+
+Tuned Model from 6332 entries answerKey (8/29/2023 8:57AM) (12 sets) (shuffle=True, batch_size=16, MultipleNegativesRankingLoss, epochs=3)
+~ 47 mins
+Dashboards : 99.5%
+Queries    : 99.5%
+Both       : 99.5%

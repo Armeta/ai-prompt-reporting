@@ -23,7 +23,7 @@ templates = json.load(f)['templates']
 f.close()
 
 qs = open('GeneratedQuestions.txt', 'w')
-ak = open('src/json/answerKey.csv', 'w')
+#ak = open('src/json/answerKey.csv', 'w')
 
 stageQ = open('toStageQuery.csv', 'w')
 stageQ.write('DESC|DASHBOARD|QUERY|ENCODING|ENCODING_JSON\n')
@@ -67,7 +67,7 @@ for template in templates:
         enc_bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
 
         qs.write(newQuestion+'\n')
-        ak.write(newQuestion+'|'+newDesc+'\n')
+        #ak.write(newQuestion+'|'+newDesc+'\n')
 
         #DESC, DASHBOARD, QUERY, ENCODING, ENCODING_JSON
         stageQ.write('%s|%s|%s|%s|%s\n' % (newDesc, template['category'], newQuery, enc_bin, enc_json))
@@ -93,7 +93,6 @@ stageQ.close()
 stageD.close()
 print('Generated %d options' % (count))
 
-1/0
 
 print('uploading stages...')
 session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageDashboard.csv @dashboard_option_stage;').collect()
