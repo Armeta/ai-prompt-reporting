@@ -2,6 +2,7 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 # Visualizations 
 import streamlit as st
+import time
 
 # data manipulation 
 from sklearn.metrics.pairwise import cosine_similarity
@@ -48,9 +49,10 @@ def write_Audit(session, prompt, FeedbackRating, FeedbackText):
                 , str(prompt).replace('"','')
                 , FeedbackRating
                 , str(FeedbackText).replace('"','')
+                , time.time()
                 ]
             ]
-            , schema=["session_id" , "input", "FeedbackRating", "FeedbackText"]
+            , schema=["session_id" , "input", "FeedbackRating", "FeedbackText", "TimeStamp"]
          )
 
     # This logs write meta data to a table in snowflake
