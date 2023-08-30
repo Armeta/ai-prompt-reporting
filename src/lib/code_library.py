@@ -14,11 +14,6 @@ import struct
 # setup connection with snowflake
 def snowconnection(connection_config):
     session = Session.builder.configs(connection_config).create()
-    #session_details = session.create_dataframe([[session._session_id,session.sql("select current_user();").collect()[0][0],str(session.get_current_warehouse()).replace('"',''),str(session.get_current_role()).replace('"','')]], schema=["session_id","user_name","warehouse","role"])
-    
-    # This logs write meta data to a table in snowflake
-    #session_details.write.mode("append").save_as_table("session_audit")
-    
     return session
 
 def save_UserCache(i, content):
@@ -45,19 +40,21 @@ def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
 
 # write session meta data
-def write_Audit(session, prompt):
+def write_Audit(session, prompt, FeedbackRating, FeedbackText):
     session_details = session.create_dataframe(
             [
                [
                   session._session_id
                 , str(prompt).replace('"','')
+                , FeedbackRating
+                , str(FeedbackText).replace('"','')
                 ]
             ]
-            , schema=["session_id" , "input"]
+            , schema=["session_id" , "input", "FeedbackRating", "FeedbackText"]
          )
 
     # This logs write meta data to a table in snowflake
-    session_details.write.mode("append").save_as_table("session_message_audit")    
+    session_details.write.mode("append").save_as_table("session_messages_feedback")    
 
 # caching for chats  
 def manage_Cache():
@@ -82,6 +79,7 @@ def manage_Cache():
 # load options file and set up model
 @st.cache_resource()
 def env_Setup():
+
     # Bot Avatar Icon
     with open('src/txt/armeta-icon_Base64Source.txt') as f:
         BotAvatar = f.read()
