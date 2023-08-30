@@ -42,6 +42,7 @@ def parseBinaryEncoding(bin_enc):
 
 # write session meta data
 def write_Audit(session, prompt, FeedbackRating, FeedbackText):
+    s=time.gmtime(time.time())
     session_details = session.create_dataframe(
             [
                [
@@ -49,12 +50,11 @@ def write_Audit(session, prompt, FeedbackRating, FeedbackText):
                 , str(prompt).replace('"','')
                 , FeedbackRating
                 , str(FeedbackText).replace('"','')
-                , time.time()
+                , time.strftime("%Y-%m-%d %H:%M:%S", s)
                 ]
             ]
             , schema=["session_id" , "input", "FeedbackRating", "FeedbackText", "TimeStamp"]
          )
-
     # This logs write meta data to a table in snowflake
     session_details.write.mode("append").save_as_table("session_messages_feedback")    
 
