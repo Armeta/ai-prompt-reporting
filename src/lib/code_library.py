@@ -116,11 +116,11 @@ def env_Setup(_session):
 
     # # Open and collect options
     if(modelName == './LocalModel/'):
-        options_dash  = session.table("\"OptionsDashboardLocal\"") 
-        options_query = session.table("\"OptionsQueryLocal\"")
+        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
+        options_query = _session.table("\"OptionsQueryLocal\"")
     else:
-        options_dash  = session.table("\"OptionsDashboard\"") 
-        options_query = session.table("\"OptionsQuery\"")
+        options_dash  = _session.table("\"OptionsDashboard\"") 
+        options_query = _session.table("\"OptionsQuery\"")
 
     
     
