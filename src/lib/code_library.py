@@ -109,12 +109,20 @@ def env_Setup(_session):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()
 
-    # # Open and collect options
-    options_dash  = _session.table("\"OptionsDashboard\"") 
-    options_query = _session.table("\"OptionsQuery\"")
-
     # model selection
-    model = SentenceTransformer('all-distilroberta-v1')
+    #modelName = 'all-distilroberta-v1'
+    modelName = './LocalModel/'
+    model = SentenceTransformer(modelName)
+
+    # # Open and collect options
+    if(modelName == './LocalModel/'):
+        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
+        options_query = _session.table("\"OptionsQueryLocal\"")
+    else:
+        options_dash  = _session.table("\"OptionsDashboard\"") 
+        options_query = _session.table("\"OptionsQuery\"")
+
+    
     
     #recieve options and their encodings and return
     dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
