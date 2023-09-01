@@ -114,12 +114,20 @@ def env_Setup():
     connectionString = json.loads(connectionString.read())
     session          = snowconnection(connectionString)    
 
-    # # Open and collect options
-    options_dash  = session.table("\"OptionsDashboard\"") 
-    options_query = session.table("\"OptionsQuery\"")
-
     # model selection
-    model = SentenceTransformer('all-distilroberta-v1')
+    #modelName = 'all-distilroberta-v1'
+    modelName = './LocalModel/'
+    model = SentenceTransformer(modelName)
+
+    # # Open and collect options
+    if(modelName == './LocalModel/'):
+        options_dash  = session.table("\"OptionsDashboardLocal\"") 
+        options_query = session.table("\"OptionsQueryLocal\"")
+    else:
+        options_dash  = session.table("\"OptionsDashboard\"") 
+        options_query = session.table("\"OptionsQuery\"")
+
+    
     
     #recieve options and their encodings and return
     dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
