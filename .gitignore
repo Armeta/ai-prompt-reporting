@@ -1,5 +1,2 @@
-secrets.json
-pipfile
-pipfile.lock
-Armeta AI.pptx
-~*
+.streamlit/secrets.toml
+.venv
