@@ -92,7 +92,7 @@ def manage_Cache():
 
 # load options file and set up model
 @st.cache_resource()
-def env_Setup():
+def env_Setup(_session):
 
     # Bot Avatar Icon
     with open('src/txt/armeta-icon_Base64Source.txt') as f:
@@ -108,11 +108,6 @@ def env_Setup():
     with open('src/css/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()
-
-    # Get connection string paramaters
-    connectionString = open('src/json/connection_details.json', "r")
-    connectionString = json.loads(connectionString.read())
-    session          = snowconnection(connectionString)    
 
     # model selection
     #modelName = 'all-distilroberta-v1'
@@ -143,7 +138,7 @@ def env_Setup():
     with st.chat_message("assistant", avatar = BotAvatar):
         st.write("How can I help you?")    
 
-    return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar, session
+    return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
 
 # run the prompt against the AI to recieve an answer
 def do_Get(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   

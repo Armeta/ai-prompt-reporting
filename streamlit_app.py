@@ -8,7 +8,7 @@ sys.path.append('src')
 
 # custom functions
 from lib import code_library
-
+import json
 # tab icon
 image = Image.open('src/media/armeta-icon.png')
 
@@ -26,8 +26,13 @@ st.set_page_config(
 
 def main():
 
+    # Get connection string paramaters
+    connectionString = open('src/json/connection_details.json', "r")
+    connectionString = json.loads(connectionString.read())
+    session          = code_library.snowconnection(connectionString)    
+    
     # gets mapping file and their encodings as well as meta data for the model being used
-    model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar, session = code_library.env_Setup()
+    model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar = code_library.env_Setup(session)
     
     # (re)-initialize current chat 
     if 'messages' not in st.session_state:
