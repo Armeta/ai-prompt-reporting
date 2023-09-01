@@ -15,7 +15,7 @@ from lib import code_library
 #modelName = 'all-distilroberta-v1'
 modelName = './LocalModel/'
 
-incremental = False
+incremental = True
 
 connectionString = open('src/json/connection_details.json', "r")
 connectionString = json.loads(connectionString.read())
@@ -23,7 +23,7 @@ session          = code_library.snowconnection(connectionString)
 
 model = SentenceTransformer(modelName)
 
-f = open('src/json/QueryTemplates.json')
+f = open('src/json/QueryTemplates3.json')
 templates = json.load(f)['templates']
 f.close()
 
@@ -116,8 +116,8 @@ session.sql('REMOVE @dashboard_option_stage;').collect()
 session.sql('REMOVE @query_option_stage;').collect()
 
 print('Uploading Stages...')
-session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageDashboard.csv @dashboard_option_stage;').collect()
-session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageQuery.csv @query_option_stage;').collect()
+session.sql('PUT file://C:/Users/LanceWahlert/source/repos/ai-turkey/ai-prompt-reporting/toStageDashboard.csv @dashboard_option_stage;').collect()
+session.sql('PUT file://C:/Users/LanceWahlert/source/repos/ai-turkey/ai-prompt-reporting/toStageQuery.csv @query_option_stage;').collect()
 
 print('Loading Stages Into Tables...')
 session.sql('COPY INTO "MODEL"."%s" (DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY) FROM @dashboard_option_stage file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (tableDashboard)).collect()
