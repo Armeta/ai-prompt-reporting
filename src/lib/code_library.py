@@ -3,7 +3,7 @@ from snowflake.snowpark import Session
 
 
 # setup connection with snowflake
-def snow_session():
+def snow_session() -> None:
     return Session.builder.configs({
         'account': st.secrets['account'],
         'user': st.secrets['user'], 

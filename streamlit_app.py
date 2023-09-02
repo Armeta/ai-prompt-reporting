@@ -4,7 +4,7 @@ import streamlit as st
 from snowflake.snowpark.session import Session
 
 
-def main():
+def main() -> None:
     st.set_page_config(
         page_title="Nurse AI",
         layout='centered',
