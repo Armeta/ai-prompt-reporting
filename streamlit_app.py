@@ -21,11 +21,14 @@ def main() -> None:
     requisition = cl.get_requisition(session, requisition_id)
     st.write(requisition)
 
-    st.markdown("### Nurse Table")
+    st.markdown("### Base Nurse Table")
     if 'nurse_df' not in st.session_state:
         st.session_state['nurse_df'] = cl.get_nurses(session)
     nurse_df = pd.DataFrame(st.session_state['nurse_df'])
-    nurse_df['NURSESTATE'] = 'TX'
+    st.dataframe(nurse_df)
+
+    st.markdown("### Nurse Scoring Table")
+    nurse_df = cl.score_nurses(nurse_df, requisition)
     st.dataframe(nurse_df)
 
 
