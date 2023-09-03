@@ -1,6 +1,7 @@
 import pandas as pd
 import streamlit as st
 from snowflake.snowpark import Session
+from snowflake.snowpark.functions import col
 
 
 # setup connection with snowflake
@@ -29,3 +30,9 @@ def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
         WHERE NEED.NEEDID = {requisition_id}
         ;
     """).collect())
+
+
+def get_nurses(session: Session) -> pd.DataFrame:
+    return pd.DataFrame(session.table('NURSES')
+                               .sort(col('NURSEID'))
+                               .collect())
