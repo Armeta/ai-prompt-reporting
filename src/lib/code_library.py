@@ -19,18 +19,14 @@ def snow_session() -> None:
 
 
 def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
-    return pd.DataFrame(session.sql(f"""
-        SELECT   NEED.NEEDID
-                ,FACL.FACILITYID
-                ,FACL.FACILITYNAME
-                ,FACL.FACILITYSTATE
-                ,NEED.NEEDDISCIPLINEID
-                ,NEED.NEEDSPECIALTYID
-        FROM NEEDS      NEED
-        JOIN FACILITY   FACL ON NEED.NEEDFACILITYID = FACL.FACILITYID
-        WHERE NEED.NEEDID = {requisition_id}
-        ;
-    """).collect())
+    req = session.table('NEEDS')
+    fac = session.table('FACILITY')
+
+    return pd.DataFrame(req.join(fac, req.needfacilityid == fac.facilityid)
+                           .select(req.needid, req.needdisciplineid, req.needspecialtyid,
+                                   fac.facilityid, fac.facilityname, fac.facilitystate)
+                           .where(req.needid == requisition_id)
+                           .collect())
 
 
 def get_nurses(session: Session) -> pd.DataFrame:
