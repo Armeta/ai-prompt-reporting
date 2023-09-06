@@ -7,7 +7,8 @@ from     snowflake.snowpark.functions import col, to_timestamp
 from     snowflake.snowpark.types     import IntegerType, StringType, StructField, StructType, DateType,LongType,DoubleType
 
 
-modelName = 'all-distilroberta-v1'
+#modelName = 'all-distilroberta-v1'
+modelName = './LocalModel/'
 queryTable = 'OptionsQuery'
 dashTable = 'OptionsDashboard'
 
