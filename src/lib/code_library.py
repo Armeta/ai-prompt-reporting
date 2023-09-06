@@ -110,8 +110,8 @@ def env_Setup(_session):
     f.close()
 
     # model selection
-    modelName = 'all-distilroberta-v1'
-    #modelName = './LocalModel/'
+    #modelName = 'all-distilroberta-v1'
+    modelName = './LocalModel/'
     model = SentenceTransformer(modelName)
 
     # # Open and collect options
