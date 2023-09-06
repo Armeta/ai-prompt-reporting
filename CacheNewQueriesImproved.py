@@ -5,8 +5,8 @@ from     snowflake.snowpark           import Session
 from     snowflake.snowpark.functions import col, to_timestamp
 from     snowflake.snowpark.types     import IntegerType, StringType, StructField, StructType, DateType,LongType,DoubleType
 
-#queryTable = 'OptionsQuery'
-queryTable = 'OptionsQueryLocal'
+queryTable = 'OptionsQuery'
+#queryTable = 'OptionsQueryLocal'
 
 # add src to system path
 sys.path.append('src')
