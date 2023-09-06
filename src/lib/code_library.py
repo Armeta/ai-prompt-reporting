@@ -36,14 +36,16 @@ def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
 
 
 def get_nurses(session: Session) -> pd.DataFrame:
-    return pd.DataFrame(session.table('NURSES').collect())
+    nurse_df = session.table('NURSES')
+    
+    return pd.DataFrame(nurse_df.collect())
 
 
 def get_nurse_specialty(session: Session, requisition: pd.DataFrame) -> pd.DataFrame:
-    dis = session.table('DISCIPLINE').filter(col('"DisciplineID"') == requisition['Need_DisciplineID'][0])
-    spe = session.table('SPECIALITY').filter(col('"SpecialtyId"') == requisition['Need_SpecialtyID'][0])
+    dis = session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
+    spe = session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
 
-    return pd.DataFrame(dis.join(spe, dis.col('"NurseID"') == spe.col('"NurseID"') ).select(dis.col('"NurseID"')).distinct().collect())
+    return pd.DataFrame(dis.join(spe, dis.col('"DisciplineNurseID"') == spe.col('"SpecialtyNurseID"'), 'full').distinct().collect())
     
 
 def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
@@ -55,7 +57,7 @@ def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     ]
     requisition_state = requisition['Facility_State'][0]
     requisition_in_eNLC = requisition_state in eNLC_states
-
+    
     nurse_df['Score_License'] = nurse_df.apply(lambda row : 1 if (requisition_in_eNLC and row['State'] in eNLC_states) or (row['State'] == requisition_state) else 0, axis=1)
 
     return nurse_df
@@ -80,7 +82,7 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
     #nurse_df = _score_specialty(nurse_df, requisition, nurse_specialty_df)
     #nurse_df = _score_proximity(nurse_df, requisition)
     
-    nurse_df['Total_Score'] = nurse_df.apply(lambda row : row['Score_License'], axis=1)
+    nurse_df['Fit Score'] = nurse_df.apply(lambda row : row['Score_License'], axis=1)
 
     return nurse_df
 
