@@ -1,4 +1,5 @@
 secrets.json
+.streamlit/secrets.toml
 pipfile
 pipfile.lock
 Armeta AI.pptx
