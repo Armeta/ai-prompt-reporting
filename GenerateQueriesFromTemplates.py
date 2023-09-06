@@ -16,6 +16,7 @@ from lib import code_library
 modelName = './LocalModel/'
 
 incremental = False
+loadSnowflake = False
 
 connectionString = open('src/json/connection_details.json', "r")
 connectionString = json.loads(connectionString.read())
@@ -23,7 +24,7 @@ session          = code_library.snowconnection(connectionString)
 
 model = SentenceTransformer(modelName)
 
-f = open('src/json/QueryTemplates.json')
+f = open('src/json/QueryTemplates_L9-4.json')
 templates = json.load(f)['templates']
 f.close()
 
@@ -80,14 +81,17 @@ for template in templates:
         #DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY
         stageD.write('%s|%s|%s|%s|%s|%s|%s\n' % (newDesc, template['category'], newURL, enc_bin, enc_json, newURLFilter, newURLQuery))
 
-        paramCount[0] += 1
-        for i in range(len(paramCount)):
-            if(paramCount[i] >= paramMaxCount[i]):
-                if(i == len(paramCount)-1):
-                    done = True
-                else:
-                    paramCount[i+1] += 1
-                    paramCount[i] = 0
+        if(len(paramCount) > 0):
+            paramCount[0] += 1
+            for i in range(len(paramCount)):
+                if(paramCount[i] >= paramMaxCount[i]):
+                    if(i == len(paramCount)-1):
+                        done = True
+                    else:
+                        paramCount[i+1] += 1
+                        paramCount[i] = 0
+        else:
+            done = True
 
         count += 1
         if(count % 100 == 0):
@@ -98,74 +102,28 @@ stageQ.close()
 stageD.close()
 print('Generated %d options' % (count))
 
-tableDashboard = 'OptionsDashboard'
-tableQuery = 'OptionsQuery'
-if modelName == './LocalModel/':
-    tableDashboard = 'OptionsDashboardLocal'
-    tableQuery = 'OptionsQueryLocal'
+if loadSnowflake:
+    tableDashboard = 'OptionsDashboard'
+    tableQuery = 'OptionsQuery'
+    if modelName == './LocalModel/':
+        tableDashboard = 'OptionsDashboardLocal'
+        tableQuery = 'OptionsQueryLocal'
 
-print('Using tables %s, %s' % (tableDashboard, tableQuery))
+    print('Using tables %s, %s' % (tableDashboard, tableQuery))
 
-if not incremental:
-    print('Truncating Existing Tables...')
-    session.sql('TRUNCATE TABLE MODEL."%s";' % (tableDashboard)).collect()
-    session.sql('TRUNCATE TABLE MODEL."%s";' % (tableQuery)).collect()
+    if not incremental:
+        print('Truncating Existing Tables...')
+        session.sql('TRUNCATE TABLE MODEL."%s";' % (tableDashboard)).collect()
+        session.sql('TRUNCATE TABLE MODEL."%s";' % (tableQuery)).collect()
 
-print('Clearing Stages...')
-session.sql('REMOVE @dashboard_option_stage;').collect()
-session.sql('REMOVE @query_option_stage;').collect()
+    print('Clearing Stages...')
+    session.sql('REMOVE @dashboard_option_stage;').collect()
+    session.sql('REMOVE @query_option_stage;').collect()
 
-print('Uploading Stages...')
-session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageDashboard.csv @dashboard_option_stage;').collect()
-session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageQuery.csv @query_option_stage;').collect()
+    print('Uploading Stages...')
+    session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageDashboard.csv @dashboard_option_stage;').collect()
+    session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageQuery.csv @query_option_stage;').collect()
 
-print('Loading Stages Into Tables...')
-session.sql('COPY INTO "MODEL"."%s" (DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY) FROM @dashboard_option_stage file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (tableDashboard)).collect()
-session.sql('COPY INTO "MODEL"."%s" (DESC, DASHBOARD, QUERY, ENCODING, ENCODING_JSON) FROM @query_option_stage file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (tableQuery)).collect()
-
-
-"""
-topStyleQ = [
-{'name':'timeframe', 'values':['MTD', 'WTD']},
-{'name':'location', 'values':list(range(1,69+1))},
-{'name':'metrics', 'values':['DOLLARS', 'UNITS']},
-{'name':'productFamily', 'values':list(range(0,9+1))+[None]},
-{'name':'week', 'values':['LW', 'TW']}
-]
-
-
-urls = [{}]
-
-for metric in topStyleQ:
-    addl_urls = []
-    for url in urls:
-        for val in metric['values']:
-            if val != None:
-                url[metric['name']] = val
-            addl_urls.append(url)
-    urls = addl_urls
-for url in urls:
-    queryString = json.dumps(url).replace(', ', ',').replace(': ', ':')
-    url['query'] = queryString
-    break
-
-print(urls[0])
-
-1/0
-
-url_queries = ['{']
-for metric in topStyleQ:
-    addl_urls = []
-    for url in url_queries:
-        for val in metric['values']:
-            if val == None:
-                addl_urls.append(url)
-            else:
-                addl_urls.append(url+'"'+metric['name']+'":'+str(val)+',')
-    url_queries = addl_urls
-url_queries = [url[:-1]+'}' for url in url_queries]
-
-print(url_queries[0:10])
-
-
-"""
+    print('Loading Stages Into Tables...')
+    session.sql('COPY INTO "MODEL"."%s" (DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY) FROM @dashboard_option_stage file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (tableDashboard)).collect()
+    session.sql('COPY INTO "MODEL"."%s" (DESC, DASHBOARD, QUERY, ENCODING, ENCODING_JSON) FROM @query_option_stage file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (tableQuery)).collect()
