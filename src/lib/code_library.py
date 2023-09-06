@@ -24,7 +24,7 @@ def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
 
     reqResult = req.filter(col('"NeedID"') == requisition_id)\
     .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))\
-    .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Facility_State"'))\
+    .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Facility_State"'), fac.col('"City"').as_('"Facility_City"'))\
     .collect()
 
     return pd.DataFrame(reqResult)
@@ -41,12 +41,11 @@ def get_nurses(session: Session) -> pd.DataFrame:
     return pd.DataFrame(nurse_df.collect())
 
 
-def get_nurse_specialty(session: Session, requisition: pd.DataFrame) -> pd.DataFrame:
+def get_nurse_discipline_specialty(session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
     dis = session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
     spe = session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
 
-    return pd.DataFrame(dis.join(spe, dis.col('"DisciplineNurseID"') == spe.col('"SpecialtyNurseID"'), 'full').distinct().collect())
-    
+    return pd.DataFrame(dis.collect()), pd.DataFrame(spe.collect())
 
 def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     eNLC_states = [
@@ -62,54 +61,50 @@ def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
 
     return nurse_df
 
-def _score_specialty(nurse_df: pd.DataFrame, requisition: pd.DataFrame, nurse_specialty_df: pd.DataFrame) -> pd.DataFrame:
-    discipline_id = requisition['Need_DisciplineID'][0]
-    specialty_id = requisition['Need_SpecialtyID'][0]
+def _score_discipline(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
-    #nurse_df['Score_Specialty'] = nurse_df.apply(lambda row :
+    nurse_df['Score_Discipline'] = nurse_df.apply(lambda row : (1 if row['HasDiscipline'] else 0), axis=1)
 
-    # Filter out any nurses without the proper discipline
-    nurse_df = nurse_df[nurse_df['NURSEDISCIPLINEID'] == discipline_id]
+    return nurse_df
+def _score_specialty(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
-    # TODO: populate nurse's specialty(ies)
-    # Score based on the specialty (not discipline)
-    # nurse_df['SPECIALTYSCORE'] = (nurse_df['NURSESPECIALTYID'] == specialty_id).astype(int)
+    nurse_df['Score_Specialty'] = nurse_df.apply(lambda row : (1 if row['HasSpecialty'] else 0), axis=1)
+
     return nurse_df
 
+def _score_enddate(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+    today = np.datetime64('2023-08-03')
+
+    nurse_df['Score_Enddate'] = nurse_df.apply(lambda row : 1 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((row['LastContractEnd_Datetime'] - today)/np.timedelta64(1, 'D')))/35.0), axis=1)
+
+    return nurse_df
+
+def _score_experience(nurse_df: pd.DataFrame) -> pd.DataFrame:
+
+    nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, row['YearsOfExperience']/10)), axis=1)
+
+    return nurse_df
+
+def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+    requisition_state = requisition['Facility_State'][0]
+    requisition_city = requisition['Facility_City'][0]
+
+    nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : (1 if row['City'] == requisition_city and row['State'] == requisition_state else (0.5 if row['State'] == requisition_state else 0)), axis=1)
+
+    return nurse_df
 
 def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     nurse_df = _score_licensure(nurse_df, requisition)
-    #nurse_df = _score_specialty(nurse_df, requisition, nurse_specialty_df)
-    #nurse_df = _score_proximity(nurse_df, requisition)
-    
-    nurse_df['Fit Score'] = nurse_df.apply(lambda row : row['Score_License'], axis=1)
-
-    return nurse_df
-
+    nurse_df = _score_discipline(nurse_df)
+    nurse_df = _score_specialty(nurse_df)
+    nurse_df = _score_enddate(nurse_df, requisition)
+    nurse_df = _score_experience(nurse_df)
+    nurse_df = _score_proximity(nurse_df, requisition)
 
 
-
-
-
-
-def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
-    req_state = requisition['FACILITYSTATE'][0]
-    # TODO: populate facility's city
-    # req_city = requisition['FACILITYCITY'][0]
-    req_city = 'Kansas City'
-
-    # TODO: replace these artificial nurse columns with real columns
-    nurse_df['NURSESTATE'] = 'TX'
-    nurse_df['NURSECITY'] = 'Dallas'
-
-    conditions = [
-        (nurse_df['NURSESTATE'] == req_state) & (nurse_df['NURSECITY'] == req_city),
-        (nurse_df['NURSESTATE'] == req_state),
-        (nurse_df['NURSESTATE'] != req_state),
-    ]
-
-    choices = [1, 0.5, 0]
-
-    nurse_df['PROXIMITYSCORE'] = np.select(conditions, choices)
-
+    nurse_df['Fit Score'] = nurse_df.apply(lambda row : 
+                100 * row['Score_License'] * 
+                (row['Score_Discipline'] * 1  +  row['Score_Specialty'] * 1 + row['Score_Enddate'] * 0.5 + row['Score_Experience'] * 0.25 + row['Score_Proximity'] * 0.125)
+                / ( 1 + 1 + 0.5 + 0.25 + 0.125)
+                , axis=1)
     return nurse_df
