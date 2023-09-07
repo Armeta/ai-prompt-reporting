@@ -1,6 +1,7 @@
 from sentence_transformers import SentenceTransformer
 import json
 import struct
+import os
 import   sys
 from     snowflake.snowpark           import Session
 from     snowflake.snowpark.functions import col, to_timestamp
@@ -33,10 +34,13 @@ options_query = session.table("\""+queryTable+"\"")
 # model selection
 model = SentenceTransformer(modelName)
 
+outputpath = 'src/outputs/all-distilroberta-v1/'
+if(modelName == './LocalModel/'):
+    outputpath = 'src/outputs/LocalModel/'
 
-stageD = open('toStageDashboardEncoding.csv', 'w')
+stageD = open(outputpath+'toStageDashboardEncoding.csv', 'w')
 stageD.write('SK|ENCODING|ENCODING_JSON\n')
-stageQ = open('toStageQueryEncoding.csv', 'w')
+stageQ = open(outputpath+'toStageQueryEncoding.csv', 'w')
 stageQ.write('SK|ENCODING|ENCODING_JSON\n')
 
 # get descriptions, encode, and upload
@@ -71,8 +75,8 @@ print('Clearing Stages...')
 session.sql('REMOVE @dashboard_encoding_stage;').collect()
 session.sql('REMOVE @query_encoding_stage;').collect()
 print('Uploading to Stages...')
-session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageDashboardEncoding.csv @dashboard_encoding_stage;').collect()
-session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageQueryEncoding.csv @query_encoding_stage;').collect()
+session.sql('PUT file://%s/%stoStageDashboardEncoding.csv @dashboard_encoding_stage;' % (str(os.getcwd()), outputpath)).collect()
+session.sql('PUT file://%s/%stoStageQueryEncoding.csv @query_encoding_stage;' % (str(os.getcwd()), outputpath)).collect()
 print('Creating Temp Tables...')
 session.sql('CREATE TEMPORARY TABLE TempDashboardEncodings (SK INT, ENCODING BINARY, ENCODING_JSON VARCHAR);').collect()
 session.sql('CREATE TEMPORARY TABLE TempQueryEncodings (SK INT, ENCODING BINARY, ENCODING_JSON VARCHAR);').collect()

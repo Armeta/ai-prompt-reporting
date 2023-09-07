@@ -1,5 +1,6 @@
 import json
 import datetime
+import os
 import   sys
 from     snowflake.snowpark           import Session
 from     snowflake.snowpark.functions import col, to_timestamp
@@ -19,7 +20,7 @@ session          = code_library.snowconnection(connectionString)
 
 options_query = session.table('"%s"' % (queryTable))
 
-stageR = open('toStageQueryResult.csv', 'w')
+stageR = open('src/outputs/toStageQueryResult.csv', 'w')
 stageR.write('SK|RESULT_CACHE|RESULT_CACHE_TS\n')
 
 query   = options_query.filter(col('RESULT_CACHE').isNull()).select(['SK', 'QUERY']).to_pandas().values.tolist()
@@ -51,7 +52,7 @@ print('%d queries run' % (count))
 print('Clearing Stage...')
 session.sql('REMOVE @query_result_stage;').collect()
 print('Uploading to Stage...')
-session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageQueryResult.csv @query_result_stage;').collect()
+session.sql('PUT file://%s/src/outputs/toStageQueryResult.csv @query_result_stage;' % (str(os.getcwd()))).collect()
 print('Creating Temp Table...')
 session.sql('CREATE TEMPORARY TABLE TempQueryResults (SK INT, RESULT_CACHE VARCHAR(1000), RESULT_CACHE_TS TIMESTAMP);').collect()
 print('Copying from Stage...')
