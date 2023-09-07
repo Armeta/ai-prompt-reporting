@@ -1,0 +1,17 @@
+{
+    "templates":[
+        {   "question":"What is the style with the biggest opportunity in STATE/DISTRICT?"
+        ,   "desc":"The style with biggest opportunity in STATE/DISTRICT."
+        ,   "category":"sales-opportunity"
+        ,   "query":"WITH Top_Dept AS (  SELECT TOP 1 D.DEPARTMENT_LABEL AS Dept, SUM(IFNULL(OPPS,0)) AS Dept_Opps_Sum  FROM \"DASHBOARD\".\"STORY_SALES_ACCELERATOR\" SA  JOIN \"STORY\".\"LKP_DISTRICT\" L ON SA.DISTRICT_CD = L.DISTRICT_CD  JOIN \"STORY\".\"LKP_DEPARTMENT\" D ON SA.DEPARTMENT_CD = D.DEPARTMENT_CD  WHERE L.DISTRICT_LABEL = 'STATE/DISTRICT'  GROUP BY D.DEPARTMENT_LABEL  ORDER BY 2 DESC  ),  Top_Cat AS (  SELECT TOP 1 C.CATEGORY_LABEL AS Cat, SUM(IFNULL(OPPS,0)) AS Cat_Opps_Sum  FROM \"DASHBOARD\".\"STORY_SALES_ACCELERATOR\" SA  JOIN \"STORY\".\"LKP_DISTRICT\" L ON SA.DISTRICT_CD = L.DISTRICT_CD  JOIN \"STORY\".\"LKP_CATEGORY\" C ON SA.CATEGORY_CD = C.CATEGORY_CD  WHERE L.DISTRICT_LABEL = 'STATE/DISTRICT'  GROUP BY C.CATEGORY_LABEL  ORDER BY 2 DESC  ) SELECT CONCAT('The total sales opportunity in ', L.DISTRICT_LABEL, ' is $', LTRIM(TO_VARCHAR(SUM(IFNULL(OPPS,0)), '999,999,999,990')), '. The top department is ',D.Dept , ' with $',  LTRIM(TO_VARCHAR(D.Dept_Opps_Sum, '999,999,999,990')), ' of opportunity, and the top category is ', C.Cat, ' with $', LTRIM(TO_VARCHAR(C.Cat_Opps_Sum, '999,999,999,990')), ' of opportunity.') FROM \"DASHBOARD\".\"STORY_SALES_ACCELERATOR\" SA   JOIN \"STORY\".\"LKP_DISTRICT\" L ON SA.DISTRICT_CD = L.DISTRICT_CD  JOIN Top_Dept D ON D.Dept = D.Dept  JOIN Top_Cat C ON C.Cat = C.Cat  WHERE L.DISTRICT_LABEL = 'STATE/DISTRICT'  GROUP BY L.DISTRICT_LABEL, D.Dept, D.Dept_Opps_Sum, C.Cat, C.Cat_Opps_Sum;"
+        ,   "parameters":[{"name":"STATE/DISTRICT", "values":["AL", "AZ", "CA", "CT", "GA", "IL", "IN", "LA", "MI", "NH", "NJ", "OR", "PA", "TN", "TX", "WA", "WV", "WY"]}]
+        ,   "urlfilter":"{\"district\":[\"STATE/DISTRICT\"]}"
+        ,   "urlquery":""
+        ,   "URLparameters":[{"name":"STATE/DISTRICT", "values":["1", "2", "3", "4", "5", "6", "7", "9", "13", "16", "17", "19", "22", "23", "24", "26", "27", "28"]}]
+        },
+        {
+
+
+        }
+    ]
+}

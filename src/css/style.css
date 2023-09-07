@@ -14,15 +14,9 @@ div.css-zt5igj.e1nzilvr3{
 }
 div.row-widget.stTextInput.css-18plnlc.e11y4ecf0{
     font-size: 32px;
-    color:#000;
 }
-p {
-    color: black;
-}
-
 div[class*="stTextInput"] label {
     font-size: 40px;
-    color:#000;
 }
 div[class*="stChatFloatingInputContainer css-90vs21 e1d2x3se2"]{
     position: fixed;

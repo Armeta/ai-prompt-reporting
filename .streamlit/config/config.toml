@@ -1,0 +1,9 @@
+[theme]
+base="light"
+primaryColor="#ffffff"
+secondarybackgroundColor="#ffffff"
+textColor="#000000"
+font="sans serif"
+
+[server]
+enableXsrfProtection = false
