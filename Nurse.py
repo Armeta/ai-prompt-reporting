@@ -1,4 +1,5 @@
 from fns import preprocess_features, drop_features, get_values_and_labels, predict_fit_score
+from typing import Tuple, List
 
 import pickle
 import streamlit as st
@@ -10,7 +11,7 @@ import numpy as np
 from streamlit_searchbox import st_searchbox
 from snowflake.snowpark.session import Session
 
-
+from typing import Union
 session = Session.builder.configs({
     'account': st.secrets['account'],
     'user': st.secrets['user'], 
@@ -37,7 +38,7 @@ def main():
 
     searchbox_col, confirm_col = st.columns([0.9, 0.1])
 
-    nurse_id: int | None = None
+    nurse_id: Union[int, None] = None
     with searchbox_col:
         nurse_id = st_searchbox(search_nurse, key='nurse_search')
 
@@ -74,24 +75,6 @@ def main():
             color='State:N',
         ))
 
-        # bins = np.linspace(70, 101, 7)
-        # print(bins)
-        # digitized_df = pd.DataFrame(np.digitize(df['PREDICTEDFITSCORE'], bins))
-        # values = list(digitized_df.value_counts())
-        # print(values)
-        # if len(values) < len(bins):
-        #     values.append(0)
-        #
-        # source = pd.DataFrame({
-        #     'Predicted Fit Score': ['[70 - 75)', '[75 - 80)', '[80 - 85)', '[85 - 90)', '[90 - 95)', '[95 - 100]', 'IDK'],
-        #     '# Of Needs': values
-        # })
-        #
-        # specialty_col.markdown("### Fit Score Breakdown")
-        # specialty_col.altair_chart(alt.Chart(source, width=500).mark_bar().encode(
-        #     x='Predicted Fit Score',
-        #     y='# Of Needs'
-        # ))
 
         df = drop_features(df, 'nurse')
         
@@ -103,7 +86,7 @@ def main():
         st.dataframe(final_df)
 
 
-def search_nurse(nurse_id: str) -> list[int]:
+def search_nurse(nurse_id: str) -> List[int]:
     query = session.sql(f"""
         SELECT nurseid
         FROM trs.dbo.nurseprofile
@@ -111,7 +94,7 @@ def search_nurse(nurse_id: str) -> list[int]:
         LIMIT 10
     """)
     nurse_df = pd.DataFrame(query.collect())
-    return list(nurse_df['NURSEID'])
+    return List(nurse_df['NURSEID'])
 
 
 def load_nurse_profile(nurse_id: int) -> None:

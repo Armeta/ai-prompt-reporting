@@ -1,7 +1,7 @@
 import pickle
 import pandas as pd
 import numpy as np
-
+from typing import Tuple, List
 from sklearn.preprocessing import LabelEncoder
 from sklearn.impute import SimpleImputer
 
@@ -75,7 +75,7 @@ def drop_features(df: pd.DataFrame, feature_set: str):
     return df.drop(feature_sets[feature_set], axis=1)
 
 
-def get_values_and_labels(df: pd.DataFrame, feature_name: str) -> tuple([list[int], list[str]]):
+def get_values_and_labels(df: pd.DataFrame, feature_name: str) -> tuple([List[int], List[str]]):
     series = df.value_counts(subset=[feature_name])
     values = series.values
     labels = [index[0] for index in series.index]
