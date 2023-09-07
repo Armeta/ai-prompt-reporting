@@ -3,7 +3,7 @@ from src.lib import code_library as cl
 import pandas as pd
 import streamlit as st
 from snowflake.snowpark.session import Session
-
+from streamlit_extras.stylable_container import stylable_container
 
 def main() -> None:
     # set page details
@@ -62,9 +62,60 @@ def main() -> None:
         topten_nurses    = sorted_nurses.head(10)
         #remaining_nurses = sorted_nurses.drop(topten_nurses.index) 
 
-        need_tab, nurseList_tab, history_tab = st.tabs(["Current Need", "Recommended Nurses", "Need Search History"])
+        need_tab, nurseList_tab, history_tab = st.tabs(["Requisition Profile", "Recommended Nurses", "Requisition Search History"])
         with need_tab:
-            st.dataframe(requisition.style.format({'NeedID': '{:d}', 'Need_FacilityID': '{:d}'}), hide_index=True)
+            col1, col2 = st.columns(2)
+
+            for index, row in requisition.iterrows():
+                with col1:
+                    with stylable_container(
+                        key="stylizedContainer1",
+                        css_styles="""
+                            {
+                                border: 1px solid rgba(49, 51, 63, 0.2);
+                                border-radius: 0.5rem;
+                                padding: calc(1em - 1px)
+                            }
+                            """,
+                    ):
+                        col11, col12 = st.columns(2)
+                        with col11: 
+                            st.write(f"**Facility ID:**")
+                            st.write(f"**Facility Name:**")
+                            st.write(f"**Facility State:**")
+                            st.write(f"**Facility City:**")                      
+                        with col12:
+                        #st.write(f"Requisition ID:  {row['NeedID']}")
+                            st.write(f"{row['Need_FacilityID']}")
+                            st.write(f"{row['Facility_Name']}")
+                            st.write(f"{row['Facility_State']}")
+                            st.write(f"{row['Facility_City']}")
+                with col2:
+                    with stylable_container(
+                        key="stylizedContainer2",
+                        css_styles="""
+                            {
+                                border: 1px solid rgba(49, 51, 63, 0.2);
+                                border-radius: 0.5rem;
+                                padding: calc(1em - 1px)
+                            }
+                            """,
+                    ):
+                        col21, col22, col23 = st.columns(3)
+                        with col21:
+                            st.write(f"**Discipline Name:**")
+                            st.write(f"**Discipline ID:**") 
+                            st.write(f"**Specialty Name:**")                          
+                            st.write(f"**Specialty ID:**")                                 
+                        with col22:
+                            st.write(f"{row['Discipline_Name']}")
+                            st.write(f"{row['Need_DisciplineID']}")  
+                            st.write(f"{row['Specialty_Name']}")                         
+                            st.write(f"{row['Need_SpecialtyID']}")                
+                            
+
+
+            #st.dataframe(requisition.style.format({'NeedID': '{:d}', 'Need_FacilityID': '{:d}'}), hide_index=True)
 
         with nurseList_tab:
             with st.expander("Top Ten Nurses", expanded = True):
