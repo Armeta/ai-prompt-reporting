@@ -1,113 +1,91 @@
-# Visualizations 
+from src.lib import code_library as cl
+
+import pandas as pd
 import streamlit as st
-from   PIL import Image
-import sys
-from streamlit_toggle import toggle
-# add src to system path
-sys.path.append('src')
-
-# custom functions
-from lib import code_library
-import json
-# tab icon
-image = Image.open('src/media/armeta-icon.png')
-
-# Page Config
-st.set_page_config(
-    page_title="Retail Analytics Digital Assistant",
-    page_icon=image,
-    layout="wide",
-    initial_sidebar_state="collapsed",
-    menu_items={
-        'About': "This is a webpage with a user input box where to input natural language and recieve real information along with links to a dashboard to help satisfy your query"
-    }
-)
+from snowflake.snowpark.session import Session
 
 
-def main():
+def main() -> None:
+    # set page details
+    st.set_page_config(
+        page_title="Nurse AI",
+        initial_sidebar_state='collapsed',
+        menu_items={},
+        layout='wide'
+    )
 
-    # Get connection string paramaters
-    connectionString = open('src/json/connection_details.json', "r")
-    connectionString = json.loads(connectionString.read())
-    session          = code_library.snowconnection(connectionString)    
+    st.image('src/media/Untitled.jpg')
     
-    # gets mapping file and their encodings as well as meta data for the model being used
-    model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar = code_library.env_Setup(session)
+    # set up environment 
+    cl.env_Setup()
+    #st.header("Nurse AI")
+
+    # connect to snowflake
+    session = cl.snow_session()
     
-    # (re)-initialize current chat 
-    if 'messages' not in st.session_state:
-        st.session_state['messages'] = []
-
-    #manage feedback session state
-    if 'visibility' not in st.session_state:
-        st.session_state.visibility     = 'visible'
-        st.session_state.disabled       = True
-        st.session_state.horizontal     = True
-        st.session_state.FeedbackRating = ''
-        st.session_state.FeedbackText   = ''
-
-    # sidebar options
-    with st.sidebar:
-         # caching for chat
-        number = code_library.manage_Cache()
-
-         # Give filtering options for AI results
-        options = st.radio("What would you like to see?",('Both Dashboard and Query Results', 'Dashboards Only', 'Query Results Only'))
-
-    # load chat history 
-    code_library.load_Cache(UserAvatar, BotAvatar)
-   
-    # recieve prompt from user
-    prompt = st.chat_input("Send a Message")  
-    test = ''
-    if prompt : 
-        st.session_state.disabled       = False
-        # Start Chat - user
-        with st.chat_message("user", avatar = UserAvatar):
-            st.markdown(prompt)
+    if 'navigated' not in st.session_state:
+        st.session_state.navigated = False
+    
+    if 'NurseName' not in st.session_state:
+        st.session_state.NurseName = ''
         
-        # clean the prompt before the AI recieves it
-        clean_prompt = prompt.replace('\'','').replace('-',' ');
-            
-        # run the prompt against the AI to recieve an answer And Write to session cache for user
-        dash_answer, query_answer = \
-        code_library.do_Get(clean_prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
-        code_library.save_UserCache(number, prompt)               
-        #code_library.write_Audit(session, prompt)
+    # If not navigated yet, show checkboxes
+    if not st.session_state.navigated:  
 
-        #Start chat - assistant
-        with st.chat_message("assistant", avatar = BotAvatar):
-            # Show query result 
-            if(query_answer != '') and (options != 'Dashboards Only'):
-                # Write results + session cache for assistant
-                query_answer = str(query_answer).replace("$", "\\$")
-                st.markdown(query_answer) 
-                code_library.save_AssistantCache(number, query_answer)
-            elif (options != 'Dashboards Only'):
-                # Write results + session cache for assistant 
-                st.write("No query results")               
-                code_library.save_AssistantCache(number, "No query results")
+        requisition_id = 976660
+        str_input = requisition_id = st.text_input("Requisition ID", value=str(requisition_id))
+        if(str_input.isdigit()):
+            requisition_id = int(str_input)
+        else:
+            st.text('Invalid Requisition ID')
+            return
 
-            # Show dashboard result  
-            if(dash_answer != '') and (options != 'Query Results Only'): 
-                # Write results + session cache for assistant
-                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)                
-                code_library.save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
-        # End chat - assistant
-        st.experimental_rerun()
-# ask user if reply was helpful
-    #on =  toggle('Activate feature')
-    if toggle(widget = 'checkbox', label='Give Feedback', value = False):
-        st.session_state.FeedbackRating = st.radio("Was this helpful?", ["✅", "❌"], label_visibility=st.session_state.visibility, disabled=st.session_state.disabled, horizontal=st.session_state.horizontal, index = 0) 
-        st.session_state.FeedbackText   = st.text_input("How could this answer be improved?", "... ", disabled=st.session_state.disabled)                        
-        if (st.session_state.FeedbackRating == "❌") or (st.session_state.FeedbackText != "... "):
-            test = code_library.get_LastPrompt(number) 
-            code_library.write_Audit(session, test, st.session_state.FeedbackRating, st.session_state.FeedbackText)
+        requisition = cl.get_requisition(session, requisition_id)
+        # print(requisition)
+        if(len(requisition) < 1):
+            st.text('Requisition ID not found')
+            return
+
+        nurse_df = cl.get_nurses(session)
+
+        nurse_dis_df, nurse_spe_df    = cl.get_nurse_discipline_specialty(session, requisition)
+        nurse_dis_df['HasDiscipline'] = True
+        nurse_spe_df['HasSpecialty']  = True
+        nurse_df                      = nurse_df.join(nurse_dis_df.set_index('DisciplineNurseID'), on='NurseID', how='left').join(nurse_spe_df.set_index('SpecialtyNurseID'), on='NurseID', how='left')
+        nurse_df['HasDiscipline']     = nurse_df['HasDiscipline'].notna()
+        nurse_df['HasSpecialty']      = nurse_df['HasSpecialty'].notna()
+        nurse_df                      = cl.score_nurses(nurse_df, requisition)
+        
+        valid_nurses     = nurse_df[nurse_df['Fit Score'] > 0]
+        info_nurses      = valid_nurses[['NurseID', 'Name', 'Fit Score']]
+        sorted_nurses    = info_nurses.sort_values(by=['Fit Score'], ascending=False)
+        topten_nurses    = sorted_nurses.head(10)
+        #remaining_nurses = sorted_nurses.drop(topten_nurses.index) 
+
+        need_tab, nurseList_tab, history_tab = st.tabs(["Current Need", "Recommended Nurses", "Need Search History"])
+        with need_tab:
+            st.dataframe(requisition.style.format({'NeedID': '{:d}', 'Need_FacilityID': '{:d}'}), hide_index=True)
+
+        with nurseList_tab:
+            with st.expander("Top Ten Nurses", expanded = True):
+                st.write(" NurseID, Nurse Name, FitScore")
+                st.session_state.NurseName = cl.show_checkboxes_and_return_selection(topten_nurses)
+
+            # with st.expander("All Nurses"):
+
+        with history_tab:
+            st.write("History Goes Here")
+
+        # If navigated (i.e., any checkbox was checked), show the new "page"
+    if st.session_state.navigated:
+        st.write("Nurse Name: "         + str(st.session_state.NurseName))
+        st.write("Nurse Profile: "      + str(st.session_state.NurseName))
+        st.write("Nurse Work History: " + str(st.session_state.NurseName))
+        st.write("Nurse Licenses: "     + str(st.session_state.NurseName))
+        if st.button("Return"):
+            st.session_state.navigated = False
+            st.experimental_rerun()
+
     
- 
-
- 
-image.close()
-
-if __name__ == '__main__':  
+if __name__ == '__main__':
     main()

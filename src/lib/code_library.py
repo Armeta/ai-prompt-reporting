@@ -1,159 +1,129 @@
+import numpy as np
+import pandas as pd
+import streamlit as st
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
-# Visualizations 
-import streamlit as st
-import time
 
-# data manipulation 
-from sklearn.metrics.pairwise import cosine_similarity
-from sentence_transformers import SentenceTransformer
-
-#data types
-import json
-import struct
 
 # setup connection with snowflake
-def snowconnection(connection_config):
-    session = Session.builder.configs(connection_config).create()
-    return session
+def snow_session() -> None:
+    return Session.builder.configs({
+        'account': st.secrets['account'],
+        'user': st.secrets['user'], 
+        'password': st.secrets['password'],
+        'role': st.secrets['role'],
+        'warehouse': st.secrets['warehouse'],
+        'database': st.secrets['database'],
+        'schema': st.secrets['schema']
+    }).create()
 
-def save_UserCache(i, content):
-    # set indice
-    name = 'messages' + str(i) 
-    st.session_state[name].append({"role": "user", "content": content})
+@st.cache_data
+def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
+    req = _session.table('NEEDS')
+    fac = _session.table('FACILITY')
 
-def get_LastPrompt(i):
-    name     = 'messages' + str(i) 
-    thislist = []
-    prompt = ''
-    for strings in st.session_state[name]:
-        if str(strings).find('user') > 0:
-            thislist.append(strings)
-    size = len(thislist)
-    prompt = str(thislist[size-1]).replace('\'','"')
-    prompt = json.loads(prompt)
-    return prompt["content"]
+    reqResult = req.filter(col('"NeedID"') == requisition_id)\
+    .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))\
+    .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Facility_State"'), fac.col('"City"').as_('"Facility_City"'))\
+    .collect()
 
-def save_AssistantCache(i, content):
-    # set indice
-    name = 'messages' + str(i) 
-    st.session_state[name].append({"role": "assistant", "content": content})
+    return pd.DataFrame(reqResult)
+    return pd.DataFrame(req.join(fac, req.needfacilityid == fac.facilityid)
+                           .select(req.needid, req.needdisciplineid, req.needspecialtyid,
+                                   fac.facilityid, fac.facilityname, fac.facilitystate)
+                           .where(req.needid == requisition_id)
+                           .collect())
 
-def load_Cache(UserAvatar, BotAvatar):
-    # load session cache or reset if none
-    for message in st.session_state.messages:
-        if(message["role"] == "user"):
-            with st.chat_message("user", avatar = UserAvatar):
-                st.markdown(message["content"])
-        else:       
-            with st.chat_message("assistant", avatar = BotAvatar):
-                st.markdown(message["content"])
-
-def parseBinaryEncoding(bin_enc):
-    return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
-
-# write session meta data
-def write_Audit(session, prompt, FeedbackRating, FeedbackText):
-    s=time.gmtime(time.time())
-    session_details = session.create_dataframe(
-            [
-               [
-                  session._session_id
-                , str(prompt).replace('"','')
-                , FeedbackRating
-                , str(FeedbackText).replace('"','')
-                , time.strftime("%Y-%m-%d %H:%M:%S", s)
-                ]
-            ]
-            , schema=["session_id" , "input", "FeedbackRating", "FeedbackText", "TimeStamp"]
-         )
-    # This logs write meta data to a table in snowflake
-    session_details.write.mode("append").save_as_table("session_messages_feedback")    
-
-# caching for chats  
-def manage_Cache():
-    # caching for chats  
-    number = st.number_input('Insert chat index number', min_value=0, max_value=None, value=0, step=1)
-    # create new cache
-    name = 'messages' + str(number) 
+@st.cache_data
+def get_nurses(_session: Session) -> pd.DataFrame:
+    nurse_df = _session.table('NURSES')
     
-    # initialize session cache    
-    if name not in st.session_state:
-        st.session_state[name] = []
+    return pd.DataFrame(nurse_df.collect())
 
-        # remove data from current session cache # reinitialize current session cache
-        del st.session_state['messages']                          
-        st.session_state['messages'] = []                
-    else:                
-        # if the name exists then we just swap out the cache
-        st.session_state['messages'] = st.session_state[name]    
+@st.cache_data
+def get_nurse_discipline_specialty(_session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
+    dis = _session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
+    spe = _session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
+
+    return pd.DataFrame(dis.collect()), pd.DataFrame(spe.collect())
+
+def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+    eNLC_states = [
+        'AL', 'AZ', 'AR', 'CO', 'DE', 'FL', 'GA', 'ID', 'IN', 'IA', 'KS', 'KY',
+        'LA', 'ME', 'MD', 'MS', 'MO', 'MT', 'NE', 'NH', 'NJ', 'NM', 'NC', 'ND',
+        'OH', 'OK', 'PA', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV',
+        'WI', 'WY'
+    ]
+    requisition_state = requisition['Facility_State'][0]
+    requisition_in_eNLC = requisition_state in eNLC_states
     
-    return number
+    nurse_df['Score_License'] = nurse_df.apply(lambda row : 1 if (requisition_in_eNLC and row['State'] in eNLC_states) or (row['State'] == requisition_state) else 0, axis=1)
 
-# load options file and set up model
-@st.cache_resource()
-def env_Setup(_session):
+    return nurse_df
 
-    # Bot Avatar Icon
-    with open('src/txt/armeta-icon_Base64Source.txt') as f:
-        BotAvatar = f.read()
-    f.close()
+def _score_discipline(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
-    # User Avatar Icon
-    with open('src/txt/usericon_Base64Source.txt') as f:
-        UserAvatar = f.read()
-    f.close()
+    nurse_df['Score_Discipline'] = nurse_df.apply(lambda row : (1 if row['HasDiscipline'] else 0), axis=1)
 
+    return nurse_df
+def _score_specialty(nurse_df: pd.DataFrame) -> pd.DataFrame:
+
+    nurse_df['Score_Specialty'] = nurse_df.apply(lambda row : (1 if row['HasSpecialty'] else 0), axis=1)
+
+    return nurse_df
+
+def _score_enddate(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+    today = np.datetime64('2023-08-03')
+
+    nurse_df['Score_Enddate'] = nurse_df.apply(lambda row : 1 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((row['LastContractEnd_Datetime'] - today)/np.timedelta64(1, 'D')))/35.0), axis=1)
+
+    return nurse_df
+
+def _score_experience(nurse_df: pd.DataFrame) -> pd.DataFrame:
+
+    nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, row['YearsOfExperience']/10)), axis=1)
+
+    return nurse_df
+
+def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+    requisition_state = requisition['Facility_State'][0]
+    requisition_city = requisition['Facility_City'][0]
+
+    nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : (1 if row['City'] == requisition_city and row['State'] == requisition_state else (0.5 if row['State'] == requisition_state else 0)), axis=1)
+
+    return nurse_df
+
+def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+    nurse_df = _score_licensure(nurse_df, requisition)
+    nurse_df = _score_discipline(nurse_df)
+    nurse_df = _score_specialty(nurse_df)
+    nurse_df = _score_enddate(nurse_df, requisition)
+    nurse_df = _score_experience(nurse_df)
+    nurse_df = _score_proximity(nurse_df, requisition)
+
+
+    nurse_df['Fit Score'] = nurse_df.apply(lambda row : 
+                100 * row['Score_License'] * 
+                (row['Score_Discipline'] * 1  +  row['Score_Specialty'] * 1 + row['Score_Enddate'] * 0.5 + row['Score_Experience'] * 0.25 + row['Score_Proximity'] * 0.125)
+                / ( 1 + 1 + 0.5 + 0.25 + 0.125)
+                , axis=1)
+    return nurse_df
+
+def env_Setup():
     # Open CSS file
     with open('src/css/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()
 
-    # model selection
-    #modelName = 'all-distilroberta-v1'
-    modelName = './LocalModel/'
-    model = SentenceTransformer(modelName)
-
-    # # Open and collect options
-    if(modelName == './LocalModel/'):
-        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
-        options_query = _session.table("\"OptionsQueryLocal\"")
-    else:
-        options_dash  = _session.table("\"OptionsDashboard\"") 
-        options_query = _session.table("\"OptionsQuery\"")
-
-    
-    
-    #recieve options and their encodings and return
-    dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
-    query_rows = options_query.select(['RESULT_CACHE', 'ENCODING']).filter(col('RESULT_CACHE').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
-
-    dash_opts  = [row[0] for row in dash_rows]
-    query_opts = [row[0] for row in query_rows]
-    dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
-    query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
-
-    # Page Header/Subheader
-    st.title("💬 arai") 
-    with st.chat_message("assistant", avatar = BotAvatar):
-        st.write("How can I help you?")    
-
-    return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
-
-# run the prompt against the AI to recieve an answer
-def do_Get(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   
-    #init 
-    encoding = None
-    
-    # Encode prompt based off which model is being used
-    if(prompt != ''):
-        encoding = _model.encode(prompt)
-    
-    # pick and return a dashboard answer based off options.json
-    sim = cosine_similarity([encoding], dash_enc)
-    dash_answer = dash_opts[sim[0].tolist().index(max(sim[0]))]
-
-    # pick and return a query answer
-    sim = cosine_similarity([encoding], query_enc)
-    query_answer = query_opts[sim[0].tolist().index(max(sim[0]))]
-    return dash_answer, query_answer
+# Function to show checkboxes and return the name of any selected nurse
+def show_checkboxes_and_return_selection(df):
+    selected_nurse = None  # Initial value indicating no selection
+    for index, row in df.iterrows():
+        checkbox_label =  f"{row['NurseID']:d}, {row['Name']}, {row['Fit Score']:3.1f}"
+        if st.checkbox(checkbox_label):
+            selected_nurse = row['Name']
+            st.session_state.navigated = True 
+            st.session_state.ExpanderState = False
+            st.experimental_rerun()
+            
+    return selected_nurse
