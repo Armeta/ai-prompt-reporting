@@ -18,6 +18,7 @@ def snow_session() -> None:
     }).create()
 
 
+@st.cache_data
 def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
     req = session.table('NEEDS')
     fac = session.table('FACILITY')
@@ -38,16 +39,16 @@ def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
                            .where(req.needid == requisition_id)
                            .collect())
 
-
-def get_nurses(session: Session) -> pd.DataFrame:
-    nurse_df = session.table('NURSES')
+@st.cache_data
+def get_nurses(_session: Session) -> pd.DataFrame:
+    nurse_df = _session.table('NURSES')
     
     return pd.DataFrame(nurse_df.collect())
 
-
-def get_nurse_discipline_specialty(session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
-    dis = session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
-    spe = session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
+@st.cache_data
+def get_nurse_discipline_specialty(_session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
+    dis = _session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
+    spe = _session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
 
     return pd.DataFrame(dis.collect()), pd.DataFrame(spe.collect())
 
@@ -112,3 +113,22 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
                 / ( 1 + 1 + 0.5 + 0.25 + 0.125)
                 , axis=1)
     return nurse_df
+
+def env_Setup():
+    # Open CSS file
+    with open('src/css/style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    f.close()
+
+# Function to show checkboxes and return the name of any selected nurse
+def show_checkboxes_and_return_selection(df):
+    selected_nurse = None  # Initial value indicating no selection
+    for index, row in df.iterrows():
+        checkbox_label =  f"{row['NurseID']:d}, {row['Name']}, {row['Fit Score']:3.1f}"
+        if st.checkbox(checkbox_label):
+            selected_nurse = row['Name']
+            st.session_state.navigated = True 
+            st.session_state.ExpanderState = False
+            st.experimental_rerun()
+            
+    return selected_nurse
