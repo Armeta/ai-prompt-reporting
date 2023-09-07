@@ -41,7 +41,7 @@ def main() -> None:
             return
 
         requisition = cl.get_requisition(session, requisition_id)
-        print(requisition)
+        # print(requisition)
         if(len(requisition) < 1):
             st.text('Requisition ID not found')
             return
