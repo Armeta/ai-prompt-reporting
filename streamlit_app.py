@@ -78,10 +78,11 @@ def main() -> None:
 
         # If navigated (i.e., any checkbox was checked), show the new "page"
     if st.session_state.navigated:
-        st.write("Nurse Name: "         + str(st.session_state.NurseName))
-        st.write("Nurse Profile: "      + str(st.session_state.NurseName))
-        st.write("Nurse Work History: " + str(st.session_state.NurseName))
-        st.write("Nurse Licenses: "     + str(st.session_state.NurseName))
+        with st.spinner(text="Fetching Profile..."):
+            st.write("Nurse Name: "         + str(st.session_state.NurseName))
+            st.write("Nurse Profile: "      + str(st.session_state.NurseName))
+            st.write("Nurse Work History: " + str(st.session_state.NurseName))
+            st.write("Nurse Licenses: "     + str(st.session_state.NurseName))
         if st.button("Return"):
             st.session_state.navigated = False
             st.experimental_rerun()
