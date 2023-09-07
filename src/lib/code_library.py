@@ -17,14 +17,19 @@ def snow_session() -> None:
         'schema': st.secrets['schema']
     }).create()
 
+
 @st.cache_data
-def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
-    req = _session.table('NEEDS')
-    fac = _session.table('FACILITY')
+def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
+    req = session.table('NEEDS')
+    fac = session.table('FACILITY')
+    dis = session.table('DISCIPLINE_LKP')
+    spe = session.table('SPECIALITY_LKP')
 
     reqResult = req.filter(col('"NeedID"') == requisition_id)\
     .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))\
-    .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Facility_State"'), fac.col('"City"').as_('"Facility_City"'))\
+    .join(dis,  req.col('"Need_DisciplineID"') == dis.col('"DisciplineID"'))\
+    .join(spe,  req.col('"Need_SpecialtyID"') == spe.col('"SpecialtyId"'))\
+    .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Facility_State"'), fac.col('"City"').as_('"Facility_City"'), dis.col('"Discipline_Name"'), spe.col('"Specialty_Name"'))\
     .collect()
 
     return pd.DataFrame(reqResult)
