@@ -2,6 +2,7 @@ from sentence_transformers import SentenceTransformer
 import json
 import struct
 import base64
+import os
 import   sys
 from     snowflake.snowpark           import Session
 from     snowflake.snowpark.functions import col, to_timestamp
@@ -12,11 +13,13 @@ sys.path.append('src')
 
 from lib import code_library
 
-#modelName = 'all-distilroberta-v1'
-modelName = './LocalModel/'
+modelName = 'all-distilroberta-v1'
+#modelName = './LocalModel/'
+
+templateFile = 'src/json/templates/QueryTemplatesAll.json'
 
 incremental = False
-loadSnowflake = False
+loadSnowflake = True
 
 connectionString = open('src/json/connection_details.json', "r")
 connectionString = json.loads(connectionString.read())
@@ -24,17 +27,22 @@ session          = code_library.snowconnection(connectionString)
 
 model = SentenceTransformer(modelName)
 
-f = open('src/json/QueryTemplates_L9-4.json')
+f = open(templateFile)
 templates = json.load(f)['templates']
 f.close()
 
-qs = open('GeneratedQuestions.txt', 'w')
+outputpath = 'src/outputs/all-distilroberta-v1/'
+if(modelName == './LocalModel/'):
+    outputpath = 'src/outputs/LocalModel/'
+
+qs = open('src/outputs/GeneratedQuestions.txt', 'w')
+ops = open('src/outputs/GeneratedOptions.txt', 'w')
 #ak = open('src/json/answerKey.csv', 'w')
 
-stageQ = open('toStageQuery.csv', 'w')
+stageQ = open(outputpath+'toStageQuery.csv', 'w')
 stageQ.write('DESC|DASHBOARD|QUERY|ENCODING|ENCODING_JSON\n')
 
-stageD = open('toStageDashboard.csv', 'w')
+stageD = open(outputpath+'toStageDashboard.csv', 'w')
 stageD.write('DESC|DASHBOARD|URL|ENCODING|ENCODING_JSON|FILTER|QUERY\n')
 
 
@@ -73,6 +81,7 @@ for template in templates:
         enc_bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
 
         qs.write(newQuestion+'\n')
+        ops.write(newDesc+'\n')
         #ak.write(newQuestion+'|'+newDesc+'\n')
 
         #DESC, DASHBOARD, QUERY, ENCODING, ENCODING_JSON
@@ -121,8 +130,8 @@ if loadSnowflake:
     session.sql('REMOVE @query_option_stage;').collect()
 
     print('Uploading Stages...')
-    session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageDashboard.csv @dashboard_option_stage;').collect()
-    session.sql('PUT file://C:/Users/JonathanWhite/source/repos/Armeta/ai-prompt-reporting/toStageQuery.csv @query_option_stage;').collect()
+    session.sql('PUT file://%s/%stoStageDashboard.csv @dashboard_option_stage;' % (str(os.getcwd()), outputpath)).collect()
+    session.sql('PUT file://%s/%stoStageQuery.csv @query_option_stage;' % (str(os.getcwd()), outputpath)).collect()
 
     print('Loading Stages Into Tables...')
     session.sql('COPY INTO "MODEL"."%s" (DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY) FROM @dashboard_option_stage file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (tableDashboard)).collect()

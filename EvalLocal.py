@@ -18,35 +18,48 @@ sys.path.append('src')
 
 from lib import code_library
 
+modelname = 'all-distilroberta-v1'
+#modelname = './LocalModel/'
+
 def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
 
 def env_Setup():
     
-    # Get connection string paramaters
-    connectionString = open('src/json/connection_details.json', "r")
-    connectionString = json.loads(connectionString.read())
-    session          = code_library.snowconnection(connectionString)    
-
-    options_dash  = session.table("\"OptionsDashboard\"")
-    options_query = session.table("\"OptionsQuery\"")
-    #options_dash_test.show()
+    opsFile = open('src/outputs/GeneratedOptions.txt', 'r')
+    
+    ops = [line.replace('\n', '') for line in opsFile]
+    print(len(ops))
+    ops = list(set(ops))
+    print(len(ops))
 
     # model selection
-    model = SentenceTransformer('all-distilroberta-v1')
-    #model = SentenceTransformer('./LocalModel/')
+    model = SentenceTransformer(modelname)
     
-    #recieve options and their encodings and return
-    dash_rows = options_dash.select(['URL', 'ENCODING', 'DESC']).to_pandas().values.tolist()
-    query_rows = options_query.select(['RESULT_CACHE', 'ENCODING', 'DESC']).to_pandas().values.tolist()
+    # # Get connection string paramaters
+    # connectionString = open('src/json/connection_details.json', "r")
+    # connectionString = json.loads(connectionString.read())
+    # session          = code_library.snowconnection(connectionString)    
 
-    dash_opts  = [row[0] for row in dash_rows]
-    query_opts = [row[0] for row in query_rows]
-    dash_enc   = [model.encode(row[2]) for row in dash_rows]
-    query_enc  = [model.encode(row[2]) for row in query_rows]
+    # if(modelname == './LocalModel/'):
+    #     options_dash  = session.table("\"OptionsDashboardLocal\"")
+    #     options_query = session.table("\"OptionsQueryLocal\"")
+    # else:
+    #     options_dash  = session.table("\"OptionsDashboard\"")
+    #     options_query = session.table("\"OptionsQuery\"")
+    # #options_dash_test.show()
 
-    dash_desc  = [row[2] for row in dash_rows]
-    query_desc = [row[2] for row in query_rows]
+    # #recieve options and their encodings and return
+    # dash_rows = options_dash.select(['URL', 'ENCODING', 'DESC']).to_pandas().values.tolist()
+    # query_rows = options_query.select(['RESULT_CACHE', 'ENCODING', 'DESC']).to_pandas().values.tolist()
+
+    dash_opts  = [desc for desc in ops]
+    query_opts = [desc for desc in ops]
+    dash_enc   = [model.encode(desc) for desc in ops]
+    query_enc  = [model.encode(desc) for desc in ops]
+
+    dash_desc  = [desc for desc in ops]
+    query_desc = [desc for desc in ops]
 
     return model, dash_enc, dash_opts, query_enc, query_opts, dash_desc, query_desc
 
@@ -79,8 +92,6 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts, dash_desc,
 
 def main():
 
-    
-
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts, dash_desc, query_desc = env_Setup()
 
@@ -92,14 +103,18 @@ def main():
     countBoth = 0
     total = 0
 
-    ak = open('src/json/answerKey.csv', 'r')
+    ak = open('src/outputs/answerKey.csv', 'r')
     for line in ak:
         total += 1
     ak.close()
 
-    ak = open('src/json/answerKey.csv', 'r')
-    good = open('src/json/Questions_good.csv', 'w')
-    bad = open('src/json/Questions_bad.csv', 'w')
+    ak = open('src/outputs/answerKey.csv', 'r')
+
+    outputpath = 'src/outputs/all-distilroberta-v1/'
+    if(modelname == './LocalModel/'):
+        outputpath = 'src/outputs/LocalModel/'
+    good = open(outputpath+'Questions_good.csv', 'w')
+    bad = open(outputpath+'Questions_bad.csv', 'w')
 
     currentCount = 0
     starttime = datetime.datetime.now()
