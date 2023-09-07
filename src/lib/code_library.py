@@ -126,9 +126,10 @@ def show_checkboxes_and_return_selection(df):
     for index, row in df.iterrows():
         checkbox_label =  f"{row['NurseID']:d}, {row['Name']}, {row['Fit Score']:3.1f}"
         if st.checkbox(checkbox_label):
-            selected_nurse = row['Name']
-            st.session_state.navigated = True 
-            st.session_state.ExpanderState = False
-            st.experimental_rerun()
+            with st.spinner(text="Fetching Profile..."):
+                selected_nurse = row['Name']
+                st.session_state.navigated = True 
+                st.session_state.ExpanderState = False
+                st.experimental_rerun()
             
     return selected_nurse
