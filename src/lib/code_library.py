@@ -19,11 +19,11 @@ def snow_session() -> None:
 
 
 @st.cache_data
-def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
-    req = session.table('NEEDS')
-    fac = session.table('FACILITY')
-    dis = session.table('DISCIPLINE_LKP')
-    spe = session.table('SPECIALITY_LKP')
+def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
+    req = _session.table('NEEDS')
+    fac = _session.table('FACILITY')
+    dis = _session.table('DISCIPLINE_LKP')
+    spe = _session.table('SPECIALITY_LKP')
 
     reqResult = req.filter(col('"NeedID"') == requisition_id)\
     .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))\
