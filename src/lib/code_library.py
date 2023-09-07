@@ -108,3 +108,9 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
                 / ( 1 + 1 + 0.5 + 0.25 + 0.125)
                 , axis=1)
     return nurse_df
+
+def env_Setup():
+    # Open CSS file
+    with open('src/css/style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    f.close()
