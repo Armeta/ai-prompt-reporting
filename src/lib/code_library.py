@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import math
 import streamlit as st
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
@@ -29,7 +30,7 @@ def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
     .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))\
     .join(dis,  req.col('"Need_DisciplineID"') == dis.col('"DisciplineID"'))\
     .join(spe,  req.col('"Need_SpecialtyID"') == spe.col('"SpecialtyId"'))\
-    .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Facility_State"'), fac.col('"City"').as_('"Facility_City"'), dis.col('"Discipline_Name"'), spe.col('"Specialty_Name"'))\
+    .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Lat"').as_('"Facility_Lat"'), fac.col('"Long"').as_('"Facility_Long"'), fac.col('"Facility_State"'), fac.col('"City"').as_('"Facility_City"'), dis.col('"Discipline_Name"'), spe.col('"Specialty_Name"'))\
     .collect()
 
     return pd.DataFrame(reqResult)
@@ -76,12 +77,13 @@ def _score_specialty(nurse_df: pd.DataFrame) -> pd.DataFrame:
     return nurse_df
 
 def _score_recency(nurse_df: pd.DataFrame) -> pd.DataFrame:
+    today = np.datetime64('2023-08-03')
 
-    nurse_df['Score_Recency'] = nurse_df.apply(lambda row : (1 if row['HasSpecialty'] else 0), axis=1)
+    nurse_df['Score_Recency'] = nurse_df.apply(lambda row : 0 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((today - row['LastContractEnd_Datetime'])/np.timedelta64(1, 'D')))/365.0), axis=1)
     return nurse_df
 
 
-def _score_enddate(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+def _score_enddate(nurse_df: pd.DataFrame) -> pd.DataFrame:
     today = np.datetime64('2023-08-03')
 
     nurse_df['Score_Enddate'] = nurse_df.apply(lambda row : 1 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((row['LastContractEnd_Datetime'] - today)/np.timedelta64(1, 'D')))/35.0), axis=1)
@@ -92,26 +94,58 @@ def _score_experience(nurse_df: pd.DataFrame) -> pd.DataFrame:
     nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, row['YearsOfExperience']/10)), axis=1)
     return nurse_df
 
-def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
-    requisition_state = requisition['Facility_State'][0]
-    requisition_city = requisition['Facility_City'][0]
+def distance(lat1, lat2, lon1, lon2):
+     
+    # The math module contains a function named
+    # radians which converts from degrees to radians.
+    lon1 = math.radians(lon1)
+    lon2 = math.radians(lon2)
+    lat1 = math.radians(lat1)
+    lat2 = math.radians(lat2)
+      
+    # Haversine formula
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = math.sin(dlat / 2)**2 + math.cos(lat1) * math.cos(lat2) * math.sin(dlon / 2)**2
+ 
+    c = 2 * math.asin(math.sqrt(a))
+    
+    # Radius of earth in kilometers. Use 3956 for miles
+    r = 6371
+      
+    # calculate the result
+    return(c * r)
 
-    nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : (1 if row['City'] == requisition_city and row['State'] == requisition_state else (0.5 if row['State'] == requisition_state else 0)), axis=1)
+def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
+    requisition_lat= requisition['Facility_Lat'][0]
+    requisition_long = requisition['Facility_Long'][0]
+
+    nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : 1-max(0, distance(requisition_lat, row['Lat'], requisition_long, row['Long'])/500.0), axis=1)
     return nurse_df
+    #requisition_state = requisition['Facility_State'][0]
+    #requisition_city = requisition['Facility_City'][0]
+    #nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : (1 if row['City'] == requisition_city and row['State'] == requisition_state else (0.5 if row['State'] == requisition_state else 0)), axis=1)
+
 
 def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     nurse_df = _score_licensure(nurse_df, requisition)
     nurse_df = _score_discipline(nurse_df)
     nurse_df = _score_specialty(nurse_df)
-    nurse_df = _score_enddate(nurse_df, requisition)
+    nurse_df = _score_recency(nurse_df)
+    nurse_df = _score_enddate(nurse_df)
     nurse_df = _score_experience(nurse_df)
     nurse_df = _score_proximity(nurse_df, requisition)
 
 
     nurse_df['Fit Score'] = nurse_df.apply(lambda row : 
                 100 * row['Score_License'] * 
-                (row['Score_Discipline'] * 1  +  row['Score_Specialty'] * 1 + row['Score_Enddate'] * 0.5 + row['Score_Experience'] * 0.25 + row['Score_Proximity'] * 0.125)
-                / ( 1 + 1 + 0.5 + 0.25 + 0.125)
+                (   row['Score_Discipline'] * 1
+                  + row['Score_Specialty'] * 1
+                  + row['Score_Recency'] * 0.75 
+                  + row['Score_Enddate'] * 0.5 
+                  + row['Score_Experience'] * 0.25 
+                  + row['Score_Proximity'] * 0.125)
+                / ( 1 + 1 + 0.75 + 0.5 + 0.25 + 0.125)
                 , axis=1)
     return nurse_df
 
