@@ -62,31 +62,33 @@ def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     requisition_in_eNLC = requisition_state in eNLC_states
     
     nurse_df['Score_License'] = nurse_df.apply(lambda row : 1 if (requisition_in_eNLC and row['State'] in eNLC_states) or (row['State'] == requisition_state) else 0, axis=1)
-
     return nurse_df
 
 def _score_discipline(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
     nurse_df['Score_Discipline'] = nurse_df.apply(lambda row : (1 if row['HasDiscipline'] else 0), axis=1)
-
     return nurse_df
+
 def _score_specialty(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
     nurse_df['Score_Specialty'] = nurse_df.apply(lambda row : (1 if row['HasSpecialty'] else 0), axis=1)
-
     return nurse_df
+
+def _score_recency(nurse_df: pd.DataFrame) -> pd.DataFrame:
+
+    nurse_df['Score_Recency'] = nurse_df.apply(lambda row : (1 if row['HasSpecialty'] else 0), axis=1)
+    return nurse_df
+
 
 def _score_enddate(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     today = np.datetime64('2023-08-03')
 
     nurse_df['Score_Enddate'] = nurse_df.apply(lambda row : 1 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((row['LastContractEnd_Datetime'] - today)/np.timedelta64(1, 'D')))/35.0), axis=1)
-
     return nurse_df
 
 def _score_experience(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
     nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, row['YearsOfExperience']/10)), axis=1)
-
     return nurse_df
 
 def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
@@ -94,7 +96,6 @@ def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     requisition_city = requisition['Facility_City'][0]
 
     nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : (1 if row['City'] == requisition_city and row['State'] == requisition_state else (0.5 if row['State'] == requisition_state else 0)), axis=1)
-
     return nurse_df
 
 def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
