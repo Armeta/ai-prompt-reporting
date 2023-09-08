@@ -158,14 +158,23 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
     return nurse_df
 
 @st.cache_resource
-def env_Setup():
-    
+def open_Files():
     st.image('src/media/Untitled.jpg')
 
     # Open CSS file
     with open('src/css/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-    f.close()
+    f.close()    
+
+def env_Setup():
+    # set page details
+    st.set_page_config(
+        page_title="Nurse AI",
+        initial_sidebar_state='collapsed',
+        menu_items={},
+        layout='wide'
+    )
+    open_Files()
     if 'navigated' not in st.session_state:
         st.session_state.navigated = False
     if 'NurseName' not in st.session_state:
