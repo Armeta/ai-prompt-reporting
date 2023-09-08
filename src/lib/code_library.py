@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
-
+from streamlit_extras.stylable_container import stylable_container
 
 # setup connection with snowflake
 def snow_session() -> None:
@@ -18,11 +18,12 @@ def snow_session() -> None:
     }).create()
 
 
-def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
-    req = session.table('NEEDS')
-    fac = session.table('FACILITY')
-    dis = session.table('DISCIPLINE_LKP')
-    spe = session.table('SPECIALITY_LKP')
+@st.cache_data
+def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
+    req = _session.table('NEEDS')
+    fac = _session.table('FACILITY')
+    dis = _session.table('DISCIPLINE_LKP')
+    spe = _session.table('SPECIALITY_LKP')
 
     reqResult = req.filter(col('"NeedID"') == requisition_id)\
     .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))\
@@ -38,16 +39,16 @@ def get_requisition(session: Session, requisition_id: int) -> pd.DataFrame:
                            .where(req.needid == requisition_id)
                            .collect())
 
-
-def get_nurses(session: Session) -> pd.DataFrame:
-    nurse_df = session.table('NURSES')
+@st.cache_data
+def get_nurses(_session: Session) -> pd.DataFrame:
+    nurse_df = _session.table('NURSES')
     
     return pd.DataFrame(nurse_df.collect())
 
-
-def get_nurse_discipline_specialty(session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
-    dis = session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
-    spe = session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
+@st.cache_data
+def get_nurse_discipline_specialty(_session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
+    dis = _session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
+    spe = _session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
 
     return pd.DataFrame(dis.collect()), pd.DataFrame(spe.collect())
 
@@ -113,3 +114,53 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
                 / ( 1 + 1 + 0.5 + 0.25 + 0.125)
                 , axis=1)
     return nurse_df
+
+def env_Setup():
+    # set page details
+    st.set_page_config(
+        page_title="Nurse AI",
+        initial_sidebar_state='collapsed',
+        menu_items={},
+        layout='wide'
+    )
+    
+    st.image('src/media/Untitled.jpg')
+
+    # Open CSS file
+    with open('src/css/style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    f.close()
+    if 'navigated' not in st.session_state:
+        st.session_state.navigated = False
+    if 'NurseName' not in st.session_state:
+        st.session_state.NurseName = ''  
+    if 'NurseID' not in st.session_state:
+        st.session_state.NurseID = ''
+    if 'FitScore' not in st.session_state:
+        st.session_state.FitScore = ''
+    if 'requisitions' not in st.session_state:
+        st.session_state.requisitions = []
+
+def draw_Card(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
+    with stylable_container(
+        key="stylizedContainer",
+        css_styles="""
+            {
+                border: 1px solid rgba(49, 51, 63, 0.2);
+                border-radius: 0.5rem;
+                padding: calc(1em - 1px)
+            }
+            """,
+    ):
+        col11, col12 = st.columns(2)
+        with col11: 
+            st.write(f"**{dn1}:**")
+            st.write(f"**{dn2}:**")
+            st.write(f"**{dn3}:**")
+            st.write(f"**{dn4}:**")                      
+        with col12:
+            st.write(f"{col1}")
+            st.write(f"{col2}")
+            st.write(f"{col3}")
+            st.write(f"{col4}")    
+
