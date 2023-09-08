@@ -120,7 +120,8 @@ def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     requisition_lat= requisition['Facility_Lat'][0]
     requisition_long = requisition['Facility_Long'][0]
 
-    nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : 1-max(0, distance(requisition_lat, row['Lat'], requisition_long, row['Long'])/500.0), axis=1)
+    nurse_df['Distance'] = nurse_df.apply(lambda row : -1 if pd.isna(distance(requisition_lat, row['Lat'], requisition_long, row['Long'])) else int(distance(requisition_lat, row['Lat'], requisition_long, row['Long'])), axis=1)
+    nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : max(0, 1 - distance(requisition_lat, row['Lat'], requisition_long, row['Long'])/500.0), axis=1)
     return nurse_df
     #requisition_state = requisition['Facility_State'][0]
     #requisition_city = requisition['Facility_City'][0]

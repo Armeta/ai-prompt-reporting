@@ -47,12 +47,15 @@ def main() -> None:
     nurse_df                      = nurse_df.join(nurse_dis_df.set_index('DisciplineNurseID'), on='NurseID', how='left').join(nurse_spe_df.set_index('SpecialtyNurseID'), on='NurseID', how='left')
     nurse_df['HasDiscipline']     = nurse_df['HasDiscipline'].notna()
     nurse_df['HasSpecialty']      = nurse_df['HasSpecialty'].notna()
-    nurse_df                      = cl.score_nurses(nurse_df, requisition)        
+    nurse_df                      = cl.score_nurses(nurse_df, requisition)   
+    st.session_state.nurse_df     = nurse_df[nurse_df['Fit Score'] > 0].sort_values(by=['Fit Score'], ascending=False).head(25)
     valid_nurses                  = nurse_df[nurse_df['Fit Score'] > 0]
     info_nurses                   = valid_nurses[['NurseID', 'Name', 'Fit Score']]
     sorted_nurses                 = info_nurses.sort_values(by=['Fit Score'], ascending=False)
     topten_nurses                 = sorted_nurses.head(25)
     #remaining_nurses             = sorted_nurses.drop(topten_nurses.index) 
+
+    
 
     # sliding tabs for interacting with the different UI's
     need_tab, nurseList_tab, history_tab = st.tabs(["Requisition Profile", "Recommended Nurses", "Requisition Search History"])
