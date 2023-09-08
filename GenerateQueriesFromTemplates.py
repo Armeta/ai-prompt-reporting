@@ -13,13 +13,13 @@ sys.path.append('src')
 
 from lib import code_library
 
-modelName = 'all-distilroberta-v1'
-#modelName = './LocalModel/'
+#modelName = 'all-distilroberta-v1'
+modelName = './LocalModel/'
 
 templateFile = 'src/json/templates/QueryTemplatesAll.json'
 
 incremental = False
-loadSnowflake = False
+loadSnowflake = True
 
 connectionString = open('src/json/connection_details.json', "r")
 connectionString = json.loads(connectionString.read())
