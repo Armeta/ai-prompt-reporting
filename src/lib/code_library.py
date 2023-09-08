@@ -53,7 +53,6 @@ def get_nurse_discipline_specialty(_session: Session, requisition: pd.DataFrame)
 
     return pd.DataFrame(dis.collect()), pd.DataFrame(spe.collect())
 
-@st.cache_data
 def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     eNLC_states = [
         'AL', 'AZ', 'AR', 'CO', 'DE', 'FL', 'GA', 'ID', 'IN', 'IA', 'KS', 'KY',
@@ -67,39 +66,31 @@ def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     nurse_df['Score_License'] = nurse_df.apply(lambda row : 1 if (requisition_in_eNLC and row['State'] in eNLC_states) or (row['State'] == requisition_state) else 0, axis=1)
     return nurse_df
 
-@st.cache_data
 def _score_discipline(nurse_df: pd.DataFrame) -> pd.DataFrame:
-
     nurse_df['Score_Discipline'] = nurse_df.apply(lambda row : (1 if row['HasDiscipline'] else 0), axis=1)
     return nurse_df
 
-@st.cache_data
 def _score_specialty(nurse_df: pd.DataFrame) -> pd.DataFrame:
-
     nurse_df['Score_Specialty'] = nurse_df.apply(lambda row : (1 if row['HasSpecialty'] else 0), axis=1)
     return nurse_df
 
-@st.cache_data
 def _score_recency(nurse_df: pd.DataFrame) -> pd.DataFrame:
     today = np.datetime64('2023-08-03')
 
     nurse_df['Score_Recency'] = nurse_df.apply(lambda row : 0 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((today - row['LastContractEnd_Datetime'])/np.timedelta64(1, 'D')))/365.0), axis=1)
     return nurse_df
 
-@st.cache_data
 def _score_enddate(nurse_df: pd.DataFrame) -> pd.DataFrame:
     today = np.datetime64('2023-08-03')
 
     nurse_df['Score_Enddate'] = nurse_df.apply(lambda row : 1 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((row['LastContractEnd_Datetime'] - today)/np.timedelta64(1, 'D')))/35.0), axis=1)
     return nurse_df
 
-@st.cache_data
 def _score_experience(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
     nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, max(0, row['YearsOfExperience']-2)/8)), axis=1)
     return nurse_df
     
-@st.cache_data
 def distance(lat1, lat2, lon1, lon2):
      
     # The math module contains a function named
@@ -122,7 +113,6 @@ def distance(lat1, lat2, lon1, lon2):
     # calculate the result
     return(c * r)
 
-@st.cache_data
 def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     requisition_lat= requisition['Facility_Lat'][0]
     requisition_long = requisition['Facility_Long'][0]
@@ -134,7 +124,6 @@ def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     #requisition_city = requisition['Facility_City'][0]
     #nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : (1 if row['City'] == requisition_city and row['State'] == requisition_state else (0.5 if row['State'] == requisition_state else 0)), axis=1)
 
-@st.cache_data
 def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     nurse_df = _score_licensure(nurse_df, requisition)
     nurse_df = _score_discipline(nurse_df)
@@ -172,7 +161,7 @@ def env_Setup():
     with open('src/css/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()  
-      
+
     if 'navigated' not in st.session_state:
         st.session_state.navigated = False
     if 'NurseName' not in st.session_state:
