@@ -59,7 +59,7 @@ def main() -> None:
         valid_nurses     = nurse_df[nurse_df['Fit Score'] > 0]
         info_nurses      = valid_nurses[['NurseID', 'Name', 'Fit Score']]
         sorted_nurses    = info_nurses.sort_values(by=['Fit Score'], ascending=False)
-        topten_nurses    = sorted_nurses.head(10)
+        topten_nurses    = sorted_nurses.head(25)
         #remaining_nurses = sorted_nurses.drop(topten_nurses.index) 
 
         need_tab, nurseList_tab, history_tab = st.tabs(["Requisition Profile", "Recommended Nurses", "Requisition Search History"])
@@ -116,14 +116,20 @@ def main() -> None:
 
 
             #st.dataframe(requisition.style.format({'NeedID': '{:d}', 'Need_FacilityID': '{:d}'}), hide_index=True)
-
         with nurseList_tab:
-            with st.expander("Top Ten Nurses", expanded = True):
-                st.write(" NurseID, Nurse Name, FitScore")
-                st.session_state.NurseName = cl.show_checkboxes_and_return_selection(topten_nurses)
-
-            # with st.expander("All Nurses"):
-
+            with st.expander("Top 25 Nurses", expanded = True):
+                Ecol1, Ecol2, Ecol3 = st.columns(3)
+                with Ecol1:
+                    st.write("Nurse Profile")
+                    st.session_state.NurseName = cl.show_checkboxes_and_return_selection(topten_nurses)
+                with Ecol2:
+                    st.write("Nurse ID")
+                    for name in topten_nurses['NurseID']:
+                        st.markdown(name)
+                with Ecol3:
+                    st.write("Fit Score") 
+                    for scores in topten_nurses['Fit Score']:
+                        st.markdown(f"{scores:3.1f}")          
         with history_tab:
             st.write("History Goes Here")
 

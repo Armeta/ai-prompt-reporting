@@ -124,12 +124,11 @@ def env_Setup():
 def show_checkboxes_and_return_selection(df):
     selected_nurse = None  # Initial value indicating no selection
     for index, row in df.iterrows():
-        checkbox_label =  f"{row['NurseID']:d}, {row['Name']}, {row['Fit Score']:3.1f}"
+        checkbox_label =  f"{row['Name']}"
         if st.checkbox(checkbox_label):
-            with st.spinner(text="Fetching Profile..."):
-                selected_nurse = row['Name']
-                st.session_state.navigated = True 
-                st.session_state.ExpanderState = False
-                st.experimental_rerun()
+            selected_nurse = row['Name']
+            st.session_state.navigated = True 
+            st.session_state.ExpanderState = False
+            st.experimental_rerun()
             
     return selected_nurse
