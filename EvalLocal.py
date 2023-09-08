@@ -19,7 +19,7 @@ sys.path.append('src')
 from lib import code_library
 
 modelname = 'all-distilroberta-v1'
-#modelname = './LocalModel/'
+modelname = './LocalModel/'
 
 def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]

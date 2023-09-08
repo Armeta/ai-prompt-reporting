@@ -7,7 +7,7 @@ starttime = datetime.datetime.now()
 
 baseModelName  = 'all-distilroberta-v1'
 
-ak = open('src/json/answerKey.csv','r')
+ak = open('src/outputs/answerKey.csv','r')
 
 
 

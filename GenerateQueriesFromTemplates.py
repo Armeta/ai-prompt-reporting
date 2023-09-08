@@ -19,7 +19,7 @@ modelName = 'all-distilroberta-v1'
 templateFile = 'src/json/templates/QueryTemplatesAll.json'
 
 incremental = False
-loadSnowflake = True
+loadSnowflake = False
 
 connectionString = open('src/json/connection_details.json', "r")
 connectionString = json.loads(connectionString.read())
@@ -35,7 +35,6 @@ outputpath = 'src/outputs/all-distilroberta-v1/'
 if(modelName == './LocalModel/'):
     outputpath = 'src/outputs/LocalModel/'
 
-qs = open('src/outputs/GeneratedQuestions.txt', 'w')
 ops = open('src/outputs/GeneratedOptions.txt', 'w')
 #ak = open('src/json/answerKey.csv', 'w')
 
@@ -80,7 +79,6 @@ for template in templates:
         enc_json = '{"encoding": '+str(enc)+'}'
         enc_bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
 
-        qs.write(newQuestion+'\n')
         ops.write(newDesc+'\n')
         #ak.write(newQuestion+'|'+newDesc+'\n')
 
@@ -106,7 +104,6 @@ for template in templates:
         if(count % 100 == 0):
             print(count)
 
-qs.close()
 stageQ.close()
 stageD.close()
 print('Generated %d options' % (count))
