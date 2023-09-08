@@ -40,13 +40,12 @@ def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
                            .where(req.needid == requisition_id)
                            .collect())
 
-@st.cache_data
 def get_nurses(_session: Session) -> pd.DataFrame:
     nurse_df = _session.table('NURSES')
     
     return pd.DataFrame(nurse_df.collect())
 
-@st.cache_data
+
 def get_nurse_discipline_specialty(_session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
     dis = _session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
     spe = _session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
