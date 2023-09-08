@@ -91,7 +91,7 @@ def _score_enddate(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
 def _score_experience(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
-    nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, row['YearsOfExperience']/10)), axis=1)
+    nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, max(0, row['YearsOfExperience']-2)/8)), axis=1)
     return nurse_df
 
 def distance(lat1, lat2, lon1, lon2):
