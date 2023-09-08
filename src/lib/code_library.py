@@ -140,7 +140,7 @@ def env_Setup():
     if 'requisitions' not in st.session_state:
         st.session_state.requisitions = []
 
-def draw_Card(row, col1, col2, col3, col4, dn1, dn2, dn3, dn4):
+def draw_Card(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
     with stylable_container(
         key="stylizedContainer",
         css_styles="""
@@ -158,8 +158,8 @@ def draw_Card(row, col1, col2, col3, col4, dn1, dn2, dn3, dn4):
             st.write(f"**{dn3}:**")
             st.write(f"**{dn4}:**")                      
         with col12:
-            st.write(f"{row[col1]}")
-            st.write(f"{row[col2]}")
-            st.write(f"{row[col3]}")
-            st.write(f"{row[col4]}")    
+            st.write(f"{col1}")
+            st.write(f"{col2}")
+            st.write(f"{col3}")
+            st.write(f"{col4}")    
 
