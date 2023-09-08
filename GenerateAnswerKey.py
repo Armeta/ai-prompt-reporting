@@ -4,12 +4,13 @@ import struct
 import base64
 
 
-f = open('src/json/templates/QueryTemplatesAll.json')
+f = open('src/json/AnswerTemplates.json')
 templates = json.load(f)['templates']
 f.close()
 
 ak = open('src/outputs/answerKey.csv', 'w')
 
+qs = open('src/outputs/GeneratedQuestions.txt', 'w')
 
 count = 0
 
@@ -30,6 +31,7 @@ for template in templates:
             newDesc = newDesc.replace(template['parameters'][p]['name'], DescParam)
         
         ak.write(newQuestion+'|'+newDesc+'\n')
+        qs.write(newQuestion+'\n')
 
         if(len(paramCount) > 0):
             paramCount[0] += 1
@@ -48,4 +50,5 @@ for template in templates:
             print(count)
 
 ak.close()
+qs.close()
 print('Generated %d questions' % (count))

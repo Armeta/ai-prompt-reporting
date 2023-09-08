@@ -22,3 +22,16 @@ Tuned Model from 6332 entries answerKey (8/29/2023 8:57AM) (12 sets) (shuffle=Tr
 Dashboards : 99.5%
 Queries    : 99.5%
 Both       : 99.5%
+
+----------------------------
+
+Base Model on 2678 entries answerKey (09/08/2023 11:18AM)
+Dashboards : 97.7%
+Queries    : 97.7%
+Both       : 97.7%
+
+Tuned Model from 2678 entries answerKey (09/08/2023 11:18AM) (3 sets) (shuffle=True, batch_size=16, MultipleNegativesRankingLoss, epochs=3)
+16m 16s
+Dashboards : 98.0%
+Queries    : 98.0%
+Both       : 98.0%
