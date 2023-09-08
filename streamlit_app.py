@@ -25,10 +25,11 @@ def main() -> None:
     
     if 'navigated' not in st.session_state:
         st.session_state.navigated = False
-    
     if 'NurseName' not in st.session_state:
-        st.session_state.NurseName = ''
-        
+        st.session_state.NurseName = False    
+    if 'requisitions' not in st.session_state:
+        st.session_state.requisitions = []
+
     # If not navigated yet, show checkboxes
     if not st.session_state.navigated:  
 
@@ -45,6 +46,8 @@ def main() -> None:
         if(len(requisition) < 1):
             st.text('Requisition ID not found')
             return
+
+        st.session_state.requisitions.append(requisition)
 
         nurse_df = cl.get_nurses(session)
 
@@ -111,27 +114,44 @@ def main() -> None:
                             st.write(f"{row['Discipline_Name']}")
                             st.write(f"{row['Need_DisciplineID']}")  
                             st.write(f"{row['Specialty_Name']}")                         
-                            st.write(f"{row['Need_SpecialtyID']}")                
-                            
-
+                            st.write(f"{row['Need_SpecialtyID']}")                                            
 
             #st.dataframe(requisition.style.format({'NeedID': '{:d}', 'Need_FacilityID': '{:d}'}), hide_index=True)
         with nurseList_tab:
+           
             with st.expander("Top 25 Nurses", expanded = True):
-                Ecol1, Ecol2, Ecol3 = st.columns(3)
-                with Ecol1:
-                    st.write("Nurse Profile")
-                    st.session_state.NurseName = cl.show_checkboxes_and_return_selection(topten_nurses)
-                with Ecol2:
-                    st.write("Nurse ID")
-                    for name in topten_nurses['NurseID']:
-                        st.markdown(name)
-                with Ecol3:
-                    st.write("Fit Score") 
-                    for scores in topten_nurses['Fit Score']:
-                        st.markdown(f"{scores:3.1f}")          
+                with st.container():
+                    Ccol1, Ccol2, Ccol3, Ccol4 = st.columns(4)
+                    with Ccol1:
+                        st.write("<u>**Nurse Profile**</u>", unsafe_allow_html=True)
+                    with Ccol2:
+                        st.write("<u>**Nurse Name**</u>", unsafe_allow_html=True)
+                    with Ccol3:
+                        st.write("<u>**Nurse ID**</u>", unsafe_allow_html=True)
+                    with Ccol4:
+                        st.write("<u>**Fit Score**</u>", unsafe_allow_html=True)                
+                
+                selected_nurse = None  # Initial value indicating no selection
+                for index, row in topten_nurses.iterrows():
+                    Ecol1, Ecol2, Ecol3, Ecol4 = st.columns(4)
+                    with Ecol1:                                                
+                        checkbox_label =  f"{row['Name']}"
+                        if st.button("Visit " + checkbox_label + "'s profile", use_container_width=True):
+                            selected_nurse = row['Name']
+                            print(selected_nurse)
+                            st.session_state.navigated = True 
+                            st.session_state.ExpanderState = False
+                            st.experimental_rerun()
+                    with Ecol2:                                            
+                        st.markdown(f"{row['Name']}")                
+                    with Ecol3:
+                        st.markdown(f"{row['NurseID']}")
+                    with Ecol4:
+                        st.markdown(f"{row['Fit Score']:3.1f}")                
         with history_tab:
-            st.write("History Goes Here")
+           with st.expander("Requisition Search History", expanded = True):
+               for req in st.session_state.requisitions:
+                    st.write(req)
 
         # If navigated (i.e., any checkbox was checked), show the new "page"
     if st.session_state.navigated:

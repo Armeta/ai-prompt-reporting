@@ -125,7 +125,7 @@ def show_checkboxes_and_return_selection(df):
     selected_nurse = None  # Initial value indicating no selection
     for index, row in df.iterrows():
         checkbox_label =  f"{row['Name']}"
-        if st.checkbox(checkbox_label):
+        if st.button("Visit " + checkbox_label + "'s profile", use_container_width=True):
             selected_nurse = row['Name']
             st.session_state.navigated = True 
             st.session_state.ExpanderState = False
