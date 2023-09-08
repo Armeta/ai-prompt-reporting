@@ -5,7 +5,13 @@ import streamlit as st
 from snowflake.snowpark.session import Session
 from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.switch_page_button import switch_page
-
+# set page details
+st.set_page_config(
+    page_title="Nurse AI",
+    initial_sidebar_state='collapsed',
+    menu_items={},
+    layout='wide'
+)
 def main() -> None:
 
     # set up environment 

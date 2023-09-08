@@ -159,13 +159,6 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
 
 @st.cache_resource
 def env_Setup():
-    # set page details
-    st.set_page_config(
-        page_title="Nurse AI",
-        initial_sidebar_state='collapsed',
-        menu_items={},
-        layout='wide'
-    )
     
     st.image('src/media/Untitled.jpg')
 
