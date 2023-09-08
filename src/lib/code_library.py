@@ -7,6 +7,7 @@ from snowflake.snowpark.functions import col
 from streamlit_extras.stylable_container import stylable_container
 
 # setup connection with snowflake
+@st.cache_resource
 def snow_session() -> None:
     return Session.builder.configs({
         'account': st.secrets['account'],
@@ -17,7 +18,6 @@ def snow_session() -> None:
         'database': st.secrets['database'],
         'schema': st.secrets['schema']
     }).create()
-
 
 @st.cache_data
 def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
@@ -67,12 +67,10 @@ def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     return nurse_df
 
 def _score_discipline(nurse_df: pd.DataFrame) -> pd.DataFrame:
-
     nurse_df['Score_Discipline'] = nurse_df.apply(lambda row : (1 if row['HasDiscipline'] else 0), axis=1)
     return nurse_df
 
 def _score_specialty(nurse_df: pd.DataFrame) -> pd.DataFrame:
-
     nurse_df['Score_Specialty'] = nurse_df.apply(lambda row : (1 if row['HasSpecialty'] else 0), axis=1)
     return nurse_df
 
@@ -81,7 +79,6 @@ def _score_recency(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
     nurse_df['Score_Recency'] = nurse_df.apply(lambda row : 0 if pd.isna(row['LastContractEnd_Datetime']) else max(0, 1-max(0, int((today - row['LastContractEnd_Datetime'])/np.timedelta64(1, 'D')))/365.0), axis=1)
     return nurse_df
-
 
 def _score_enddate(nurse_df: pd.DataFrame) -> pd.DataFrame:
     today = np.datetime64('2023-08-03')
@@ -93,7 +90,7 @@ def _score_experience(nurse_df: pd.DataFrame) -> pd.DataFrame:
 
     nurse_df['Score_Experience'] = nurse_df.apply(lambda row : (0 if pd.isna(row['YearsOfExperience']) else min(1, max(0, row['YearsOfExperience']-2)/8)), axis=1)
     return nurse_df
-
+    
 def distance(lat1, lat2, lon1, lon2):
      
     # The math module contains a function named
@@ -127,7 +124,6 @@ def _score_proximity(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.Da
     #requisition_city = requisition['Facility_City'][0]
     #nurse_df['Score_Proximity'] = nurse_df.apply(lambda row : (1 if row['City'] == requisition_city and row['State'] == requisition_state else (0.5 if row['State'] == requisition_state else 0)), axis=1)
 
-
 def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     nurse_df = _score_licensure(nurse_df, requisition)
     nurse_df = _score_discipline(nurse_df)
@@ -150,6 +146,7 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
                 , axis=1)
     return nurse_df
 
+
 def env_Setup():
     # set page details
     st.set_page_config(
@@ -158,13 +155,13 @@ def env_Setup():
         menu_items={},
         layout='wide'
     )
-    
     st.image('src/media/Untitled.jpg')
 
     # Open CSS file
     with open('src/css/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-    f.close()
+    f.close()  
+
     if 'navigated' not in st.session_state:
         st.session_state.navigated = False
     if 'NurseName' not in st.session_state:

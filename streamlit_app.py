@@ -38,13 +38,15 @@ def main() -> None:
 
     # display current requisition
     st.text('Requisition ID: '+str(requisition_id))
-
+    
     if first_time or init_requisition_id != requisition_id:
         # Pull requisition details from source
-        requisition = cl.get_requisition(session, requisition_id)
+        with st.spinner(text="Searching for Request ID..."):
+            requisition = cl.get_requisition(session, requisition_id)
+        
         if(len(requisition) < 1):
-            st.text('Requisition ID not found')
-            return
+                st.info('Requisition ID not found', icon="🚨")
+                return
         
         # save current requsition to session
         st.session_state.requisition_id = requisition_id
@@ -55,11 +57,16 @@ def main() -> None:
             st.session_state.requisitions.append(requisition)
 
 
-        # Pull Nurse dataset from source
-        nurse_df = cl.get_nurses(session)
+    # Pull Nurse dataset from source
+        with st.spinner(text="Getting List of Nurses..."):
+            nurse_df = cl.get_nurses(session)
+            st.toast('Success! Retrieved Nurses.', icon='✅')
 
         # prepare nurse dataset
-        nurse_dis_df, nurse_spe_df    = cl.get_nurse_discipline_specialty(session, requisition)
+        with st.spinner(text="Getting Nurse Details..."):
+            nurse_dis_df, nurse_spe_df    = cl.get_nurse_discipline_specialty(session, requisition)
+            st.toast('Success! Retrieved Nurse Details.', icon='✅')
+
         nurse_dis_df['HasDiscipline'] = True
         nurse_spe_df['HasSpecialty']  = True
         nurse_df                      = nurse_df.join(nurse_dis_df.set_index('DisciplineNurseID'), on='NurseID', how='left').join(nurse_spe_df.set_index('SpecialtyNurseID'), on='NurseID', how='left')
@@ -85,13 +92,15 @@ def main() -> None:
     need_tab, nurseList_tab, history_tab = st.tabs(["Requisition Profile", "Recommended Nurses", "Requisition Search History"])
     # Displays information on the need most recently typed in
     with need_tab:
-        # Draws the two cards on the title page 
-        col1, col2 = st.columns(2)
-        for index, row in requisition.iterrows():
-            with col1:
-                cl.draw_Card(row['Need_FacilityID'], row['Facility_Name'], row['Facility_State'], row['Facility_City'], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City')
-            with col2:
-                cl.draw_Card(row['Discipline_Name'], row['Need_DisciplineID'], row['Specialty_Name'], row['Need_SpecialtyID'], 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')                                        
+        with st.spinner(text="Drawing Charts..."):
+            # Draws the two cards on the title page 
+            col1, col2 = st.columns(2)
+            for index, row in requisition.iterrows():
+                with col1:
+                    cl.draw_Card(row['Need_FacilityID'], row['Facility_Name'], row['Facility_State'], row['Facility_City'], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City')
+                with col2:
+                    cl.draw_Card(row['Discipline_Name'], row['Need_DisciplineID'], row['Specialty_Name'], row['Need_SpecialtyID'], 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')                                        
+            st.toast('Welcome to Nurse AI!', icon='👩‍⚕️')
     # Gives a list of recommended nurses after a need has been typed in 
     with nurseList_tab:
         # Writes the header on the Recommended Nurses page
@@ -105,33 +114,35 @@ def main() -> None:
                 with Ccol3:
                     st.write("<u>**Nurse ID**</u>", unsafe_allow_html=True)
                 with Ccol4:
-                    st.write("<u>**Fit Score**</u>", unsafe_allow_html=True)                
-            
-            # Draws the buttons and writes out the nurse information 
-            for index, row in topten_nurses.iterrows():
-                Ecol1, Ecol2, Ecol3, Ecol4 = st.columns(4)
-                with Ecol1:                                                
-                    button_label =  f"{row['Name']}"
-                    # If any button is pressed we set conditions to navigate to the profile page
-                    if st.button("Visit " + button_label + "'s profile", use_container_width=True):
-                        st.session_state.SelectedNurse = row
-                        st.session_state.NurseName = row['Name']
-                        switch_page('profile')
-                with Ecol2:                                            
-                    st.markdown(f"{row['Name']}")                
-                with Ecol3:
-                    st.session_state.NurseID = f"{row['NurseID']}"
-                    st.markdown(f"{row['NurseID']}")
-                with Ecol4:
-                    st.session_state.FitScore = f"{row['Fit Score']:3.1f}"
-                    st.markdown(f"{row['Fit Score']:3.1f}")                
+                    st.write("<u>**Fit Score**</u>", unsafe_allow_html=True)  
+            # Draws the buttons and writes out the nurse information                       
+            with st.spinner(text="Retrieving Top 25 Nurse Profiles..."):              
+                for index, row in topten_nurses.iterrows():
+                    Ecol1, Ecol2, Ecol3, Ecol4 = st.columns(4)
+                    with Ecol1:                                                
+                        button_label =  f"{row['Name']}"
+                        # If any button is pressed we set conditions to navigate to the profile page
+                        if st.button("Visit " + button_label + "'s profile", use_container_width=True):
+                            st.session_state.SelectedNurse = row
+                            st.session_state.NurseName = row['Name']
+                            switch_page('profile')
+                    with Ecol2:                                            
+                        st.markdown(f"{row['Name']}")                
+                    with Ecol3:
+                        st.session_state.NurseID = f"{row['NurseID']}"
+                        st.markdown(f"{row['NurseID']}")
+                    with Ecol4:
+                        st.session_state.FitScore = f"{row['Fit Score']:3.1f}"
+                        st.markdown(f"{row['Fit Score']:3.1f}")     
+                st.toast('Success! Retrieved Nurse Profiles.', icon='✅')           
 
     # Gives a running record of all searched requisitions within a user session 
     with history_tab:
         with st.expander("Requisition Search History", expanded = True):
-            for req in st.session_state.requisitions:
-                st.write(req)
-
+            with st.spinner(text="Retrieving Search History..."):
+                for req in st.session_state.requisitions:
+                    st.write(req)
+            st.toast('Success! Retrieved Search History.', icon='✅') 
     
 if __name__ == '__main__':
     main()
