@@ -14,47 +14,71 @@ def main() -> None:
     # connect to snowflake
     session = cl.snow_session()
 
-    requisition_id = 976660
+    init_requisition_id = None
+    requisition_id = None
+
+    first_time = 'requisition_id' not in st.session_state
+
+    if(not first_time):
+        init_requisition_id = st.session_state.requisition_id
+    else:
+        init_requisition_id = 976660
 
     # Recieve user input
-    str_input = requisition_id = st.text_input("Requisition ID", value=str(requisition_id))
+    str_input = st.text_input("Requisition ID Search")
     
     # test user input is valid
     if(str_input.isdigit()):
         requisition_id = int(str_input)
-    else:
+    elif(len(str_input) > 0):
         st.text('Invalid Requisition ID')
         return
+    else:
+        requisition_id = init_requisition_id
 
-    # Pull requisition details from source
-    requisition = cl.get_requisition(session, requisition_id)
-    if(len(requisition) < 1):
-        st.text('Requisition ID not found')
-        return
-    
-    # # Add requsition to history tab     
-    if not requisition.empty and requisition['NeedID'].iloc[0] not in [df['NeedID'].iloc[0] for df in st.session_state.requisitions]:
-        st.session_state.requisitions.append(requisition)
+    # display current requisition
+    st.text('Requisition ID: '+str(requisition_id))
+
+    if first_time or init_requisition_id != requisition_id:
+        # Pull requisition details from source
+        requisition = cl.get_requisition(session, requisition_id)
+        if(len(requisition) < 1):
+            st.text('Requisition ID not found')
+            return
+        
+        # save current requsition to session
+        st.session_state.requisition_id = requisition_id
+        st.session_state.requisition = requisition
+
+        # # Add requsition to history tab     
+        if not requisition.empty and requisition['NeedID'].iloc[0] not in [df['NeedID'].iloc[0] for df in st.session_state.requisitions]:
+            st.session_state.requisitions.append(requisition)
 
 
-    # Pull Nurse dataset from source
-    nurse_df = cl.get_nurses(session)
+        # Pull Nurse dataset from source
+        nurse_df = cl.get_nurses(session)
 
-    # prepare nurse dataset
-    nurse_dis_df, nurse_spe_df    = cl.get_nurse_discipline_specialty(session, requisition)
-    nurse_dis_df['HasDiscipline'] = True
-    nurse_spe_df['HasSpecialty']  = True
-    nurse_df                      = nurse_df.join(nurse_dis_df.set_index('DisciplineNurseID'), on='NurseID', how='left').join(nurse_spe_df.set_index('SpecialtyNurseID'), on='NurseID', how='left')
-    nurse_df['HasDiscipline']     = nurse_df['HasDiscipline'].notna()
-    nurse_df['HasSpecialty']      = nurse_df['HasSpecialty'].notna()
-    nurse_df                      = cl.score_nurses(nurse_df, requisition)   
-    st.session_state.nurse_df     = nurse_df[nurse_df['Fit Score'] > 0].sort_values(by=['Fit Score'], ascending=False).head(25)
-    valid_nurses                  = nurse_df[nurse_df['Fit Score'] > 0]
-    info_nurses                   = valid_nurses[['NurseID', 'Name', 'Fit Score']]
-    sorted_nurses                 = info_nurses.sort_values(by=['Fit Score'], ascending=False)
-    topten_nurses                 = sorted_nurses.head(25)
-    #remaining_nurses             = sorted_nurses.drop(topten_nurses.index) 
+        # prepare nurse dataset
+        nurse_dis_df, nurse_spe_df    = cl.get_nurse_discipline_specialty(session, requisition)
+        nurse_dis_df['HasDiscipline'] = True
+        nurse_spe_df['HasSpecialty']  = True
+        nurse_df                      = nurse_df.join(nurse_dis_df.set_index('DisciplineNurseID'), on='NurseID', how='left').join(nurse_spe_df.set_index('SpecialtyNurseID'), on='NurseID', how='left')
+        nurse_df['HasDiscipline']     = nurse_df['HasDiscipline'].notna()
+        nurse_df['HasSpecialty']      = nurse_df['HasSpecialty'].notna()
 
+        scored_nurses                 = cl.score_nurses(nurse_df, requisition)
+        valid_nurses                  = scored_nurses[scored_nurses['Fit Score'] > 0]
+        sorted_nurses                 = valid_nurses.sort_values(by=['Fit Score'], ascending=False)
+        topten_nurses                 = sorted_nurses.head(25)
+
+        # save nurse info to session
+        st.session_state.topten_nurses = topten_nurses
+        
+        #remaining_nurses             = sorted_nurses.drop(topten_nurses.index)
+         
+    else: # requisition and nurses already saved
+        requisition = st.session_state.requisition
+        topten_nurses = st.session_state.topten_nurses
     
 
     # sliding tabs for interacting with the different UI's
@@ -90,6 +114,7 @@ def main() -> None:
                     button_label =  f"{row['Name']}"
                     # If any button is pressed we set conditions to navigate to the profile page
                     if st.button("Visit " + button_label + "'s profile", use_container_width=True):
+                        st.session_state.SelectedNurse = row
                         st.session_state.NurseName = row['Name']
                         switch_page('profile')
                 with Ecol2:                                            
@@ -100,6 +125,7 @@ def main() -> None:
                 with Ecol4:
                     st.session_state.FitScore = f"{row['Fit Score']:3.1f}"
                     st.markdown(f"{row['Fit Score']:3.1f}")                
+
     # Gives a running record of all searched requisitions within a user session 
     with history_tab:
         with st.expander("Requisition Search History", expanded = True):

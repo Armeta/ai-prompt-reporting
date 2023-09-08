@@ -9,16 +9,11 @@ def main() -> None:
     # set up environment 
     cl.env_Setup()    
     st.markdown("---")
-    if 'requisitions' in st.session_state and 'nurse_df' in st.session_state:
+    if 'requisition' in st.session_state and 'topten_nurses' in st.session_state:
         
-        if(len(st.session_state.requisitions) < 1):
-            st.text('No Requisition Selected')
-            return
-        
-        for req in st.session_state.requisitions:
-            requisition = req
+        requisition = st.session_state.requisition
 
-        nurse_df = st.session_state.nurse_df
+        nurse_df = st.session_state.topten_nurses
         nurse_df['Location'] = nurse_df.apply(lambda row : row['City'] + ', ' + row['State'], axis=1)
         nurse_df['Coords'] = nurse_df.apply(lambda row : str(row['Lat']) + ', ' + str(row['Long']), axis=1)
         nurse_df = nurse_df[['NurseID', 'Name', 'Fit Score', 'Score_License', 'Score_Discipline', 'Score_Specialty', 'Score_Recency', 'Score_Enddate', 'Score_Experience', 'Score_Proximity', 'State', 'HasDiscipline', 'HasSpecialty', 'LastContractEnd_Datetime', 'YearsOfExperience', 'Location', 'Coords', 'Distance']]
