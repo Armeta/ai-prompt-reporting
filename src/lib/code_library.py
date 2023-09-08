@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
-
+from streamlit_extras.stylable_container import stylable_container
 
 # setup connection with snowflake
 def snow_session() -> None:
@@ -115,20 +115,51 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
     return nurse_df
 
 def env_Setup():
+    # set page details
+    st.set_page_config(
+        page_title="Nurse AI",
+        initial_sidebar_state='collapsed',
+        menu_items={},
+        layout='wide'
+    )
+    
+    st.image('src/media/Untitled.jpg')
+
     # Open CSS file
     with open('src/css/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()
+    if 'navigated' not in st.session_state:
+        st.session_state.navigated = False
+    if 'NurseName' not in st.session_state:
+        st.session_state.NurseName = ''  
+    if 'NurseID' not in st.session_state:
+        st.session_state.NurseID = ''
+    if 'FitScore' not in st.session_state:
+        st.session_state.FitScore = ''
+    if 'requisitions' not in st.session_state:
+        st.session_state.requisitions = []
 
-# Function to show checkboxes and return the name of any selected nurse
-def show_checkboxes_and_return_selection(df):
-    selected_nurse = None  # Initial value indicating no selection
-    for index, row in df.iterrows():
-        checkbox_label =  f"{row['Name']}"
-        if st.button("Visit " + checkbox_label + "'s profile", use_container_width=True):
-            selected_nurse = row['Name']
-            st.session_state.navigated = True 
-            st.session_state.ExpanderState = False
-            st.experimental_rerun()
-            
-    return selected_nurse
+def draw_Card(row, col1, col2, col3, col4, dn1, dn2, dn3, dn4):
+    with stylable_container(
+        key="stylizedContainer",
+        css_styles="""
+            {
+                border: 1px solid rgba(49, 51, 63, 0.2);
+                border-radius: 0.5rem;
+                padding: calc(1em - 1px)
+            }
+            """,
+    ):
+        col11, col12 = st.columns(2)
+        with col11: 
+            st.write(f"**{dn1}:**")
+            st.write(f"**{dn2}:**")
+            st.write(f"**{dn3}:**")
+            st.write(f"**{dn4}:**")                      
+        with col12:
+            st.write(f"{row[col1]}")
+            st.write(f"{row[col2]}")
+            st.write(f"{row[col3]}")
+            st.write(f"{row[col4]}")    
+
