@@ -6,8 +6,7 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 from streamlit_extras.stylable_container import stylable_container
 
-# setup connection with snowflake
-@st.cache_resource
+# setup connection with snowflake\
 def snow_session() -> None:
     return Session.builder.configs({
         'account': st.secrets['account'],
