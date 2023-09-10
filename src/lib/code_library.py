@@ -24,11 +24,11 @@ def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
     fac = _session.table('FACILITY')
     dis = _session.table('DISCIPLINE_LKP')
     spe = _session.table('SPECIALITY_LKP')
-
-    reqResult = req.filter(col('"NeedID"') == requisition_id)\
-    .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))\
-    .join(dis,  req.col('"Need_DisciplineID"') == dis.col('"DisciplineID"'))\
-    .join(spe,  req.col('"Need_SpecialtyID"') == spe.col('"SpecialtyId"'))\
+#== requisition_id)\
+    reqResult = req.filter(col('"NeedID"').like(str(requisition_id) + "%"))  \
+    .join(fac,  req.col('"Need_FacilityID"') == fac.col('"FacilityID"'))     \
+    .join(dis,  req.col('"Need_DisciplineID"') == dis.col('"DisciplineID"')) \
+    .join(spe,  req.col('"Need_SpecialtyID"') == spe.col('"SpecialtyId"'))   \
     .select(req.col('"NeedID"'), req.col('"Need_FacilityID"'), req.col('"Need_DisciplineID"'), req.col('"Need_SpecialtyID"'), fac.col('"Facility_Name"'), fac.col('"Lat"').as_('"Facility_Lat"'), fac.col('"Long"').as_('"Facility_Long"'), fac.col('"Facility_State"'), fac.col('"City"').as_('"Facility_City"'), dis.col('"Discipline_Name"'), spe.col('"Specialty_Name"'))\
     .collect()
 

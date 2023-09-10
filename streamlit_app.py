@@ -43,7 +43,7 @@ def main() -> None:
         # Pull requisition details from source
         with st.spinner(text="Searching for Request ID..."):
             requisition = cl.get_requisition(session, requisition_id)
-        
+        print(requisition)
         if(len(requisition) < 1):
                 st.info('Requisition ID not found', icon="🚨")
                 return
@@ -94,12 +94,13 @@ def main() -> None:
     with need_tab:
         with st.spinner(text="Drawing Charts..."):
             # Draws the two cards on the title page 
-            col1, col2 = st.columns(2)
-            for index, row in requisition.iterrows():
-                with col1:
-                    cl.draw_Card(row['Need_FacilityID'], row['Facility_Name'], row['Facility_State'], row['Facility_City'], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City')
-                with col2:
-                    cl.draw_Card(row['Discipline_Name'], row['Need_DisciplineID'], row['Specialty_Name'], row['Need_SpecialtyID'], 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')    
+            #col1, col2 = st.columns(2)
+            #for index, row in requisition.iterrows():
+                #with col1:
+            st.write(requisition)        
+                    #cl.draw_Card(row['Need_FacilityID'], row['Facility_Name'], row['Facility_State'], row['Facility_City'], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City')
+                #with col2:
+                    #cl.draw_Card(row['Discipline_Name'], row['Need_DisciplineID'], row['Specialty_Name'], row['Need_SpecialtyID'], 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')    
             if(first_time):                                     
                 st.toast('Welcome to Nurse AI!', icon='👩‍⚕️')
     # Gives a list of recommended nurses after a need has been typed in 
