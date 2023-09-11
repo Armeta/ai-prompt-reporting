@@ -41,7 +41,15 @@ def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
 
 @st.cache_data(show_spinner = False, persist = "disk")
 def get_nurses(_session: Session) -> pd.DataFrame:
-    nurse_df = _session.table('NURSES').limit(1000)
+    nurse_df = _session.table('NURSES').filter(
+    (nurse_df['DISCIPLINES'].isNotNull()) &
+    (nurse_df['SPECIALTIES'].isNotNull()) &
+    (nurse_df['Contract_Count'].isNotNull()) &
+    (nurse_df['YearsOfExperience'].isNotNull()) &
+    (nurse_df['DaysWorked_Count'].isNotNull()) &
+    (nurse_df['LastContractEnd_Datetime'].isNotNull()) &
+    (nurse_df['Termination_Count'].isNotNull())
+    )
     
     return pd.DataFrame(nurse_df.collect())
 
