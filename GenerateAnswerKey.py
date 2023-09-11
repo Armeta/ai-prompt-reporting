@@ -5,7 +5,9 @@ import base64
 
 
 f = open('src/json/AnswerTemplates.json')
-templates = json.load(f)['templates']
+jsonFile = json.load(f)
+templates = jsonFile['templates']
+paramLists = jsonFile['parameterLists']
 f.close()
 
 ak = open('src/outputs/answerKey.csv', 'w')
@@ -16,7 +18,7 @@ count = 0
 
 for template in templates:
     paramCount = [0 for param in template['parameters']]
-    paramMaxCount = [len(param['values']) for param in template['parameters']]
+    paramMaxCount = [len(paramLists[param]['values']) for param in template['parameters']]
     done = False
     while not done:
 
@@ -24,11 +26,13 @@ for template in templates:
         newDesc = template['desc']
 
         for p in range(len(template['parameters'])):
-            DescParam = template['parameters'][p]['values'][paramCount[p]]
-            QuestionParam = template['parameters'][p]['values'][paramCount[p]]
+            
+            DescParam = paramLists[template['parameters'][p]]['values'][paramCount[p]]
+            QuestionParam = paramLists[template['parameters'][p]]['questionValues'][paramCount[p]]
+            #template['parameters'][p]['values'][paramCount[p]]
 
-            newQuestion = newQuestion.replace(template['parameters'][p]['name'], QuestionParam)
-            newDesc = newDesc.replace(template['parameters'][p]['name'], DescParam)
+            newQuestion = newQuestion.replace(template['parameters'][p], QuestionParam)
+            newDesc = newDesc.replace(template['parameters'][p], DescParam)
         
         ak.write(newQuestion+'|'+newDesc+'\n')
         qs.write(newQuestion+'\n')
