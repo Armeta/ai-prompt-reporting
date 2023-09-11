@@ -23,14 +23,14 @@ def main() -> None:
         st.write('**City:**' , str(st.session_state.City          ))
     with col2:   
             
-        st.write('**Profile_Created_Date:**' , str(st.session_state.Profile_Created_Date))     
-        st.write('**Submission_Count:**' , str(st.session_state.Submission_Count       ))  
-        st.write('**Contract_Count:**' , str(st.session_state.Contract_Count        )) 
-        st.write('**YearsOfExperience:**' , str(st.session_state.YearsOfExperience        )) 
-        st.write('**DaysWorked_Count:**' , str(st.session_state.DaysWorked_Count        )) 
-        st.write('**LastContractEnd_Datetime:**' , str(st.session_state.LastContractEnd_Datetime )) 
-        st.write('**Termination_Count:**' , str(st.session_state.Termination_Count        )) 
-        st.write('**Distance:**' , str(st.session_state.Distance)) 
+        st.write('**Profile Created Date:**' , str(st.session_state.Profile_Created_Date))     
+        st.write('**Submission Count:**' , str(st.session_state.Submission_Count       ))  
+        st.write('**Contract Count:**' , str(st.session_state.Contract_Count        )) 
+        st.write('**Years Of Experience:**' , str(st.session_state.YearsOfExperience        )) 
+        st.write('**Total Days Worked:**' , str(st.session_state.DaysWorked_Count        )) 
+        st.write('**Last Contract End:**' , str(st.session_state.LastContractEnd_Datetime )) 
+        st.write('**Terminations:**' , str(st.session_state.Termination_Count        )) 
+        st.write('**Distance from Facility:**' , str(st.session_state.Distance)) 
 
     st.markdown("---")
     
