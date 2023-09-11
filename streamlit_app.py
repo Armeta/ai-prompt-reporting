@@ -123,6 +123,7 @@ def main() -> None:
                     Ecol1, Ecol2, Ecol3, Ecol4 = st.columns(4)
                     with Ecol1:                                                
                         button_label =  f"{row['Name']}"
+                        
                         # If any button is pressed we set conditions to navigate to the profile page
                         if st.button("Visit " + button_label + "'s profile", use_container_width=True):
                             st.session_state.SelectedNurse            = row
@@ -131,13 +132,13 @@ def main() -> None:
                             st.session_state.FitScore                 = f"{row['Fit Score']:3.1f}"
                             st.session_state.State                    = f"{row['State']}"
                             st.session_state.City                     = f"{row['City']}"
-                            st.session_state.Profile_Created_Date     = f"{row['Profile_Created_Date']}"
+                            st.session_state.Profile_Created_Date     = f"{datetime.date.strftime(row['Profile_Created_Date'],'%m/%d/%Y')}"
                             st.session_state.Submission_Count         = f"{row['Submission_Count']}"
                             st.session_state.Contract_Count           = f"{row['Contract_Count']:0}"
                             st.session_state.YearsOfExperience        = f"{row['YearsOfExperience']:0}"
                             st.session_state.DaysWorked_Count         = f"{row['DaysWorked_Count']:0}"
-                            st.session_state.LastContractEnd_Datetime = f"{row['LastContractEnd_Datetime']}"
-                            st.session_state.Termination_Count        = f"{row['Termination_Count']:0}"
+                            st.session_state.LastContractEnd_Datetime = f"{datetime.date.strftime(row['LastContractEnd_Datetime'],'%m/%d/%Y')}"
+                            st.session_state.Termination_Count        = f"{row['Termination_Count']}"
                             st.session_state.Distance                 = f"{row['Distance']}"
                             print(row)
                             switch_page('profile')
