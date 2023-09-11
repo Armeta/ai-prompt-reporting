@@ -119,7 +119,7 @@ def main() -> None:
             # Draws the buttons and writes out the nurse information                       
             with st.spinner(text="Retrieving Top 25 Nurse Profiles..."):              
                 for index, row in topten_nurses.iterrows():
-                    print(row)
+                    #print(row)
                     Ecol1, Ecol2, Ecol3, Ecol4 = st.columns(4)
                     with Ecol1:                                                
                         button_label =  f"{row['Name']}"

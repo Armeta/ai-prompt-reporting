@@ -7,7 +7,7 @@ from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.switch_page_button import switch_page
 def main() -> None:
     # set up environment 
-    cl.env_Setup()    
+    cl.env_Setup('FitScore Page', 'collapsed', {}, 'wide', 'src/media/Untitled.jpg')    
     st.markdown("---")
     if 'requisition' in st.session_state and 'topten_nurses' in st.session_state:
         
