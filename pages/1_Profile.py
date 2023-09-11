@@ -6,10 +6,10 @@ from snowflake.snowpark.session import Session
 from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.switch_page_button import switch_page
 def main() -> None:
-    st.markdown("---")
+    
     # set up environment 
     cl.env_Setup('Profile Page', 'collapsed', {}, 'centered', '')    
-
+    st.markdown("---")
     # Profile picture and User Info side-by-side
     col1, col2 = st.columns([1,3])  # adjusting the width of the columns
     with col1:
