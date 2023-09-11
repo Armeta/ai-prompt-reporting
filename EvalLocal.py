@@ -18,7 +18,7 @@ sys.path.append('src')
 
 from lib import code_library
 
-modelname = 'all-distilroberta-v1'
+#modelname = 'all-distilroberta-v1'
 modelname = './LocalModel/'
 
 def parseBinaryEncoding(bin_enc):
@@ -94,6 +94,8 @@ def main():
 
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts, dash_desc, query_desc = env_Setup()
+
+    print('Env setup! (options encoded)')
 
     totalDash = 0
     countDash = 0
