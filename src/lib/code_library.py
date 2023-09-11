@@ -219,3 +219,34 @@ def draw_Card(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
             st.write(f"{col3}")
             st.write(f"{col4}")    
 
+def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, dn1, dn2, dn3, dn4, dn5, dn6, dn7, dn8):
+    with stylable_container(
+        key="stylizedContainer2",
+        css_styles="""
+            {
+                border: 1px solid rgba(49, 51, 63, 0.2);
+                border-radius: 0.5rem;
+                padding: calc(1em - 1px);
+                height: 500px
+            }
+            """,
+    ):
+        col11, col12 = st.columns([1,3])
+        with col11: 
+            st.write(f"**{dn1}:**")
+            st.write(f"**{dn2}:**")
+            st.write(f"**{dn3}:**")
+            st.write(f"**{dn4}:**") 
+            st.write(f"**{dn5}:**")
+            st.write(f"**{dn6}:**")
+            st.write(f"**{dn7}:**")
+            st.write(f"**{dn8}:**")                                      
+        with col12:
+            st.write(f"{col1}")
+            st.write(f"{col2}")
+            st.write(f"{col3}")
+            st.write(f"{col4}")  
+            st.write(f"{col5}")
+            st.write(f"{col6}")
+            st.write(f"{col7}")
+            st.write(f"{col8}")              
