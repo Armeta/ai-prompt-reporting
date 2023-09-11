@@ -41,14 +41,16 @@ def get_requisition(_session: Session, requisition_id: int) -> pd.DataFrame:
 
 @st.cache_data(show_spinner = False, persist = "disk")
 def get_nurses(_session: Session) -> pd.DataFrame:
-    nurse_df = _session.table('NURSES').filter(
-    (nurse_df['DISCIPLINES'].isNotNull()) &
-    (nurse_df['SPECIALTIES'].isNotNull()) &
-    (nurse_df['Contract_Count'].isNotNull()) &
-    (nurse_df['YearsOfExperience'].isNotNull()) &
-    (nurse_df['DaysWorked_Count'].isNotNull()) &
-    (nurse_df['LastContractEnd_Datetime'].isNotNull()) &
-    (nurse_df['Termination_Count'].isNotNull())
+    nurse_df_unfiltered = _session.table('NURSES')
+    print(nurse_df_unfiltered)
+    nurse_df = nurse_df_unfiltered.filter(
+    (nurse_df_unfiltered['DISCIPLINES'].isNotNull()) &
+    (nurse_df_unfiltered['SPECIALTIES'].isNotNull()) &
+    (nurse_df_unfiltered['"Contract_Count"'].isNotNull()) &
+    (nurse_df_unfiltered['"YearsOfExperience"'].isNotNull()) &
+    (nurse_df_unfiltered['"DaysWorked_Count"'].isNotNull()) &
+    (nurse_df_unfiltered['"LastContractEnd_Datetime"'].isNotNull()) &
+    (nurse_df_unfiltered['"Termination_Count"'].isNotNull())
     )
     
     return pd.DataFrame(nurse_df.collect())
