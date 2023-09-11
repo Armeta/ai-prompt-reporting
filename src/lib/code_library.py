@@ -195,19 +195,28 @@ def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
         st.session_state.Termination_Count = ''
     if 'Distance' not in st.session_state:
         st.session_state.Distance = ''
+    if 'Profile_CV' not in st.session_state:
+        st.session_state.Profile_CV = ''    
+    if 'Profile_Picture' not in st.session_state:
+        st.session_state.Profile_Picture = ''    
+    if 'DISCIPLINES' not in st.session_state:
+        st.session_state.DISCIPLINES = ''    
+    if 'SPECIALTIES' not in st.session_state:
+        st.session_state.SPECIALTIES = ''        
 
-def draw_Card(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
+def draw_SmallCard(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
     with stylable_container(
-        key="stylizedContainer",
+        key="stylizedContainer1",
         css_styles="""
             {
                 border: 1px solid rgba(49, 51, 63, 0.2);
+                border-color: #002e5d;
                 border-radius: 0.5rem;
                 padding: calc(1em - 1px)
             }
             """,
     ):
-        col11, col12 = st.columns(2)
+        col11, col12 = st.columns([1,2])
         with col11: 
             st.write(f"**{dn1}:**")
             st.write(f"**{dn2}:**")
@@ -219,15 +228,15 @@ def draw_Card(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
             st.write(f"{col3}")
             st.write(f"{col4}")    
 
-def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, dn1, dn2, dn3, dn4, dn5, dn6, dn7, dn8):
+def draw_MediumCard(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
     with stylable_container(
         key="stylizedContainer2",
         css_styles="""
             {
                 border: 1px solid rgba(49, 51, 63, 0.2);
+                border-color: #002e5d;
                 border-radius: 0.5rem;
-                padding: calc(1em - 1px);
-                height: 500px
+                padding: calc(1em - 1px)
             }
             """,
     ):
@@ -236,11 +245,38 @@ def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, dn1, dn2, dn3, 
             st.write(f"**{dn1}:**")
             st.write(f"**{dn2}:**")
             st.write(f"**{dn3}:**")
+            st.write(f"**{dn4}:**")                      
+        with col12:
+            st.write(f"{col1}")
+            st.write(f"{col2}")
+            st.write(f"{col3}")
+            st.write(f"{col4}")    
+
+def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, dn1, dn2, dn3, dn4, dn5, dn6, dn7, dn8, dn9, dn10):
+    with stylable_container(
+        key="stylizedContainer3",
+        css_styles="""
+            {
+                border: 1px solid rgba(49, 51, 63, 0.2);
+                border-radius: 0.5rem;
+                border-color: #002e5d;
+                padding: calc(1em - 1px);
+                height: 500px
+            }
+            """,
+    ):
+        col11, col12 = st.columns([1,4])
+        with col11: 
+            st.write(f"**{dn1}:**")
+            st.write(f"**{dn2}:**")
+            st.write(f"**{dn3}:**")
             st.write(f"**{dn4}:**") 
             st.write(f"**{dn5}:**")
             st.write(f"**{dn6}:**")
             st.write(f"**{dn7}:**")
-            st.write(f"**{dn8}:**")                                      
+            st.write(f"**{dn8}:**")
+            st.write(f"**{dn9}:**")
+            st.write(f"**{dn10}:**")                                      
         with col12:
             st.write(f"{col1}")
             st.write(f"{col2}")
@@ -249,4 +285,6 @@ def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, dn1, dn2, dn3, 
             st.write(f"{col5}")
             st.write(f"{col6}")
             st.write(f"{col7}")
-            st.write(f"{col8}")              
+            st.write(f"{col8}")
+            st.write(f"{col9}")
+            st.write(f"{col10}")                          

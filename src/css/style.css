@@ -20,7 +20,9 @@ p {
     color: black;
     
 }
-
+div[class*="streamlit-expanderHeader"]{
+    border-color: #002e5d;
+}
 div[class*="stTextInput"] label {
     font-size: 40px;
     color:#000;
