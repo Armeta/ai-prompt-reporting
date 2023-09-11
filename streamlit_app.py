@@ -133,12 +133,13 @@ def main() -> None:
                             st.session_state.City                     = f"{row['City']}"
                             st.session_state.Profile_Created_Date     = f"{row['Profile_Created_Date']}"
                             st.session_state.Submission_Count         = f"{row['Submission_Count']}"
-                            st.session_state.Contract_Count           = f"{row['Contract_Count']}"
-                            st.session_state.YearsOfExperience        = f"{row['YearsOfExperience']}"
-                            st.session_state.DaysWorked_Count         = f"{row['DaysWorked_Count']}"
+                            st.session_state.Contract_Count           = f"{row['Contract_Count']:0}"
+                            st.session_state.YearsOfExperience        = f"{row['YearsOfExperience']:0}"
+                            st.session_state.DaysWorked_Count         = f"{row['DaysWorked_Count']:0}"
                             st.session_state.LastContractEnd_Datetime = f"{row['LastContractEnd_Datetime']}"
-                            st.session_state.Termination_Count        = f"{row['Termination_Count']}"
+                            st.session_state.Termination_Count        = f"{row['Termination_Count']:0}"
                             st.session_state.Distance                 = f"{row['Distance']}"
+                            print(row)
                             switch_page('profile')
                     with Ecol2:                                            
                         st.markdown(f"{row['Name']}")                

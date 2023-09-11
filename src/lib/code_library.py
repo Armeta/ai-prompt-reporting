@@ -145,7 +145,6 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
                 , axis=1)
     return nurse_df
 
-
 def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
 
     # set page details
