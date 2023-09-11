@@ -141,7 +141,7 @@ def main() -> None:
                             st.session_state.Termination_Count        = f"{row['Termination_Count']}"
                             st.session_state.Distance                 = f"{float(row['Distance'])}"
                             st.session_state.Profile_CV               = f"{row['Profile_CV']}"
-                            st.session_state.Profile_Picture          = f"{row['Profile_Picture']}"
+                            #st.session_state.Profile_Picture          = f"{row['Profile_Picture']}"
                             st.session_state.DISCIPLINES              = f"{row['DISCIPLINES']}"
                             st.session_state.SPECIALTIES              = f"{row['SPECIALTIES']}"
                            
