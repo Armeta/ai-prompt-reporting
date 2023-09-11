@@ -13,7 +13,7 @@ def main() -> None:
     # Profile picture and User Info side-by-side
     col1, col2 = st.columns([1,3])  # adjusting the width of the columns
     with col1:
-               
+        print('data:image/png;base64,' + st.session_state.Profile_Picture)       
         st.image('data:image/png;base64,' + st.session_state.Profile_Picture, use_column_width=True)
         cl.draw_SmallCard(str(st.session_state.NurseID), str(st.session_state.FitScore), str(st.session_state.State), str(st.session_state.City), 'Nurse ID', 'Fit Score', 'State', 'City')
 
