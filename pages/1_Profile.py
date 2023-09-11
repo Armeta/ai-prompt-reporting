@@ -29,13 +29,13 @@ def main() -> None:
             st.write("")
             st.write("")
         st.write('**Profile Created Date:**'   , str(st.session_state.Profile_Created_Date))     
-        st.write('**Submission Count:**'       , int(st.session_state.Submission_Count))  
-        st.write('**Contract Count:**'         , int(st.session_state.Contract_Count)) 
-        st.write('**Years Of Experience:**'    , int(st.session_state.YearsOfExperience)) 
-        st.write('**Total Days Worked:**'      , int(st.session_state.DaysWorked_Count)) 
+        st.write('**Submission Count:**'       , str(st.session_state.Submission_Count))  
+        st.write('**Contract Count:**'         , str(st.session_state.Contract_Count)) 
+        st.write('**Years Of Experience:**'    , str(st.session_state.YearsOfExperience)) 
+        st.write('**Total Days Worked:**'      , str(st.session_state.DaysWorked_Count)) 
         st.write('**Last Contract End:**'      , str(st.session_state.LastContractEnd_Datetime)) 
         st.write('**Terminations:**'           , str(st.session_state.Termination_Count)) 
-        st.write('**Distance from Facility:**' , float(st.session_state.Distance)) 
+        st.write('**Distance from Facility:**' , str(st.session_state.Distance)) 
 
     with st.expander("Resume"):
         st.write("resume")

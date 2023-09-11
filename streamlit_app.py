@@ -128,18 +128,18 @@ def main() -> None:
                         if st.button("Visit " + button_label + "'s profile", use_container_width=True):
                             st.session_state.SelectedNurse            = row
                             st.session_state.NurseName                = row['Name']
-                            st.session_state.NurseID                  = f"{row['NurseID']}"
+                            st.session_state.NurseID                  = f"{int(row['NurseID'])}"
                             st.session_state.FitScore                 = f"{row['Fit Score']:3.1f}"
                             st.session_state.State                    = f"{row['State']}"
                             st.session_state.City                     = f"{row['City']}"
                             st.session_state.Profile_Created_Date     = f"{datetime.date.strftime(row['Profile_Created_Date'],'%m/%d/%Y')}"
-                            st.session_state.Submission_Count         = f"{row['Submission_Count']}"
-                            st.session_state.Contract_Count           = f"{row['Contract_Count']:0}"
-                            st.session_state.YearsOfExperience        = f"{row['YearsOfExperience']:0}"
-                            st.session_state.DaysWorked_Count         = f"{row['DaysWorked_Count']:0}"
+                            st.session_state.Submission_Count         = f"{int(row['Submission_Count'])}"
+                            st.session_state.Contract_Count           = f"{int(row['Contract_Count'])}"
+                            st.session_state.YearsOfExperience        = f"{int(row['YearsOfExperience'])}"
+                            st.session_state.DaysWorked_Count         = f"{int(row['DaysWorked_Count'])}"
                             st.session_state.LastContractEnd_Datetime = f"{datetime.date.strftime(row['LastContractEnd_Datetime'],'%m/%d/%Y')}"
                             st.session_state.Termination_Count        = f"{row['Termination_Count']}"
-                            st.session_state.Distance                 = f"{row['Distance']}"
+                            st.session_state.Distance                 = f"{float(row['Distance'])}"
                             print(row)
                             switch_page('profile')
                     with Ecol2:                                            
