@@ -156,7 +156,6 @@ def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
         , layout                = Layout
     )
 
-    print()
     if(len(Title_Image_Path) > 0):
         st.image(Title_Image_Path)
 
