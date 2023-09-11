@@ -30,7 +30,7 @@ def main() -> None:
         with st.expander("Click to Review Resume", expanded=False):
             st.write(str(st.session_state.Profile_CV))
 
-        if st.button("Return to Nurse Selection"):
+        if st.button("Return to Recommended Nurses"):
             switch_page('streamlit app')
 
 if __name__ == '__main__':
