@@ -30,7 +30,7 @@ def main() -> None:
         st.write('**DaysWorked_Count:**' , str(st.session_state.DaysWorked_Count        )) 
         st.write('**LastContractEnd_Datetime:**' , str(st.session_state.LastContractEnd_Datetime )) 
         st.write('**Termination_Count:**' , str(st.session_state.Termination_Count        )) 
-        st.write('**Distance:**' , str(st.session_state.Distance                )) 
+        st.write('**Distance:**' , str(st.session_state.Distance)) 
 
     st.markdown("---")
     
