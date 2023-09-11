@@ -24,6 +24,8 @@ def main() -> None:
     with col2:   
         with st.container():
             st.write("")
+            st.write("")
+            st.write("")
         st.write('**Profile Created Date:**' , str(st.session_state.Profile_Created_Date))     
         st.write('**Submission Count:**' , str(st.session_state.Submission_Count       ))  
         st.write('**Contract Count:**' , str(st.session_state.Contract_Count        )) 
