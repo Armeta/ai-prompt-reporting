@@ -1,9 +1,6 @@
 from src.lib import code_library as cl
 import datetime
-import pandas as pd
 import streamlit as st
-from snowflake.snowpark.session import Session
-from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.switch_page_button import switch_page
 
 def main() -> None:
