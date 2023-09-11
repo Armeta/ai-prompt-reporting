@@ -146,15 +146,19 @@ def score_nurses(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFr
     return nurse_df
 
 
-def env_Setup():
+def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
+
     # set page details
     st.set_page_config(
-        page_title="Nurse AI",
-        initial_sidebar_state='collapsed',
-        menu_items={},
-        layout='wide'
+          page_title            = Page_Title
+        , initial_sidebar_state = Side_Bar_State
+        , menu_items            = Menu_Items
+        , layout                = Layout
     )
-    st.image('src/media/Untitled.jpg')
+
+    print()
+    if(len(Title_Image_Path) > 0):
+        st.image(Title_Image_Path)
 
     # Open CSS file
     with open('src/css/style.css') as f:
@@ -171,6 +175,28 @@ def env_Setup():
         st.session_state.FitScore = ''
     if 'requisitions' not in st.session_state:
         st.session_state.requisitions = []
+    if 'State' not in st.session_state:
+        st.session_state.State = ''
+    if 'ProfileCreatedDate' not in st.session_state:
+        st.session_state.ProfileCreatedDate = ''
+    if 'City' not in st.session_state:
+        st.session_state.City = ''
+    if 'Profile_Created_Date' not in st.session_state:
+        st.session_state.Profile_Created_Date = ''
+    if 'Submission_Count' not in st.session_state:
+        st.session_state.Submission_Count = ''
+    if 'Contract_Count' not in st.session_state:
+        st.session_state.Contract_Count = ''
+    if 'YearsOfExperience' not in st.session_state:
+        st.session_state.YearsOfExperience = ''
+    if 'DaysWorked_Count' not in st.session_state:
+        st.session_state.DaysWorked_Count = ''
+    if 'LastContractEnd_Datetime' not in st.session_state:
+        st.session_state.LastContractEnd_Datetime = ''
+    if 'Termination_Count' not in st.session_state:
+        st.session_state.Termination_Count = ''
+    if 'Distance' not in st.session_state:
+        st.session_state.Distance = ''
 
 def draw_Card(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
     with stylable_container(

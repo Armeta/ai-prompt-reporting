@@ -7,35 +7,41 @@ from streamlit_extras.stylable_container import stylable_container
 from streamlit_extras.switch_page_button import switch_page
 def main() -> None:
     # set up environment 
-    cl.env_Setup()    
+    cl.env_Setup('Profile Page', 'collapsed', {}, 'centered', '')    
+
+    # Profile picture and User Info side-by-side
+    col1, col2 = st.columns([1,3])  # adjusting the width of the columns
+    with col1:
+        if 'NurseName' in st.session_state:
+            st.write(f'**{str(st.session_state.NurseName)}**')
+
+        st.image('src/media/ProfilePictures/MicrosoftTeams-image (4).png', use_column_width=True)
+        
+        st.write('**Nurse ID:**' , str(st.session_state.NurseID))
+        st.write('**Fit Score:**', str(st.session_state.FitScore))
+        st.write('**State:**' , str(st.session_state.State      ))               
+        st.write('**City:**' , str(st.session_state.City          ))
+    with col2:   
+            
+        st.write('**Profile_Created_Date:**' , str(st.session_state.Profile_Created_Date))     
+        st.write('**Submission_Count:**' , str(st.session_state.Submission_Count       ))  
+        st.write('**Contract_Count:**' , str(st.session_state.Contract_Count        )) 
+        st.write('**YearsOfExperience:**' , str(st.session_state.YearsOfExperience        )) 
+        st.write('**DaysWorked_Count:**' , str(st.session_state.DaysWorked_Count        )) 
+        st.write('**LastContractEnd_Datetime:**' , str(st.session_state.LastContractEnd_Datetime )) 
+        st.write('**Termination_Count:**' , str(st.session_state.Termination_Count        )) 
+        st.write('**Distance:**' , str(st.session_state.Distance                )) 
+
     st.markdown("---")
-    if 'NurseName' in st.session_state:
-        row12 = "Nurse Name: "         
-        row11 = str(st.session_state.NurseName)
-    else:
-        row12 = "Nurse Name: "          
-        row11 = "Your Mom"
-    if 'NurseID' in st.session_state:
-        row22 = "Nurse ID: "           
-        row21 = str(st.session_state.NurseID)
-    else:    
-        row22 = "Nurse ID: "            
-        row21 = "4266"
-    if 'FitScore' in st.session_state:
-        row32 = "Fit Score: "          
-        row31 = str(st.session_state.FitScore)
-    else:     
-        row32 = "Fit Score: "          
-        row31 = "Over 9000"
+    
 
     col1, col2 = st.columns(2)
     with col1:
-        cl.draw_Card(row11, row21, row31, "Krust Krab Pizza", row12, row22, row32, "Fav Food")
+        if st.button("Return"):
+            switch_page('streamlit app')
     with col2:
-        cl.draw_Card("Fired for Disorderly Conduct", "Aries", "Dogs", "Alaska", "Work History", "Sign", "Cats/Dogs", "Fav state")
-
-    if st.button("Return"):
-        switch_page('streamlit app')
+        if st.button("See Resume"):
+            st.write("Resume Place Holder")
 
 if __name__ == '__main__':
     main()

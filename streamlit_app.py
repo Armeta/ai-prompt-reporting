@@ -9,7 +9,7 @@ from streamlit_extras.switch_page_button import switch_page
 def main() -> None:
 
     # set up environment 
-    cl.env_Setup()
+    cl.env_Setup('Nurse AI', 'collapsed', {}, 'wide', 'src/media/Untitled.jpg')
 
     # connect to snowflake
     session = cl.snow_session()
@@ -119,21 +119,32 @@ def main() -> None:
             # Draws the buttons and writes out the nurse information                       
             with st.spinner(text="Retrieving Top 25 Nurse Profiles..."):              
                 for index, row in topten_nurses.iterrows():
+                    print(row)
                     Ecol1, Ecol2, Ecol3, Ecol4 = st.columns(4)
                     with Ecol1:                                                
                         button_label =  f"{row['Name']}"
                         # If any button is pressed we set conditions to navigate to the profile page
                         if st.button("Visit " + button_label + "'s profile", use_container_width=True):
-                            st.session_state.SelectedNurse = row
-                            st.session_state.NurseName = row['Name']
+                            st.session_state.SelectedNurse            = row
+                            st.session_state.NurseName                = row['Name']
+                            st.session_state.NurseID                  = f"{row['NurseID']}"
+                            st.session_state.FitScore                 = f"{row['Fit Score']:3.1f}"
+                            st.session_state.State                    = f"{row['State']}"
+                            st.session_state.City                     = f"{row['City']}"
+                            st.session_state.Profile_Created_Date     = f"{row['Profile_Created_Date']}"
+                            st.session_state.Submission_Count         = f"{row['Submission_Count']}"
+                            st.session_state.Contract_Count           = f"{row['Contract_Count']}"
+                            st.session_state.YearsOfExperience        = f"{row['YearsOfExperience']}"
+                            st.session_state.DaysWorked_Count         = f"{row['DaysWorked_Count']}"
+                            st.session_state.LastContractEnd_Datetime = f"{row['LastContractEnd_Datetime']}"
+                            st.session_state.Termination_Count        = f"{row['Termination_Count']}"
+                            st.session_state.Distance                 = f"{row['Distance']}"
                             switch_page('profile')
                     with Ecol2:                                            
                         st.markdown(f"{row['Name']}")                
-                    with Ecol3:
-                        st.session_state.NurseID = f"{row['NurseID']}"
+                    with Ecol3:                     
                         st.markdown(f"{row['NurseID']}")
                     with Ecol4:
-                        st.session_state.FitScore = f"{row['Fit Score']:3.1f}"
                         st.markdown(f"{row['Fit Score']:3.1f}")     
                 st.toast('Success! Retrieved Nurse Profiles.', icon='✅')           
 
