@@ -6,6 +6,7 @@ from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 from streamlit_extras.stylable_container import stylable_container
 
+import extra_streamlit_components as stx
 # setup connection with snowflake\
 def snow_session() -> None:
     return Session.builder.configs({
@@ -173,8 +174,8 @@ def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()  
 
-    if 'navigated' not in st.session_state:
-        st.session_state.navigated = False
+    if 'TabID' not in st.session_state:
+        st.session_state.TabID = '1'
     if 'NurseName' not in st.session_state:
         st.session_state.NurseName = ''  
     if 'NurseID' not in st.session_state:
@@ -262,7 +263,7 @@ def draw_MediumCard(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
             st.write(f"{col3}")
             st.write(f"{col4}")    
 
-def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, dn1, dn2, dn3, dn4, dn5, dn6, dn7, dn8, dn9, dn10):
+def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, dn1, dn2, dn3, dn4, dn5, dn6, dn7, dn8, dn9):
     with stylable_container(
         key="stylizedContainer3",
         css_styles="""
@@ -275,7 +276,7 @@ def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, dn
             }
             """,
     ):
-        col11, col12 = st.columns([1,4])
+        col11, col12 = st.columns([1,3])
         with col11: 
             st.write(f"**{dn1}:**")
             st.write(f"**{dn2}:**")
@@ -286,7 +287,7 @@ def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, dn
             st.write(f"**{dn7}:**")
             st.write(f"**{dn8}:**")
             st.write(f"**{dn9}:**")
-            st.write(f"**{dn10}:**")                                      
+                                              
         with col12:
             st.write(f"{col1}")
             st.write(f"{col2}")
@@ -297,4 +298,5 @@ def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, dn
             st.write(f"{col7}")
             st.write(f"{col8}")
             st.write(f"{col9}")
-            st.write(f"{col10}")                          
+            
+

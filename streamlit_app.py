@@ -2,7 +2,7 @@ from src.lib import code_library as cl
 import datetime
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
-
+import extra_streamlit_components as stx
 def main() -> None:
 
     # set up environment 
@@ -84,11 +84,15 @@ def main() -> None:
         requisition = st.session_state.requisition
         topten_nurses = st.session_state.topten_nurses
     
+    chosen_id = stx.tab_bar(data=[
+        stx.TabBarItemData(id=1, title="Requisition Profile", description=""),
+        stx.TabBarItemData(id=2, title="Recommended Nurses", description=""),
+        stx.TabBarItemData(id=3, title="Requisition Search History", description=""),
+    ], default = st.session_state.TabID)
 
     # sliding tabs for interacting with the different UI's
-    need_tab, nurseList_tab, history_tab = st.tabs(["Requisition Profile", "Recommended Nurses", "Requisition Search History"])
-    # Displays information on the need most recently typed in
-    with need_tab:
+      # Displays information on the need most recently typed in
+    if(chosen_id == '1'):
         with st.spinner(text="Drawing Charts..."):
             # Draws the two cards on the title page 
             col1, col2 = st.columns(2)
@@ -100,7 +104,7 @@ def main() -> None:
             if(first_time):                                     
                 st.toast('Welcome to Nurse AI!', icon='👩‍⚕️')
     # Gives a list of recommended nurses after a need has been typed in 
-    with nurseList_tab:
+    if(chosen_id == '2'):
         # Writes the header on the Recommended Nurses page
         with st.expander("Top 25 Nurses", expanded = True):
             with st.container():
@@ -133,7 +137,7 @@ def main() -> None:
                             st.session_state.Submission_Count         = f"{int(row['Submission_Count'])}"
                             st.session_state.Contract_Count           = f"{int(row['Contract_Count'])}"
                             st.session_state.YearsOfExperience        = f"{int(row['YearsOfExperience'])}"
-                            st.session_state.DaysWorked_Count         = f"{int(row['DaysWorked_Count'])}"
+                            st.session_state.DaysWorked_Count         = f"{int(row['DaysWorked_Count']):,}"
                             st.session_state.LastContractEnd_Datetime = f"{datetime.date.strftime(row['LastContractEnd_Datetime'],'%m/%d/%Y')}"
                             st.session_state.Termination_Count        = f"{row['Termination_Count']}"
                             st.session_state.Distance                 = f"{float(row['Distance'])}"
@@ -146,13 +150,13 @@ def main() -> None:
                     with Ecol2:                                            
                         st.markdown(f"{row['Name']}")                
                     with Ecol3:                     
-                        st.markdown(f"{row['NurseID']}")
+                        st.markdown(f"{int(row['NurseID'])}")
                     with Ecol4:
                         st.markdown(f"{row['Fit Score']:3.1f}")     
                 st.toast('Success! Retrieved Nurse Profiles.', icon='✅')           
 
     # Gives a running record of all searched requisitions within a user session 
-    with history_tab:
+    if(chosen_id == '3'):
         with st.expander("Requisition Search History", expanded = True):
             with st.spinner(text="Retrieving Search History..."):
                 for req in st.session_state.requisitions:
