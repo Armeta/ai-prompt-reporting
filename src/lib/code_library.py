@@ -291,7 +291,7 @@ def draw_MediumCard(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
             st.write(f"{col3}")
             st.write(f"{col4}")    
 
-def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col11, dn1, dn2, dn3, dn4, dn5, dn6, dn7, dn8, dn9, dn10, dn11):
+def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, col13, dn1, dn2, dn3, dn4, dn5, dn6, dn7, dn8, dn9, dn10, dn11):
     with stylable_container(
         key="stylizedContainer3",
         css_styles="""
@@ -329,6 +329,6 @@ def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, co
             st.write(f"{col8}")
             st.write(f"{col9}")
             st.write(f"{col10}")
-            st.write(f"{col11}")
+            st.write(f"{col13}")
             
 
