@@ -7,7 +7,7 @@ def main() -> None:
     
     # set up environment 
     cl.env_Setup('Profile Page', 'collapsed', {}, 'wide', '')    
-    print("Profile viewS"+str(st.session_state.Phone))
+    
     st.title(str(st.session_state.NurseName))
     if st.button("Return to Recommended Nurses"):
         st.session_state.TabID = '2'

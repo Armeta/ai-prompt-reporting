@@ -237,7 +237,11 @@ def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
     if 'DISCIPLINES' not in st.session_state:
         st.session_state.DISCIPLINES = ''    
     if 'SPECIALTIES' not in st.session_state:
-        st.session_state.SPECIALTIES = ''        
+        st.session_state.SPECIALTIES = ''       
+    if 'Email' not in st.session_state:
+        st.session_state.Email = ''    
+    if 'Phone' not in st.session_state:
+        st.session_state.Phone = ''                
 
 def draw_SmallCard(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
     with stylable_container(
