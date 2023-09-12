@@ -5,7 +5,7 @@ import streamlit as st
 from snowflake.snowpark import Session
 from snowflake.snowpark.functions import col
 from streamlit_extras.stylable_container import stylable_container
-
+import time
 import extra_streamlit_components as stx
 # setup connection with snowflake\
 def snow_session() -> None:
@@ -241,7 +241,11 @@ def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
     if 'Email' not in st.session_state:
         st.session_state.Email = ''    
     if 'Phone' not in st.session_state:
-        st.session_state.Phone = ''                
+        st.session_state.Phone = ''  
+    if 'FeedbackRating' not in st.session_state:
+        st.session_state.FeedbackRating = ''
+    if 'FeedbackText' not in st.session_state:
+        st.session_state.FeedbackText   = ''              
 
 def draw_SmallCard(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
     with stylable_container(
@@ -330,5 +334,54 @@ def draw_BigCard(col1, col2, col3, col4, col5, col6, col7, col8, col9, col10, co
             st.write(f"{col9}")
             st.write(f"{col10}")
             st.write(f"{col13}")
-            
 
+def draw_RequisitionCard(requisitionID, col1, col2, col3, col4, col5, col6, col7, col8, dn1, dn2, dn3, dn4, dn5,dn6,dn7,dn8):
+    with stylable_container(
+        key="stylizedContainer2",
+        css_styles="""
+            {
+                border: 1px solid rgba(49, 51, 63, 0.2);
+                border-color: #002e5d;
+                border-radius: 0.5rem;
+                padding: calc(1em - 1px)
+            }
+            """,
+    ):
+        st.subheader("Requisition ID: " + str(requisitionID))
+        col11, col12, col13, col14 = st.columns([1,3,1,3])
+        with col11: 
+            st.write(f"**{dn1}:**")
+            st.write(f"**{dn2}:**")
+            st.write(f"**{dn3}:**")
+            st.write(f"**{dn4}:**")                      
+        with col12:
+            st.write(f"{col1}")
+            st.write(f"{col2}")
+            st.write(f"{col3}")
+            st.write(f"{col4}")    
+        with col13: 
+            st.write(f"**{dn5}:**")
+            st.write(f"**{dn6}:**")
+            st.write(f"**{dn7}:**")
+            st.write(f"**{dn8}:**")                      
+        with col14:
+            st.write(f"{col5}")
+            st.write(f"{col6}")
+            st.write(f"{col7}")
+            st.write(f"{col8}")                         
+
+def write_Audit(session, FeedbackRating, FeedbackText):
+    s=time.gmtime(time.time())
+    session_details = session.create_dataframe(
+            [
+               [
+                  session._session_id
+                , FeedbackRating
+                , str(FeedbackText).replace('"','')
+                , time.strftime("%Y-%m-%d %H:%M:%S", s)
+                ]
+            ]
+            , schema=["session_id", "FeedbackRating", "FeedbackText", "TimeStamp"]
+         )
+    # This logs write meta data to a table in snowflake
+    session_details.write.mode("append").save_as_table("session_feedback")  

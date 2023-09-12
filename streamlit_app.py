@@ -97,13 +97,8 @@ def main() -> None:
       # Displays information on the need most recently typed in
     if(chosen_id == '1'):
         with st.spinner(text="Drawing Charts..."):
-            # Draws the two cards on the title page 
-            col1, col2 = st.columns(2)
             for index, row in requisition.iterrows():
-                with col1:
-                    cl.draw_MediumCard(row['Need_FacilityID'], row['Facility_Name'], row['Facility_State'], row['Facility_City'], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City')
-                with col2:
-                    cl.draw_MediumCard(row['Discipline_Name'], row['Need_DisciplineID'], row['Specialty_Name'], row['Need_SpecialtyID'], 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')    
+                cl.draw_RequisitionCard(row['NeedID'], row['Need_FacilityID'], row['Facility_Name'], row['Facility_State'], row['Facility_City'], row['Discipline_Name'], row['Need_DisciplineID'], row['Specialty_Name'], row['Need_SpecialtyID'], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City', 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')          
             if(first_time):                                     
                 st.toast('Welcome to Nurse AI!', icon='👩‍⚕️')
     # Gives a list of recommended nurses after a need has been typed in 
@@ -159,14 +154,11 @@ def main() -> None:
                     with Ecol4:
                         st.markdown(f"{row['Fit Score']:3.1f}")     
                 st.toast('Success! Retrieved Nurse Profiles.', icon='✅')           
-
     # Gives a running record of all searched requisitions within a user session 
     if(chosen_id == '3'):
-        with st.expander("Requisition Search History", expanded = True):
-            with st.spinner(text="Retrieving Search History..."):
-                for req in st.session_state.requisitions:
-                    st.write(req)
-            st.toast('Success! Retrieved Search History.', icon='✅') 
+        with st.spinner(text="Retrieving Search History..."):
+            for req in st.session_state.requisitions:    
+                cl.draw_RequisitionCard(req['NeedID'].iloc[0], req['Need_FacilityID'].iloc[0], req['Facility_Name'].iloc[0], req['Facility_State'].iloc[0], req['Facility_City'].iloc[0], req['Discipline_Name'].iloc[0], req['Need_DisciplineID'].iloc[0], req['Specialty_Name'].iloc[0], req['Need_SpecialtyID'].iloc[0], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City', 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')         
 
     if(chosen_id == '4'):        
         with st.form("Give Feedback: ", clear_on_submit=True):
@@ -175,6 +167,7 @@ def main() -> None:
             with st.spinner(text="Sending Feedback..."):                     
                 submitted = st.form_submit_button("Submit")
                 if submitted:
+                    cl.write_Audit(session, st.session_state.FeedbackRating, st.session_state.FeedbackText)
                     st.toast('Success! Your feedback has been recieved. ', icon='✅') 
 
 if __name__ == '__main__':
