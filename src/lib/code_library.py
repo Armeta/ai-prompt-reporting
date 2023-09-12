@@ -246,6 +246,8 @@ def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
         st.session_state.FeedbackRating = ''
     if 'FeedbackText' not in st.session_state:
         st.session_state.FeedbackText   = ''              
+    if 'all_nurse_scores' not in st.session_state:
+        st.session_state.all_nurse_scores = ''
 
 def draw_SmallCard(col1, col2, col3, col4, dn1, dn2, dn3, dn4):
     with stylable_container(
