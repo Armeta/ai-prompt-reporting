@@ -149,7 +149,7 @@ def main() -> None:
                             st.session_state.SPECIALTIES              = f"{row['SPECIALTIES']}"
                             st.session_state.Email                    = f"{row['Email']}"
                             st.session_state.Phone                    = f"{row['PhoneNumber']}"
-                           
+                            print( "app view" + str(st.session_state.Phone))
                             switch_page('profile')
                     with Ecol2:                                            
                         st.markdown(f"{row['Name']}")                
