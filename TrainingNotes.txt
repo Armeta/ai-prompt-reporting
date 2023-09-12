@@ -24,6 +24,7 @@ Queries    : 99.5%
 Both       : 99.5%
 
 ----------------------------
+Bad, incomplete answerKey
 
 Base Model on 2678 entries answerKey (09/08/2023 11:18AM)
 Dashboards : 97.7%
@@ -38,6 +39,7 @@ Both       : 98.0%
 
 
 ----------------------------
+Bad, incorrect answerKey
 
 Base Model on 6673 entries answerKey (09/11/2023 08:29AM)
 Dashboards : 85.1%
@@ -49,3 +51,18 @@ Tuned Model from 6673 entries answerKey (09/11/2023 08:29AM) (8 sets) (shuffle=T
 Dashboards : 91.2%
 Queries    : 91.2%
 Both       : 91.2%
+
+
+
+-------------------------
+Base model on 6673 entries from answerKey 2023-09-12 13:47:40.170578
+Dashboards : 90.4%
+Queries    : 90.4%
+Both       : 90.4%
+
+Trained (8 sets) (shuffle=True, batch_size=16, MultipleNegativesRankingLoss, epochs=3)
+43m 28s (2608 sec)
+Tuned model on 6673 entries from answerKey 2023-09-12 13:47:40.170578
+Dashboards : 97.9%
+Queries    : 97.9%
+Both       : 97.9%

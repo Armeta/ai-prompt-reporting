@@ -25,13 +25,14 @@ def parseBinaryEncoding(bin_enc):
     return [struct.unpack('d', bytearray(bin_enc[i:i+8]))[0] for i in range(0, len(bin_enc), 8)]
 
 def env_Setup():
+
+    starttime = datetime.datetime.now()
     
     opsFile = open('src/outputs/GeneratedOptions.txt', 'r')
     
     ops = [line.replace('\n', '') for line in opsFile]
-    print(len(ops))
-    ops = list(set(ops))
-    print(len(ops))
+    ops = list(set(ops)) # removes duplicates
+
 
     # model selection
     model = SentenceTransformer(modelname)
@@ -92,10 +93,12 @@ def do_GET(prompt, model, dash_enc, dash_opts, query_enc, query_opts, dash_desc,
 
 def main():
 
+    starttime = datetime.datetime.now()
+
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts, dash_desc, query_desc = env_Setup()
 
-    print('Env setup! (options encoded)')
+    print('Env setup (options encoded) in %d secs' % ((datetime.datetime.now() - starttime).seconds))
 
     totalDash = 0
     countDash = 0
@@ -103,14 +106,15 @@ def main():
     countQuery = 0
     totalBoth = 0
     countBoth = 0
-    total = 0
 
+    total = -1
     ak = open('src/outputs/answerKey.csv', 'r')
     for line in ak:
         total += 1
     ak.close()
 
     ak = open('src/outputs/answerKey.csv', 'r')
+    ak_timestamp = ak.readline().replace('\n', '').replace('\r', '')
 
     outputpath = 'src/outputs/all-distilroberta-v1/'
     if(modelname == './LocalModel/'):
@@ -156,6 +160,12 @@ def main():
             left_s = left_s % 60
             print('Evaluated %5d entries (%d%%) in %2dm %02ds. Estimated time remaining: %2dm %02ds' % (currentCount, currentCount*100.0/total, dur_m, dur_s, left_m, left_s))
 
+    endtime = datetime.datetime.now()
+    dur_s = (endtime - starttime).seconds
+    dur_m = int(dur_s / 60)
+    dur_s = dur_s % 60
+    print('Evaluated %5d total entries in %2dm %02ds.' % (currentCount, dur_m, dur_s))
+    print( '%s model on %d entries from answerKey %s' % ('Tuned' if modelname == './LocalModel/' else 'Base' , currentCount, ak_timestamp) )
     print('Dashboards : %02.1f%%' % (countDash*100.0/totalDash))
     print('Queries    : %02.1f%%' % (countQuery*100.0/totalQuery))
     print('Both       : %02.1f%%' % (countBoth*100.0/totalBoth))

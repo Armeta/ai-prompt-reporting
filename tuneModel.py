@@ -8,7 +8,7 @@ starttime = datetime.datetime.now()
 baseModelName  = 'all-distilroberta-v1'
 
 ak = open('src/outputs/answerKey.csv','r')
-
+ak.readline()
 
 
 pairs = [line.replace('\n','').replace('\r','').split('|') for line in ak] # question|answer
