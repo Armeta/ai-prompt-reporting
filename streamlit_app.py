@@ -168,10 +168,14 @@ def main() -> None:
                     st.write(req)
             st.toast('Success! Retrieved Search History.', icon='✅') 
 
-    if(chosen_id == '4'):
-        with st.expander("Give Feedback: ", expanded = True):
-            st.write("Feedback placeholder")
-          #  st.toast('Success! Your feedback has been recieved... ', icon='✅') 
+    if(chosen_id == '4'):        
+        with st.form("Give Feedback: ", clear_on_submit=True):
+            st.session_state.FeedbackRating = st.radio("Was this app helpful?", ["✅", "❌"], label_visibility='visible', disabled=False, horizontal=True, index = 0) 
+            st.session_state.FeedbackText   = st.text_input("How could this app be improved?", "... ", disabled=False)   
+            with st.spinner(text="Sending Feedback..."):                     
+                submitted = st.form_submit_button("Submit")
+                if submitted:
+                    st.toast('Success! Your feedback has been recieved. ', icon='✅') 
 
 if __name__ == '__main__':
     main()
