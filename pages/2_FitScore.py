@@ -2,7 +2,10 @@ from src.lib import code_library as cl
 
 import pandas as pd
 import streamlit as st
+import altair as alt
 from streamlit_extras.switch_page_button import switch_page
+
+
 def main() -> None:
     # set up environment 
     cl.env_Setup('FitScore Page', 'collapsed', {}, 'wide', 'src/media/Untitled.jpg')    
@@ -18,7 +21,15 @@ def main() -> None:
         st.dataframe(requisition.style.format({'NeedID': '{0:f}', 'Need_FacilityID': '{0:f}'}), hide_index=True)
         st.dataframe(formatted_nurses, hide_index=True)
 
-                        
+        # Nurse score distribution
+        nurse_scores = st.session_state.all_nurse_scores
+        bin_params = alt.BinParams(extent=[10, 100], step=10)
+        st.altair_chart(
+            alt.Chart(data=nurse_scores)
+               .mark_bar(size=30)
+               .encode(alt.X('Fit Score'), y='count()')
+               .transform_bin('Fit Score', field='Fit Score', bin=bin_params)
+        )
     else:
         st.text('No Requisition Selected')
 
