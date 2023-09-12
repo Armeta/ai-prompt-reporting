@@ -142,7 +142,7 @@ def main() -> None:
                             st.session_state.DaysWorked_Count         = f"{int(row['DaysWorked_Count']):,}"
                             st.session_state.LastContractEnd_Datetime = f"{datetime.date.strftime(row['LastContractEnd_Datetime'],'%m/%d/%Y')}"
                             st.session_state.Termination_Count        = f"{row['Termination_Count']}"
-                            st.session_state.Distance                 = f"{float(row['Distance'])}"
+                            st.session_state.Distance                 = f"{int(row['Distance']):,}"
                             st.session_state.Profile_CV               = f"{row['Profile_CV']}"
                             st.session_state.Profile_Picture          = f"{row['Profile_Picture']}"
                             st.session_state.DISCIPLINES              = f"{row['DISCIPLINES']}"

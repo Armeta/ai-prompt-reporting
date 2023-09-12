@@ -23,6 +23,7 @@ def main() -> None:
         st.text('No Requisition Selected')
 
     if st.button("Return"):
+        st.session_state.TabID = '1'
         switch_page('streamlit app')
 
 if __name__ == '__main__':
