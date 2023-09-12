@@ -87,9 +87,10 @@ def main() -> None:
         topten_nurses = st.session_state.topten_nurses
     
     chosen_id = stx.tab_bar(data=[
-        stx.TabBarItemData(id=1, title="Requisition Profile", description=""),
-        stx.TabBarItemData(id=2, title="Recommended Nurses", description=""),
-        stx.TabBarItemData(id=3, title="Requisition Search History", description=""),
+          stx.TabBarItemData(id=1, title="Requisition Profile"       , description="")
+        , stx.TabBarItemData(id=2, title="Recommended Nurses"        , description="")
+        , stx.TabBarItemData(id=3, title="Requisition Search History", description="")
+        , stx.TabBarItemData(id=4, title="Give Feedback"             , description="")
     ], default = st.session_state.TabID)
 
     # sliding tabs for interacting with the different UI's
@@ -166,6 +167,11 @@ def main() -> None:
                 for req in st.session_state.requisitions:
                     st.write(req)
             st.toast('Success! Retrieved Search History.', icon='✅') 
-    
+
+    if(chosen_id == '4'):
+        with st.expander("Give Feedback: ", expanded = True):
+            st.write("Feedback placeholder")
+          #  st.toast('Success! Your feedback has been recieved... ', icon='✅') 
+
 if __name__ == '__main__':
     main()
