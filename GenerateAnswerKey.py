@@ -1,5 +1,6 @@
 from sentence_transformers import SentenceTransformer
 import json
+import datetime
 import struct
 import base64
 
@@ -11,6 +12,7 @@ paramLists = jsonFile['parameterLists']
 f.close()
 
 ak = open('src/outputs/answerKey.csv', 'w')
+ak.write(str(datetime.datetime.now())+'\n')
 
 qs = open('src/outputs/GeneratedQuestions.txt', 'w')
 
