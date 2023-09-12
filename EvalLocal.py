@@ -117,6 +117,8 @@ def main():
         outputpath = 'src/outputs/LocalModel/'
     good = open(outputpath+'Questions_good.csv', 'w')
     bad = open(outputpath+'Questions_bad.csv', 'w')
+    bad_debug = open(outputpath+'Questions_bad_debug.csv', 'w')
+    bad_debug.write('Question | Wrong Answer | Expected Answer')
 
     currentCount = 0
     starttime = datetime.datetime.now()
@@ -141,6 +143,7 @@ def main():
             countBoth += 1
         if(dash_answer_desc != ans and query_answer_desc != ans):
             bad.write(prompt+'\n')
+            bad_debug.write(prompt + ' | ' + query_answer_desc + ' | ' + ans + '\n')
 
         currentCount += 1
         if(currentCount % 100 == 0):
@@ -156,6 +159,10 @@ def main():
     print('Dashboards : %02.1f%%' % (countDash*100.0/totalDash))
     print('Queries    : %02.1f%%' % (countQuery*100.0/totalQuery))
     print('Both       : %02.1f%%' % (countBoth*100.0/totalBoth))
+
+    good.close()
+    bad.close()
+    bad_debug.close()
 
 if __name__ == '__main__':  
     main()
