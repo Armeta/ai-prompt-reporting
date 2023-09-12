@@ -77,6 +77,7 @@ def main() -> None:
 
         # save nurse info to session
         st.session_state.topten_nurses = topten_nurses
+        st.session_state.all_nurse_scores = scored_nurses[['NurseID', 'Fit Score']]
         
         #remaining_nurses             = sorted_nurses.drop(topten_nurses.index)
          
