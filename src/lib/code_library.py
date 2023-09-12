@@ -47,21 +47,48 @@ def get_nurses(_session: Session) -> pd.DataFrame:
     nurse_df = nurse_df_unfiltered.filter(
     (nurse_df_unfiltered['DISCIPLINES'].isNotNull()) &
     (nurse_df_unfiltered['SPECIALTIES'].isNotNull()) &
-    (nurse_df_unfiltered['"Contract_Count"'].isNotNull()) &
     (nurse_df_unfiltered['"YearsOfExperience"'].isNotNull()) &
+    (nurse_df_unfiltered['"Contract_Count"'].isNotNull()) &
     (nurse_df_unfiltered['"DaysWorked_Count"'].isNotNull()) &
-    (nurse_df_unfiltered['"LastContractEnd_Datetime"'].isNotNull()) &
-    (nurse_df_unfiltered['"Termination_Count"'].isNotNull())
-    )
-    
-    return pd.DataFrame(nurse_df.collect())
+    (nurse_df_unfiltered['"LastContractEnd_Datetime"'].isNotNull())
+    ).select(['"NurseID"', '"State"', '"Working_Status"', '"Submission_Count"', '"Contract_Count"', '"YearsOfExperience"', '"DaysWorked_Count"', '"LastContractEnd_Datetime"', '"Termination_Count"', '"Name"', '"City"', '"Lat"', '"Long"', '"DISCIPLINES"', '"SPECIALTIES"'])
+
+    nurse_df = pd.DataFrame(nurse_df.collect())
+
+    print(str(nurse_df.shape[0]) + ' nurses loaded')
+    return nurse_df
 
 @st.cache_data(show_spinner = False, persist = "disk")
-def get_nurse_discipline_specialty(_session: Session, requisition: pd.DataFrame) -> [pd.DataFrame, pd.DataFrame]:
+def get_nurse_discipline_specialty(_session: Session, nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     dis = _session.table('DISCIPLINE').filter(col('"DisciplineID"') == int(requisition['Need_DisciplineID'][0])).select(col('"NurseID"').as_('"DisciplineNurseID"')).distinct()
     spe = _session.table('SPECIALITY').filter(col('"SpecialtyId"') == int(requisition['Need_SpecialtyID'][0])).select(col('"NurseID"').as_('"SpecialtyNurseID"')).distinct()
 
-    return pd.DataFrame(dis.collect()), pd.DataFrame(spe.collect())
+    nurse_dis_df = pd.DataFrame(dis.collect())
+    nurse_spe_df = pd.DataFrame(spe.collect())
+
+    nurse_dis_df['HasDiscipline'] = True
+    nurse_spe_df['HasSpecialty']  = True
+    nurse_df                      = nurse_df.join(nurse_dis_df.set_index('DisciplineNurseID'), on='NurseID', how='left').join(nurse_spe_df.set_index('SpecialtyNurseID'), on='NurseID', how='left')
+    nurse_df['HasDiscipline']     = nurse_df['HasDiscipline'].notna()
+    nurse_df['HasSpecialty']      = nurse_df['HasSpecialty'].notna()
+
+    return nurse_df
+
+@st.cache_data(show_spinner = False, persist = "disk")
+def get_nurse_profile(_session: Session, nurse_df: pd.DataFrame) -> pd.DataFrame:
+    profile = _session.table('NURSEPROFILE')
+    needed_nurses = _session.create_dataframe(nurse_df['NurseID'].to_frame('NurseID'))
+
+    nurses_with_profile = profile.join(needed_nurses, on='"NurseID"', how='inner')
+
+    nurses_with_profile = pd.DataFrame(nurses_with_profile.collect())
+
+    nurses_with_profile = nurses_with_profile.join(nurse_df.set_index('NurseID'), on='NurseID', how='inner')
+
+    nurses_with_profile['Email'] = nurses_with_profile.apply(lambda row : (row['Name'].replace(' ', '_') + '@aol.com'), axis=1)
+    nurses_with_profile['Phone'] = nurses_with_profile.apply(lambda row : '555-123-4567', axis=1)
+
+    return nurses_with_profile.sort_values(by=['Fit Score'], ascending=False)
 
 def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:
     eNLC_states = [

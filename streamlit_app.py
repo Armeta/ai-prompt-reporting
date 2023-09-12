@@ -61,19 +61,21 @@ def main() -> None:
 
         # prepare nurse dataset
         with st.spinner(text="Getting Nurse Details..."):
-            nurse_dis_df, nurse_spe_df    = cl.get_nurse_discipline_specialty(session, requisition)
+            nurse_df    = cl.get_nurse_discipline_specialty(session, nurse_df, requisition)
             st.toast('Success! Retrieved Nurse Details.', icon='✅')
 
-        nurse_dis_df['HasDiscipline'] = True
-        nurse_spe_df['HasSpecialty']  = True
-        nurse_df                      = nurse_df.join(nurse_dis_df.set_index('DisciplineNurseID'), on='NurseID', how='left').join(nurse_spe_df.set_index('SpecialtyNurseID'), on='NurseID', how='left')
-        nurse_df['HasDiscipline']     = nurse_df['HasDiscipline'].notna()
-        nurse_df['HasSpecialty']      = nurse_df['HasSpecialty'].notna()
+        # score nurse dataset
+        with st.spinner(text="Scoring Nurses..."):
+            scored_nurses                 = cl.score_nurses(nurse_df, requisition)
+            valid_nurses                  = scored_nurses[scored_nurses['Fit Score'] > 0]
+            sorted_nurses                 = valid_nurses.sort_values(by=['Fit Score'], ascending=False)
+            topten_nurses                 = sorted_nurses.head(25)
+            st.toast('Success! Scored Nurses.', icon='✅')
 
-        scored_nurses                 = cl.score_nurses(nurse_df, requisition)
-        valid_nurses                  = scored_nurses[scored_nurses['Fit Score'] > 0]
-        sorted_nurses                 = valid_nurses.sort_values(by=['Fit Score'], ascending=False)
-        topten_nurses                 = sorted_nurses.head(25)
+        # get nurse profile dataset
+        with st.spinner(text="Getting Nurses Profiles..."):
+            topten_nurses                 = cl.get_nurse_profile(session, topten_nurses)
+            st.toast('Success! Retrieved Nurses Profiles.', icon='✅')
 
         # save nurse info to session
         st.session_state.topten_nurses = topten_nurses
@@ -120,7 +122,7 @@ def main() -> None:
             # Draws the buttons and writes out the nurse information                       
             with st.spinner(text="Retrieving Top 25 Nurse Profiles..."):              
                 for index, row in topten_nurses.iterrows():
-                    
+
                     Ecol1, Ecol2, Ecol3, Ecol4 = st.columns(4)
                     with Ecol1:                                                
                         button_label =  f"{row['Name']}"
