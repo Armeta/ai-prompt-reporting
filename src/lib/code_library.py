@@ -85,9 +85,6 @@ def get_nurse_profile(_session: Session, nurse_df: pd.DataFrame) -> pd.DataFrame
 
     nurses_with_profile = nurses_with_profile.join(nurse_df.set_index('NurseID'), on='NurseID', how='inner')
 
-    nurses_with_profile['Email'] = nurses_with_profile.apply(lambda row : (row['Name'].replace(' ', '_') + '@aol.com'), axis=1)
-    nurses_with_profile['Phone'] = nurses_with_profile.apply(lambda row : '555-123-4567', axis=1)
-
     return nurses_with_profile.sort_values(by=['Fit Score'], ascending=False)
 
 def _score_licensure(nurse_df: pd.DataFrame, requisition: pd.DataFrame) -> pd.DataFrame:

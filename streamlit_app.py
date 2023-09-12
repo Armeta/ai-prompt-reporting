@@ -147,6 +147,8 @@ def main() -> None:
                             st.session_state.Profile_Picture          = f"{row['Profile_Picture']}"
                             st.session_state.DISCIPLINES              = f"{row['DISCIPLINES']}"
                             st.session_state.SPECIALTIES              = f"{row['SPECIALTIES']}"
+                            st.session_state.Email                    = f"{row['Email']}"
+                            st.session_state.Phone                    = f"{row['PhoneNumber']}"
                            
                             switch_page('profile')
                     with Ecol2:                                            
