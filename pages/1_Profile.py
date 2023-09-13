@@ -9,7 +9,7 @@ def main() -> None:
     cl.env_Setup('Profile Page', 'collapsed', {}, 'wide', '')
 
     if st.button(":arrow_backward: Return to Recommended Nurses"):
-        st.session_state.TabID = '2'
+        st.session_state.TabID = 2
         switch_page('streamlit app')    
     
     st.title(str(st.session_state.NurseName))
@@ -32,7 +32,7 @@ def main() -> None:
             st.write(str(st.session_state.Profile_CV))
 
         if st.button(":arrow_backward: Return to Recommended Nurses "):
-            st.session_state.TabID = '2'
+            st.session_state.TabID = 2
             switch_page('streamlit app') 
 
 if __name__ == '__main__':

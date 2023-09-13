@@ -199,7 +199,7 @@ def env_Setup(Page_Title, Side_Bar_State, Menu_Items, Layout, Title_Image_Path):
     f.close()  
 
     if 'TabID' not in st.session_state:
-        st.session_state.TabID = '1'
+        st.session_state.TabID = 1
     if 'NurseName' not in st.session_state:
         st.session_state.NurseName = ''  
     if 'NurseID' not in st.session_state:

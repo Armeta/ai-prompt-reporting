@@ -3,6 +3,8 @@ import datetime
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 import extra_streamlit_components as stx
+
+
 def main() -> None:
 
     # set up environment 
@@ -80,9 +82,6 @@ def main() -> None:
         # save nurse info to session
         st.session_state.topten_nurses = topten_nurses
         st.session_state.all_nurse_scores = scored_nurses[['NurseID', 'Fit Score']]
-        
-        #remaining_nurses             = sorted_nurses.drop(topten_nurses.index)
-         
     else: # requisition and nurses already saved
         requisition = st.session_state.requisition
         topten_nurses = st.session_state.topten_nurses
@@ -92,18 +91,20 @@ def main() -> None:
         , stx.TabBarItemData(id=2, title="Recommended Nurses"        , description="")
         , stx.TabBarItemData(id=3, title="Requisition Search History", description="")
         , stx.TabBarItemData(id=4, title="Give Feedback"             , description="")
-    ], default = st.session_state.TabID)
+    ], default = st.session_state.TabID, return_type=int, key='tabbar')
+
+    st.session_state.TabID = chosen_id
 
     # sliding tabs for interacting with the different UI's
       # Displays information on the need most recently typed in
-    if(chosen_id == '1'):
+    if chosen_id == 1:
         with st.spinner(text="Drawing Charts..."):
             for index, row in requisition.iterrows():
                 cl.draw_RequisitionCard(row['NeedID'], row['Need_FacilityID'], row['Facility_Name'], row['Facility_State'], row['Facility_City'], row['Discipline_Name'], row['Need_DisciplineID'], row['Specialty_Name'], row['Need_SpecialtyID'], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City', 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')          
             if(first_time):                                     
                 st.toast('Welcome to Nurse AI!', icon='👩‍⚕️')
     # Gives a list of recommended nurses after a need has been typed in 
-    if(chosen_id == '2'):
+    elif chosen_id == 2:
         # Writes the header on the Recommended Nurses page
         with st.expander("Top 25 Nurses", expanded = True):
             with st.container():
@@ -156,12 +157,11 @@ def main() -> None:
                         st.markdown(f"{row['Fit Score']:3.1f}")     
                 st.toast('Success! Retrieved Nurse Profiles.', icon='✅')           
     # Gives a running record of all searched requisitions within a user session 
-    if(chosen_id == '3'):
+    elif chosen_id == 3:
         with st.spinner(text="Retrieving Search History..."):
             for req in st.session_state.requisitions:    
                 cl.draw_RequisitionCard(req['NeedID'].iloc[0], req['Need_FacilityID'].iloc[0], req['Facility_Name'].iloc[0], req['Facility_State'].iloc[0], req['Facility_City'].iloc[0], req['Discipline_Name'].iloc[0], req['Need_DisciplineID'].iloc[0], req['Specialty_Name'].iloc[0], req['Need_SpecialtyID'].iloc[0], 'Facility ID', 'Facility Name', 'Facility State', 'Facility City', 'Discipline Name', 'Discipline ID', 'Specialty Name', 'Specialty ID')         
-
-    if(chosen_id == '4'):        
+    elif chosen_id == 4:
         with st.form("Give Feedback: ", clear_on_submit=True):
             st.session_state.FeedbackRating = st.radio("Was this app helpful?", ["✅", "❌"], label_visibility='visible', disabled=False, horizontal=True, index = 0) 
             st.session_state.FeedbackText   = st.text_input("How could this app be improved?", "... ", disabled=False)   
@@ -170,6 +170,7 @@ def main() -> None:
                 if submitted:
                     cl.write_Audit(session, st.session_state.FeedbackRating, st.session_state.FeedbackText)
                     st.toast('Success! Your feedback has been recieved. ', icon='✅') 
+
 
 if __name__ == '__main__':
     main()
