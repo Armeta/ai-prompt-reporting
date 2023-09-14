@@ -109,6 +109,22 @@ def env_Setup(_session):
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()
 
+    # load largemodel bin file
+    model_bin = open('./LocalModel/pytorch_model.bin', 'wb')
+    shard = open('./LocalModel/shards/01_shard_pytorch_model.bin', 'rb')
+    model_bin.write(shard.read())
+    shard.close()
+    shard = open('./LocalModel/shards/02_shard_pytorch_model.bin', 'rb')
+    model_bin.write(shard.read())
+    shard.close()
+    shard = open('./LocalModel/shards/03_shard_pytorch_model.bin', 'rb')
+    model_bin.write(shard.read())
+    shard.close()
+    shard = open('./LocalModel/shards/04_shard_pytorch_model.bin', 'rb')
+    model_bin.write(shard.read())
+    shard.close()
+    model_bin.close()
+
     # model selection
     #modelName = 'all-distilroberta-v1'
     modelName = './LocalModel/'
@@ -140,11 +156,6 @@ def env_Setup(_session):
 
     return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
 
-def reload_Model(_session):
-    modelName = './LocalModel/'
-    model = SentenceTransformer(modelName)
-
-    return model
 
 # run the prompt against the AI to recieve an answer
 def do_Get(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   
