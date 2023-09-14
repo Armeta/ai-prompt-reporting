@@ -115,7 +115,7 @@ def main():
                 st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)                
                 code_library.save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
         # End chat - assistant
-        st.experimental_rerun()
+        #st.experimental_rerun()
 # ask user if reply was helpful
     #on =  toggle('Activate feature')
     # if toggle(widget = 'checkbox', label='Give Feedback', value = False):
