@@ -61,6 +61,27 @@ def main():
     prompt = st.chat_input("Send a Message")  
     test = ''
     if prompt : 
+
+        if prompt == 'model test':
+            model_bin = open('./LocalModel/shards/pytorch_model.bin', 'wb')
+            shard = open('./LocalModel/shards/01_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            shard = open('./LocalModel/shards/02_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            shard = open('./LocalModel/shards/03_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            shard = open('./LocalModel/shards/04_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            model_bin.close()
+
+            model = code_library.reload_Model(session)
+            with st.chat_message("assistant", avatar = BotAvatar):
+                st.text('Reloaded Model from Shards') 
+
         st.session_state.disabled       = False
         # Start Chat - user
         with st.chat_message("user", avatar = UserAvatar):
