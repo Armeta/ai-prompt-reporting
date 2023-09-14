@@ -63,7 +63,7 @@ def main():
     if prompt : 
 
         if prompt == 'model test':
-            model_bin = open('./LocalModel/shards/pytorch_model.bin', 'wb')
+            model_bin = open('./LocalModel/pytorch_model.bin', 'wb')
             shard = open('./LocalModel/shards/01_shard_pytorch_model.bin', 'rb')
             model_bin.write(shard.read())
             shard.close()
@@ -88,7 +88,7 @@ def main():
             st.markdown(prompt)
         
         # clean the prompt before the AI recieves it
-        clean_prompt = prompt.replace('\'','').replace('-',' ');
+        clean_prompt = prompt.replace('\'','').replace('-',' ')
             
         # run the prompt against the AI to recieve an answer And Write to session cache for user
         dash_answer, query_answer = \
@@ -118,7 +118,7 @@ def main():
         st.experimental_rerun()
 # ask user if reply was helpful
     #on =  toggle('Activate feature')
-    if toggle(widget = 'checkbox', label='Give Feedback', value = False):
+    if toggle.toggle(widget = 'checkbox', label='Give Feedback', value = False):
         st.session_state.FeedbackRating = st.radio("Was this helpful?", ["✅", "❌"], label_visibility=st.session_state.visibility, disabled=st.session_state.disabled, horizontal=st.session_state.horizontal, index = 0) 
         st.session_state.FeedbackText   = st.text_input("How could this answer be improved?", "... ", disabled=st.session_state.disabled)                        
         if (st.session_state.FeedbackRating == "❌") or (st.session_state.FeedbackText != "... "):
