@@ -61,13 +61,34 @@ def main():
     prompt = st.chat_input("Send a Message")  
     test = ''
     if prompt : 
+
+        if prompt == 'model test':
+            model_bin = open('./LocalModel/pytorch_model.bin', 'wb')
+            shard = open('./LocalModel/shards/01_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            shard = open('./LocalModel/shards/02_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            shard = open('./LocalModel/shards/03_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            shard = open('./LocalModel/shards/04_shard_pytorch_model.bin', 'rb')
+            model_bin.write(shard.read())
+            shard.close()
+            model_bin.close()
+
+            model = code_library.reload_Model(session)
+            with st.chat_message("assistant", avatar = BotAvatar):
+                st.text('Reloaded Model from Shards') 
+
         st.session_state.disabled       = False
         # Start Chat - user
         with st.chat_message("user", avatar = UserAvatar):
             st.markdown(prompt)
         
         # clean the prompt before the AI recieves it
-        clean_prompt = prompt.replace('\'','').replace('-',' ');
+        clean_prompt = prompt.replace('\'','').replace('-',' ')
             
         # run the prompt against the AI to recieve an answer And Write to session cache for user
         dash_answer, query_answer = \

@@ -140,6 +140,12 @@ def env_Setup(_session):
 
     return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
 
+def reload_Model(_session):
+    modelName = './LocalModel/'
+    model = SentenceTransformer(modelName)
+
+    return model
+
 # run the prompt against the AI to recieve an answer
 def do_Get(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   
     #init 
