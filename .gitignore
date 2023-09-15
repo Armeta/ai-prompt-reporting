@@ -5,3 +5,4 @@ Armeta AI.pptx
 secrets.toml
 ~*
 .streamlit/secrets.toml
+./LocalModel/pytorch_model.bin
