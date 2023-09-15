@@ -16,8 +16,11 @@ $ streamlit run streamlit_app.py
 
 Use `BuildOptions.py` to provide answer options that the AI can respond with.
 Define parameterized answer templates in `src\json\AllTemplates.json`
-Run `BuildOptions.py` to parse the templates, and generate option records.
-
+Run `BuildOptions.py` to parse the templates, and generate option records. There are several arguments that can be passed to modify the behavior:
+--useLocalModel or -l   Uses a trained, locally saved LLM model instead of the default base model from hugging face.
+--truncateLoad or -t    Truncates any previously existing answer options. Excluding this argument allows for incremental additions.
+--loadSnowflake or -s   Encodes the options and loads the records into the snowflake instance.
+--runQueries or -q      Run the generated queries in snowflake and saves the results with the new records. Can greatly increase runtime.
 
 ## Local App Setup
 

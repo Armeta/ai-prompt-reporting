@@ -1,20 +1,21 @@
 {
     "parameterLists":{
         "DEPARTMENT_PARAMETER":{
-            "descriptionValues":    ["pharmacy", "produce", "frozen"]
-        ,   "questionValues":       ["pharmacy", "produce", "frozen"]
-        ,   "queryValues":          ["pharmacy", "produce", "frozen"]
-        ,   "urlValues":            ["pharmacy", "produce", "frozen"]
+            "descriptionValues":    ["Bakery", "Deli", "Floral", "GM", "Grocery", "HBC", "Meat", "Pharmacy", "Produce", "Seafood"]
+        ,   "questionValues":       ["Bakery", "Deli", "Floral", "GM", "Grocery", "HBC", "Meat", "Pharmacy", "Produce", "Seafood"]
+        ,   "queryValues":          ["Bakery", "Deli", "Floral", "GM", "Grocery", "HBC", "Meat", "Pharmacy", "Produce", "Seafood"]
+        ,   "urlValues":            ["Bakery", "Deli", "Floral", "GM", "Grocery", "HBC", "Meat", "Pharmacy", "Produce", "Seafood"]
         }
     },
     "templates":[
         {   "parameters": ["DEPARTMENT_PARAMETER"]
-        ,   "desc":"The top store for DEPARTMENT_PARAMETER."
-        ,   "questions":["What is the top store for DEPARTMENT_PARAMETER?", "What is the best store for DEPARTMENT_PARAMETER?", "What store sells the most DEPARTMENT_PARAMETER?"]
-        ,   "query":"SELECT 'Store A is the top store in the DEPARTMENT_PARAMETER department.';"
-        ,   "urlpage":"sales-opportunity"
+        ,   "desc":"Total sales excluding DEPARTMENT_PARAMETER."
+        ,   "questions":["What were my total sales excluding DEPARTMENT_PARAMETER last week?"]
+        ,   "query":"SELECT 'The total sales last week excluding the DEPARTMENT_PARAMETER department are $1.';"
+        ,   "urlpage":"opportunity-locator"
         ,   "urlfilter":""
-        ,   "urlquery":""
+        ,   "urlquery":"{\"timeframe\":10}"
+        ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
         }
     ]
 }
