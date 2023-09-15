@@ -14,7 +14,7 @@ image = Image.open('src/media/armeta-icon.png')
 
 # Page Config
 st.set_page_config(
-    page_title="Retail Analytics Digital Assistant",
+    page_title="Price Chopper Analytics Digital Assistant",
     page_icon=image,
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -27,9 +27,7 @@ st.set_page_config(
 def main():
 
     # Get connection string paramaters
-    connectionString = open('src/json/connection_details.json', "r")
-    connectionString = json.loads(connectionString.read())
-    session          = code_library.snowconnection(connectionString)    
+    session          = code_library.snowconnection()    
     
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar = code_library.env_Setup(session)
@@ -110,5 +108,5 @@ def main():
  
 image.close()
 
-if __name__ == '__main__':  
+if __name__ == '__main__':
     main()

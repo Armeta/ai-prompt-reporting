@@ -3,6 +3,7 @@ from snowflake.snowpark.functions import col
 # Visualizations 
 import streamlit as st
 import time
+import toml
 
 # data manipulation 
 from sklearn.metrics.pairwise import cosine_similarity
@@ -13,7 +14,10 @@ import json
 import struct
 
 # setup connection with snowflake
-def snowconnection(connection_config):
+def snowconnection():
+    f = open('./.streamlit/secrets.toml', 'r')
+    connection_config = toml.load(f)
+    f.close()
     session = Session.builder.configs(connection_config).create()
     return session
 
@@ -110,33 +114,29 @@ def env_Setup(_session):
     f.close()
 
     # load largemodel bin file
-    model_bin = open('./LocalModel/pytorch_model.bin', 'wb')
-    shard = open('./LocalModel/shards/01_shard_pytorch_model.bin', 'rb')
-    model_bin.write(shard.read())
-    shard.close()
-    shard = open('./LocalModel/shards/02_shard_pytorch_model.bin', 'rb')
-    model_bin.write(shard.read())
-    shard.close()
-    shard = open('./LocalModel/shards/03_shard_pytorch_model.bin', 'rb')
-    model_bin.write(shard.read())
-    shard.close()
-    shard = open('./LocalModel/shards/04_shard_pytorch_model.bin', 'rb')
-    model_bin.write(shard.read())
-    shard.close()
-    model_bin.close()
+    # model_bin = open('./LocalModel/pytorch_model.bin', 'wb')
+    # shard = open('./LocalModel/shards/01_shard_pytorch_model.bin', 'rb')
+    # model_bin.write(shard.read())
+    # shard.close()
+    # shard = open('./LocalModel/shards/02_shard_pytorch_model.bin', 'rb')
+    # model_bin.write(shard.read())
+    # shard.close()
+    # shard = open('./LocalModel/shards/03_shard_pytorch_model.bin', 'rb')
+    # model_bin.write(shard.read())
+    # shard.close()
+    # shard = open('./LocalModel/shards/04_shard_pytorch_model.bin', 'rb')
+    # model_bin.write(shard.read())
+    # shard.close()
+    # model_bin.close()
 
     # model selection
-    #modelName = 'all-distilroberta-v1'
-    modelName = './LocalModel/'
+    modelName = 'all-distilroberta-v1'
+    #modelName = './LocalModel/'
     model = SentenceTransformer(modelName)
 
     # # Open and collect options
-    if(modelName == './LocalModel/'):
-        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
-        options_query = _session.table("\"OptionsQueryLocal\"")
-    else:
-        options_dash  = _session.table("\"OptionsDashboard\"") 
-        options_query = _session.table("\"OptionsQuery\"")
+    options_dash  = _session.table("PC.OPTIONS_DASHBOARD") 
+    options_query = _session.table("PC.OPTIONS_QUERY")
 
     
     

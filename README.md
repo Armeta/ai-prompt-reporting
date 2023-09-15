@@ -1,11 +1,5 @@
-# Retail AI
+# Price Chopper AI
 
-This internal project utilizes AI to provide answers to retail data questions.
+This internal project utilizes AI to provide answers to grocery retail data questions.
 
-## Prod Demo
 
-https://armeta-ai-prompt-reporting.streamlit.app/
-
-## Dev Demo
-
-https://dev-armeta-retail-ai.streamlit.app/

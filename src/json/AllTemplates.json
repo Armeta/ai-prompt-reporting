@@ -1,0 +1,20 @@
+{
+    "parameterLists":{
+        "DEPARTMENT_PARAMETER":{
+            "descriptionValues":    ["pharmacy", "produce", "frozen"]
+        ,   "questionValues":       ["pharmacy", "produce", "frozen"]
+        ,   "queryValues":          ["pharmacy", "produce", "frozen"]
+        ,   "urlValues":            ["pharmacy", "produce", "frozen"]
+        }
+    },
+    "templates":[
+        {   "parameters": ["DEPARTMENT_PARAMETER"]
+        ,   "desc":"The top store for DEPARTMENT_PARAMETER."
+        ,   "questions":["What is the top store for DEPARTMENT_PARAMETER?", "What is the best store for DEPARTMENT_PARAMETER?", "What store sells the most DEPARTMENT_PARAMETER?"]
+        ,   "query":"SELECT 'Store A is the top store in the DEPARTMENT_PARAMETER department.';"
+        ,   "urlpage":"sales-opportunity"
+        ,   "urlfilter":""
+        ,   "urlquery":""
+        }
+    ]
+}
