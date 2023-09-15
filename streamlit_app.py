@@ -14,7 +14,7 @@ image = Image.open('src/media/armeta-icon.png')
 
 # Page Config
 st.set_page_config(
-    page_title="Price Chopper Analytics Digital Assistant",
+    page_title="Analytics Digital Assistant - Price Chopper",
     page_icon=image,
     layout="wide",
     initial_sidebar_state="collapsed",

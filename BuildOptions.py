@@ -15,10 +15,11 @@ sys.path.append('src')
 from lib import code_library
 
 
-def main(templateFilename = 'AllTemplates.json', useBaseModel = True, incrementalLoad = True, loadSnowflake = False, runQueries = False):
-    
+def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, truncateLoad = False, loadSnowflake = False, runQueries = False):
+
     # load template json
-    templateFile = open('src/json/'+templateFilename)
+    print('Loading template file '+templateFilename)
+    templateFile = open(templateFilename)
     templateJSON = json.load(templateFile)
     templates = templateJSON['templates']
     paramLists = templateJSON['parameterLists']
@@ -26,15 +27,27 @@ def main(templateFilename = 'AllTemplates.json', useBaseModel = True, incrementa
 
     # load model
     baseModelName = 'all-distilroberta-v1'
-    if(useBaseModel):
-        modelName = baseModelName
-    else:
+    if(useLocalModel):
         modelName = './LocalModel/'
+    else:
+        modelName = baseModelName
     model = SentenceTransformer(modelName)
 
     # prepare output files
-    ak = open('src/csv/answerKey.csv', 'w')
-    ak.write(str(datetime.datetime.now())+'\n')
+    if(truncateLoad):
+        ak = open('src/csv/answerKey.csv', 'w')
+        ak.write(str(datetime.datetime.now())+'\n')
+    else:
+        lines = []
+        if(os.path.isfile('src/csv/answerKey.csv')):
+            ak = open('src/csv/answerKey.csv', 'r')
+            ak.readline()
+            lines = ak.readlines()
+            ak.close()
+        ak = open('src/csv/answerKey.csv', 'w')
+        ak.write(str(datetime.datetime.now())+'\n')
+        ak.writelines(lines)
+
     stageQ = None
     stageD = None
     if(loadSnowflake):
@@ -57,7 +70,7 @@ def main(templateFilename = 'AllTemplates.json', useBaseModel = True, incrementa
             newDesc = template['desc']
             newQuestions = template['questions']
             newQuery = template['query']
-            newURL = 'https://ip.armeta.com/snowflake/analytics/'+template['urlpage']
+            newURL = 'https://ip.armeta.com/pricechopper/analytics/'+template['urlpage']
             newURLFilter = template['urlfilter']
             newURLQuery = template['urlquery']
 
@@ -75,13 +88,18 @@ def main(templateFilename = 'AllTemplates.json', useBaseModel = True, incrementa
                 newURLFilter = newURLFilter.replace(paramName, urlParam)
                 newURLQuery = newURLQuery.replace(paramName, urlParam)
             
-            if(newURLFilter != '' and newURLQuery != ''):
-                newURL = newURL + '?filter=' + str(base64.b64encode(newURLFilter.encode("ascii")))[2:-1].replace('=', '%3D') + '&query=' + str(base64.b64encode(newURLQuery.encode("ascii")))[2:-1].replace('=', '%3D')
-            elif(newURLFilter != ''):
-                newURL = newURL + '?filter=' + str(base64.b64encode(newURLFilter.encode("ascii")))[2:-1].replace('=', '%3D')
-            elif(newURLQuery != ''):
-                newURL = newURL + '?query=' + str(base64.b64encode(newURLQuery.encode("ascii")))[2:-1].replace('=', '%3D')
-
+            urlData = []
+            if(newURLFilter != ''):
+                urlData.append('filter=' + str(base64.b64encode(newURLFilter.encode("ascii")))[2:-1].replace('=', '%3D'))
+            if(newURLQuery != ''):
+                urlData.append('query=' + str(base64.b64encode(newURLQuery.encode("ascii")))[2:-1].replace('=', '%3D'))
+            if(template['urlview'] != ''):
+                urlData.append('view=' + str(base64.b64encode(template['urlview'].encode("ascii")))[2:-1].replace('=', '%3D'))
+            
+            if(len(urlData) > 0):
+                newURL += '?'+urlData[0]
+                for x in urlData[1:]:
+                    newURL += '&'+x
 
             # output question variations with answers
             for newQuestion in newQuestions:
@@ -142,7 +160,7 @@ def main(templateFilename = 'AllTemplates.json', useBaseModel = True, incrementa
 
         print('Using tables %s, %s' % (schema+'.'+tableDashboard, schema+'.'+tableQuery))
 
-        if not incrementalLoad:
+        if truncateLoad:
             print('Truncating Existing Tables...')
             session.sql('TRUNCATE TABLE %s."%s";' % (schema, tableDashboard)).collect()
             session.sql('TRUNCATE TABLE %s."%s";' % (schema, tableQuery)).collect()
@@ -164,4 +182,19 @@ def main(templateFilename = 'AllTemplates.json', useBaseModel = True, incrementa
 
 
 if __name__ == '__main__':
-    main(incrementalLoad = False, loadSnowflake = True, runQueries = True)
+    if(len(sys.argv) > 1):
+        flags = ''.join([arg[1:] for arg in sys.argv if arg[0] == '-' and arg[1] != '-'])
+        if(sys.argv[1][0] != '-'): # included template filepath
+            main(sys.argv[1]
+                 , useLocalModel = '--useLocalModel' in sys.argv or 'l' in flags
+                 , truncateLoad = '--truncateLoad' in sys.argv or 't' in flags
+                 , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
+                 , runQueries = '--runQueries' in sys.argv or 'q' in flags)
+        else: # default template filepath
+            main(  useLocalModel = '--useLocalModel' in sys.argv or 'l' in flags
+                 , truncateLoad = '--truncateLoad' in sys.argv or 't' in flags
+                 , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
+                 , runQueries = '--runQueries' in sys.argv or 'q' in flags)
+            
+    else: #  no arguments, run from code arguments
+        main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, truncateLoad = False, loadSnowflake = False, runQueries = False)
