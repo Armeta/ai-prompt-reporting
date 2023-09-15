@@ -1,3 +1,5 @@
+import os
+
 modelFilename = './LocalModel/pytorch_model.bin'
 modelFile = open(modelFilename, 'rb')
 
@@ -8,6 +10,10 @@ chunk = modelFile.read(bufferSize)
 while chunk:
     shardFile = open('./LocalModel/shards/%02d_shard_pytorch_model.bin' % (i), 'wb')
     shardFile.write(chunk)
+    shardFile.close()
     #print('%02d_shard_pytorch_model.bin' % (i))
     chunk = modelFile.read(bufferSize)
     i += 1
+modelFile.close()
+
+os.remove('./LocalModel/pytorch_model.bin')
