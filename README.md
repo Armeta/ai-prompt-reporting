@@ -23,6 +23,10 @@ Run `BuildOptions.py` to parse the templates, and generate option records. There
 --loadSnowflake or -s   Encodes the options and loads the records into the snowflake instance.
 --runQueries or -q      Run the generated queries in snowflake and saves the results with the new records. Can greatly increase runtime.
 
+Examples:
+`py .\BuildOptions.py -tseq` to load the master template file's options into snowflake with encoding and cached queries.
+`py .\BuildOptions.py src\json\templates2.json -seq` to add new options into snowflake with encoding and cached queries.
+
 ## Local App Setup
 
 ### Local Installation
