@@ -19,8 +19,7 @@ def snowconnection():
     connection_config = toml.load(f)
     f.close()
     session = Session.builder.configs(connection_config).create()
-    #session_details = session.create_dataframe([[session._session_id,session.sql("select current_user();").collect()[0][0],str(session.get_current_warehouse()).replace('"',''),str(session.get_current_role()).replace('"','')]], schema=["session_id","user_name","warehouse","role"])
-    #session_details.collect()
+
     return session
 
 def save_UserCache(i, content):
@@ -98,23 +97,7 @@ def manage_Cache():
 
 # load options file and set up model
 @st.cache_resource()
-def env_Setup(_session):
-
-    # Bot Avatar Icon
-    with open('src/txt/armeta-icon_Base64Source.txt') as f:
-        BotAvatar = f.read()
-    f.close()
-
-    # User Avatar Icon
-    with open('src/txt/usericon_Base64Source.txt') as f:
-        UserAvatar = f.read()
-    f.close()
-
-    # Open CSS file
-    with open('src/css/style.css') as f:
-        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-    f.close()
-
+def get_Model():
     # load largemodel bin file
     # model_bin = open('./LocalModel/pytorch_model.bin', 'wb')
     # shard = open('./LocalModel/shards/01_shard_pytorch_model.bin', 'rb')
@@ -130,31 +113,74 @@ def env_Setup(_session):
     # model_bin.write(shard.read())
     # shard.close()
     # model_bin.close()
-
+    
     # model selection
     modelName = 'all-distilroberta-v1'
     #modelName = './LocalModel/'
-    model = SentenceTransformer(modelName)
+    model = SentenceTransformer(modelName)    
+    return model
 
+@st.cache_resource()
+def get_Data(_session):
     # # Open and collect options
     options_dash  = _session.table("PC.OPTIONS_DASHBOARD") 
     options_query = _session.table("PC.OPTIONS_QUERY")
-
-    
-    
+        
     #recieve options and their encodings and return
     dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
     query_rows = options_query.select(['RESULT_CACHE', 'ENCODING']).filter(col('RESULT_CACHE').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
-
     dash_opts  = [row[0] for row in dash_rows]
     query_opts = [row[0] for row in query_rows]
     dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
     query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
 
+    return dash_enc, dash_opts, query_enc, query_opts
+
+def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Path):
+
+    # Bot Avatar Icon
+    with open('src/txt/armeta-icon_Base64Source.txt') as f:
+        BotAvatar = f.read()
+    f.close()
+
+    # User Avatar Icon
+    with open('src/txt/usericon_Base64Source.txt') as f:
+        UserAvatar = f.read()
+    f.close()
+
+    # Page Config
+    st.set_page_config(
+        page_title            = Title,
+        page_icon             = BotAvatar,
+        layout                = Layout,
+        initial_sidebar_state = SideBarState,
+        menu_items            = Menu_Items
+    )
+
     # Page Header/Subheader
-    st.title("💬 arai") 
-    with st.chat_message("assistant", avatar = BotAvatar):
-        st.write("How can I help you?")    
+    if(len(Title_Image_Path) > 0):
+        st.image(Title_Image_Path)
+
+    if(len(Title) > 0):
+        st.subheader(Title, divider='rainbow')
+
+    # Open CSS file
+    with open('src/css/style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+    f.close()
+
+    model = get_Model()
+    dash_enc, dash_opts, query_enc, query_opts = get_Data(_session)
+    
+        # (re)-initialize current chat 
+    if 'messages' not in st.session_state:
+        st.session_state['messages'] = []
+    if 'number' not in st.session_state:
+        st.session_state.number = 0
+    if 'FeedbackRating' not in st.session_state:
+        st.session_state.FeedbackRating = ''
+    if 'FeedbackText' not in st.session_state:
+            st.session_state.FeedbackText = ''
 
     return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
 
