@@ -3,6 +3,10 @@ pipfile
 pipfile.lock
 Armeta AI.pptx
 secrets.toml
+ai-prompt-reporting\PriceChopperEnv
+PriceChopperEnv
+PriceChopperEnv*
+.gitignore
 ~*
 .streamlit/secrets.toml
 ./LocalModel/pytorch_model.bin

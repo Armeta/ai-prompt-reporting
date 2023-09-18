@@ -2,7 +2,7 @@
 import streamlit as st
 from   PIL import Image
 import sys
-from streamlit_toggle import toggle
+#from streamlit_toggle import toggle
 # add src to system path
 sys.path.append('src')
 
