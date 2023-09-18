@@ -1,12 +1,12 @@
 secrets.json
-pipfile
-pipfile.lock
 Armeta AI.pptx
+PriceChopperVENV
+.streamlit
 secrets.toml
-ai-prompt-reporting\PriceChopperEnv
-PriceChopperEnv
-PriceChopperEnv*
-.gitignore
+*.toml
+ai-prompt-reporting\.streamlit\config*
+*.pyc
 ~*
 .streamlit/secrets.toml
 ./LocalModel/pytorch_model.bin
+.streamlit/config/secrets.toml
