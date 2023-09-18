@@ -15,7 +15,7 @@ sys.path.append('src')
 from lib import code_library
 
 
-def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, truncateLoad = False, loadSnowflake = False, runQueries = False):
+def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, encode = False, truncateLoad = False, loadSnowflake = False, runQueries = False):
 
     # load template json
     print('Loading template file '+templateFilename)
@@ -52,11 +52,11 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
     stageD = None
     if(loadSnowflake):
         stageQ = open('toStageQuery.csv', 'w')
-        stageQ.write('DESC|DASHBOARD|QUERY|ENCODING|ENCODING_JSON|RESULT_CACHE\n')
+        stageQ.write('DESC|BATCH|DASHBOARD|QUERY|ENCODING|ENCODING_JSON|RESULT_CACHE|RESULT_CACHE_TS\n')
         stageD = open('toStageDashboard.csv', 'w')
-        stageD.write('DESC|DASHBOARD|URL|ENCODING|ENCODING_JSON|FILTER|QUERY\n')
+        stageD.write('DESC|BATCH|DASHBOARD|URL|ENCODING|ENCODING_JSON|FILTER|QUERY\n')
         session = code_library.snowconnection()    
-
+        batch = str(datetime.datetime.now())
 
     count = 0
 
@@ -107,13 +107,19 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
 
             # append to stage file if loading to snowflake
             if(loadSnowflake):
-                enc = model.encode(newDesc).tolist()
-                enc_json = '{"encoding": '+str(enc)+'}'
-                enc_bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
+                if(encode):
+                    enc = model.encode(newDesc).tolist()
+                    enc_json = '{"encoding": '+str(enc)+'}'
+                    enc_bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
+                else:
+                    enc_json = ''
+                    enc_bin = ''
 
-                query_cache = 'NULL'
+                query_cache = ''
+                query_cache_ts = ''
                 if(runQueries):
                     query_cache = session.sql(newQuery).collect()
+                    query_cache_ts = str(datetime.datetime.now())
                     if(len(query_cache) == 0 or query_cache[0] == None):
                         query_cache = 'No results'
                     elif(len(query_cache[0]) == 0 or query_cache[0][0] == None):
@@ -121,10 +127,10 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
                     else:
                         query_cache = query_cache[0][0]
                     
-                #DESC, DASHBOARD, QUERY, ENCODING, ENCODING_JSON, RESULT_CACHE
-                stageQ.write('%s|%s|%s|%s|%s|%s\n' % (newDesc, template['urlpage'], newQuery, enc_bin, enc_json, query_cache))
-                #DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY
-                stageD.write('%s|%s|%s|%s|%s|%s|%s\n' % (newDesc, template['urlpage'], newURL, enc_bin, enc_json, newURLFilter, newURLQuery))
+                #DESC, BATCH, DASHBOARD, QUERY, ENCODING, ENCODING_JSON, RESULT_CACHE, RESULT_CACHE_TS
+                stageQ.write('%s|%s|%s|%s|%s|%s|%s|%s\n' % (newDesc, batch, template['urlpage'], newQuery, enc_bin, enc_json, query_cache, query_cache_ts))
+                #DESC, BATCH, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY
+                stageD.write('%s|%s|%s|%s|%s|%s|%s|%s\n' % (newDesc, batch, template['urlpage'], newURL, enc_bin, enc_json, newURLFilter, newURLQuery))
 
             # get next combination of parameters
             if(len(paramCount) > 0):
@@ -150,6 +156,7 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
 
     # load staged records
     if loadSnowflake:
+        print('Loading Snowflake with batch %s' % (batch))
         stageQ.close()
         stageD.close()
         schema = 'PC'
@@ -174,8 +181,8 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
         session.sql('PUT file://%s/toStageQuery.csv %s;' % (str(os.getcwd()), stageQuery)).collect()
 
         print('Loading Stages Into Tables...')
-        session.sql('COPY INTO %s.%s (DESC, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY) FROM %s file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (schema, tableDashboard, stageDashboard)).collect()
-        session.sql('COPY INTO %s.%s (DESC, DASHBOARD, QUERY, ENCODING, ENCODING_JSON, RESULT_CACHE) FROM %s file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (schema, tableQuery, stageQuery)).collect()
+        session.sql('COPY INTO %s.%s (DESC, BATCH, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY) FROM %s file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (schema, tableDashboard, stageDashboard)).collect()
+        session.sql('COPY INTO %s.%s (DESC, BATCH, DASHBOARD, QUERY, ENCODING, ENCODING_JSON, RESULT_CACHE, RESULT_CACHE_TS) FROM %s file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (schema, tableQuery, stageQuery)).collect()
 
         os.remove('toStageDashboard.csv')
         os.remove('toStageQuery.csv')
@@ -187,14 +194,16 @@ if __name__ == '__main__':
         if(sys.argv[1][0] != '-'): # included template filepath
             main(sys.argv[1]
                  , useLocalModel = '--useLocalModel' in sys.argv or 'l' in flags
+                 , encode = '--encode' in sys.argv or 'e' in flags
                  , truncateLoad = '--truncateLoad' in sys.argv or 't' in flags
                  , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
                  , runQueries = '--runQueries' in sys.argv or 'q' in flags)
         else: # default template filepath
             main(  useLocalModel = '--useLocalModel' in sys.argv or 'l' in flags
+                 , encode = '--encode' in sys.argv or 'e' in flags
                  , truncateLoad = '--truncateLoad' in sys.argv or 't' in flags
                  , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
                  , runQueries = '--runQueries' in sys.argv or 'q' in flags)
             
     else: #  no arguments, run from code arguments
-        main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, truncateLoad = False, loadSnowflake = False, runQueries = False)
+        main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, encode = False, truncateLoad = False, loadSnowflake = False, runQueries = False)
