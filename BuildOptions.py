@@ -9,10 +9,7 @@ from     snowflake.snowpark           import Session
 from     snowflake.snowpark.functions import col, to_timestamp
 from     snowflake.snowpark.types     import IntegerType, StringType, StructField, StructType, DateType,LongType,DoubleType
 
-# add src to system path
-sys.path.append('src')
-
-from lib import code_library
+from src.lib import code_library
 
 
 def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, encode = False, truncateLoad = False, loadSnowflake = False, runQueries = False):

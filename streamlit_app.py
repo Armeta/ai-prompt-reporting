@@ -1,10 +1,6 @@
 # Visualizations 
 import streamlit as st
 from   PIL import Image
-import sys
-#from streamlit_toggle import toggle
-# add src to system path
-sys.path.append('src')
 
 # custom functions
 from src.lib import code_library
