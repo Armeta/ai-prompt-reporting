@@ -7,7 +7,7 @@ import sys
 sys.path.append('src')
 
 # custom functions
-from lib import code_library
+from src.lib import code_library
 import json
 # tab icon
 image = Image.open('src/media/armeta-icon.png')
