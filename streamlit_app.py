@@ -1,13 +1,9 @@
 # Visualizations 
 import streamlit as st
 from   PIL import Image
-import sys
-from streamlit_toggle import toggle
-# add src to system path
-sys.path.append('src')
 
 # custom functions
-from lib import code_library
+from src.lib import code_library
 import json
 # tab icon
 image = Image.open('src/media/armeta-icon.png')
