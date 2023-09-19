@@ -123,8 +123,8 @@ def get_Model():
 @st.cache_resource()
 def get_Data(_session):
     # # Open and collect options
-    options_dash  = _session.table("PC.OPTIONS_DASHBOARD") 
-    options_query = _session.table("PC.OPTIONS_QUERY")
+    options_dash  = _session.table('"OptionsDashboardLocal"') 
+    options_query = _session.table('"OptionsQueryLocal"')
         
     #recieve options and their encodings and return
     dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
