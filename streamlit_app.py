@@ -44,6 +44,7 @@ def main():
             st.markdown(prompt)
         
         if prompt == 'reload':
+            st.cache_resource.clear()
             dash_enc, dash_opts, query_enc, query_opts = code_library.get_Data(session)
         else:
             # clean the prompt before the AI recieves it
