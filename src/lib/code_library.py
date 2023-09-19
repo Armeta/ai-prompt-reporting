@@ -118,13 +118,18 @@ def get_Model():
     modelName = 'all-distilroberta-v1'
     #modelName = './LocalModel/'
     model = SentenceTransformer(modelName)    
-    return model
+    return model, modelName
 
 @st.cache_resource()
-def get_Data(_session):
+def get_Data(_session, modelName):
     # # Open and collect options
-    options_dash  = _session.table('"OptionsDashboardLocal"') 
-    options_query = _session.table('"OptionsQueryLocal"')
+    if(modelName == './LocalModel/'):
+        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
+        options_query = _session.table("\"OptionsQueryLocal\"")
+    else:
+        options_dash  = _session.table("\"OptionsDashboard\"") 
+        options_query = _session.table("\"OptionsQuery\"")
+
         
     #recieve options and their encodings and return
     dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
@@ -169,8 +174,8 @@ def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Pat
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     f.close()
 
-    model = get_Model()
-    dash_enc, dash_opts, query_enc, query_opts = get_Data(_session)
+    model, modelName = get_Model()
+    dash_enc, dash_opts, query_enc, query_opts = get_Data(_session, modelName)
     
         # (re)-initialize current chat 
     if 'messages' not in st.session_state:
