@@ -127,8 +127,8 @@ def get_Data(_session, modelName):
         options_dash  = _session.table("\"OptionsDashboardLocal\"") 
         options_query = _session.table("\"OptionsQueryLocal\"")
     else:
-        options_dash  = _session.table("\"OptionsDashboard\"") 
-        options_query = _session.table("\"OptionsQuery\"")
+        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
+        options_query = _session.table("\"OptionsQueryLocal\"")
 
         
     #recieve options and their encodings and return
