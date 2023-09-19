@@ -43,33 +43,36 @@ def main():
         with st.chat_message("user", avatar = UserAvatar):
             st.markdown(prompt)
         
-        # clean the prompt before the AI recieves it
-        clean_prompt = prompt.lower().replace('\'','').replace('-',' ')
-            
-        # run the prompt against the AI to recieve an answer And Write to session cache for user
-        dash_answer, query_answer = \
-        code_library.do_Get(clean_prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
-        code_library.save_UserCache(number, prompt)
+        if prompt == 'reload':
+            dash_enc, dash_opts, query_enc, query_opts = code_library.get_Data(session)
+        else:
+            # clean the prompt before the AI recieves it
+            clean_prompt = prompt.lower().replace('\'','').replace('-',' ')
+                
+            # run the prompt against the AI to recieve an answer And Write to session cache for user
+            dash_answer, query_answer = \
+            code_library.do_Get(clean_prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
+            code_library.save_UserCache(number, prompt)
 
-        #Start chat - assistant
-        with st.chat_message("assistant", avatar = BotAvatar):
-            # Show query result 
-            if(query_answer != '') and (options != 'Dashboards Only'):
-                # Write results + session cache for assistant
-                query_answer = str(query_answer).replace("$", "\\$")
-                st.markdown(query_answer) 
-                code_library.save_AssistantCache(number, query_answer)
-            elif (options != 'Dashboards Only'):
-                # Write results + session cache for assistant 
-                st.write("No query results")               
-                code_library.save_AssistantCache(number, "No query results")
+            #Start chat - assistant
+            with st.chat_message("assistant", avatar = BotAvatar):
+                # Show query result 
+                if(query_answer != '') and (options != 'Dashboards Only'):
+                    # Write results + session cache for assistant
+                    query_answer = str(query_answer).replace("$", "\\$")
+                    st.markdown(query_answer) 
+                    code_library.save_AssistantCache(number, query_answer)
+                elif (options != 'Dashboards Only'):
+                    # Write results + session cache for assistant 
+                    st.write("No query results")               
+                    code_library.save_AssistantCache(number, "No query results")
 
-            # Show dashboard result  
-            if(dash_answer != '') and (options != 'Query Results Only'): 
-                # Write results + session cache for assistant
-                st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)
-                st.session_state.number       = number         
-                code_library.save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
+                # Show dashboard result  
+                if(dash_answer != '') and (options != 'Query Results Only'): 
+                    # Write results + session cache for assistant
+                    st.markdown("Your query reminds me of this [dashboard.](%s)" % dash_answer)
+                    st.session_state.number       = number         
+                    code_library.save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
         # End chat - assistant
 # ask user if reply was helpful
     if st.button('Give Feedback'):
