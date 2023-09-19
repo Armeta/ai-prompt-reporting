@@ -67,7 +67,7 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
             newDesc = template['desc']
             newQuestions = template['questions']
             newQuery = template['query']
-            newURL = 'https://ip.armeta.com/pricechopper/analytics/'+template['urlpage']
+            newURL = 'https://ipqa.armeta.com/pricechopper/analytics/'+template['urlpage']
             newURLFilter = template['urlfilter']
             newURLQuery = template['urlquery']
 
