@@ -30,15 +30,26 @@ print(str(total) + ' queries to cache')
 for row in query:
 
     result = session.sql(row[1]).collect()
+    
+    # Initializing an empty result string
+    result_str = ''
 
     if(len(result) == 0 or result[0] == None):
         result_str = 'No results'
-    elif(len(result[0]) == 0 or result[0][0] == None):
-        result_str = 'No results'
     else:
-        result_str = result[0][0].replace('\'', '\'\'')
-    
-    result_str = str(result)    
+            # Iterating through each row of the result and appending values to result_str
+        for r in result:
+            # Check if the individual row is non-empty and its first item isn't None
+            if len(r) > 0 and r[0] != None:
+                result_str += r[0].replace('\'', '\'\'') + "<+>" + str(r[1])
+
+                # Separate values with a comma or any other separator if desired
+                result_str += '%@%'
+
+        # Remove trailing comma
+        result_str = result_str.rstrip(',')
+        if not result_str:
+            result_str = 'No results'    
 
     stageR.write('%d|%s|%s\n' % (row[0], result_str, str(datetime.datetime.now())))
     #session.sql('UPDATE "MODEL"."OptionsQuery" SET RESULT_CACHE=\''+result_str+'\',RESULT_CACHE_TS=CURRENT_TIMESTAMP WHERE SK='+str(row[0])+';').collect()
