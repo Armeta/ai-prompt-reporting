@@ -1,10 +1,10 @@
 {
     "parameterLists":{
         "DEPARTMENTGROUP_PARAMETER":{
-            "descriptionValues":    ["UNKNOWN", "FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
-        ,   "questionValues":       ["UNKNOWN", "FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
-        ,   "queryValues":          ["-1", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-        ,   "urlValues":            ["-1", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+            "descriptionValues":    ["FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
+        ,   "questionValues":       ["FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
+        ,   "queryValues":          ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        ,   "urlValues":            ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         },
         "EXCLUDE_DEPARTMENTGROUP_PARAMETER":{
             "descriptionValues":    ["FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
