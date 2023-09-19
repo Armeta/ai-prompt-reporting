@@ -5,6 +5,24 @@
         ,   "questionValues":       ["UNKNOWN", "FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
         ,   "queryValues":          ["-1", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
         ,   "urlValues":            ["-1", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        },
+        "EXCLUDE_DEPARTMENTGROUP_PARAMETER":{
+            "descriptionValues":    ["FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
+        ,   "questionValues":       ["FLORAL", "SEAFOOD", "GM", "PRODUCE", "DELI", "BAKERY", "MEAT", "GROCERY", "PHARMACY", "HBC"]
+        ,   "queryValues":          ["2, 3, 4, 5, 6, 7, 8, 9, 10", "1, 3, 4, 5, 6, 7, 8, 9, 10", "1, 2, 4, 5, 6, 7, 8, 9, 10", "1, 2, 3, 5, 6, 7, 8, 9, 10", "1, 2, 3, 4, 6, 7, 8, 9, 10", "1, 2, 3, 4, 5, 7, 8, 9, 10", "1, 2, 3, 4, 5, 6, 8, 9, 10", "1, 2, 3, 4, 5, 6, 7, 9, 10", "1, 2, 3, 4, 5, 6, 7, 8, 10", "1, 2, 3, 4, 5, 6, 7, 8, 9"]
+        ,   "urlValues":            ["\"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\"", "\"1\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\"", "\"1\", \"2\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\"", "\"1\", \"2\", \"3\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\"", "\"1\", \"2\", \"3\", \"4\", \"6\", \"7\", \"8\", \"9\", \"10\"", "\"1\", \"2\", \"3\", \"4\", \"5\", \"7\", \"8\", \"9\", \"10\"", "\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"8\", \"9\", \"10\"", "\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"9\", \"10\"", "\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"10\"", "\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\""]
+        },
+        "SALES_GEOGRAPHY_PARAMETER":{
+            "descriptionValues":    ["UNKNOWN", "ADIRONDACKS", "BING ONEONTA", "CAPITAL DISTRICT", "GREATER HARTFORD", "GREATER WORCESTER", "SCRANTON WILKESBARRE", "SO TIER", "SYRACUSE", "UTICA", "VT NEW HAMPSHIRE", "WESTERN MASS"]
+        ,   "questionValues":       ["UNKNOWN", "ADIRONDACKS", "BING ONEONTA", "CAPITAL DISTRICT", "GREATER HARTFORD", "GREATER WORCESTER", "SCRANTON WILKESBARRE", "SO TIER", "SYRACUSE", "UTICA", "VT NEW HAMPSHIRE", "WESTERN MASS"]
+        ,   "queryValues":          ["-1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+        ,   "urlValues":            ["-1", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"]
+        },
+        "TIMEFRAME_PARAMETER":{
+            "descriptionValues":    ["Year to Date", "Quarter to Date", "Period to Date", "Week To Date", "Last Complete Period", "Rolling 6 Weeks", "Rolling 13 Weeks", "Rolling 53 Weeks", "Last Complete Week", "Rolling 13 Periods", "Last 5 Years", "Last Complete Year"]
+        ,   "questionValues":       ["Year to Date", "Quarter to Date", "Period to Date", "Week To Date", "Last Complete Period", "Rolling 6 Weeks", "Rolling 13 Weeks", "Rolling 53 Weeks", "Last Complete Week", "Rolling 13 Periods", "Last 5 Years", "Last Complete Year"]
+        ,   "queryValues":          ["1", "2", "3", "4", "5", "6", "7", "8", "10", "11", "12", "13"]
+        ,   "urlValues":            ["1", "2", "3", "4", "5", "6", "7", "8", "10", "11", "12", "13"]
         }
     },
     "templates":[
@@ -16,6 +34,16 @@
         ,   "urlfilter":"{\"departmentDrivers\":[\"DEPARTMENTGROUP_PARAMETER\"]}"
         ,   "urlquery":"{\"timeframe\":10}"
         ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+        },
+        {   "parameters": ["EXCLUDE_DEPARTMENTGROUP_PARAMETER"]
+        ,   "desc":"Total sales excluding EXCLUDE_DEPARTMENTGROUP_PARAMETER last week."
+        ,   "questions":["What were my total sales excluding EXCLUDE_DEPARTMENTGROUP_PARAMETER last week?", "What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?"]
+        ,   "query":"SELECT CONCAT('The total sales last week excluding the ', A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL,' department is $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')) ) FROM PC.\"Opportunity_Locator\" OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON A.SALES_DEPARTMENT_GROUP_ID NOT IN (EXCLUDE_DEPARTMENTGROUP_PARAMETER) AND A.SALES_DEPARTMENT_GROUP_ID <> -1 WHERE OP.SALES_DEPARTMENT_GROUP_ID IN (EXCLUDE_DEPARTMENTGROUP_PARAMETER) AND OP.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL;"
+        ,   "urlpage":"opportunity-locator"
+        ,   "urlfilter":"{\"departmentDrivers\":[EXCLUDE_DEPARTMENTGROUP_PARAMETER]}"
+        ,   "urlquery":"{\"timeframe\":10}"
+        ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
         }
+        
     ]
 }

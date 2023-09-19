@@ -62,7 +62,7 @@ def main():
             st.markdown(prompt)
         
         # clean the prompt before the AI recieves it
-        clean_prompt = prompt.replace('\'','').replace('-',' ')
+        clean_prompt = prompt.lower().replace('\'','').replace('-',' ')
             
         # run the prompt against the AI to recieve an answer And Write to session cache for user
         dash_answer, query_answer = \

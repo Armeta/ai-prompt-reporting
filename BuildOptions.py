@@ -105,7 +105,7 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
             # append to stage file if loading to snowflake
             if(loadSnowflake):
                 if(encode):
-                    enc = model.encode(newDesc).tolist()
+                    enc = model.encode(newDesc.lower()).tolist()
                     enc_json = '{"encoding": '+str(enc)+'}'
                     enc_bin = ''.join([''.join(['%02x' % (b) for b in bytearray(struct.pack('d', d))]) for d in enc])
                 else:

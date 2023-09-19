@@ -1,4 +1,4 @@
-2023-09-18 11:40:19.360212
+2023-09-19 08:57:26.977312
 What were my total sales in UNKNOWN last week?|Total sales in UNKNOWN last week.
 What were my total sales in FLORAL last week?|Total sales in FLORAL last week.
 What were my total sales in SEAFOOD last week?|Total sales in SEAFOOD last week.
@@ -10,3 +10,23 @@ What were my total sales in MEAT last week?|Total sales in MEAT last week.
 What were my total sales in GROCERY last week?|Total sales in GROCERY last week.
 What were my total sales in PHARMACY last week?|Total sales in PHARMACY last week.
 What were my total sales in HBC last week?|Total sales in HBC last week.
+What were my total sales excluding FLORAL last week?|Total sales excluding FLORAL last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding FLORAL last week.
+What were my total sales excluding SEAFOOD last week?|Total sales excluding SEAFOOD last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding SEAFOOD last week.
+What were my total sales excluding GM last week?|Total sales excluding GM last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding GM last week.
+What were my total sales excluding PRODUCE last week?|Total sales excluding PRODUCE last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding PRODUCE last week.
+What were my total sales excluding DELI last week?|Total sales excluding DELI last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding DELI last week.
+What were my total sales excluding BAKERY last week?|Total sales excluding BAKERY last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding BAKERY last week.
+What were my total sales excluding MEAT last week?|Total sales excluding MEAT last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding MEAT last week.
+What were my total sales excluding GROCERY last week?|Total sales excluding GROCERY last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding GROCERY last week.
+What were my total sales excluding PHARMACY last week?|Total sales excluding PHARMACY last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding PHARMACY last week.
+What were my total sales excluding HBC last week?|Total sales excluding HBC last week.
+What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding HBC last week.
