@@ -9,7 +9,6 @@ import json
 
 
 def main():
-    print("")
     # Get connection string paramaters
     session = code_library.snowconnection()   
     
