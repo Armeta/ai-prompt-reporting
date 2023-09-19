@@ -34,7 +34,7 @@ def main():
         options = st.radio("What would you like to see?",('Both Dashboard and Query Results', 'Dashboards Only', 'Query Results Only'))
 
         st.sidebar.header("Visualizations")
-        plot_options = ["Bar plot", "Scatter plot", "Histogram", "Box plot"]
+        plot_options  = ["Bar plot", "Scatter plot", "Histogram", "Box plot"]
         selected_plot = st.sidebar.selectbox("Choose a plot type", plot_options)
 
     # load chat history 
@@ -80,10 +80,20 @@ def main():
                 code_library.save_AssistantCache(number, "Your query reminds me of this [dashboard.](%s)" % dash_answer)
         # End chat - assistant
 
-# ask user if reply was helpful
-    if st.button('Give Feedback'):
+    ChatOptions         = ['Standard Chat', "Draw Graph", 'Give Feedback']
+    SelectedChatOption  = st.radio('ChatOptions', ChatOptions, horizontal = True, label_visibility = "hidden")
+
+    if SelectedChatOption == 'Standard Chat':
+        ""
+
+    # ask user if reply was helpful
+    if SelectedChatOption == 'Give Feedback':
         switch_page('Give Feedback')
 
+    if SelectedChatOption == "Draw Graph": 
+        st.write("Drawing: ", selected_plot)
+        data = code_library.get_GraphData()
+        code_library.get_Graph(selected_plot, data)
 
 if __name__ == '__main__':  
     main()

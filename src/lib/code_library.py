@@ -8,6 +8,8 @@ import toml
 # data manipulation 
 from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers    import SentenceTransformer
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 #data types
 import json
@@ -129,7 +131,6 @@ def get_Data(_session, modelName):
     else:
         options_dash  = _session.table("\"OptionsDashboardLocal\"") 
         options_query = _session.table("\"OptionsQueryLocal\"")
-
         
     #recieve options and their encodings and return
     dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
@@ -140,6 +141,18 @@ def get_Data(_session, modelName):
     query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
 
     return dash_enc, dash_opts, query_enc, query_opts
+
+@st.cache_resource()
+def get_GraphData(_session, modelName):
+    # Open and collect options    
+    graph_dash  = _session.table("\"OptionsGraph\"") 
+        
+    #recieve options and their encodings and return
+    graph_Rows = graph_dash.select(['RESULT_CACHE', 'ENCODING']).filter(col('RESULT_CACHE').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
+    graph_ops  = [row[0] for row in graph_Rows]
+    graph_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in graph_Rows]
+
+    return graph_ops, graph_enc
 
 def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Path):
 
@@ -188,6 +201,38 @@ def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Pat
             st.session_state.FeedbackText = ''
 
     return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
+
+def get_Graph(selected_plot, data):
+    if selected_plot == "Bar plot":
+        x_axis = st.sidebar.selectbox("Select x-axis", data.columns)
+        y_axis = st.sidebar.selectbox("Select y-axis", data.columns)
+        st.write("Bar plot:")
+        fig, ax = plt.subplots()
+        sns.barplot(x=data[x_axis], y=data[y_axis], ax=ax)
+        st.pyplot(fig)
+
+    elif selected_plot == "Scatter plot":
+        x_axis = st.sidebar.selectbox("Select x-axis", data.columns)
+        y_axis = st.sidebar.selectbox("Select y-axis", data.columns)
+        st.write("Scatter plot:")
+        fig, ax = plt.subplots()
+        sns.scatterplot(x=data[x_axis], y=data[y_axis], ax=ax)
+        st.pyplot(fig)
+
+    elif selected_plot == "Histogram":
+        column = st.sidebar.selectbox("Select a column", data.columns)
+        bins = st.sidebar.slider("Number of bins", 5, 100, 20)
+        st.write("Histogram:")
+        fig, ax = plt.subplots()
+        sns.histplot(data[column], bins=bins, ax=ax)
+        st.pyplot(fig)
+
+    elif selected_plot == "Box plot":
+        column = st.sidebar.selectbox("Select a column", data.columns)
+        st.write("Box plot:")
+        fig, ax = plt.subplots()
+        sns.boxplot(data[column], ax=ax)
+        st.pyplot(fig)
 
 
 # run the prompt against the AI to recieve an answer
