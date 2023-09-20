@@ -95,6 +95,7 @@ def main():
             LastPrompt = code_library.get_LastPrompt(st.session_state.number)
             if LastPrompt:
                 graph_answer = code_library.do_GetGraph(LastPrompt, model, graph_opts, graph_enc)
+                print(graph_answer)
             else:
                 st.write("No prompt")
 
