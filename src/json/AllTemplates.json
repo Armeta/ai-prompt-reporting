@@ -67,6 +67,15 @@
         ,   "urlfilter":"{\"departmentDrivers\":[EXCLUDE_DEPARTMENTGROUP_PARAMETER]}"
         ,   "urlquery":"{\"timeframe\":TIMEFRAME_PARAMETER}"
         ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+        },
+        {   "parameters": ["TIMEFRAME_PARAMETER"]
+        ,   "desc":"The top performing store TIMEFRAME_PARAMETER."
+        ,   "questions":["What is my top performing store TIMEFRAME_PARAMETER?"]
+        ,   "query":"SELECT TOP 1 CONCAT(A.STORE_LABEL, ' is the top performing store in the ', B.TIMEFRAME_DESC ,' timeframe with $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')), ' of sales.' ) FROM PC.\"Opportunity_Locator\" OP JOIN PC.LKP_STORE A ON OP.STORE_ID = A.STORE_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY A.STORE_LABEL, B.TIMEFRAME_DESC ORDER BY SUM(OP.NET_SALES_DOLLARS_TY) DESC;"
+        ,   "urlpage":"opportunity-locator"
+        ,   "urlfilter":""
+        ,   "urlquery":"{\"timeframe\":TIMEFRAME_PARAMETER}"
+        ,   "urlview":""
         }
         
     ]
