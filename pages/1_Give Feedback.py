@@ -19,4 +19,4 @@ with st.form("Give Feedback: ", clear_on_submit=True):
 
 
 if st.button("Return"):
-    switch_page('Streamlit_App')
+    switch_page('Arai')

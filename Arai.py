@@ -18,7 +18,7 @@ def main():
     = code_library.env_Setup(session                                          
                              , "Analytics Digital Assistant - Armeta POC"  
                              , "wide"                                         
-                             , "collapsed"                                     
+                             , "expanded"                                     
                              , {'About': "This is a webpage with a user input box where to input natural language and recieve real information along with links to a dashboard to help satisfy your query"} 
                              , './src/media/Title.png' 
                             )
@@ -91,9 +91,16 @@ def main():
         switch_page('Give Feedback')
 
     if SelectedChatOption == "Draw Graph": 
-        st.write("Drawing: ", selected_plot)
-        data = code_library.get_GraphData()
-        code_library.get_Graph(selected_plot, data)
+        with st.spinner("Drawing: " + selected_plot):
+            graph_ops, graph_enc = code_library.get_GraphData(session)
+            graph_ops_str = graph_ops[0]
+
+            # Split the string using the '%@%' delimiter
+            graph_ops_str = graph_ops_str.rstrip('%@%')
+            split_ops     = graph_ops_str.split('%@%')
+            graph_XY = [(item.split('<+>')[0], item.split('<+>')[1]) for item in split_ops]
+            code_library.get_Graph(selected_plot, graph_XY)
+            #How do sales in dallas compare to other stores in texas?
 
 if __name__ == '__main__':  
     main()

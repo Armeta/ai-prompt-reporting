@@ -10,6 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers    import SentenceTransformer
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pandas as pd
 
 #data types
 import json
@@ -143,9 +144,9 @@ def get_Data(_session, modelName):
     return dash_enc, dash_opts, query_enc, query_opts
 
 @st.cache_resource()
-def get_GraphData(_session, modelName):
+def get_GraphData(_session):
     # Open and collect options    
-    graph_dash  = _session.table("\"OptionsGraph\"") 
+    graph_dash  = _session.table("OPTIONS_GRAPH") 
         
     #recieve options and their encodings and return
     graph_Rows = graph_dash.select(['RESULT_CACHE', 'ENCODING']).filter(col('RESULT_CACHE').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
@@ -202,37 +203,52 @@ def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Pat
 
     return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
 
-def get_Graph(selected_plot, data):
+def get_Graph(selected_plot, GraphData):
+    
+    df = pd.DataFrame(GraphData, columns=['x', 'y'])
+    df['y'] = pd.to_numeric(df['y'], errors='coerce')  # Convert 'y' column to numeric
+    
     if selected_plot == "Bar plot":
-        x_axis = st.sidebar.selectbox("Select x-axis", data.columns)
-        y_axis = st.sidebar.selectbox("Select y-axis", data.columns)
-        st.write("Bar plot:")
-        fig, ax = plt.subplots()
-        sns.barplot(x=data[x_axis], y=data[y_axis], ax=ax)
-        st.pyplot(fig)
-
+        plt.figure(figsize=(12, 8))
+        # Order the bars based on y-values
+        order = df.sort_values('y')['x']
+        
+        sns.barplot(data=df, x="x", y="y", order=order)
+        plt.xticks(rotation=65)  # Rotate x-axis labels by 65 degrees
+        st.pyplot(plt)
     elif selected_plot == "Scatter plot":
-        x_axis = st.sidebar.selectbox("Select x-axis", data.columns)
-        y_axis = st.sidebar.selectbox("Select y-axis", data.columns)
-        st.write("Scatter plot:")
-        fig, ax = plt.subplots()
-        sns.scatterplot(x=data[x_axis], y=data[y_axis], ax=ax)
-        st.pyplot(fig)
+        plt.figure(figsize=(12, 8))
+        
+        # Order the colors based on y-values
+        df = df.sort_values(by='y')
+        cmap = sns.cubehelix_palette(start=2, rot=0, dark=0, light=.95, reverse=True, as_cmap=True)
+        sns.scatterplot(data=df, x="x", y="y", hue="y", size="y", sizes=(20,200), palette=cmap, legend=False)
+        
+        plt.xticks(rotation=65)  # Rotate x-axis labels by 45 degrees
+        
+        st.pyplot(plt)
 
     elif selected_plot == "Histogram":
-        column = st.sidebar.selectbox("Select a column", data.columns)
-        bins = st.sidebar.slider("Number of bins", 5, 100, 20)
-        st.write("Histogram:")
-        fig, ax = plt.subplots()
-        sns.histplot(data[column], bins=bins, ax=ax)
-        st.pyplot(fig)
+        plt.figure(figsize=(12, 8))
+        
+        sns.histplot(data=df, x="y", bins=30, kde=True)  # kde=True adds a Kernel Density Estimation line to the plot
+        plt.xlabel('y Values')  # x-axis label for clarity
+        plt.ylabel('Count')    # y-axis label for clarity
+        
+        st.pyplot(plt)
 
     elif selected_plot == "Box plot":
-        column = st.sidebar.selectbox("Select a column", data.columns)
-        st.write("Box plot:")
-        fig, ax = plt.subplots()
-        sns.boxplot(data[column], ax=ax)
-        st.pyplot(fig)
+        plt.figure(figsize=(12, 8))
+        
+        # Compute the order of the categories based on their median
+        order = df.groupby('x').median().sort_values(by='y', ascending=False).index
+        
+        sns.boxplot(data=df, x="x", y="y", order=order)
+        plt.xticks(rotation=65)  # Rotate x-axis labels by 45 degrees
+        plt.ylabel('y Values')  # y-axis label for clarity
+        
+        st.pyplot(plt)
+
 
 
 # run the prompt against the AI to recieve an answer
