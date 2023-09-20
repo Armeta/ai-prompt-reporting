@@ -7,5 +7,3 @@ secrets.toml
 *.pyc*
 .streamlit/secrets.toml
 ./LocalModel/pytorch_model.bin
-*pytorch_model.bin*
-*.pyc*
