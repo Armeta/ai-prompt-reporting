@@ -1,31 +1,211 @@
-2023-09-19 14:47:40.414147
-What were my total sales in FLORAL last week?|Total sales in FLORAL last week.
-What were my total sales in SEAFOOD last week?|Total sales in SEAFOOD last week.
-What were my total sales in GM last week?|Total sales in GM last week.
-What were my total sales in PRODUCE last week?|Total sales in PRODUCE last week.
-What were my total sales in DELI last week?|Total sales in DELI last week.
-What were my total sales in BAKERY last week?|Total sales in BAKERY last week.
-What were my total sales in MEAT last week?|Total sales in MEAT last week.
-What were my total sales in GROCERY last week?|Total sales in GROCERY last week.
-What were my total sales in PHARMACY last week?|Total sales in PHARMACY last week.
-What were my total sales in HBC last week?|Total sales in HBC last week.
-What were my total sales excluding FLORAL last week?|Total sales excluding FLORAL last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding FLORAL last week.
-What were my total sales excluding SEAFOOD last week?|Total sales excluding SEAFOOD last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding SEAFOOD last week.
-What were my total sales excluding GM last week?|Total sales excluding GM last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding GM last week.
-What were my total sales excluding PRODUCE last week?|Total sales excluding PRODUCE last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding PRODUCE last week.
-What were my total sales excluding DELI last week?|Total sales excluding DELI last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding DELI last week.
-What were my total sales excluding BAKERY last week?|Total sales excluding BAKERY last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding BAKERY last week.
-What were my total sales excluding MEAT last week?|Total sales excluding MEAT last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding MEAT last week.
-What were my total sales excluding GROCERY last week?|Total sales excluding GROCERY last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding GROCERY last week.
-What were my total sales excluding PHARMACY last week?|Total sales excluding PHARMACY last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding PHARMACY last week.
-What were my total sales excluding HBC last week?|Total sales excluding HBC last week.
-What were my total sales not including DEPARTMENTGROUP_PARAMETER last week?|Total sales excluding HBC last week.
+2023-09-20 10:19:12.453743
+What were my total sales in FLORAL Last Complete Year?|Total sales in FLORAL Last Complete Year.
+What were my total sales in SEAFOOD Last Complete Year?|Total sales in SEAFOOD Last Complete Year.
+What were my total sales in GM Last Complete Year?|Total sales in GM Last Complete Year.
+What were my total sales in PRODUCE Last Complete Year?|Total sales in PRODUCE Last Complete Year.
+What were my total sales in DELI Last Complete Year?|Total sales in DELI Last Complete Year.
+What were my total sales in BAKERY Last Complete Year?|Total sales in BAKERY Last Complete Year.
+What were my total sales in MEAT Last Complete Year?|Total sales in MEAT Last Complete Year.
+What were my total sales in GROCERY Last Complete Year?|Total sales in GROCERY Last Complete Year.
+What were my total sales in PHARMACY Last Complete Year?|Total sales in PHARMACY Last Complete Year.
+What were my total sales in HBC Last Complete Year?|Total sales in HBC Last Complete Year.
+What were my total sales in FLORAL Period to Date?|Total sales in FLORAL Period to Date.
+What were my total sales in SEAFOOD Period to Date?|Total sales in SEAFOOD Period to Date.
+What were my total sales in GM Period to Date?|Total sales in GM Period to Date.
+What were my total sales in PRODUCE Period to Date?|Total sales in PRODUCE Period to Date.
+What were my total sales in DELI Period to Date?|Total sales in DELI Period to Date.
+What were my total sales in BAKERY Period to Date?|Total sales in BAKERY Period to Date.
+What were my total sales in MEAT Period to Date?|Total sales in MEAT Period to Date.
+What were my total sales in GROCERY Period to Date?|Total sales in GROCERY Period to Date.
+What were my total sales in PHARMACY Period to Date?|Total sales in PHARMACY Period to Date.
+What were my total sales in HBC Period to Date?|Total sales in HBC Period to Date.
+What were my total sales in FLORAL Rolling 13 Weeks?|Total sales in FLORAL Rolling 13 Weeks.
+What were my total sales in SEAFOOD Rolling 13 Weeks?|Total sales in SEAFOOD Rolling 13 Weeks.
+What were my total sales in GM Rolling 13 Weeks?|Total sales in GM Rolling 13 Weeks.
+What were my total sales in PRODUCE Rolling 13 Weeks?|Total sales in PRODUCE Rolling 13 Weeks.
+What were my total sales in DELI Rolling 13 Weeks?|Total sales in DELI Rolling 13 Weeks.
+What were my total sales in BAKERY Rolling 13 Weeks?|Total sales in BAKERY Rolling 13 Weeks.
+What were my total sales in MEAT Rolling 13 Weeks?|Total sales in MEAT Rolling 13 Weeks.
+What were my total sales in GROCERY Rolling 13 Weeks?|Total sales in GROCERY Rolling 13 Weeks.
+What were my total sales in PHARMACY Rolling 13 Weeks?|Total sales in PHARMACY Rolling 13 Weeks.
+What were my total sales in HBC Rolling 13 Weeks?|Total sales in HBC Rolling 13 Weeks.
+What were my total sales in FLORAL Last Complete Week?|Total sales in FLORAL Last Complete Week.
+What were my total sales in SEAFOOD Last Complete Week?|Total sales in SEAFOOD Last Complete Week.
+What were my total sales in GM Last Complete Week?|Total sales in GM Last Complete Week.
+What were my total sales in PRODUCE Last Complete Week?|Total sales in PRODUCE Last Complete Week.
+What were my total sales in DELI Last Complete Week?|Total sales in DELI Last Complete Week.
+What were my total sales in BAKERY Last Complete Week?|Total sales in BAKERY Last Complete Week.
+What were my total sales in MEAT Last Complete Week?|Total sales in MEAT Last Complete Week.
+What were my total sales in GROCERY Last Complete Week?|Total sales in GROCERY Last Complete Week.
+What were my total sales in PHARMACY Last Complete Week?|Total sales in PHARMACY Last Complete Week.
+What were my total sales in HBC Last Complete Week?|Total sales in HBC Last Complete Week.
+What were my total sales in FLORAL Year to Date?|Total sales in FLORAL Year to Date.
+What were my total sales in SEAFOOD Year to Date?|Total sales in SEAFOOD Year to Date.
+What were my total sales in GM Year to Date?|Total sales in GM Year to Date.
+What were my total sales in PRODUCE Year to Date?|Total sales in PRODUCE Year to Date.
+What were my total sales in DELI Year to Date?|Total sales in DELI Year to Date.
+What were my total sales in BAKERY Year to Date?|Total sales in BAKERY Year to Date.
+What were my total sales in MEAT Year to Date?|Total sales in MEAT Year to Date.
+What were my total sales in GROCERY Year to Date?|Total sales in GROCERY Year to Date.
+What were my total sales in PHARMACY Year to Date?|Total sales in PHARMACY Year to Date.
+What were my total sales in HBC Year to Date?|Total sales in HBC Year to Date.
+What were my total sales in FLORAL Week To Date?|Total sales in FLORAL Week To Date.
+What were my total sales in SEAFOOD Week To Date?|Total sales in SEAFOOD Week To Date.
+What were my total sales in GM Week To Date?|Total sales in GM Week To Date.
+What were my total sales in PRODUCE Week To Date?|Total sales in PRODUCE Week To Date.
+What were my total sales in DELI Week To Date?|Total sales in DELI Week To Date.
+What were my total sales in BAKERY Week To Date?|Total sales in BAKERY Week To Date.
+What were my total sales in MEAT Week To Date?|Total sales in MEAT Week To Date.
+What were my total sales in GROCERY Week To Date?|Total sales in GROCERY Week To Date.
+What were my total sales in PHARMACY Week To Date?|Total sales in PHARMACY Week To Date.
+What were my total sales in HBC Week To Date?|Total sales in HBC Week To Date.
+What were my total sales in FLORAL Rolling 13 Periods?|Total sales in FLORAL Rolling 13 Periods.
+What were my total sales in SEAFOOD Rolling 13 Periods?|Total sales in SEAFOOD Rolling 13 Periods.
+What were my total sales in GM Rolling 13 Periods?|Total sales in GM Rolling 13 Periods.
+What were my total sales in PRODUCE Rolling 13 Periods?|Total sales in PRODUCE Rolling 13 Periods.
+What were my total sales in DELI Rolling 13 Periods?|Total sales in DELI Rolling 13 Periods.
+What were my total sales in BAKERY Rolling 13 Periods?|Total sales in BAKERY Rolling 13 Periods.
+What were my total sales in MEAT Rolling 13 Periods?|Total sales in MEAT Rolling 13 Periods.
+What were my total sales in GROCERY Rolling 13 Periods?|Total sales in GROCERY Rolling 13 Periods.
+What were my total sales in PHARMACY Rolling 13 Periods?|Total sales in PHARMACY Rolling 13 Periods.
+What were my total sales in HBC Rolling 13 Periods?|Total sales in HBC Rolling 13 Periods.
+What were my total sales excluding FLORAL Last Complete Year?|Total sales excluding FLORAL Last Complete Year.
+What were my total sales not including FLORAL Last Complete Year?|Total sales excluding FLORAL Last Complete Year.
+What were my total sales excluding SEAFOOD Last Complete Year?|Total sales excluding SEAFOOD Last Complete Year.
+What were my total sales not including SEAFOOD Last Complete Year?|Total sales excluding SEAFOOD Last Complete Year.
+What were my total sales excluding GM Last Complete Year?|Total sales excluding GM Last Complete Year.
+What were my total sales not including GM Last Complete Year?|Total sales excluding GM Last Complete Year.
+What were my total sales excluding PRODUCE Last Complete Year?|Total sales excluding PRODUCE Last Complete Year.
+What were my total sales not including PRODUCE Last Complete Year?|Total sales excluding PRODUCE Last Complete Year.
+What were my total sales excluding DELI Last Complete Year?|Total sales excluding DELI Last Complete Year.
+What were my total sales not including DELI Last Complete Year?|Total sales excluding DELI Last Complete Year.
+What were my total sales excluding BAKERY Last Complete Year?|Total sales excluding BAKERY Last Complete Year.
+What were my total sales not including BAKERY Last Complete Year?|Total sales excluding BAKERY Last Complete Year.
+What were my total sales excluding MEAT Last Complete Year?|Total sales excluding MEAT Last Complete Year.
+What were my total sales not including MEAT Last Complete Year?|Total sales excluding MEAT Last Complete Year.
+What were my total sales excluding GROCERY Last Complete Year?|Total sales excluding GROCERY Last Complete Year.
+What were my total sales not including GROCERY Last Complete Year?|Total sales excluding GROCERY Last Complete Year.
+What were my total sales excluding PHARMACY Last Complete Year?|Total sales excluding PHARMACY Last Complete Year.
+What were my total sales not including PHARMACY Last Complete Year?|Total sales excluding PHARMACY Last Complete Year.
+What were my total sales excluding HBC Last Complete Year?|Total sales excluding HBC Last Complete Year.
+What were my total sales not including HBC Last Complete Year?|Total sales excluding HBC Last Complete Year.
+What were my total sales excluding FLORAL Period to Date?|Total sales excluding FLORAL Period to Date.
+What were my total sales not including FLORAL Period to Date?|Total sales excluding FLORAL Period to Date.
+What were my total sales excluding SEAFOOD Period to Date?|Total sales excluding SEAFOOD Period to Date.
+What were my total sales not including SEAFOOD Period to Date?|Total sales excluding SEAFOOD Period to Date.
+What were my total sales excluding GM Period to Date?|Total sales excluding GM Period to Date.
+What were my total sales not including GM Period to Date?|Total sales excluding GM Period to Date.
+What were my total sales excluding PRODUCE Period to Date?|Total sales excluding PRODUCE Period to Date.
+What were my total sales not including PRODUCE Period to Date?|Total sales excluding PRODUCE Period to Date.
+What were my total sales excluding DELI Period to Date?|Total sales excluding DELI Period to Date.
+What were my total sales not including DELI Period to Date?|Total sales excluding DELI Period to Date.
+What were my total sales excluding BAKERY Period to Date?|Total sales excluding BAKERY Period to Date.
+What were my total sales not including BAKERY Period to Date?|Total sales excluding BAKERY Period to Date.
+What were my total sales excluding MEAT Period to Date?|Total sales excluding MEAT Period to Date.
+What were my total sales not including MEAT Period to Date?|Total sales excluding MEAT Period to Date.
+What were my total sales excluding GROCERY Period to Date?|Total sales excluding GROCERY Period to Date.
+What were my total sales not including GROCERY Period to Date?|Total sales excluding GROCERY Period to Date.
+What were my total sales excluding PHARMACY Period to Date?|Total sales excluding PHARMACY Period to Date.
+What were my total sales not including PHARMACY Period to Date?|Total sales excluding PHARMACY Period to Date.
+What were my total sales excluding HBC Period to Date?|Total sales excluding HBC Period to Date.
+What were my total sales not including HBC Period to Date?|Total sales excluding HBC Period to Date.
+What were my total sales excluding FLORAL Rolling 13 Weeks?|Total sales excluding FLORAL Rolling 13 Weeks.
+What were my total sales not including FLORAL Rolling 13 Weeks?|Total sales excluding FLORAL Rolling 13 Weeks.
+What were my total sales excluding SEAFOOD Rolling 13 Weeks?|Total sales excluding SEAFOOD Rolling 13 Weeks.
+What were my total sales not including SEAFOOD Rolling 13 Weeks?|Total sales excluding SEAFOOD Rolling 13 Weeks.
+What were my total sales excluding GM Rolling 13 Weeks?|Total sales excluding GM Rolling 13 Weeks.
+What were my total sales not including GM Rolling 13 Weeks?|Total sales excluding GM Rolling 13 Weeks.
+What were my total sales excluding PRODUCE Rolling 13 Weeks?|Total sales excluding PRODUCE Rolling 13 Weeks.
+What were my total sales not including PRODUCE Rolling 13 Weeks?|Total sales excluding PRODUCE Rolling 13 Weeks.
+What were my total sales excluding DELI Rolling 13 Weeks?|Total sales excluding DELI Rolling 13 Weeks.
+What were my total sales not including DELI Rolling 13 Weeks?|Total sales excluding DELI Rolling 13 Weeks.
+What were my total sales excluding BAKERY Rolling 13 Weeks?|Total sales excluding BAKERY Rolling 13 Weeks.
+What were my total sales not including BAKERY Rolling 13 Weeks?|Total sales excluding BAKERY Rolling 13 Weeks.
+What were my total sales excluding MEAT Rolling 13 Weeks?|Total sales excluding MEAT Rolling 13 Weeks.
+What were my total sales not including MEAT Rolling 13 Weeks?|Total sales excluding MEAT Rolling 13 Weeks.
+What were my total sales excluding GROCERY Rolling 13 Weeks?|Total sales excluding GROCERY Rolling 13 Weeks.
+What were my total sales not including GROCERY Rolling 13 Weeks?|Total sales excluding GROCERY Rolling 13 Weeks.
+What were my total sales excluding PHARMACY Rolling 13 Weeks?|Total sales excluding PHARMACY Rolling 13 Weeks.
+What were my total sales not including PHARMACY Rolling 13 Weeks?|Total sales excluding PHARMACY Rolling 13 Weeks.
+What were my total sales excluding HBC Rolling 13 Weeks?|Total sales excluding HBC Rolling 13 Weeks.
+What were my total sales not including HBC Rolling 13 Weeks?|Total sales excluding HBC Rolling 13 Weeks.
+What were my total sales excluding FLORAL Last Complete Week?|Total sales excluding FLORAL Last Complete Week.
+What were my total sales not including FLORAL Last Complete Week?|Total sales excluding FLORAL Last Complete Week.
+What were my total sales excluding SEAFOOD Last Complete Week?|Total sales excluding SEAFOOD Last Complete Week.
+What were my total sales not including SEAFOOD Last Complete Week?|Total sales excluding SEAFOOD Last Complete Week.
+What were my total sales excluding GM Last Complete Week?|Total sales excluding GM Last Complete Week.
+What were my total sales not including GM Last Complete Week?|Total sales excluding GM Last Complete Week.
+What were my total sales excluding PRODUCE Last Complete Week?|Total sales excluding PRODUCE Last Complete Week.
+What were my total sales not including PRODUCE Last Complete Week?|Total sales excluding PRODUCE Last Complete Week.
+What were my total sales excluding DELI Last Complete Week?|Total sales excluding DELI Last Complete Week.
+What were my total sales not including DELI Last Complete Week?|Total sales excluding DELI Last Complete Week.
+What were my total sales excluding BAKERY Last Complete Week?|Total sales excluding BAKERY Last Complete Week.
+What were my total sales not including BAKERY Last Complete Week?|Total sales excluding BAKERY Last Complete Week.
+What were my total sales excluding MEAT Last Complete Week?|Total sales excluding MEAT Last Complete Week.
+What were my total sales not including MEAT Last Complete Week?|Total sales excluding MEAT Last Complete Week.
+What were my total sales excluding GROCERY Last Complete Week?|Total sales excluding GROCERY Last Complete Week.
+What were my total sales not including GROCERY Last Complete Week?|Total sales excluding GROCERY Last Complete Week.
+What were my total sales excluding PHARMACY Last Complete Week?|Total sales excluding PHARMACY Last Complete Week.
+What were my total sales not including PHARMACY Last Complete Week?|Total sales excluding PHARMACY Last Complete Week.
+What were my total sales excluding HBC Last Complete Week?|Total sales excluding HBC Last Complete Week.
+What were my total sales not including HBC Last Complete Week?|Total sales excluding HBC Last Complete Week.
+What were my total sales excluding FLORAL Year to Date?|Total sales excluding FLORAL Year to Date.
+What were my total sales not including FLORAL Year to Date?|Total sales excluding FLORAL Year to Date.
+What were my total sales excluding SEAFOOD Year to Date?|Total sales excluding SEAFOOD Year to Date.
+What were my total sales not including SEAFOOD Year to Date?|Total sales excluding SEAFOOD Year to Date.
+What were my total sales excluding GM Year to Date?|Total sales excluding GM Year to Date.
+What were my total sales not including GM Year to Date?|Total sales excluding GM Year to Date.
+What were my total sales excluding PRODUCE Year to Date?|Total sales excluding PRODUCE Year to Date.
+What were my total sales not including PRODUCE Year to Date?|Total sales excluding PRODUCE Year to Date.
+What were my total sales excluding DELI Year to Date?|Total sales excluding DELI Year to Date.
+What were my total sales not including DELI Year to Date?|Total sales excluding DELI Year to Date.
+What were my total sales excluding BAKERY Year to Date?|Total sales excluding BAKERY Year to Date.
+What were my total sales not including BAKERY Year to Date?|Total sales excluding BAKERY Year to Date.
+What were my total sales excluding MEAT Year to Date?|Total sales excluding MEAT Year to Date.
+What were my total sales not including MEAT Year to Date?|Total sales excluding MEAT Year to Date.
+What were my total sales excluding GROCERY Year to Date?|Total sales excluding GROCERY Year to Date.
+What were my total sales not including GROCERY Year to Date?|Total sales excluding GROCERY Year to Date.
+What were my total sales excluding PHARMACY Year to Date?|Total sales excluding PHARMACY Year to Date.
+What were my total sales not including PHARMACY Year to Date?|Total sales excluding PHARMACY Year to Date.
+What were my total sales excluding HBC Year to Date?|Total sales excluding HBC Year to Date.
+What were my total sales not including HBC Year to Date?|Total sales excluding HBC Year to Date.
+What were my total sales excluding FLORAL Week To Date?|Total sales excluding FLORAL Week To Date.
+What were my total sales not including FLORAL Week To Date?|Total sales excluding FLORAL Week To Date.
+What were my total sales excluding SEAFOOD Week To Date?|Total sales excluding SEAFOOD Week To Date.
+What were my total sales not including SEAFOOD Week To Date?|Total sales excluding SEAFOOD Week To Date.
+What were my total sales excluding GM Week To Date?|Total sales excluding GM Week To Date.
+What were my total sales not including GM Week To Date?|Total sales excluding GM Week To Date.
+What were my total sales excluding PRODUCE Week To Date?|Total sales excluding PRODUCE Week To Date.
+What were my total sales not including PRODUCE Week To Date?|Total sales excluding PRODUCE Week To Date.
+What were my total sales excluding DELI Week To Date?|Total sales excluding DELI Week To Date.
+What were my total sales not including DELI Week To Date?|Total sales excluding DELI Week To Date.
+What were my total sales excluding BAKERY Week To Date?|Total sales excluding BAKERY Week To Date.
+What were my total sales not including BAKERY Week To Date?|Total sales excluding BAKERY Week To Date.
+What were my total sales excluding MEAT Week To Date?|Total sales excluding MEAT Week To Date.
+What were my total sales not including MEAT Week To Date?|Total sales excluding MEAT Week To Date.
+What were my total sales excluding GROCERY Week To Date?|Total sales excluding GROCERY Week To Date.
+What were my total sales not including GROCERY Week To Date?|Total sales excluding GROCERY Week To Date.
+What were my total sales excluding PHARMACY Week To Date?|Total sales excluding PHARMACY Week To Date.
+What were my total sales not including PHARMACY Week To Date?|Total sales excluding PHARMACY Week To Date.
+What were my total sales excluding HBC Week To Date?|Total sales excluding HBC Week To Date.
+What were my total sales not including HBC Week To Date?|Total sales excluding HBC Week To Date.
+What were my total sales excluding FLORAL Rolling 13 Periods?|Total sales excluding FLORAL Rolling 13 Periods.
+What were my total sales not including FLORAL Rolling 13 Periods?|Total sales excluding FLORAL Rolling 13 Periods.
+What were my total sales excluding SEAFOOD Rolling 13 Periods?|Total sales excluding SEAFOOD Rolling 13 Periods.
+What were my total sales not including SEAFOOD Rolling 13 Periods?|Total sales excluding SEAFOOD Rolling 13 Periods.
+What were my total sales excluding GM Rolling 13 Periods?|Total sales excluding GM Rolling 13 Periods.
+What were my total sales not including GM Rolling 13 Periods?|Total sales excluding GM Rolling 13 Periods.
+What were my total sales excluding PRODUCE Rolling 13 Periods?|Total sales excluding PRODUCE Rolling 13 Periods.
+What were my total sales not including PRODUCE Rolling 13 Periods?|Total sales excluding PRODUCE Rolling 13 Periods.
+What were my total sales excluding DELI Rolling 13 Periods?|Total sales excluding DELI Rolling 13 Periods.
+What were my total sales not including DELI Rolling 13 Periods?|Total sales excluding DELI Rolling 13 Periods.
+What were my total sales excluding BAKERY Rolling 13 Periods?|Total sales excluding BAKERY Rolling 13 Periods.
+What were my total sales not including BAKERY Rolling 13 Periods?|Total sales excluding BAKERY Rolling 13 Periods.
+What were my total sales excluding MEAT Rolling 13 Periods?|Total sales excluding MEAT Rolling 13 Periods.
+What were my total sales not including MEAT Rolling 13 Periods?|Total sales excluding MEAT Rolling 13 Periods.
+What were my total sales excluding GROCERY Rolling 13 Periods?|Total sales excluding GROCERY Rolling 13 Periods.
+What were my total sales not including GROCERY Rolling 13 Periods?|Total sales excluding GROCERY Rolling 13 Periods.
+What were my total sales excluding PHARMACY Rolling 13 Periods?|Total sales excluding PHARMACY Rolling 13 Periods.
+What were my total sales not including PHARMACY Rolling 13 Periods?|Total sales excluding PHARMACY Rolling 13 Periods.
+What were my total sales excluding HBC Rolling 13 Periods?|Total sales excluding HBC Rolling 13 Periods.
+What were my total sales not including HBC Rolling 13 Periods?|Total sales excluding HBC Rolling 13 Periods.
