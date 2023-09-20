@@ -5,8 +5,8 @@ from streamlit_extras.switch_page_button import switch_page
 from src.lib import code_library
 
 with st.form("Give Feedback: ", clear_on_submit=True):
-    st.session_state.FeedbackRating = st.radio("Was this app helpful?", ["✅", "❌"], label_visibility='visible', disabled=False, horizontal=True, index = 0) 
-    st.session_state.FeedbackText   = st.text_input("How could this app be improved?", "... ", disabled=False)   
+    st.session_state.FeedbackRating = st.radio("Was this response helpful?", ["✅", "❌"], label_visibility='visible', disabled=False, horizontal=True, index = 0) 
+    st.session_state.FeedbackText   = st.text_input("How could this response be improved?", "... ", disabled=False)   
     with st.spinner(text="Sending Feedback..."):                     
         submitted = st.form_submit_button("Submit")
         if submitted:
