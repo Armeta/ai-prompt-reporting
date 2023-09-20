@@ -15,6 +15,7 @@ import pandas as pd
 #data types
 import json
 import struct
+import re
 
 # setup connection with snowflake
 def snowconnection():
@@ -30,17 +31,22 @@ def save_UserCache(i, content):
     name = 'messages' + str(i) 
     st.session_state[name].append({"role": "user", "content": content})
 
+
 def get_LastPrompt(i):
-    name     = 'messages' + str(i) 
+    name = 'messages' + str(i)
     thislist = []
-    prompt = ''
+    
     for strings in st.session_state[name]:
-        if str(strings).find('user') > 0:
+        index = str(strings).find('user')
+        if index != -1:
             thislist.append(strings)
-    size = len(thislist)
-    prompt = str(thislist[size-1]).replace('\'','"')
-    prompt = json.loads(prompt)
-    return prompt["content"]
+    
+    if not thislist:  # If the list is empty, return an appropriate value or message
+        return "No prompts"
+    
+    
+    prompt_dict = thislist[-1] 
+    return prompt_dict["content"]
 
 def save_AssistantCache(i, content):
     # set indice
@@ -126,34 +132,36 @@ def get_Model():
 @st.cache_resource()
 def get_Data(_session, modelName):
     # # Open and collect options
-    if(modelName == './LocalModel/'):
-        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
-        options_query = _session.table("\"OptionsQueryLocal\"")
-    else:
-        options_dash  = _session.table("\"OptionsDashboardLocal\"") 
-        options_query = _session.table("\"OptionsQueryLocal\"")
-        
+    options_dash  = _session.table("\"OptionsDashboardLocal\"") 
+    options_query = _session.table("\"OptionsQueryLocal\"")
+    options_graph = _session.table("OPTIONS_GRAPH")     
     #recieve options and their encodings and return
     dash_rows  = options_dash.select(['URL', 'ENCODING']).filter(col('URL').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
     query_rows = options_query.select(['RESULT_CACHE', 'ENCODING']).filter(col('RESULT_CACHE').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
+    graph_Rows = options_graph.select(['RESULT_CACHE', 'ENCODING']).filter(col('RESULT_CACHE').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
     dash_opts  = [row[0] for row in dash_rows]
     query_opts = [row[0] for row in query_rows]
+    graph_opts  = [row[0] for row in graph_Rows]
     dash_enc   = [parseBinaryEncoding(bytearray(row[1])) for row in dash_rows]
     query_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in query_rows]
-
-    return dash_enc, dash_opts, query_enc, query_opts
-
-@st.cache_resource()
-def get_GraphData(_session):
-    # Open and collect options    
-    graph_dash  = _session.table("OPTIONS_GRAPH") 
-        
-    #recieve options and their encodings and return
-    graph_Rows = graph_dash.select(['RESULT_CACHE', 'ENCODING']).filter(col('RESULT_CACHE').isNotNull() & col('ENCODING').isNotNull()).to_pandas().values.tolist()
-    graph_ops  = [row[0] for row in graph_Rows]
     graph_enc  = [parseBinaryEncoding(bytearray(row[1])) for row in graph_Rows]
 
-    return graph_ops, graph_enc
+    return dash_enc, dash_opts, query_enc, query_opts, graph_opts, graph_enc
+
+@st.cache_resource()
+def do_GetGraph(prompt, _model, graph_opts, graph_enc):
+    #init 
+    encoding = None
+    
+    # Encode prompt based off which model is being used
+    if(prompt != ''):
+        encoding = _model.encode(prompt)
+    
+    # pick and return a query answer
+    sim = cosine_similarity([encoding], graph_enc)
+    graph_answer = graph_opts[sim[0].tolist().index(max(sim[0]))]
+   
+    return graph_answer
 
 def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Path):
 
@@ -189,7 +197,7 @@ def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Pat
     f.close()
 
     model, modelName = get_Model()
-    dash_enc, dash_opts, query_enc, query_opts = get_Data(_session, modelName)
+    dash_enc, dash_opts, query_enc, query_opts, graph_opts, graph_enc = get_Data(_session, modelName)
     
         # (re)-initialize current chat 
     if 'messages' not in st.session_state:
@@ -201,7 +209,7 @@ def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Pat
     if 'FeedbackText' not in st.session_state:
             st.session_state.FeedbackText = ''
 
-    return model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar
+    return model, dash_enc, dash_opts, query_enc, query_opts, graph_opts, graph_enc, BotAvatar, UserAvatar
 
 def get_Graph(selected_plot, GraphData):
     
@@ -214,7 +222,7 @@ def get_Graph(selected_plot, GraphData):
         order = df.sort_values('y')['x']
         
         sns.barplot(data=df, x="x", y="y", order=order)
-        plt.xticks(rotation=65)  # Rotate x-axis labels by 65 degrees
+        plt.xticks(rotation=90)  # Rotate x-axis labels by 65 degrees
         st.pyplot(plt)
     elif selected_plot == "Scatter plot":
         plt.figure(figsize=(12, 8))
@@ -224,7 +232,7 @@ def get_Graph(selected_plot, GraphData):
         cmap = sns.cubehelix_palette(start=2, rot=0, dark=0, light=.95, reverse=True, as_cmap=True)
         sns.scatterplot(data=df, x="x", y="y", hue="y", size="y", sizes=(20,200), palette=cmap, legend=False)
         
-        plt.xticks(rotation=65)  # Rotate x-axis labels by 45 degrees
+        plt.xticks(rotation=90)  # Rotate x-axis labels by 45 degrees
         
         st.pyplot(plt)
 
@@ -244,12 +252,10 @@ def get_Graph(selected_plot, GraphData):
         order = df.groupby('x').median().sort_values(by='y', ascending=False).index
         
         sns.boxplot(data=df, x="x", y="y", order=order)
-        plt.xticks(rotation=65)  # Rotate x-axis labels by 45 degrees
+        plt.xticks(rotation=90)  # Rotate x-axis labels by 45 degrees
         plt.ylabel('y Values')  # y-axis label for clarity
         
         st.pyplot(plt)
-
-
 
 # run the prompt against the AI to recieve an answer
 def do_Get(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):   

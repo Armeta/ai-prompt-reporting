@@ -14,7 +14,7 @@ def main():
     session = code_library.snowconnection()   
 
     # gets mapping file and their encodings as well as meta data for the model being used    
-    model, dash_enc, dash_opts, query_enc, query_opts, BotAvatar, UserAvatar  \
+    model, dash_enc, dash_opts, query_enc, query_opts, graph_opts, graph_enc, BotAvatar, UserAvatar  \
     = code_library.env_Setup(session                                          
                              , "Analytics Digital Assistant - Armeta POC"  
                              , "wide"                                         
@@ -92,15 +92,17 @@ def main():
 
     if SelectedChatOption == "Draw Graph": 
         with st.spinner("Drawing: " + selected_plot):
-            graph_ops, graph_enc = code_library.get_GraphData(session)
-            graph_ops_str = graph_ops[0]
+            LastPrompt = code_library.get_LastPrompt(st.session_state.number)
+            if LastPrompt:
+                graph_answer = code_library.do_GetGraph(LastPrompt, model, graph_opts, graph_enc)
+            else:
+                st.write("No prompt")
 
             # Split the string using the '%@%' delimiter
-            graph_ops_str = graph_ops_str.rstrip('%@%')
+            graph_ops_str = graph_answer.rstrip('%@%')
             split_ops     = graph_ops_str.split('%@%')
-            graph_XY = [(item.split('<+>')[0], item.split('<+>')[1]) for item in split_ops]
+            graph_XY      = [(item.split('<+>')[0], item.split('<+>')[1]) for item in split_ops]
             code_library.get_Graph(selected_plot, graph_XY)
-            #How do sales in dallas compare to other stores in texas?
 
 if __name__ == '__main__':  
     main()
