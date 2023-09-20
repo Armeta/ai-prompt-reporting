@@ -105,7 +105,7 @@ def manage_Cache():
     return number
 
 # load options file and set up model
-@st.cache_resource(show_spinner = False, persist = "disk")
+@st.cache_resource(show_spinner = False)
 def get_Model():
     # load largemodel bin file
     model_bin = open('./LocalModel/pytorch_model.bin', 'wb')
@@ -129,7 +129,7 @@ def get_Model():
     model = SentenceTransformer(modelName)    
     return model, modelName
 
-@st.cache_resource(show_spinner = False, persist = "disk")
+@st.cache_resource(show_spinner = False)
 def get_Data(_session, modelName):
     # # Open and collect options
     options_dash  = _session.table("\"OptionsDashboardLocal\"") 
@@ -148,7 +148,7 @@ def get_Data(_session, modelName):
 
     return dash_enc, dash_opts, query_enc, query_opts, graph_opts, graph_enc
 
-@st.cache_resource(show_spinner = False, persist = "disk")
+@st.cache_resource(show_spinner = False)
 def do_GetGraph(prompt, _model, graph_opts, graph_enc):
     #init 
     encoding = None
@@ -211,7 +211,7 @@ def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Pat
 
     return model, dash_enc, dash_opts, query_enc, query_opts, graph_opts, graph_enc, BotAvatar, UserAvatar
 
-@st.cache_resource(show_spinner = False, persist = "disk")
+@st.cache_resource(show_spinner = False)
 def get_Graph(selected_plot, GraphData):
     
     df = pd.DataFrame(GraphData, columns=['x', 'y'])
