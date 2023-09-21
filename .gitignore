@@ -10,3 +10,4 @@ ai-prompt-reporting\.streamlit\config*
 .streamlit/secrets.toml
 ./LocalModel/pytorch_model.bin
 .streamlit/config/secrets.toml
+.venv
