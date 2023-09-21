@@ -81,7 +81,7 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
 
                 newDesc = newDesc.replace(paramName, DescParam)
                 newQuestions = [newQuestion.replace(paramName, QuestionParam) for newQuestion in newQuestions]
-                newQuery = newQuery.replace(paramName, queryParam)
+                newQuery = newQuery.replace('DESCRIPTION_'+paramName, DescParam).replace(paramName, queryParam)
                 newURLFilter = newURLFilter.replace(paramName, urlParam)
                 newURLQuery = newURLQuery.replace(paramName, urlParam)
             
