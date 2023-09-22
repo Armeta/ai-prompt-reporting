@@ -63,6 +63,15 @@
         }
     },
     "templates":[
+        {   "parameters": ["TIMEFRAME_PARAMETER"]
+        ,   "desc":"Total sales TIMEFRAME_PARAMETER."
+        ,   "questions":["What were my total sales TIMEFRAME_PARAMETER?"]
+        ,   "query":"SELECT CONCAT('The total sales in the ', B.TIMEFRAME_DESC ,' timeframe is $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')) ) FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY B.TIMEFRAME_DESC;"
+        ,   "urlpage":"opportunity-locator"
+        ,   "urlfilter":""
+        ,   "urlquery":"{\"timeframe\":TIMEFRAME_PARAMETER}"
+        ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+        },
         {   "parameters": ["DEPARTMENTGROUP_PARAMETER", "TIMEFRAME_PARAMETER"]
         ,   "desc":"Total sales in DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER."
         ,   "questions":["What were my total sales in DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?"]
