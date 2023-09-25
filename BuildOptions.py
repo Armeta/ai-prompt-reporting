@@ -34,6 +34,8 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
     if(truncateLoad):
         ak = open('src/csv/answerKey.csv', 'w')
         ak.write(str(datetime.datetime.now())+'\n')
+        optionSummary = open('src/csv/optionSummary.csv', 'w')
+        optionSummary.write('Option ID|Option Template|Combo Count|Question Count|Base Model %|Local Model %\n')
     else:
         lines = []
         if(os.path.isfile('src/csv/answerKey.csv')):
@@ -44,6 +46,9 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
         ak = open('src/csv/answerKey.csv', 'w')
         ak.write(str(datetime.datetime.now())+'\n')
         ak.writelines(lines)
+        optionSummary = open('src/csv/optionSummary.csv', 'a')
+
+    
 
     stageQ = None
     stageD = None
@@ -56,10 +61,17 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
         batch = str(datetime.datetime.now())
 
     count = 0
+    templateID = 0
 
     for template in templates:
+        templateID += 1
+        optionSummary.write(str(templateID)+'|'+template['desc']+'|')
+
         paramCount = [0 for param in template['parameters']]
         paramMaxCount = [len(paramLists[param]['descriptionValues']) for param in template['parameters']]
+        
+        comboCount = 0
+        questionCount = 0
         done = False
         while not done: # for each parameter combination
 
@@ -100,7 +112,7 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
 
             # output question variations with answers
             for newQuestion in newQuestions:
-                ak.write(newQuestion+'|'+newDesc+'\n')
+                ak.write(newQuestion+'|'+newDesc+'|'+str(templateID)+'\n')
 
             # append to stage file if loading to snowflake
             if(loadSnowflake):
@@ -146,6 +158,12 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
             count += 1
             if(count % 100 == 0):
                 print(count)
+            comboCount += 1
+            questionCount += len(newQuestions)
+        
+        optionSummary.write(str(comboCount)+'|'+str(questionCount)+'||\n')
+
+    # end of templates
 
     # finished generating options
     ak.close()

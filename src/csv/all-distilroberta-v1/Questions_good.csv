@@ -1,0 +1,958 @@
+What were my total sales Last Complete Year?
+What were my total sales Period to Date?
+What were my total sales Rolling 13 Weeks?
+What were my total sales Last Complete Week?
+What were my total sales Year to Date?
+What were my total sales Week To Date?
+What were my total sales Rolling 13 Periods?
+What were my total sales in GM Last Complete Year?
+What were my total sales in BAKERY Last Complete Year?
+What were my total sales in HBC Last Complete Year?
+What were my total sales in GM Period to Date?
+What were my total sales in DELI Period to Date?
+What were my total sales in BAKERY Period to Date?
+What were my total sales in HBC Period to Date?
+What were my total sales in FLORAL Rolling 13 Weeks?
+What were my total sales in GM Rolling 13 Weeks?
+What were my total sales in DELI Rolling 13 Weeks?
+What were my total sales in BAKERY Rolling 13 Weeks?
+What were my total sales in HBC Rolling 13 Weeks?
+What were my total sales in GM Last Complete Week?
+What were my total sales in DELI Last Complete Week?
+What were my total sales in BAKERY Last Complete Week?
+What were my total sales in HBC Last Complete Week?
+What were my total sales in GM Year to Date?
+What were my total sales in DELI Year to Date?
+What were my total sales in HBC Year to Date?
+What were my total sales in SEAFOOD Week To Date?
+What were my total sales in GM Week To Date?
+What were my total sales in DELI Week To Date?
+What were my total sales in BAKERY Week To Date?
+What were my total sales in MEAT Week To Date?
+What were my total sales in HBC Week To Date?
+What were my total sales in FLORAL Rolling 13 Periods?
+What were my total sales in SEAFOOD Rolling 13 Periods?
+What were my total sales in GM Rolling 13 Periods?
+What were my total sales in DELI Rolling 13 Periods?
+What were my total sales in BAKERY Rolling 13 Periods?
+What were my total sales in HBC Rolling 13 Periods?
+What were my total sales in FLORAL DELI Last Complete Year?
+What were my total sales in FLORAL HBC Last Complete Year?
+What were my total sales in SEAFOOD GM Last Complete Year?
+What were my total sales in SEAFOOD DELI Last Complete Year?
+What were my total sales in SEAFOOD BAKERY Last Complete Year?
+What were my total sales in SEAFOOD HBC Last Complete Year?
+What were my total sales in GM DELI Last Complete Year?
+What were my total sales in GM MEAT Last Complete Year?
+What were my total sales in GM PHARMACY Last Complete Year?
+What were my total sales in GM HBC Last Complete Year?
+What were my total sales in DELI PHARMACY Last Complete Year?
+What were my total sales in DELI HBC Last Complete Year?
+What were my total sales in BAKERY MEAT Last Complete Year?
+What were my total sales in BAKERY PHARMACY Last Complete Year?
+What were my total sales in MEAT PHARMACY Last Complete Year?
+What were my total sales in MEAT HBC Last Complete Year?
+What were my total sales in FLORAL SEAFOOD Period to Date?
+What were my total sales in FLORAL DELI Period to Date?
+What were my total sales in FLORAL GROCERY Period to Date?
+What were my total sales in FLORAL HBC Period to Date?
+What were my total sales in SEAFOOD GM Period to Date?
+What were my total sales in SEAFOOD DELI Period to Date?
+What were my total sales in SEAFOOD BAKERY Period to Date?
+What were my total sales in SEAFOOD MEAT Period to Date?
+What were my total sales in SEAFOOD PHARMACY Period to Date?
+What were my total sales in SEAFOOD HBC Period to Date?
+What were my total sales in GM DELI Period to Date?
+What were my total sales in GM MEAT Period to Date?
+What were my total sales in GM PHARMACY Period to Date?
+What were my total sales in GM HBC Period to Date?
+What were my total sales in DELI HBC Period to Date?
+What were my total sales in BAKERY MEAT Period to Date?
+What were my total sales in BAKERY PHARMACY Period to Date?
+What were my total sales in MEAT GROCERY Period to Date?
+What were my total sales in MEAT PHARMACY Period to Date?
+What were my total sales in MEAT HBC Period to Date?
+What were my total sales in FLORAL SEAFOOD Rolling 13 Weeks?
+What were my total sales in FLORAL DELI Rolling 13 Weeks?
+What were my total sales in FLORAL BAKERY Rolling 13 Weeks?
+What were my total sales in FLORAL MEAT Rolling 13 Weeks?
+What were my total sales in FLORAL HBC Rolling 13 Weeks?
+What were my total sales in SEAFOOD GM Rolling 13 Weeks?
+What were my total sales in SEAFOOD DELI Rolling 13 Weeks?
+What were my total sales in SEAFOOD BAKERY Rolling 13 Weeks?
+What were my total sales in SEAFOOD HBC Rolling 13 Weeks?
+What were my total sales in GM DELI Rolling 13 Weeks?
+What were my total sales in GM BAKERY Rolling 13 Weeks?
+What were my total sales in GM MEAT Rolling 13 Weeks?
+What were my total sales in GM PHARMACY Rolling 13 Weeks?
+What were my total sales in DELI PHARMACY Rolling 13 Weeks?
+What were my total sales in DELI HBC Rolling 13 Weeks?
+What were my total sales in BAKERY MEAT Rolling 13 Weeks?
+What were my total sales in MEAT HBC Rolling 13 Weeks?
+What were my total sales in FLORAL SEAFOOD Last Complete Week?
+What were my total sales in FLORAL DELI Last Complete Week?
+What were my total sales in FLORAL BAKERY Last Complete Week?
+What were my total sales in FLORAL PHARMACY Last Complete Week?
+What were my total sales in SEAFOOD GM Last Complete Week?
+What were my total sales in SEAFOOD BAKERY Last Complete Week?
+What were my total sales in SEAFOOD MEAT Last Complete Week?
+What were my total sales in SEAFOOD PHARMACY Last Complete Week?
+What were my total sales in SEAFOOD HBC Last Complete Week?
+What were my total sales in GM DELI Last Complete Week?
+What were my total sales in GM MEAT Last Complete Week?
+What were my total sales in GM PHARMACY Last Complete Week?
+What were my total sales in GM HBC Last Complete Week?
+What were my total sales in DELI BAKERY Last Complete Week?
+What were my total sales in DELI PHARMACY Last Complete Week?
+What were my total sales in DELI HBC Last Complete Week?
+What were my total sales in BAKERY MEAT Last Complete Week?
+What were my total sales in BAKERY PHARMACY Last Complete Week?
+What were my total sales in MEAT PHARMACY Last Complete Week?
+What were my total sales in MEAT HBC Last Complete Week?
+What were my total sales in PHARMACY HBC Last Complete Week?
+What were my total sales in SEAFOOD DELI Year to Date?
+What were my total sales in SEAFOOD MEAT Year to Date?
+What were my total sales in SEAFOOD HBC Year to Date?
+What were my total sales in GM DELI Year to Date?
+What were my total sales in GM MEAT Year to Date?
+What were my total sales in GM PHARMACY Year to Date?
+What were my total sales in GM HBC Year to Date?
+What were my total sales in DELI HBC Year to Date?
+What were my total sales in BAKERY PHARMACY Year to Date?
+What were my total sales in MEAT PHARMACY Year to Date?
+What were my total sales in MEAT HBC Year to Date?
+What were my total sales in PHARMACY HBC Year to Date?
+What were my total sales in FLORAL SEAFOOD Week To Date?
+What were my total sales in FLORAL DELI Week To Date?
+What were my total sales in FLORAL GROCERY Week To Date?
+What were my total sales in SEAFOOD GM Week To Date?
+What were my total sales in SEAFOOD DELI Week To Date?
+What were my total sales in SEAFOOD BAKERY Week To Date?
+What were my total sales in SEAFOOD MEAT Week To Date?
+What were my total sales in SEAFOOD HBC Week To Date?
+What were my total sales in GM DELI Week To Date?
+What were my total sales in GM MEAT Week To Date?
+What were my total sales in GM PHARMACY Week To Date?
+What were my total sales in GM HBC Week To Date?
+What were my total sales in DELI PHARMACY Week To Date?
+What were my total sales in DELI HBC Week To Date?
+What were my total sales in BAKERY MEAT Week To Date?
+What were my total sales in BAKERY PHARMACY Week To Date?
+What were my total sales in MEAT PHARMACY Week To Date?
+What were my total sales in MEAT HBC Week To Date?
+What were my total sales in PHARMACY HBC Week To Date?
+What were my total sales in FLORAL SEAFOOD Rolling 13 Periods?
+What were my total sales in FLORAL DELI Rolling 13 Periods?
+What were my total sales in FLORAL BAKERY Rolling 13 Periods?
+What were my total sales in FLORAL HBC Rolling 13 Periods?
+What were my total sales in SEAFOOD GM Rolling 13 Periods?
+What were my total sales in SEAFOOD DELI Rolling 13 Periods?
+What were my total sales in SEAFOOD BAKERY Rolling 13 Periods?
+What were my total sales in SEAFOOD MEAT Rolling 13 Periods?
+What were my total sales in SEAFOOD HBC Rolling 13 Periods?
+What were my total sales in GM DELI Rolling 13 Periods?
+What were my total sales in GM MEAT Rolling 13 Periods?
+What were my total sales in GM PHARMACY Rolling 13 Periods?
+What were my total sales in GM HBC Rolling 13 Periods?
+What were my total sales in DELI PHARMACY Rolling 13 Periods?
+What were my total sales in DELI HBC Rolling 13 Periods?
+What were my total sales in BAKERY MEAT Rolling 13 Periods?
+What were my total sales in BAKERY PHARMACY Rolling 13 Periods?
+What were my total sales in MEAT PHARMACY Rolling 13 Periods?
+What were my total sales in MEAT HBC Rolling 13 Periods?
+What were my total sales in PHARMACY HBC Rolling 13 Periods?
+What were my total sales in FLORAL SEAFOOD GM Last Complete Year?
+What were my total sales in FLORAL SEAFOOD DELI Last Complete Year?
+What were my total sales in FLORAL SEAFOOD BAKERY Last Complete Year?
+What were my total sales in FLORAL SEAFOOD PHARMACY Last Complete Year?
+What were my total sales in FLORAL GM DELI Last Complete Year?
+What were my total sales in FLORAL GM MEAT Last Complete Year?
+What were my total sales in FLORAL GM PHARMACY Last Complete Year?
+What were my total sales in FLORAL PRODUCE PHARMACY Last Complete Year?
+What were my total sales in FLORAL DELI BAKERY Last Complete Year?
+What were my total sales in FLORAL DELI MEAT Last Complete Year?
+What were my total sales in FLORAL DELI PHARMACY Last Complete Year?
+What were my total sales in FLORAL DELI HBC Last Complete Year?
+What were my total sales in FLORAL BAKERY MEAT Last Complete Year?
+What were my total sales in FLORAL BAKERY GROCERY Last Complete Year?
+What were my total sales in FLORAL BAKERY PHARMACY Last Complete Year?
+What were my total sales in FLORAL BAKERY HBC Last Complete Year?
+What were my total sales in FLORAL MEAT HBC Last Complete Year?
+What were my total sales in SEAFOOD GM DELI Last Complete Year?
+What were my total sales in SEAFOOD GM BAKERY Last Complete Year?
+What were my total sales in SEAFOOD GM MEAT Last Complete Year?
+What were my total sales in SEAFOOD GM GROCERY Last Complete Year?
+What were my total sales in SEAFOOD GM PHARMACY Last Complete Year?
+What were my total sales in SEAFOOD GM HBC Last Complete Year?
+What were my total sales in SEAFOOD PRODUCE PHARMACY Last Complete Year?
+What were my total sales in SEAFOOD DELI BAKERY Last Complete Year?
+What were my total sales in SEAFOOD DELI MEAT Last Complete Year?
+What were my total sales in SEAFOOD DELI PHARMACY Last Complete Year?
+What were my total sales in SEAFOOD DELI HBC Last Complete Year?
+What were my total sales in SEAFOOD BAKERY MEAT Last Complete Year?
+What were my total sales in SEAFOOD BAKERY PHARMACY Last Complete Year?
+What were my total sales in SEAFOOD MEAT PHARMACY Last Complete Year?
+What were my total sales in SEAFOOD MEAT HBC Last Complete Year?
+What were my total sales in SEAFOOD PHARMACY HBC Last Complete Year?
+What were my total sales in GM DELI PHARMACY Last Complete Year?
+What were my total sales in GM DELI HBC Last Complete Year?
+What were my total sales in GM BAKERY MEAT Last Complete Year?
+What were my total sales in GM BAKERY GROCERY Last Complete Year?
+What were my total sales in GM BAKERY PHARMACY Last Complete Year?
+What were my total sales in GM MEAT GROCERY Last Complete Year?
+What were my total sales in GM MEAT PHARMACY Last Complete Year?
+What were my total sales in GM MEAT HBC Last Complete Year?
+What were my total sales in GM PHARMACY HBC Last Complete Year?
+What were my total sales in PRODUCE DELI MEAT Last Complete Year?
+What were my total sales in PRODUCE DELI PHARMACY Last Complete Year?
+What were my total sales in PRODUCE BAKERY PHARMACY Last Complete Year?
+What were my total sales in PRODUCE MEAT PHARMACY Last Complete Year?
+What were my total sales in DELI BAKERY MEAT Last Complete Year?
+What were my total sales in DELI BAKERY PHARMACY Last Complete Year?
+What were my total sales in DELI MEAT PHARMACY Last Complete Year?
+What were my total sales in DELI PHARMACY HBC Last Complete Year?
+What were my total sales in BAKERY MEAT PHARMACY Last Complete Year?
+What were my total sales in BAKERY MEAT HBC Last Complete Year?
+What were my total sales in MEAT PHARMACY HBC Last Complete Year?
+What were my total sales in FLORAL SEAFOOD GM Period to Date?
+What were my total sales in FLORAL SEAFOOD DELI Period to Date?
+What were my total sales in FLORAL SEAFOOD BAKERY Period to Date?
+What were my total sales in FLORAL SEAFOOD HBC Period to Date?
+What were my total sales in FLORAL GM DELI Period to Date?
+What were my total sales in FLORAL GM MEAT Period to Date?
+What were my total sales in FLORAL GM PHARMACY Period to Date?
+What were my total sales in FLORAL DELI BAKERY Period to Date?
+What were my total sales in FLORAL DELI MEAT Period to Date?
+What were my total sales in FLORAL DELI PHARMACY Period to Date?
+What were my total sales in FLORAL DELI HBC Period to Date?
+What were my total sales in FLORAL BAKERY MEAT Period to Date?
+What were my total sales in FLORAL BAKERY GROCERY Period to Date?
+What were my total sales in FLORAL BAKERY HBC Period to Date?
+What were my total sales in FLORAL MEAT GROCERY Period to Date?
+What were my total sales in FLORAL MEAT HBC Period to Date?
+What were my total sales in SEAFOOD GM DELI Period to Date?
+What were my total sales in SEAFOOD GM BAKERY Period to Date?
+What were my total sales in SEAFOOD GM MEAT Period to Date?
+What were my total sales in SEAFOOD GM PHARMACY Period to Date?
+What were my total sales in SEAFOOD DELI HBC Period to Date?
+What were my total sales in SEAFOOD BAKERY MEAT Period to Date?
+What were my total sales in SEAFOOD BAKERY PHARMACY Period to Date?
+What were my total sales in SEAFOOD MEAT HBC Period to Date?
+What were my total sales in GM DELI PHARMACY Period to Date?
+What were my total sales in GM DELI HBC Period to Date?
+What were my total sales in GM BAKERY MEAT Period to Date?
+What were my total sales in GM BAKERY PHARMACY Period to Date?
+What were my total sales in GM MEAT GROCERY Period to Date?
+What were my total sales in GM MEAT PHARMACY Period to Date?
+What were my total sales in GM MEAT HBC Period to Date?
+What were my total sales in GM PHARMACY HBC Period to Date?
+What were my total sales in PRODUCE DELI MEAT Period to Date?
+What were my total sales in PRODUCE DELI PHARMACY Period to Date?
+What were my total sales in PRODUCE MEAT PHARMACY Period to Date?
+What were my total sales in DELI BAKERY MEAT Period to Date?
+What were my total sales in DELI BAKERY PHARMACY Period to Date?
+What were my total sales in DELI MEAT HBC Period to Date?
+What were my total sales in BAKERY MEAT HBC Period to Date?
+What were my total sales in FLORAL SEAFOOD GM Rolling 13 Weeks?
+What were my total sales in FLORAL SEAFOOD DELI Rolling 13 Weeks?
+What were my total sales in FLORAL SEAFOOD BAKERY Rolling 13 Weeks?
+What were my total sales in FLORAL SEAFOOD MEAT Rolling 13 Weeks?
+What were my total sales in FLORAL SEAFOOD HBC Rolling 13 Weeks?
+What were my total sales in FLORAL GM DELI Rolling 13 Weeks?
+What were my total sales in FLORAL GM MEAT Rolling 13 Weeks?
+What were my total sales in FLORAL DELI BAKERY Rolling 13 Weeks?
+What were my total sales in FLORAL DELI MEAT Rolling 13 Weeks?
+What were my total sales in FLORAL DELI HBC Rolling 13 Weeks?
+What were my total sales in FLORAL BAKERY MEAT Rolling 13 Weeks?
+What were my total sales in FLORAL BAKERY HBC Rolling 13 Weeks?
+What were my total sales in FLORAL MEAT HBC Rolling 13 Weeks?
+What were my total sales in SEAFOOD GM DELI Rolling 13 Weeks?
+What were my total sales in SEAFOOD GM BAKERY Rolling 13 Weeks?
+What were my total sales in SEAFOOD GM MEAT Rolling 13 Weeks?
+What were my total sales in SEAFOOD GM GROCERY Rolling 13 Weeks?
+What were my total sales in SEAFOOD GM PHARMACY Rolling 13 Weeks?
+What were my total sales in SEAFOOD DELI PHARMACY Rolling 13 Weeks?
+What were my total sales in SEAFOOD DELI HBC Rolling 13 Weeks?
+What were my total sales in SEAFOOD BAKERY MEAT Rolling 13 Weeks?
+What were my total sales in SEAFOOD BAKERY PHARMACY Rolling 13 Weeks?
+What were my total sales in SEAFOOD MEAT PHARMACY Rolling 13 Weeks?
+What were my total sales in SEAFOOD MEAT HBC Rolling 13 Weeks?
+What were my total sales in GM DELI PHARMACY Rolling 13 Weeks?
+What were my total sales in GM DELI HBC Rolling 13 Weeks?
+What were my total sales in GM BAKERY MEAT Rolling 13 Weeks?
+What were my total sales in GM BAKERY PHARMACY Rolling 13 Weeks?
+What were my total sales in GM MEAT GROCERY Rolling 13 Weeks?
+What were my total sales in GM MEAT PHARMACY Rolling 13 Weeks?
+What were my total sales in GM MEAT HBC Rolling 13 Weeks?
+What were my total sales in GM PHARMACY HBC Rolling 13 Weeks?
+What were my total sales in PRODUCE DELI PHARMACY Rolling 13 Weeks?
+What were my total sales in PRODUCE MEAT PHARMACY Rolling 13 Weeks?
+What were my total sales in DELI BAKERY MEAT Rolling 13 Weeks?
+What were my total sales in DELI BAKERY PHARMACY Rolling 13 Weeks?
+What were my total sales in DELI MEAT HBC Rolling 13 Weeks?
+What were my total sales in DELI PHARMACY HBC Rolling 13 Weeks?
+What were my total sales in BAKERY MEAT HBC Rolling 13 Weeks?
+What were my total sales in FLORAL SEAFOOD GM Last Complete Week?
+What were my total sales in FLORAL SEAFOOD BAKERY Last Complete Week?
+What were my total sales in FLORAL SEAFOOD PHARMACY Last Complete Week?
+What were my total sales in FLORAL SEAFOOD HBC Last Complete Week?
+What were my total sales in FLORAL GM DELI Last Complete Week?
+What were my total sales in FLORAL GM BAKERY Last Complete Week?
+What were my total sales in FLORAL GM MEAT Last Complete Week?
+What were my total sales in FLORAL GM PHARMACY Last Complete Week?
+What were my total sales in FLORAL DELI BAKERY Last Complete Week?
+What were my total sales in FLORAL DELI MEAT Last Complete Week?
+What were my total sales in FLORAL DELI PHARMACY Last Complete Week?
+What were my total sales in FLORAL DELI HBC Last Complete Week?
+What were my total sales in FLORAL BAKERY MEAT Last Complete Week?
+What were my total sales in FLORAL BAKERY PHARMACY Last Complete Week?
+What were my total sales in FLORAL BAKERY HBC Last Complete Week?
+What were my total sales in FLORAL MEAT PHARMACY Last Complete Week?
+What were my total sales in FLORAL MEAT HBC Last Complete Week?
+What were my total sales in SEAFOOD GM DELI Last Complete Week?
+What were my total sales in SEAFOOD GM BAKERY Last Complete Week?
+What were my total sales in SEAFOOD GM PHARMACY Last Complete Week?
+What were my total sales in SEAFOOD GM HBC Last Complete Week?
+What were my total sales in SEAFOOD PRODUCE PHARMACY Last Complete Week?
+What were my total sales in SEAFOOD DELI BAKERY Last Complete Week?
+What were my total sales in SEAFOOD DELI PHARMACY Last Complete Week?
+What were my total sales in SEAFOOD DELI HBC Last Complete Week?
+What were my total sales in SEAFOOD BAKERY MEAT Last Complete Week?
+What were my total sales in SEAFOOD BAKERY PHARMACY Last Complete Week?
+What were my total sales in SEAFOOD BAKERY HBC Last Complete Week?
+What were my total sales in SEAFOOD MEAT PHARMACY Last Complete Week?
+What were my total sales in SEAFOOD MEAT HBC Last Complete Week?
+What were my total sales in SEAFOOD PHARMACY HBC Last Complete Week?
+What were my total sales in GM DELI BAKERY Last Complete Week?
+What were my total sales in GM DELI PHARMACY Last Complete Week?
+What were my total sales in GM DELI HBC Last Complete Week?
+What were my total sales in GM BAKERY MEAT Last Complete Week?
+What were my total sales in GM BAKERY PHARMACY Last Complete Week?
+What were my total sales in GM MEAT GROCERY Last Complete Week?
+What were my total sales in GM MEAT PHARMACY Last Complete Week?
+What were my total sales in GM MEAT HBC Last Complete Week?
+What were my total sales in GM PHARMACY HBC Last Complete Week?
+What were my total sales in PRODUCE DELI MEAT Last Complete Week?
+What were my total sales in PRODUCE DELI PHARMACY Last Complete Week?
+What were my total sales in PRODUCE BAKERY PHARMACY Last Complete Week?
+What were my total sales in PRODUCE MEAT PHARMACY Last Complete Week?
+What were my total sales in DELI BAKERY MEAT Last Complete Week?
+What were my total sales in DELI BAKERY PHARMACY Last Complete Week?
+What were my total sales in DELI MEAT PHARMACY Last Complete Week?
+What were my total sales in DELI MEAT HBC Last Complete Week?
+What were my total sales in DELI PHARMACY HBC Last Complete Week?
+What were my total sales in BAKERY MEAT PHARMACY Last Complete Week?
+What were my total sales in BAKERY MEAT HBC Last Complete Week?
+What were my total sales in MEAT PHARMACY HBC Last Complete Week?
+What were my total sales in FLORAL SEAFOOD BAKERY Year to Date?
+What were my total sales in FLORAL GM BAKERY Year to Date?
+What were my total sales in FLORAL GM GROCERY Year to Date?
+What were my total sales in FLORAL DELI HBC Year to Date?
+What were my total sales in FLORAL BAKERY GROCERY Year to Date?
+What were my total sales in FLORAL MEAT GROCERY Year to Date?
+What were my total sales in FLORAL GROCERY HBC Year to Date?
+What were my total sales in SEAFOOD GM MEAT Year to Date?
+What were my total sales in SEAFOOD DELI HBC Year to Date?
+What were my total sales in SEAFOOD BAKERY GROCERY Year to Date?
+What were my total sales in SEAFOOD MEAT PHARMACY Year to Date?
+What were my total sales in SEAFOOD MEAT HBC Year to Date?
+What were my total sales in SEAFOOD PHARMACY HBC Year to Date?
+What were my total sales in GM DELI HBC Year to Date?
+What were my total sales in GM BAKERY MEAT Year to Date?
+What were my total sales in GM BAKERY GROCERY Year to Date?
+What were my total sales in GM MEAT GROCERY Year to Date?
+What were my total sales in GM MEAT HBC Year to Date?
+What were my total sales in GM PHARMACY HBC Year to Date?
+What were my total sales in DELI MEAT HBC Year to Date?
+What were my total sales in DELI PHARMACY HBC Year to Date?
+What were my total sales in BAKERY MEAT HBC Year to Date?
+What were my total sales in MEAT GROCERY HBC Year to Date?
+What were my total sales in MEAT PHARMACY HBC Year to Date?
+What were my total sales in FLORAL SEAFOOD GM Week To Date?
+What were my total sales in FLORAL SEAFOOD DELI Week To Date?
+What were my total sales in FLORAL SEAFOOD BAKERY Week To Date?
+What were my total sales in FLORAL SEAFOOD HBC Week To Date?
+What were my total sales in FLORAL GM DELI Week To Date?
+What were my total sales in FLORAL GM BAKERY Week To Date?
+What were my total sales in FLORAL GM MEAT Week To Date?
+What were my total sales in FLORAL GM GROCERY Week To Date?
+What were my total sales in FLORAL DELI BAKERY Week To Date?
+What were my total sales in FLORAL DELI MEAT Week To Date?
+What were my total sales in FLORAL DELI PHARMACY Week To Date?
+What were my total sales in FLORAL DELI HBC Week To Date?
+What were my total sales in FLORAL BAKERY MEAT Week To Date?
+What were my total sales in FLORAL BAKERY GROCERY Week To Date?
+What were my total sales in FLORAL BAKERY HBC Week To Date?
+What were my total sales in FLORAL MEAT HBC Week To Date?
+What were my total sales in SEAFOOD GM DELI Week To Date?
+What were my total sales in SEAFOOD GM BAKERY Week To Date?
+What were my total sales in SEAFOOD GM MEAT Week To Date?
+What were my total sales in SEAFOOD GM PHARMACY Week To Date?
+What were my total sales in SEAFOOD DELI PHARMACY Week To Date?
+What were my total sales in SEAFOOD DELI HBC Week To Date?
+What were my total sales in SEAFOOD BAKERY MEAT Week To Date?
+What were my total sales in SEAFOOD BAKERY PHARMACY Week To Date?
+What were my total sales in SEAFOOD MEAT PHARMACY Week To Date?
+What were my total sales in SEAFOOD MEAT HBC Week To Date?
+What were my total sales in SEAFOOD PHARMACY HBC Week To Date?
+What were my total sales in GM DELI PHARMACY Week To Date?
+What were my total sales in GM DELI HBC Week To Date?
+What were my total sales in GM BAKERY MEAT Week To Date?
+What were my total sales in GM MEAT GROCERY Week To Date?
+What were my total sales in GM MEAT PHARMACY Week To Date?
+What were my total sales in GM MEAT HBC Week To Date?
+What were my total sales in GM PHARMACY HBC Week To Date?
+What were my total sales in PRODUCE DELI MEAT Week To Date?
+What were my total sales in PRODUCE DELI PHARMACY Week To Date?
+What were my total sales in PRODUCE MEAT PHARMACY Week To Date?
+What were my total sales in DELI BAKERY MEAT Week To Date?
+What were my total sales in DELI MEAT PHARMACY Week To Date?
+What were my total sales in DELI MEAT HBC Week To Date?
+What were my total sales in DELI PHARMACY HBC Week To Date?
+What were my total sales in BAKERY MEAT PHARMACY Week To Date?
+What were my total sales in BAKERY MEAT HBC Week To Date?
+What were my total sales in MEAT PHARMACY HBC Week To Date?
+What were my total sales in FLORAL SEAFOOD GM Rolling 13 Periods?
+What were my total sales in FLORAL SEAFOOD DELI Rolling 13 Periods?
+What were my total sales in FLORAL SEAFOOD MEAT Rolling 13 Periods?
+What were my total sales in FLORAL SEAFOOD HBC Rolling 13 Periods?
+What were my total sales in FLORAL GM DELI Rolling 13 Periods?
+What were my total sales in FLORAL GM BAKERY Rolling 13 Periods?
+What were my total sales in FLORAL GM MEAT Rolling 13 Periods?
+What were my total sales in FLORAL GM HBC Rolling 13 Periods?
+What were my total sales in FLORAL DELI BAKERY Rolling 13 Periods?
+What were my total sales in FLORAL DELI MEAT Rolling 13 Periods?
+What were my total sales in FLORAL DELI HBC Rolling 13 Periods?
+What were my total sales in FLORAL BAKERY MEAT Rolling 13 Periods?
+What were my total sales in FLORAL BAKERY HBC Rolling 13 Periods?
+What were my total sales in FLORAL MEAT HBC Rolling 13 Periods?
+What were my total sales in SEAFOOD GM DELI Rolling 13 Periods?
+What were my total sales in SEAFOOD GM BAKERY Rolling 13 Periods?
+What were my total sales in SEAFOOD GM MEAT Rolling 13 Periods?
+What were my total sales in SEAFOOD GM GROCERY Rolling 13 Periods?
+What were my total sales in SEAFOOD GM PHARMACY Rolling 13 Periods?
+What were my total sales in SEAFOOD DELI MEAT Rolling 13 Periods?
+What were my total sales in SEAFOOD DELI PHARMACY Rolling 13 Periods?
+What were my total sales in SEAFOOD DELI HBC Rolling 13 Periods?
+What were my total sales in SEAFOOD BAKERY MEAT Rolling 13 Periods?
+What were my total sales in SEAFOOD BAKERY PHARMACY Rolling 13 Periods?
+What were my total sales in SEAFOOD MEAT HBC Rolling 13 Periods?
+What were my total sales in GM DELI PHARMACY Rolling 13 Periods?
+What were my total sales in GM DELI HBC Rolling 13 Periods?
+What were my total sales in GM BAKERY MEAT Rolling 13 Periods?
+What were my total sales in GM BAKERY PHARMACY Rolling 13 Periods?
+What were my total sales in GM MEAT GROCERY Rolling 13 Periods?
+What were my total sales in GM MEAT PHARMACY Rolling 13 Periods?
+What were my total sales in GM MEAT HBC Rolling 13 Periods?
+What were my total sales in GM PHARMACY HBC Rolling 13 Periods?
+What were my total sales in PRODUCE DELI PHARMACY Rolling 13 Periods?
+What were my total sales in PRODUCE MEAT PHARMACY Rolling 13 Periods?
+What were my total sales in DELI BAKERY MEAT Rolling 13 Periods?
+What were my total sales in DELI BAKERY PHARMACY Rolling 13 Periods?
+What were my total sales in DELI MEAT HBC Rolling 13 Periods?
+What were my total sales in DELI PHARMACY HBC Rolling 13 Periods?
+What were my total sales in BAKERY MEAT HBC Rolling 13 Periods?
+What were my total sales excluding FLORAL Last Complete Year?
+What were my total sales not including FLORAL Last Complete Year?
+What were my total sales excluding SEAFOOD Last Complete Year?
+What were my total sales not including SEAFOOD Last Complete Year?
+What were my total sales excluding GM Last Complete Year?
+What were my total sales not including GM Last Complete Year?
+What were my total sales excluding PRODUCE Last Complete Year?
+What were my total sales excluding DELI Last Complete Year?
+What were my total sales not including DELI Last Complete Year?
+What were my total sales excluding BAKERY Last Complete Year?
+What were my total sales not including BAKERY Last Complete Year?
+What were my total sales excluding MEAT Last Complete Year?
+What were my total sales not including MEAT Last Complete Year?
+What were my total sales excluding PHARMACY Last Complete Year?
+What were my total sales not including PHARMACY Last Complete Year?
+What were my total sales excluding HBC Last Complete Year?
+What were my total sales not including HBC Last Complete Year?
+What were my total sales excluding FLORAL Period to Date?
+What were my total sales not including FLORAL Period to Date?
+What were my total sales excluding SEAFOOD Period to Date?
+What were my total sales not including SEAFOOD Period to Date?
+What were my total sales excluding GM Period to Date?
+What were my total sales not including GM Period to Date?
+What were my total sales excluding DELI Period to Date?
+What were my total sales not including DELI Period to Date?
+What were my total sales excluding BAKERY Period to Date?
+What were my total sales not including BAKERY Period to Date?
+What were my total sales excluding MEAT Period to Date?
+What were my total sales not including MEAT Period to Date?
+What were my total sales excluding PHARMACY Period to Date?
+What were my total sales not including PHARMACY Period to Date?
+What were my total sales excluding HBC Period to Date?
+What were my total sales not including HBC Period to Date?
+What were my total sales excluding FLORAL Rolling 13 Weeks?
+What were my total sales not including FLORAL Rolling 13 Weeks?
+What were my total sales excluding SEAFOOD Rolling 13 Weeks?
+What were my total sales not including SEAFOOD Rolling 13 Weeks?
+What were my total sales excluding GM Rolling 13 Weeks?
+What were my total sales not including GM Rolling 13 Weeks?
+What were my total sales excluding DELI Rolling 13 Weeks?
+What were my total sales not including DELI Rolling 13 Weeks?
+What were my total sales excluding BAKERY Rolling 13 Weeks?
+What were my total sales not including BAKERY Rolling 13 Weeks?
+What were my total sales excluding MEAT Rolling 13 Weeks?
+What were my total sales not including MEAT Rolling 13 Weeks?
+What were my total sales excluding PHARMACY Rolling 13 Weeks?
+What were my total sales not including PHARMACY Rolling 13 Weeks?
+What were my total sales excluding HBC Rolling 13 Weeks?
+What were my total sales not including HBC Rolling 13 Weeks?
+What were my total sales excluding FLORAL Last Complete Week?
+What were my total sales not including FLORAL Last Complete Week?
+What were my total sales excluding SEAFOOD Last Complete Week?
+What were my total sales not including SEAFOOD Last Complete Week?
+What were my total sales excluding GM Last Complete Week?
+What were my total sales not including GM Last Complete Week?
+What were my total sales excluding PRODUCE Last Complete Week?
+What were my total sales excluding DELI Last Complete Week?
+What were my total sales not including DELI Last Complete Week?
+What were my total sales excluding BAKERY Last Complete Week?
+What were my total sales not including BAKERY Last Complete Week?
+What were my total sales excluding MEAT Last Complete Week?
+What were my total sales not including MEAT Last Complete Week?
+What were my total sales excluding GROCERY Last Complete Week?
+What were my total sales excluding PHARMACY Last Complete Week?
+What were my total sales not including PHARMACY Last Complete Week?
+What were my total sales excluding HBC Last Complete Week?
+What were my total sales not including HBC Last Complete Week?
+What were my total sales excluding FLORAL Year to Date?
+What were my total sales not including FLORAL Year to Date?
+What were my total sales excluding SEAFOOD Year to Date?
+What were my total sales not including SEAFOOD Year to Date?
+What were my total sales excluding GM Year to Date?
+What were my total sales not including GM Year to Date?
+What were my total sales excluding MEAT Year to Date?
+What were my total sales not including MEAT Year to Date?
+What were my total sales excluding PHARMACY Year to Date?
+What were my total sales not including PHARMACY Year to Date?
+What were my total sales excluding HBC Year to Date?
+What were my total sales not including HBC Year to Date?
+What were my total sales excluding FLORAL Week To Date?
+What were my total sales not including FLORAL Week To Date?
+What were my total sales excluding SEAFOOD Week To Date?
+What were my total sales not including SEAFOOD Week To Date?
+What were my total sales excluding GM Week To Date?
+What were my total sales not including GM Week To Date?
+What were my total sales excluding DELI Week To Date?
+What were my total sales not including DELI Week To Date?
+What were my total sales excluding MEAT Week To Date?
+What were my total sales not including MEAT Week To Date?
+What were my total sales excluding GROCERY Week To Date?
+What were my total sales not including GROCERY Week To Date?
+What were my total sales excluding PHARMACY Week To Date?
+What were my total sales not including PHARMACY Week To Date?
+What were my total sales excluding HBC Week To Date?
+What were my total sales not including HBC Week To Date?
+What were my total sales excluding FLORAL Rolling 13 Periods?
+What were my total sales not including FLORAL Rolling 13 Periods?
+What were my total sales excluding SEAFOOD Rolling 13 Periods?
+What were my total sales not including SEAFOOD Rolling 13 Periods?
+What were my total sales excluding GM Rolling 13 Periods?
+What were my total sales not including GM Rolling 13 Periods?
+What were my total sales excluding DELI Rolling 13 Periods?
+What were my total sales not including DELI Rolling 13 Periods?
+What were my total sales excluding BAKERY Rolling 13 Periods?
+What were my total sales not including BAKERY Rolling 13 Periods?
+What were my total sales excluding MEAT Rolling 13 Periods?
+What were my total sales not including MEAT Rolling 13 Periods?
+What were my total sales excluding PHARMACY Rolling 13 Periods?
+What were my total sales not including PHARMACY Rolling 13 Periods?
+What were my total sales excluding HBC Rolling 13 Periods?
+What were my total sales not including HBC Rolling 13 Periods?
+What is my top performing store Last Complete Year?
+What is my top performing store Period to Date?
+What is my top performing store Rolling 13 Weeks?
+What is my top performing store Last Complete Week?
+What is my top performing store Year to Date?
+What is my top performing store Week To Date?
+What is my top performing store Rolling 13 Periods?
+What is the top performing store in ADIRONDACKS Last Complete Year?
+What is the top performing store in BING ONEONTA Last Complete Year?
+What is the top performing store in CAPITAL DISTRICT Last Complete Year?
+What is the top performing store in GREATER HARTFORD Last Complete Year?
+What is the top performing store in UTICA Last Complete Year?
+What is the top performing store in VT NEW HAMPSHIRE Last Complete Year?
+What is the top performing store in ADIRONDACKS Period to Date?
+What is the top performing store in BING ONEONTA Period to Date?
+What is the top performing store in CAPITAL DISTRICT Period to Date?
+What is the top performing store in SCRANTON WILKESBARRE Period to Date?
+What is the top performing store in UTICA Period to Date?
+What is the top performing store in VT NEW HAMPSHIRE Period to Date?
+What is the top performing store in ADIRONDACKS Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA Rolling 13 Weeks?
+What is the top performing store in CAPITAL DISTRICT Rolling 13 Weeks?
+What is the top performing store in GREATER HARTFORD Rolling 13 Weeks?
+What is the top performing store in GREATER WORCESTER Rolling 13 Weeks?
+What is the top performing store in SCRANTON WILKESBARRE Rolling 13 Weeks?
+What is the top performing store in SO TIER Rolling 13 Weeks?
+What is the top performing store in SYRACUSE Rolling 13 Weeks?
+What is the top performing store in UTICA Rolling 13 Weeks?
+What is the top performing store in VT NEW HAMPSHIRE Rolling 13 Weeks?
+What is the top performing store in ADIRONDACKS Last Complete Week?
+What is the top performing store in BING ONEONTA Last Complete Week?
+What is the top performing store in CAPITAL DISTRICT Last Complete Week?
+What is the top performing store in GREATER HARTFORD Last Complete Week?
+What is the top performing store in SCRANTON WILKESBARRE Last Complete Week?
+What is the top performing store in UTICA Last Complete Week?
+What is the top performing store in ADIRONDACKS Year to Date?
+What is the top performing store in BING ONEONTA Year to Date?
+What is the top performing store in GREATER HARTFORD Year to Date?
+What is the top performing store in VT NEW HAMPSHIRE Year to Date?
+What is the top performing store in ADIRONDACKS Week To Date?
+What is the top performing store in BING ONEONTA Week To Date?
+What is the top performing store in CAPITAL DISTRICT Week To Date?
+What is the top performing store in GREATER HARTFORD Week To Date?
+What is the top performing store in UTICA Week To Date?
+What is the top performing store in VT NEW HAMPSHIRE Week To Date?
+What is the top performing store in ADIRONDACKS Rolling 13 Periods?
+What is the top performing store in BING ONEONTA Rolling 13 Periods?
+What is the top performing store in CAPITAL DISTRICT Rolling 13 Periods?
+What is the top performing store in GREATER HARTFORD Rolling 13 Periods?
+What is the top performing store in GREATER WORCESTER Rolling 13 Periods?
+What is the top performing store in SCRANTON WILKESBARRE Rolling 13 Periods?
+What is the top performing store in SO TIER Rolling 13 Periods?
+What is the top performing store in UTICA Rolling 13 Periods?
+What is the top performing store in VT NEW HAMPSHIRE Rolling 13 Periods?
+What is the top performing store in WESTERN MASS Rolling 13 Periods?
+What is the top performing store in ADIRONDACKS in FLORAL Last Complete Year?
+What is the top performing store in BING ONEONTA in FLORAL Last Complete Year?
+What is the top performing store in SO TIER in FLORAL Last Complete Year?
+What is the top performing store in UTICA in FLORAL Last Complete Year?
+What is the top performing store in WESTERN MASS in FLORAL Last Complete Year?
+What is the top performing store in SO TIER in FLORAL Period to Date?
+What is the top performing store in BING ONEONTA in FLORAL Rolling 13 Weeks?
+What is the top performing store in CAPITAL DISTRICT in FLORAL Rolling 13 Weeks?
+What is the top performing store in SO TIER in FLORAL Rolling 13 Weeks?
+What is the top performing store in SYRACUSE in FLORAL Rolling 13 Weeks?
+What is the top performing store in UTICA in FLORAL Rolling 13 Weeks?
+What is the top performing store in WESTERN MASS in FLORAL Rolling 13 Weeks?
+What is the top performing store in ADIRONDACKS in FLORAL Last Complete Week?
+What is the top performing store in BING ONEONTA in FLORAL Last Complete Week?
+What is the top performing store in CAPITAL DISTRICT in FLORAL Last Complete Week?
+What is the top performing store in SO TIER in FLORAL Last Complete Week?
+What is the top performing store in UTICA in FLORAL Last Complete Week?
+What is the top performing store in WESTERN MASS in FLORAL Last Complete Week?
+What is the top performing store in ADIRONDACKS in FLORAL Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in FLORAL Rolling 13 Periods?
+What is the top performing store in SO TIER in FLORAL Rolling 13 Periods?
+What is the top performing store in UTICA in FLORAL Rolling 13 Periods?
+What is the top performing store in ADIRONDACKS in SEAFOOD Last Complete Year?
+What is the top performing store in BING ONEONTA in SEAFOOD Last Complete Year?
+What is the top performing store in CAPITAL DISTRICT in SEAFOOD Last Complete Year?
+What is the top performing store in GREATER HARTFORD in SEAFOOD Last Complete Year?
+What is the top performing store in GREATER WORCESTER in SEAFOOD Last Complete Year?
+What is the top performing store in SCRANTON WILKESBARRE in SEAFOOD Last Complete Year?
+What is the top performing store in SO TIER in SEAFOOD Last Complete Year?
+What is the top performing store in UTICA in SEAFOOD Last Complete Year?
+What is the top performing store in VT NEW HAMPSHIRE in SEAFOOD Last Complete Year?
+What is the top performing store in WESTERN MASS in SEAFOOD Last Complete Year?
+What is the top performing store in SO TIER in SEAFOOD Period to Date?
+What is the top performing store in ADIRONDACKS in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in CAPITAL DISTRICT in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in GREATER HARTFORD in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in GREATER WORCESTER in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in SCRANTON WILKESBARRE in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in SO TIER in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in UTICA in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in VT NEW HAMPSHIRE in SEAFOOD Rolling 13 Weeks?
+What is the top performing store in ADIRONDACKS in SEAFOOD Last Complete Week?
+What is the top performing store in BING ONEONTA in SEAFOOD Last Complete Week?
+What is the top performing store in CAPITAL DISTRICT in SEAFOOD Last Complete Week?
+What is the top performing store in GREATER HARTFORD in SEAFOOD Last Complete Week?
+What is the top performing store in GREATER WORCESTER in SEAFOOD Last Complete Week?
+What is the top performing store in SCRANTON WILKESBARRE in SEAFOOD Last Complete Week?
+What is the top performing store in SO TIER in SEAFOOD Last Complete Week?
+What is the top performing store in UTICA in SEAFOOD Last Complete Week?
+What is the top performing store in VT NEW HAMPSHIRE in SEAFOOD Last Complete Week?
+What is the top performing store in BING ONEONTA in SEAFOOD Week To Date?
+What is the top performing store in CAPITAL DISTRICT in SEAFOOD Week To Date?
+What is the top performing store in GREATER WORCESTER in SEAFOOD Week To Date?
+What is the top performing store in SCRANTON WILKESBARRE in SEAFOOD Week To Date?
+What is the top performing store in SO TIER in SEAFOOD Week To Date?
+What is the top performing store in VT NEW HAMPSHIRE in SEAFOOD Week To Date?
+What is the top performing store in ADIRONDACKS in SEAFOOD Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in SEAFOOD Rolling 13 Periods?
+What is the top performing store in CAPITAL DISTRICT in SEAFOOD Rolling 13 Periods?
+What is the top performing store in GREATER HARTFORD in SEAFOOD Rolling 13 Periods?
+What is the top performing store in SCRANTON WILKESBARRE in SEAFOOD Rolling 13 Periods?
+What is the top performing store in SO TIER in SEAFOOD Rolling 13 Periods?
+What is the top performing store in UTICA in SEAFOOD Rolling 13 Periods?
+What is the top performing store in VT NEW HAMPSHIRE in SEAFOOD Rolling 13 Periods?
+What is the top performing store in ADIRONDACKS in GM Last Complete Year?
+What is the top performing store in BING ONEONTA in GM Last Complete Year?
+What is the top performing store in CAPITAL DISTRICT in GM Last Complete Year?
+What is the top performing store in GREATER HARTFORD in GM Last Complete Year?
+What is the top performing store in GREATER WORCESTER in GM Last Complete Year?
+What is the top performing store in SCRANTON WILKESBARRE in GM Last Complete Year?
+What is the top performing store in SO TIER in GM Last Complete Year?
+What is the top performing store in SYRACUSE in GM Last Complete Year?
+What is the top performing store in UTICA in GM Last Complete Year?
+What is the top performing store in VT NEW HAMPSHIRE in GM Last Complete Year?
+What is the top performing store in WESTERN MASS in GM Last Complete Year?
+What is the top performing store in ADIRONDACKS in GM Period to Date?
+What is the top performing store in BING ONEONTA in GM Period to Date?
+What is the top performing store in GREATER WORCESTER in GM Period to Date?
+What is the top performing store in SCRANTON WILKESBARRE in GM Period to Date?
+What is the top performing store in SO TIER in GM Period to Date?
+What is the top performing store in UTICA in GM Period to Date?
+What is the top performing store in VT NEW HAMPSHIRE in GM Period to Date?
+What is the top performing store in ADIRONDACKS in GM Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in GM Rolling 13 Weeks?
+What is the top performing store in CAPITAL DISTRICT in GM Rolling 13 Weeks?
+What is the top performing store in GREATER HARTFORD in GM Rolling 13 Weeks?
+What is the top performing store in GREATER WORCESTER in GM Rolling 13 Weeks?
+What is the top performing store in SCRANTON WILKESBARRE in GM Rolling 13 Weeks?
+What is the top performing store in SO TIER in GM Rolling 13 Weeks?
+What is the top performing store in SYRACUSE in GM Rolling 13 Weeks?
+What is the top performing store in UTICA in GM Rolling 13 Weeks?
+What is the top performing store in VT NEW HAMPSHIRE in GM Rolling 13 Weeks?
+What is the top performing store in WESTERN MASS in GM Rolling 13 Weeks?
+What is the top performing store in ADIRONDACKS in GM Last Complete Week?
+What is the top performing store in BING ONEONTA in GM Last Complete Week?
+What is the top performing store in CAPITAL DISTRICT in GM Last Complete Week?
+What is the top performing store in GREATER HARTFORD in GM Last Complete Week?
+What is the top performing store in GREATER WORCESTER in GM Last Complete Week?
+What is the top performing store in SCRANTON WILKESBARRE in GM Last Complete Week?
+What is the top performing store in SO TIER in GM Last Complete Week?
+What is the top performing store in SYRACUSE in GM Last Complete Week?
+What is the top performing store in UTICA in GM Last Complete Week?
+What is the top performing store in VT NEW HAMPSHIRE in GM Last Complete Week?
+What is the top performing store in WESTERN MASS in GM Last Complete Week?
+What is the top performing store in ADIRONDACKS in GM Year to Date?
+What is the top performing store in BING ONEONTA in GM Year to Date?
+What is the top performing store in CAPITAL DISTRICT in GM Year to Date?
+What is the top performing store in GREATER HARTFORD in GM Year to Date?
+What is the top performing store in GREATER WORCESTER in GM Year to Date?
+What is the top performing store in SCRANTON WILKESBARRE in GM Year to Date?
+What is the top performing store in SO TIER in GM Year to Date?
+What is the top performing store in UTICA in GM Year to Date?
+What is the top performing store in VT NEW HAMPSHIRE in GM Year to Date?
+What is the top performing store in WESTERN MASS in GM Year to Date?
+What is the top performing store in ADIRONDACKS in GM Week To Date?
+What is the top performing store in BING ONEONTA in GM Week To Date?
+What is the top performing store in CAPITAL DISTRICT in GM Week To Date?
+What is the top performing store in GREATER HARTFORD in GM Week To Date?
+What is the top performing store in GREATER WORCESTER in GM Week To Date?
+What is the top performing store in SO TIER in GM Week To Date?
+What is the top performing store in UTICA in GM Week To Date?
+What is the top performing store in VT NEW HAMPSHIRE in GM Week To Date?
+What is the top performing store in ADIRONDACKS in GM Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in GM Rolling 13 Periods?
+What is the top performing store in CAPITAL DISTRICT in GM Rolling 13 Periods?
+What is the top performing store in GREATER HARTFORD in GM Rolling 13 Periods?
+What is the top performing store in GREATER WORCESTER in GM Rolling 13 Periods?
+What is the top performing store in SCRANTON WILKESBARRE in GM Rolling 13 Periods?
+What is the top performing store in SO TIER in GM Rolling 13 Periods?
+What is the top performing store in UTICA in GM Rolling 13 Periods?
+What is the top performing store in VT NEW HAMPSHIRE in GM Rolling 13 Periods?
+What is the top performing store in WESTERN MASS in GM Rolling 13 Periods?
+What is the top performing store in WESTERN MASS in PRODUCE Rolling 13 Periods?
+What is the top performing store in ADIRONDACKS in DELI Period to Date?
+What is the top performing store in BING ONEONTA in DELI Period to Date?
+What is the top performing store in CAPITAL DISTRICT in DELI Period to Date?
+What is the top performing store in GREATER HARTFORD in DELI Period to Date?
+What is the top performing store in SCRANTON WILKESBARRE in DELI Period to Date?
+What is the top performing store in SO TIER in DELI Period to Date?
+What is the top performing store in UTICA in DELI Period to Date?
+What is the top performing store in VT NEW HAMPSHIRE in DELI Period to Date?
+What is the top performing store in ADIRONDACKS in DELI Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in DELI Rolling 13 Weeks?
+What is the top performing store in GREATER HARTFORD in DELI Rolling 13 Weeks?
+What is the top performing store in GREATER WORCESTER in DELI Rolling 13 Weeks?
+What is the top performing store in SCRANTON WILKESBARRE in DELI Rolling 13 Weeks?
+What is the top performing store in UTICA in DELI Rolling 13 Weeks?
+What is the top performing store in VT NEW HAMPSHIRE in DELI Rolling 13 Weeks?
+What is the top performing store in ADIRONDACKS in DELI Year to Date?
+What is the top performing store in SCRANTON WILKESBARRE in DELI Year to Date?
+What is the top performing store in VT NEW HAMPSHIRE in DELI Year to Date?
+What is the top performing store in GREATER HARTFORD in DELI Week To Date?
+What is the top performing store in ADIRONDACKS in DELI Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in DELI Rolling 13 Periods?
+What is the top performing store in CAPITAL DISTRICT in DELI Rolling 13 Periods?
+What is the top performing store in GREATER HARTFORD in DELI Rolling 13 Periods?
+What is the top performing store in SCRANTON WILKESBARRE in DELI Rolling 13 Periods?
+What is the top performing store in UTICA in DELI Rolling 13 Periods?
+What is the top performing store in VT NEW HAMPSHIRE in DELI Rolling 13 Periods?
+What is the top performing store in SO TIER in BAKERY Last Complete Year?
+What is the top performing store in SO TIER in BAKERY Period to Date?
+What is the top performing store in CAPITAL DISTRICT in BAKERY Last Complete Week?
+What is the top performing store in SO TIER in BAKERY Last Complete Week?
+What is the top performing store in SCRANTON WILKESBARRE in BAKERY Rolling 13 Periods?
+What is the top performing store in SO TIER in BAKERY Rolling 13 Periods?
+What is the top performing store in ADIRONDACKS in MEAT Last Complete Year?
+What is the top performing store in BING ONEONTA in MEAT Last Complete Year?
+What is the top performing store in CAPITAL DISTRICT in MEAT Last Complete Year?
+What is the top performing store in GREATER HARTFORD in MEAT Last Complete Year?
+What is the top performing store in GREATER WORCESTER in MEAT Last Complete Year?
+What is the top performing store in SCRANTON WILKESBARRE in MEAT Last Complete Year?
+What is the top performing store in SO TIER in MEAT Last Complete Year?
+What is the top performing store in UTICA in MEAT Last Complete Year?
+What is the top performing store in VT NEW HAMPSHIRE in MEAT Last Complete Year?
+What is the top performing store in WESTERN MASS in MEAT Last Complete Year?
+What is the top performing store in ADIRONDACKS in MEAT Period to Date?
+What is the top performing store in SO TIER in MEAT Period to Date?
+What is the top performing store in UTICA in MEAT Period to Date?
+What is the top performing store in VT NEW HAMPSHIRE in MEAT Period to Date?
+What is the top performing store in WESTERN MASS in MEAT Period to Date?
+What is the top performing store in ADIRONDACKS in MEAT Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in MEAT Rolling 13 Weeks?
+What is the top performing store in CAPITAL DISTRICT in MEAT Rolling 13 Weeks?
+What is the top performing store in GREATER HARTFORD in MEAT Rolling 13 Weeks?
+What is the top performing store in GREATER WORCESTER in MEAT Rolling 13 Weeks?
+What is the top performing store in SCRANTON WILKESBARRE in MEAT Rolling 13 Weeks?
+What is the top performing store in UTICA in MEAT Rolling 13 Weeks?
+What is the top performing store in VT NEW HAMPSHIRE in MEAT Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in MEAT Last Complete Week?
+What is the top performing store in CAPITAL DISTRICT in MEAT Last Complete Week?
+What is the top performing store in GREATER HARTFORD in MEAT Last Complete Week?
+What is the top performing store in GREATER WORCESTER in MEAT Last Complete Week?
+What is the top performing store in SCRANTON WILKESBARRE in MEAT Last Complete Week?
+What is the top performing store in UTICA in MEAT Last Complete Week?
+What is the top performing store in ADIRONDACKS in MEAT Year to Date?
+What is the top performing store in BING ONEONTA in MEAT Year to Date?
+What is the top performing store in CAPITAL DISTRICT in MEAT Year to Date?
+What is the top performing store in GREATER HARTFORD in MEAT Year to Date?
+What is the top performing store in GREATER WORCESTER in MEAT Year to Date?
+What is the top performing store in SCRANTON WILKESBARRE in MEAT Year to Date?
+What is the top performing store in VT NEW HAMPSHIRE in MEAT Year to Date?
+What is the top performing store in WESTERN MASS in MEAT Year to Date?
+What is the top performing store in ADIRONDACKS in MEAT Week To Date?
+What is the top performing store in BING ONEONTA in MEAT Week To Date?
+What is the top performing store in CAPITAL DISTRICT in MEAT Week To Date?
+What is the top performing store in GREATER HARTFORD in MEAT Week To Date?
+What is the top performing store in GREATER WORCESTER in MEAT Week To Date?
+What is the top performing store in SCRANTON WILKESBARRE in MEAT Week To Date?
+What is the top performing store in SO TIER in MEAT Week To Date?
+What is the top performing store in UTICA in MEAT Week To Date?
+What is the top performing store in VT NEW HAMPSHIRE in MEAT Week To Date?
+What is the top performing store in WESTERN MASS in MEAT Week To Date?
+What is the top performing store in ADIRONDACKS in MEAT Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in MEAT Rolling 13 Periods?
+What is the top performing store in CAPITAL DISTRICT in MEAT Rolling 13 Periods?
+What is the top performing store in GREATER HARTFORD in MEAT Rolling 13 Periods?
+What is the top performing store in GREATER WORCESTER in MEAT Rolling 13 Periods?
+What is the top performing store in SCRANTON WILKESBARRE in MEAT Rolling 13 Periods?
+What is the top performing store in SO TIER in MEAT Rolling 13 Periods?
+What is the top performing store in VT NEW HAMPSHIRE in MEAT Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in GROCERY Last Complete Week?
+What is the top performing store in GREATER HARTFORD in GROCERY Week To Date?
+What is the top performing store in GREATER WORCESTER in GROCERY Week To Date?
+What is the top performing store in VT NEW HAMPSHIRE in GROCERY Week To Date?
+What is the top performing store in ADIRONDACKS in PHARMACY Last Complete Year?
+What is the top performing store in BING ONEONTA in PHARMACY Last Complete Year?
+What is the top performing store in CAPITAL DISTRICT in PHARMACY Last Complete Year?
+What is the top performing store in GREATER HARTFORD in PHARMACY Last Complete Year?
+What is the top performing store in GREATER WORCESTER in PHARMACY Last Complete Year?
+What is the top performing store in SCRANTON WILKESBARRE in PHARMACY Last Complete Year?
+What is the top performing store in SYRACUSE in PHARMACY Last Complete Year?
+What is the top performing store in VT NEW HAMPSHIRE in PHARMACY Last Complete Year?
+What is the top performing store in ADIRONDACKS in PHARMACY Period to Date?
+What is the top performing store in BING ONEONTA in PHARMACY Period to Date?
+What is the top performing store in CAPITAL DISTRICT in PHARMACY Period to Date?
+What is the top performing store in GREATER HARTFORD in PHARMACY Period to Date?
+What is the top performing store in SO TIER in PHARMACY Period to Date?
+What is the top performing store in UTICA in PHARMACY Period to Date?
+What is the top performing store in VT NEW HAMPSHIRE in PHARMACY Period to Date?
+What is the top performing store in ADIRONDACKS in PHARMACY Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in PHARMACY Rolling 13 Weeks?
+What is the top performing store in CAPITAL DISTRICT in PHARMACY Rolling 13 Weeks?
+What is the top performing store in GREATER HARTFORD in PHARMACY Rolling 13 Weeks?
+What is the top performing store in GREATER WORCESTER in PHARMACY Rolling 13 Weeks?
+What is the top performing store in SCRANTON WILKESBARRE in PHARMACY Rolling 13 Weeks?
+What is the top performing store in SO TIER in PHARMACY Rolling 13 Weeks?
+What is the top performing store in UTICA in PHARMACY Rolling 13 Weeks?
+What is the top performing store in VT NEW HAMPSHIRE in PHARMACY Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in PHARMACY Last Complete Week?
+What is the top performing store in CAPITAL DISTRICT in PHARMACY Last Complete Week?
+What is the top performing store in GREATER HARTFORD in PHARMACY Last Complete Week?
+What is the top performing store in GREATER WORCESTER in PHARMACY Last Complete Week?
+What is the top performing store in SCRANTON WILKESBARRE in PHARMACY Last Complete Week?
+What is the top performing store in SO TIER in PHARMACY Last Complete Week?
+What is the top performing store in ADIRONDACKS in PHARMACY Year to Date?
+What is the top performing store in BING ONEONTA in PHARMACY Year to Date?
+What is the top performing store in CAPITAL DISTRICT in PHARMACY Year to Date?
+What is the top performing store in GREATER HARTFORD in PHARMACY Year to Date?
+What is the top performing store in GREATER WORCESTER in PHARMACY Year to Date?
+What is the top performing store in SCRANTON WILKESBARRE in PHARMACY Year to Date?
+What is the top performing store in VT NEW HAMPSHIRE in PHARMACY Year to Date?
+What is the top performing store in ADIRONDACKS in PHARMACY Week To Date?
+What is the top performing store in BING ONEONTA in PHARMACY Week To Date?
+What is the top performing store in CAPITAL DISTRICT in PHARMACY Week To Date?
+What is the top performing store in GREATER HARTFORD in PHARMACY Week To Date?
+What is the top performing store in GREATER WORCESTER in PHARMACY Week To Date?
+What is the top performing store in SCRANTON WILKESBARRE in PHARMACY Week To Date?
+What is the top performing store in SO TIER in PHARMACY Week To Date?
+What is the top performing store in SYRACUSE in PHARMACY Week To Date?
+What is the top performing store in VT NEW HAMPSHIRE in PHARMACY Week To Date?
+What is the top performing store in ADIRONDACKS in PHARMACY Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in PHARMACY Rolling 13 Periods?
+What is the top performing store in CAPITAL DISTRICT in PHARMACY Rolling 13 Periods?
+What is the top performing store in GREATER HARTFORD in PHARMACY Rolling 13 Periods?
+What is the top performing store in GREATER WORCESTER in PHARMACY Rolling 13 Periods?
+What is the top performing store in SCRANTON WILKESBARRE in PHARMACY Rolling 13 Periods?
+What is the top performing store in SO TIER in PHARMACY Rolling 13 Periods?
+What is the top performing store in VT NEW HAMPSHIRE in PHARMACY Rolling 13 Periods?
+What is the top performing store in ADIRONDACKS in HBC Last Complete Year?
+What is the top performing store in CAPITAL DISTRICT in HBC Last Complete Year?
+What is the top performing store in GREATER WORCESTER in HBC Last Complete Year?
+What is the top performing store in SCRANTON WILKESBARRE in HBC Last Complete Year?
+What is the top performing store in UTICA in HBC Last Complete Year?
+What is the top performing store in WESTERN MASS in HBC Last Complete Year?
+What is the top performing store in ADIRONDACKS in HBC Period to Date?
+What is the top performing store in BING ONEONTA in HBC Period to Date?
+What is the top performing store in CAPITAL DISTRICT in HBC Period to Date?
+What is the top performing store in GREATER HARTFORD in HBC Period to Date?
+What is the top performing store in SCRANTON WILKESBARRE in HBC Period to Date?
+What is the top performing store in SO TIER in HBC Period to Date?
+What is the top performing store in UTICA in HBC Period to Date?
+What is the top performing store in VT NEW HAMPSHIRE in HBC Period to Date?
+What is the top performing store in ADIRONDACKS in HBC Rolling 13 Weeks?
+What is the top performing store in BING ONEONTA in HBC Rolling 13 Weeks?
+What is the top performing store in CAPITAL DISTRICT in HBC Rolling 13 Weeks?
+What is the top performing store in GREATER HARTFORD in HBC Rolling 13 Weeks?
+What is the top performing store in GREATER WORCESTER in HBC Rolling 13 Weeks?
+What is the top performing store in SCRANTON WILKESBARRE in HBC Rolling 13 Weeks?
+What is the top performing store in SO TIER in HBC Rolling 13 Weeks?
+What is the top performing store in UTICA in HBC Rolling 13 Weeks?
+What is the top performing store in VT NEW HAMPSHIRE in HBC Rolling 13 Weeks?
+What is the top performing store in WESTERN MASS in HBC Rolling 13 Weeks?
+What is the top performing store in ADIRONDACKS in HBC Last Complete Week?
+What is the top performing store in CAPITAL DISTRICT in HBC Last Complete Week?
+What is the top performing store in GREATER WORCESTER in HBC Last Complete Week?
+What is the top performing store in SCRANTON WILKESBARRE in HBC Last Complete Week?
+What is the top performing store in SO TIER in HBC Last Complete Week?
+What is the top performing store in UTICA in HBC Last Complete Week?
+What is the top performing store in WESTERN MASS in HBC Last Complete Week?
+What is the top performing store in ADIRONDACKS in HBC Year to Date?
+What is the top performing store in BING ONEONTA in HBC Year to Date?
+What is the top performing store in CAPITAL DISTRICT in HBC Year to Date?
+What is the top performing store in GREATER HARTFORD in HBC Year to Date?
+What is the top performing store in GREATER WORCESTER in HBC Year to Date?
+What is the top performing store in SCRANTON WILKESBARRE in HBC Year to Date?
+What is the top performing store in SO TIER in HBC Year to Date?
+What is the top performing store in UTICA in HBC Year to Date?
+What is the top performing store in VT NEW HAMPSHIRE in HBC Year to Date?
+What is the top performing store in WESTERN MASS in HBC Year to Date?
+What is the top performing store in ADIRONDACKS in HBC Week To Date?
+What is the top performing store in BING ONEONTA in HBC Week To Date?
+What is the top performing store in CAPITAL DISTRICT in HBC Week To Date?
+What is the top performing store in GREATER HARTFORD in HBC Week To Date?
+What is the top performing store in GREATER WORCESTER in HBC Week To Date?
+What is the top performing store in SCRANTON WILKESBARRE in HBC Week To Date?
+What is the top performing store in SO TIER in HBC Week To Date?
+What is the top performing store in UTICA in HBC Week To Date?
+What is the top performing store in VT NEW HAMPSHIRE in HBC Week To Date?
+What is the top performing store in WESTERN MASS in HBC Week To Date?
+What is the top performing store in ADIRONDACKS in HBC Rolling 13 Periods?
+What is the top performing store in BING ONEONTA in HBC Rolling 13 Periods?
+What is the top performing store in CAPITAL DISTRICT in HBC Rolling 13 Periods?
+What is the top performing store in SCRANTON WILKESBARRE in HBC Rolling 13 Periods?
+What is the top performing store in SO TIER in HBC Rolling 13 Periods?
+What is the top performing store in UTICA in HBC Rolling 13 Periods?
+What is the top performing store in VT NEW HAMPSHIRE in HBC Rolling 13 Periods?
+What is the top performing store in WESTERN MASS in HBC Rolling 13 Periods?
