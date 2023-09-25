@@ -137,7 +137,9 @@ def env_Setup(_session):
     else:
         options_dash  = _session.table("\"OptionsDashboard\"") 
         options_query = _session.table("\"OptionsQuery\"")
-
+    
+    options_dash  = _session.table("OPTIONS_DASHBOARD") 
+    options_query = _session.table("OPTIONS_QUERY")
     
     
     #recieve options and their encodings and return
