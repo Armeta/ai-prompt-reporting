@@ -109,11 +109,11 @@ stageD.close()
 print('Generated %d options' % (count))
 
 if loadSnowflake:
-    tableDashboard = 'OptionsDashboard'
-    tableQuery = 'OptionsQuery'
+    tableDashboard = 'OPTIONS_DASHBOARD'
+    tableQuery = 'OPTIONS_QUERY'
     if modelName == './LocalModel/':
-        tableDashboard = 'OptionsDashboardLocal'
-        tableQuery = 'OptionsQueryLocal'
+        tableDashboard = 'OPTIONS_DASHBOARD'
+        tableQuery = 'OPTIONS_QUERY'
 
     print('Using tables %s, %s' % (tableDashboard, tableQuery))
 
