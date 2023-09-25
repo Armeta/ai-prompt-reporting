@@ -3,4 +3,7 @@ secrets.json
 pipfile
 pipfile.lock
 Armeta AI.pptx
+*.pyc*
+.\LocalModel\pytorch_model.bin
+*pytorch_model.bin*
 ~*
