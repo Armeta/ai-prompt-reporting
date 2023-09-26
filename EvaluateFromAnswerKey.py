@@ -133,7 +133,7 @@ def main(useLocalModel = False):
     good = open(outputpath+'Questions_good.csv', 'w')
     bad = open(outputpath+'Questions_bad.csv', 'w')
     bad_debug = open(outputpath+'Questions_bad_debug.csv', 'w')
-    bad_debug.write('Question | Wrong Answer | Expected Answer')
+    bad_debug.write('Question | Wrong Answer | Expected Answer | Option ID\n')
 
     goodPerOption = {}
     badPerOption = {}
@@ -163,7 +163,7 @@ def main(useLocalModel = False):
             countBoth += 1
         if(dash_answer_desc != ans and query_answer_desc != ans):
             bad.write(prompt+'\n')
-            bad_debug.write(prompt + ' | ' + query_answer_desc + ' | ' + ans + '\n')
+            bad_debug.write(prompt + ' | ' + query_answer_desc + ' | ' + ans + ' | ' + str(id) + '\n')
 
         if(id not in countPerOption):
             countPerOption[id] = 0
@@ -184,7 +184,7 @@ def main(useLocalModel = False):
             left_m = int(left_s / 60)
             left_s = left_s % 60
             print('Evaluated %5d entries (%d%%) in %2dm %02ds. Estimated time remaining: %2dm %02ds' % (currentCount, currentCount*100.0/total, dur_m, dur_s, left_m, left_s))
-
+        
     endtime = datetime.datetime.now()
     dur_s = (endtime - starttime).seconds
     dur_m = int(dur_s / 60)
@@ -200,7 +200,10 @@ def main(useLocalModel = False):
     bad_debug.close()
 
     for id in countPerOption:
+        optionSummary.at[int(id)-1, 'Base Model %'] = (goodPerOption[id] * 1.0 / countPerOption[id])
         
+
+    optionSummary.to_csv('src/csv/optionSummary.csv',sep='|',index=False)
 
 if __name__ == '__main__':
     
