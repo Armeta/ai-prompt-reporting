@@ -65,16 +65,16 @@
     "templates":[
         {   "parameters": ["TIMEFRAME_PARAMETER"]
         ,   "desc":"Total sales TIMEFRAME_PARAMETER."
-        ,   "questions":["What were my total sales TIMEFRAME_PARAMETER?", "What were my total TIMEFRAME_PARAMETER sales?", "What are the total TIMEFRAME_PARAMETER sales?", "What are the total sales TIMEFRAME_PARAMETER?", "What is the total sale amount TIMEFRAME_PARAMETER?"]
+        ,   "questions":["What were my total sales TIMEFRAME_PARAMETER?"]
         ,   "query":"SELECT CONCAT('The total sales in the ', B.TIMEFRAME_DESC ,' timeframe is $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')) ) FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY B.TIMEFRAME_DESC;"
         ,   "urlpage":"opportunity-locator"
         ,   "urlfilter":""
         ,   "urlquery":"{\"timeframe\":TIMEFRAME_PARAMETER}"
         ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
         },
-        {   "parameters": []
-        ,   "desc":"Total sales in DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER."
-        ,   "questions":["What were my total sales in DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?", "What are the total sales in DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?", "What were my total DEPARTMENTGROUP_PARAMETER sales TIMEFRAME_PARAMETER?", "What are the total DEPARTMENTGROUP_PARAMETER sales TIMEFRAME_PARAMETER?"]
+        {   "parameters": ["DEPARTMENTGROUP_PARAMETER", "TIMEFRAME_PARAMETER"]
+        ,   "desc":"Total sales in the DEPARTMENTGROUP_PARAMETER department TIMEFRAME_PARAMETER."
+        ,   "questions":["What were my total sales in the DEPARTMENTGROUP_PARAMETER department TIMEFRAME_PARAMETER?"]
         ,   "query":"SELECT CONCAT('The total sales in the ', B.TIMEFRAME_DESC ,' timeframe for the ', A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL,' department is $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')) ) FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE A.SALES_DEPARTMENT_GROUP_ID = DEPARTMENTGROUP_PARAMETER AND B.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, B.TIMEFRAME_DESC;"
         ,   "urlpage":"opportunity-locator"
         ,   "urlfilter":"{\"departmentDrivers\":[\"DEPARTMENTGROUP_PARAMETER\"]}"
@@ -82,8 +82,8 @@
         ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
         },
         {   "parameters": ["DEPARTMENTGROUP2_PARAMETER", "TIMEFRAME_PARAMETER"]
-        ,   "desc":"Total sales in DEPARTMENTGROUP2_PARAMETER TIMEFRAME_PARAMETER."
-        ,   "questions":["What were my total sales in DEPARTMENTGROUP2_PARAMETER TIMEFRAME_PARAMETER?"]
+        ,   "desc":"Total sales in the DEPARTMENTGROUP2_PARAMETER departments TIMEFRAME_PARAMETER."
+        ,   "questions":["What were my total sales in the DEPARTMENTGROUP2_PARAMETER departments TIMEFRAME_PARAMETER?"]
         ,   "query":"SELECT CONCAT('The total sales in the ', B.TIMEFRAME_DESC ,' timeframe in the ', 'DESCRIPTION_DEPARTMENTGROUP2_PARAMETER',' departments is $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')) ) FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON A.SALES_DEPARTMENT_GROUP_ID IN (DEPARTMENTGROUP2_PARAMETER) AND A.SALES_DEPARTMENT_GROUP_ID <> -1 JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE OP.SALES_DEPARTMENT_GROUP_ID IN (DEPARTMENTGROUP2_PARAMETER) AND OP.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, B.TIMEFRAME_DESC;"
         ,   "urlpage":"opportunity-locator"
         ,   "urlfilter":"{\"departmentDrivers\":[DEPARTMENTGROUP2_PARAMETER]}"
@@ -91,8 +91,8 @@
         ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
         },
         {   "parameters": ["STORE_PARAMETER", "TIMEFRAME_PARAMETER"]
-        ,   "desc":"Total sales in STORE_PARAMETER TIMEFRAME_PARAMETER."
-        ,   "questions":["What were my total sales in STORE_PARAMETER TIMEFRAME_PARAMETER?"]
+        ,   "desc":"Total sales in store STORE_PARAMETER TIMEFRAME_PARAMETER."
+        ,   "questions":["What were my total sales in store STORE_PARAMETER TIMEFRAME_PARAMETER?"]
         ,   "query":"SELECT CONCAT('The total sales in the ', B.TIMEFRAME_DESC ,' timeframe for the ', A.STORE_LABEL,' store is $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')) ) FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_STORE A ON OP.STORE_ID = A.STORE_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE A.STORE_ID = STORE_PARAMETER AND B.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY A.STORE_LABEL, B.TIMEFRAME_DESC;"
         ,   "urlpage":"opportunity-locator"
         ,   "urlfilter":"{\"storeShadow\":[\"STORE_PARAMETER\"]}"
@@ -101,7 +101,7 @@
         },
         {   "parameters": ["EXCLUDE_DEPARTMENTGROUP_PARAMETER", "TIMEFRAME_PARAMETER"]
         ,   "desc":"Total sales excluding EXCLUDE_DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER."
-        ,   "questions":["What were my total sales excluding EXCLUDE_DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?", "What were my total sales not including EXCLUDE_DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?", "What are the total sales excluding EXCLUDE_DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?", "What are the total sales not including EXCLUDE_DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?"]
+        ,   "questions":["What were my total sales excluding EXCLUDE_DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?", "What were my total sales not including EXCLUDE_DEPARTMENTGROUP_PARAMETER TIMEFRAME_PARAMETER?"]
         ,   "query":"SELECT CONCAT('The total sales in the ', B.TIMEFRAME_DESC ,' timeframe excluding the ', A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL,' department is $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')) ) FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON A.SALES_DEPARTMENT_GROUP_ID NOT IN (EXCLUDE_DEPARTMENTGROUP_PARAMETER) AND A.SALES_DEPARTMENT_GROUP_ID <> -1 JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE OP.SALES_DEPARTMENT_GROUP_ID IN (EXCLUDE_DEPARTMENTGROUP_PARAMETER) AND OP.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, B.TIMEFRAME_DESC;"
         ,   "urlpage":"opportunity-locator"
         ,   "urlfilter":"{\"departmentDrivers\":[EXCLUDE_DEPARTMENTGROUP_PARAMETER]}"
@@ -110,7 +110,7 @@
         },
         {   "parameters": ["TIMEFRAME_PARAMETER"]
         ,   "desc":"The top performing store TIMEFRAME_PARAMETER."
-        ,   "questions":["What is my top performing store TIMEFRAME_PARAMETER?", "What is the top performing store TIMEFRAME_PARAMETER?", "What is my top store TIMEFRAME_PARAMETER?", "What is the top store TIMEFRAME_PARAMETER?", "What store has the most sales TIMEFRAME_PARAMETER?", "What store has the most TIMEFRAME_PARAMETER sales?"]
+        ,   "questions":["What is my top performing store TIMEFRAME_PARAMETER?"]
         ,   "query":"SELECT TOP 1 CONCAT(A.STORE_LABEL, ' is the top performing store in the ', B.TIMEFRAME_DESC ,' timeframe with $', LTRIM(TO_VARCHAR(SUM(OP.NET_SALES_DOLLARS_TY), '999,999,999,990')), ' of sales.' ) FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_STORE A ON OP.STORE_ID = A.STORE_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = TIMEFRAME_PARAMETER AND OP.USED_IN_METRICS = TRUE AND STORE_CONCEPT_ID = 1 GROUP BY A.STORE_LABEL, B.TIMEFRAME_DESC ORDER BY SUM(OP.NET_SALES_DOLLARS_TY) DESC;"
         ,   "urlpage":"opportunity-locator"
         ,   "urlfilter":""

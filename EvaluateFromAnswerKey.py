@@ -55,8 +55,8 @@ def env_Setup():
     options_query = session.table("OPTIONS_QUERY")
 
     #recieve options and their encodings and return
-    dash_rows = options_dash.select(['URL', 'ENCODING', 'DESC']).to_pandas().values.tolist()
-    query_rows = options_query.select(['RESULT_CACHE', 'ENCODING', 'DESC']).to_pandas().values.tolist()
+    dash_rows = options_dash.filter('BATCH = \'2023-09-26 14:43:05.465437\'').select(['URL', 'ENCODING', 'DESC']).to_pandas().values.tolist()
+    query_rows = options_query.filter('BATCH = \'2023-09-26 14:43:05.465437\'').select(['RESULT_CACHE', 'ENCODING', 'DESC']).to_pandas().values.tolist()
 
     dash_opts  = [row[2] for row in dash_rows]
     query_opts = [row[2] for row in query_rows]
@@ -107,7 +107,7 @@ def main(useLocalModel = False):
     # gets mapping file and their encodings as well as meta data for the model being used
     model, dash_enc, dash_opts, query_enc, query_opts, dash_desc, query_desc = env_Setup()
 
-    print('Env setup (options encoded) in %d secs' % ((datetime.datetime.now() - starttime).seconds))
+    print('Env setup (%d options) in %d secs' % (len(dash_opts), (datetime.datetime.now() - starttime).seconds))
 
     totalDash = 0
     countDash = 0
