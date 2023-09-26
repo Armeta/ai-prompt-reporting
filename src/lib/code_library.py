@@ -137,21 +137,20 @@ def get_Data(_session):
     return dash_enc, dash_opts, query_enc, query_opts
 
 def env_Setup(_session, Title, Layout, SideBarState, Menu_Items, Title_Image_Path):
-
-    # Bot Avatar Icon
-    with open('src/txt/armeta-icon_Base64Source.txt') as f:
-        BotAvatar = f.read()
+    # PC Icon
+    with open('src/txt/price-chopper-base64.txt') as f:
+        UserAvatar = f.read()
     f.close()
 
     # User Avatar Icon
-    with open('src/txt/usericon_Base64Source.txt') as f:
-        UserAvatar = f.read()
+    with open('src/txt/bot-icon.txt') as f:
+        BotAvatar = f.read()
     f.close()
 
     # Page Config
     st.set_page_config(
         page_title            = Title,
-        page_icon             = BotAvatar,
+        page_icon             = UserAvatar,
         layout                = Layout,
         initial_sidebar_state = SideBarState,
         menu_items            = Menu_Items
