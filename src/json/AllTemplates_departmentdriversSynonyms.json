@@ -64,510 +64,509 @@
     },
     "templates":[
         {   "parameters": [],  
-        "desc":"The best performing department this week compared to the same week last year." 
-        ,   "questions":["What is the best performing department in sales this week compared to the same week last year?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":4}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this week compared to the same week last year." 
+        ,  "questions":["What is the worst performing department this week compared to the same week last year?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":4}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this week compared to the same week last year excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales this week compared to the same week last year excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":4}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this week compared to the same week last year excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this week compared to the same week last year excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":4}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department WTD" 
-        ,   "questions":["What is the best performing department in sales WTD?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":4}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department WTD" 
+        ,  "questions":["What is the worst performing department WTD?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":4}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department WTD excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales WTD excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":4}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department WTD excluding pharmacy." 
+        ,  "questions":["What is the worst performing department WTD excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":4}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this year compared to last year." 
-        ,   "questions":["What is the best performing department this year compared to last year?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":1}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this year compared to last year." 
+        ,  "questions":["What is the worst performing department this year compared to last year?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":1}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this year compared to last year excluding pharmacy." 
-        ,   "questions":["What is the best performing department this year compared to last year excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":1}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this year compared to last year excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this year compared to last year excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":1}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department YTD" 
-        ,   "questions":["What is the best performing department in sales YTD?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":1}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department YTD" 
+        ,  "questions":["What is the worst performing department YTD?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":1}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department YTD excluding pharmacy." 
-        ,   "questions":["What is the best performing department YTD excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":1}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department YTD excluding pharmacy." 
+        ,  "questions":["What is the worst performing department YTD excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":1}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this period compared to the same period last year." 
-        ,   "questions":["What is the best performing department in sales this period compared to the same period last year?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":3}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this period compared to the same period last year." 
+        ,  "questions":["What is the worst performing department this period compared to the same period last year?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this period compared to the same period last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":3}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this period compared to the same period last year excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales this period compared to the same period last year excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":3}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this period compared to the same period last year excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this period compared to the same period last year excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this period compared to the same period last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":3}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department PTD." 
-        ,   "questions":["What is the best performing department in sales PTD?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":3}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department PTD." 
+        ,  "questions":["What is the worst performing department PTD?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this period compared to the same period last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":3}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department PTD excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales PTD excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":3}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department PTD excluding pharmacy." 
+        ,  "questions":["What is the worst performing department PTD excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this period compared to the same period last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":3}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this last complete week compared to the same week last year." 
-        ,   "questions":["What is the best performing department in sales this last complete week compared to the same week last year?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":10}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this last complete week compared to the same week last year." 
+        ,  "questions":["What is the worst performing department this last complete week compared to the same week last year?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this last complete week compared to the same last complete week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":10}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this last complete week compared to the same week last year excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales this last complete week compared to the same week last year excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":10}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this last complete week compared to the same week last year excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this last complete week compared to the same week last year excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":10}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department LCW." 
-        ,   "questions":["What is the best performing department in sales LCW?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":10}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department LCW." 
+        ,  "questions":["What is the worst performing department LCW?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":10}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department LCW excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales LCW excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":10}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department LCW excluding pharmacy." 
+        ,  "questions":["What is the worst performing department LCW excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":10}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this last year compared to the year before." 
-        ,   "questions":["What is the best performing department in sales this last year compared to the year before?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":13}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this last year compared to the year before." 
+        ,  "questions":["What is the worst performing department this last year compared to the year before?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":13}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this last year compared to the year before excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales this last year compared to the year before excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":13}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this last year compared to the year before excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this last year compared to the year before excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":13}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this LCY." 
-        ,   "questions":["What is the best performing department in sales this LCY?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":13}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this LCY." 
+        ,  "questions":["What is the worst performing department this LCY?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":13}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this LCY excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales this LCY excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":13}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this LCY excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this LCY excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this year compared to last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":13}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year." 
-        ,   "questions":["What is the best performing department in sales this rolling 13 weeks compared to the same rolling 13 weeks last year?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":7}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year." 
+        ,  "questions":["What is the worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 weeks compared to the same rolling 13 week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":7}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":7}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 weeks compared to the same rolling 13 week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":7}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department R13W." 
-        ,   "questions":["What is the best performing department in sales R13W?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":7}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department R13W." 
+        ,  "questions":["What is the worst performing department R13W?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 weeks compared to the same rolling 13 week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":7}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department R13W excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales R13W excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":7}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department R13W excluding pharmacy." 
+        ,  "questions":["What is the worst performing department R13W excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 weeks compared to the same rolling 13 week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":7}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this rolling 13 periods compared to the same rolling 13 periods last year." 
-        ,   "questions":["What is the best performing department in sales this rolling 13 periods compared to the same rolling 13 periods last year?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":11}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this rolling 13 periods compared to the same rolling 13 periods last year." 
+        ,  "questions":["What is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":11}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":11}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy." 
+        ,  "questions":["What is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":11}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department R13P." 
-        ,   "questions":["What is the best performing department in sales R13P?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":11}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
+        "desc":" The worst performing department R13P." 
+        ,  "questions":["What is the worst performing department R13P?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":11}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
         {   "parameters": [],  
-        "desc":"The best performing department R13P excluding pharmacy." 
-        ,   "questions":["What is the best performing department in sales R13P excluding pharmacy?"]
-        ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
-        ,   "urlpage":"opportunity-locator"
-                ,   "urlfilter":""
-                ,   "urlquery":"{\"timeframe\":11}"
-                ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                },
-        
-                {   "parameters": [],  
-                "desc":" The worst performing department this week compared to the same week last year." 
-                ,  "questions":["What is the worst performing department this week compared to the same week last year?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":4}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+        "desc":" The worst performing department R13P excluding pharmacy." 
+        ,  "questions":["What is the worst performing department R13P excluding pharmacy?"]
+        ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
+        ,  "urlpage":"opportunity-locator"
+            ,  "urlfilter":""
+            ,  "urlquery":"{\"timeframe\":11}"
+            ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            },
+            {   "parameters": [],  
+            "desc":"The best performing department this week compared to the same week last year." 
+            ,   "questions":["What is the best performing department in sales this week compared to the same week last year?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":4}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this week compared to the same week last year excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this week compared to the same week last year excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":4}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this week compared to the same week last year excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales this week compared to the same week last year excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":4}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department WTD" 
-                ,  "questions":["What is the worst performing department WTD?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":4}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department WTD" 
+            ,   "questions":["What is the best performing department in sales WTD?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":4}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department WTD excluding pharmacy." 
-                ,  "questions":["What is the worst performing department WTD excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":4}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department WTD excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales WTD excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 4 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is The best performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":4}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this year compared to last year." 
-                ,  "questions":["What is the worst performing department this year compared to last year?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":1}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this year compared to last year." 
+            ,   "questions":["What is the best performing department this year compared to last year?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this year compared to last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":1}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this year compared to last year excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this year compared to last year excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":1}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this year compared to last year excluding pharmacy." 
+            ,   "questions":["What is the best performing department this year compared to last year excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this year compared to last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":1}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department YTD" 
-                ,  "questions":["What is the worst performing department YTD?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":1}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department YTD" 
+            ,   "questions":["What is the best performing department in sales YTD?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this year compared to last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":1}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department YTD excluding pharmacy." 
-                ,  "questions":["What is the worst performing department YTD excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":1}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department YTD excluding pharmacy." 
+            ,   "questions":["What is the best performing department YTD excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 1 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this year compared to last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":1}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this period compared to the same period last year." 
-                ,  "questions":["What is the worst performing department this period compared to the same period last year?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":3}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this period compared to the same period last year." 
+            ,   "questions":["What is the best performing department in sales this period compared to the same period last year?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this period compared to the same period last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":3}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this period compared to the same period last year excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this period compared to the same period last year excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":3}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this period compared to the same period last year excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales this period compared to the same period last year excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this period compared to the same period last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":3}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department PTD." 
-                ,  "questions":["What is the worst performing department PTD?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":3}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department PTD." 
+            ,   "questions":["What is the best performing department in sales PTD?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this period compared to the same period last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":3}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department PTD excluding pharmacy." 
-                ,  "questions":["What is the worst performing department PTD excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":3}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department PTD excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales PTD excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 3 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this period compared to the same period last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":3}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this last complete week compared to the same week last year." 
-                ,  "questions":["What is the worst performing department this last complete week compared to the same week last year?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":10}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this last complete week compared to the same week last year." 
+            ,   "questions":["What is the best performing department in sales this last complete week compared to the same week last year?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete week compared to the same last complete week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":10}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this last complete week compared to the same week last year excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this last complete week compared to the same week last year excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":10}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this last complete week compared to the same week last year excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales this last complete week compared to the same week last year excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete week compared to the same last complete week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":10}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department LCW." 
-                ,  "questions":["What is the worst performing department LCW?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":10}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department LCW." 
+            ,   "questions":["What is the best performing department in sales LCW?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete week compared to the same last complete week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":10}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department LCW excluding pharmacy." 
-                ,  "questions":["What is the worst performing department LCW excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":10}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department LCW excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales LCW excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 10 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete week compared to the same last complete week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":10}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this last year compared to the year before." 
-                ,  "questions":["What is the worst performing department this last year compared to the year before?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":13}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this last year compared to the year before." 
+            ,   "questions":["What is the best performing department in sales this last year compared to the year before?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete year compared last last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":13}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this last year compared to the year before excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this last year compared to the year before excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":13}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this last year compared to the year before excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales this last year compared to the year before excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete year compared last last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":13}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this LCY." 
-                ,  "questions":["What is the worst performing department this LCY?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":13}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this LCY." 
+            ,   "questions":["What is the best performing department in sales this LCY?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete year compared last last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":13}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this LCY excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this LCY excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":13}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this LCY excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales this LCY excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 13 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this last complete year compared last last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":13}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year." 
-                ,  "questions":["What is the worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":7}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year." 
+            ,   "questions":["What is the best performing department in sales this rolling 13 weeks compared to the same rolling 13 weeks last year?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":7}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":7}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales this rolling 13 weeks compared to the same rolling 13 weeks last year excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":7}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department R13W." 
-                ,  "questions":["What is the worst performing department R13W?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":7}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department R13W." 
+            ,   "questions":["What is the best performing department in sales R13W?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":7}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department R13W excluding pharmacy." 
-                ,  "questions":["What is the worst performing department R13W excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":7}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department R13W excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales R13W excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 7 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 weeks compared to the same rolling 13 weeks last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":7}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this rolling 13 periods compared to the same rolling 13 periods last year." 
-                ,  "questions":["What is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":11}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this rolling 13 periods compared to the same rolling 13 periods last year." 
+            ,   "questions":["What is the best performing department in sales this rolling 13 periods compared to the same rolling 13 periods last year?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 periods compared to the same rolling 13 periods last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":11}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy." 
-                ,  "questions":["What is the worst performing department this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":11}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales this rolling 13 periods compared to the same rolling 13 periods last year excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 periods compared to the same rolling 13 periods last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":11}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department R13P." 
-                ,  "questions":["What is the worst performing department R13P?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":11}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+            {   "parameters": [],  
+            "desc":"The best performing department R13P." 
+            ,   "questions":["What is the best performing department in sales R13P?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 periods compared to the same rolling 13 periods last year with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":11}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
                     },
-                {   "parameters": [],  
-                "desc":" The worst performing department R13P excluding pharmacy." 
-                ,  "questions":["What is the worst performing department R13P excluding pharmacy?"]
-                ,  "query":"WITH DEPARTMENTSALES_TYvLY AS ( SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY),(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is  The worst performing department this week compared to the same week last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF asc "
-                ,  "urlpage":"opportunity-locator"
-                    ,  "urlfilter":""
-                    ,  "urlquery":"{\"timeframe\":11}"
-                    ,  "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
-                    }                        
+            {   "parameters": [],  
+            "desc":"The best performing department R13P excluding pharmacy." 
+            ,   "questions":["What is the best performing department in sales R13P excluding pharmacy?"]
+            ,   "query":"WITH DEPARTMENTSALES_TYvLY AS (SELECT A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, SUM(NET_SALES_DOLLARS_TY), SUM(NET_SALES_DOLLARS_LY) ,(SUM(NET_SALES_DOLLARS_TY) - SUM(NET_SALES_DOLLARS_LY)) AS DIFF FROM PC.OPPORTUNITY_LOCATOR OP JOIN PC.LKP_SALES_DEPARTMENT_GROUP A ON OP.SALES_DEPARTMENT_GROUP_ID = A.SALES_DEPARTMENT_GROUP_ID JOIN PC.LKP_TIMEFRAME B ON OP.TIMEFRAME_ID = B.TIMEFRAME_ID WHERE B.TIMEFRAME_ID = 11 AND OP.USED_IN_METRICS = TRUE AND A.IS_ACTIVE = TRUE AND B.IS_ACTIVE = TRUE AND OP.STORE_CONCEPT_ID = 1 AND A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL <> 'Pharmacy' GROUP BY A.SALES_DEPARTMENT_GROUP_DISPLAY_LABEL ) SELECT TOP 1 CONCAT(SALES_DEPARTMENT_GROUP_DISPLAY_LABEL, ' is the best performing department this rolling 13 periods compared to the same rolling 13 periods last year (excluding pharmacy) with $', DIFF, ' in sales') AS Results FROM DEPARTMENTSALES_TYvLY ORDER BY DIFF DESC "
+            ,   "urlpage":"opportunity-locator"
+                    ,   "urlfilter":""
+                    ,   "urlquery":"{\"timeframe\":11}"
+                    ,   "urlview":"{\"tab::timeline\":\"departmentDrivers\"}"
+                    }            
         
           
         
