@@ -48,7 +48,7 @@ def main():
             dash_enc, dash_opts, query_enc, query_opts = code_library.get_Data(session)
         else:
             # clean the prompt before the AI recieves it
-            clean_prompt = prompt.lower().replace('\'','').replace('-',' ')
+            clean_prompt = prompt.lower().replace('\'','').replace('-',' ').replace('?','')
                 
             # run the prompt against the AI to recieve an answer And Write to session cache for user
             dash_answer, query_answer = \
