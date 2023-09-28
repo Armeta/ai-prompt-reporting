@@ -12,7 +12,7 @@ from     snowflake.snowpark.types     import IntegerType, StringType, StructFiel
 from src.lib import code_library
 
 
-def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, encode = False, truncateLoad = False, loadSnowflake = False, runQueries = False):
+def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, encode = False, truncateLoad = False, loadSnowflake = False, runQueries = False, saveStageFiles = False):
 
     # load template json
     print('Loading template file '+templateFilename)
@@ -199,8 +199,9 @@ def main(templateFilename = './src/json/AllTemplates.json', useLocalModel = Fals
         session.sql('COPY INTO %s.%s (DESC, BATCH, DASHBOARD, URL, ENCODING, ENCODING_JSON, FILTER, QUERY) FROM %s file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (schema, tableDashboard, stageDashboard)).collect()
         session.sql('COPY INTO %s.%s (DESC, BATCH, DASHBOARD, QUERY, ENCODING, ENCODING_JSON, RESULT_CACHE, RESULT_CACHE_TS) FROM %s file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');' % (schema, tableQuery, stageQuery)).collect()
 
-        os.remove('toStageDashboard.csv')
-        os.remove('toStageQuery.csv')
+        if not saveStageFiles:
+            os.remove('toStageDashboard.csv')
+            os.remove('toStageQuery.csv')
 
 
 if __name__ == '__main__':
@@ -212,13 +213,15 @@ if __name__ == '__main__':
                  , encode = '--encode' in sys.argv or 'e' in flags
                  , truncateLoad = '--truncateLoad' in sys.argv or 't' in flags
                  , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
-                 , runQueries = '--runQueries' in sys.argv or 'q' in flags)
+                 , runQueries = '--runQueries' in sys.argv or 'q' in flags
+                 , saveStageFiles = '--saveStageFiles' in sys.argv or 'f' in flags)
         else: # default template filepath
             main(  useLocalModel = '--useLocalModel' in sys.argv or 'l' in flags
                  , encode = '--encode' in sys.argv or 'e' in flags
                  , truncateLoad = '--truncateLoad' in sys.argv or 't' in flags
                  , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
-                 , runQueries = '--runQueries' in sys.argv or 'q' in flags)
+                 , runQueries = '--runQueries' in sys.argv or 'q' in flags
+                 , saveStageFiles = '--saveStageFiles' in sys.argv or 'f' in flags)
             
     else: #  no arguments, run from code arguments
         main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, encode = False, truncateLoad = False, loadSnowflake = False, runQueries = False)
