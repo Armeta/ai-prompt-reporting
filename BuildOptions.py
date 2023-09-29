@@ -218,7 +218,7 @@ if __name__ == '__main__':
                  , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
                  , runQueries = '--runQueries' in sys.argv or 'q' in flags
                  , saveStageFiles = '--saveStageFiles' in sys.argv or 'f' in flags
-                 , saveStageFiles = '--production' in sys.argv or 'p' in flags)
+                 , production = '--production' in sys.argv or 'p' in flags)
         else: # default template filepath
             main(  useLocalModel = '--useLocalModel' in sys.argv or 'l' in flags
                  , encode = '--encode' in sys.argv or 'e' in flags
@@ -226,7 +226,7 @@ if __name__ == '__main__':
                  , loadSnowflake = '--loadSnowflake' in sys.argv or 's' in flags
                  , runQueries = '--runQueries' in sys.argv or 'q' in flags
                  , saveStageFiles = '--saveStageFiles' in sys.argv or 'f' in flags
-                 , saveStageFiles = '--production' in sys.argv or 'p' in flags)
+                 , production = '--production' in sys.argv or 'p' in flags)
             
     else: #  no arguments, run from code arguments
         main(templateFilename = './src/json/AllTemplates.json', useLocalModel = False, encode = False, truncateLoad = False, loadSnowflake = False, runQueries = False, saveStageFiles=False, production=False)
