@@ -51,7 +51,7 @@ def main():
             clean_prompt = prompt.lower().replace('\'','').replace('-',' ')
                 
             # run the prompt against the AI to recieve an answer And Write to session cache for user
-            dash_answer, query_answer, sim_score = \
+            dash_answer, query_answer = \
             dev_code_library.do_Get(clean_prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
             dev_code_library.save_UserCache(number, prompt)
 
@@ -61,8 +61,8 @@ def main():
                 if(query_answer != '') and (options != 'Dashboards Only'):
                     # Write results + session cache for assistant
                     query_answer = str(query_answer).replace("$", "\\$")
-                    st.markdown(query_answer + ' ('+str(sim_score)+')') 
-                    #st.markdown(query_answer) 
+                    #st.markdown(query_answer + ' ('+str(sim_score)+')') 
+                    st.markdown(query_answer) 
                     dev_code_library.save_AssistantCache(number, query_answer)
                 elif (options != 'Dashboards Only'):
                     # Write results + session cache for assistant 
