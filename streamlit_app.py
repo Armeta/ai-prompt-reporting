@@ -61,7 +61,8 @@ def main():
                 if(query_answer != '') and (options != 'Dashboards Only'):
                     # Write results + session cache for assistant
                     query_answer = str(query_answer).replace("$", "\\$")
-                    st.markdown(query_answer + ' ('+str(sim_score)+')') 
+                    # st.markdown(query_answer + ' ('+str(sim_score)+')') 
+                    st.markdown(query_answer) 
                     code_library.save_AssistantCache(number, query_answer)
                 elif (options != 'Dashboards Only'):
                     # Write results + session cache for assistant 
