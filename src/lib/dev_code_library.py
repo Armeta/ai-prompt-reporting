@@ -200,4 +200,4 @@ def do_Get(prompt, _model, dash_enc, dash_opts, query_enc, query_opts):
     # pick and return a query answer
     sim = cosine_similarity([encoding], query_enc)
     query_answer = query_opts[sim[0].tolist().index(max(sim[0]))]
-    return dash_answer, query_answer
+    return dash_answer, query_answer, max(sim[0])
