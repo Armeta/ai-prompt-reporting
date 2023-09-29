@@ -51,7 +51,7 @@ def main():
             clean_prompt = prompt.lower().replace('\'','').replace('-',' ')
                 
             # run the prompt against the AI to recieve an answer And Write to session cache for user
-            dash_answer, query_answer = \
+            dash_answer, query_answer, sim_score = \
             dev_code_library.do_Get(clean_prompt, model, dash_enc, dash_opts, query_enc, query_opts)        
             dev_code_library.save_UserCache(number, prompt)
 
