@@ -398,3 +398,7 @@ Option ID|Option Template|Combo Count|Question Count|Base Model %|Local Model %
 10|The department with the largest percent change in the YTD timeframe excluding pharmacy|1|1||
 11|The department with the smallest percent change in the YTD timeframe|1|1||
 12|The department with the smallest percent change in the YTD timeframe excluding pharmacy|1|1||
+1|Total Sales predictions for today|1|Total Sales predictions for today|1|Total Sales predictions for today|1|1||
+1|Total Sales predictions for today|1|1||
+1|Total Sales predictions for today|1|1||
+1|Total Sales predictions for yesterday|1|1||
