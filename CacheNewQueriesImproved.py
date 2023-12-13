@@ -23,7 +23,8 @@ options_query = session.table('"%s"' % (queryTable))
 stageR = open('src/outputs/toStageQueryResult.csv', 'w')
 stageR.write('SK|RESULT_CACHE|RESULT_CACHE_TS\n')
 
-query   = options_query.filter(col('RESULT_CACHE').isNull()).select(['SK', 'QUERY']).to_pandas().values.tolist()
+#query   = options_query.filter(col('RESULT_CACHE').isNull()).select(['SK', 'QUERY']).to_pandas().values.tolist()
+query   = options_query.select(['SK', 'QUERY']).to_pandas().values.tolist() # Rerun all queries
 total = len(query)
 count = 0
 print(str(total) + ' queries to cache')
