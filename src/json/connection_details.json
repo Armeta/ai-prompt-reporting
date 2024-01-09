@@ -4,6 +4,6 @@
     "role":"ARMETA_AI_ROLE",
     "warehouse":"ARMETA_AI_WH",
     "database":"ARMETA_AI",
-    "schema":"MODEL" 
+    "schema":"PC" 
     }
 

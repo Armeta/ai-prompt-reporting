@@ -7,7 +7,7 @@ from     snowflake.snowpark.functions import col, to_timestamp
 from     snowflake.snowpark.types     import IntegerType, StringType, StructField, StructType, DateType,LongType,DoubleType
 
 #queryTable = 'OptionsQuery'
-queryTable = 'OPTIONS_QUERY'
+queryTable = 'OPTIONS_QUERY_DEV'
 
 # add src to system path
 sys.path.append('src')
@@ -59,4 +59,4 @@ session.sql('CREATE TEMPORARY TABLE TempQueryResults (SK INT, RESULT_CACHE VARCH
 print('Copying from Stage...')
 session.sql('COPY INTO TempQueryResults (SK, RESULT_CACHE, RESULT_CACHE_TS) FROM @query_result_stage file_format = (type = \'CSV\' SKIP_HEADER = 1 FIELD_DELIMITER = \'|\');').collect()
 print('Updating Query Table')
-session.sql('UPDATE MODEL."%s" SET RESUlT_CACHE = B.RESUlT_CACHE , RESULT_CACHE_TS = B.RESULT_CACHE_TS FROM TempQueryResults B WHERE MODEL."%s".SK = B.SK;' % (queryTable, queryTable)).collect()
+session.sql('UPDATE PC."%s" SET RESUlT_CACHE = B.RESUlT_CACHE , RESULT_CACHE_TS = B.RESULT_CACHE_TS FROM TempQueryResults B WHERE PC."%s".SK = B.SK;' % (queryTable, queryTable)).collect()
